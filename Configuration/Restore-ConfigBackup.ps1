@@ -1,10 +1,10 @@
-function Restore-ConfigBackup {
+﻿function Restore-ConfigBackup {
     Render-PanelHeader -Title "Restore Metadata from Backup Archive"
 
-    # 🧭 Step 1: Select Backup
+    # ðŸ§­ Step 1: Select Backup
     $backups = Get-ChildItem ".\Backups" -Filter *.zip -ErrorAction SilentlyContinue
     if (-not $backups) {
-        Write-Warning "❌ No backup archives found in .\Backups"
+        Write-Warning "âŒ No backup archives found in .\Backups"
         return
     }
 
@@ -12,12 +12,12 @@ function Restore-ConfigBackup {
         $file = $backups | Out-GridView -Title "Select Backup to Restore" -PassThru
     } catch {
         $file = $backups | Sort-Object LastWriteTime -Descending | Select-Object -First 1
-        Write-Warning "⚠️ Out-GridView unavailable. Using most recent backup: $($file.Name)"
+        Write-Warning "âš ï¸ Out-GridView unavailable. Using most recent backup: $($file.Name)"
     }
 
     if (-not $file) { return }
 
-    # 🗃️ Step 2: Unpack
+    # ðŸ—ƒï¸ Step 2: Unpack
     $timestamp = Get-Date -Format 'yyyyMMdd_HHmmss'
     $restoreFolder = ".\Temp\Restore_$timestamp"
 
@@ -28,7 +28,7 @@ function Restore-ConfigBackup {
     Expand-Archive -Path $file.FullName -DestinationPath $restoreFolder -Force
     Write-Log "Expanded backup to $restoreFolder"
 
-    # 🔍 Step 3: Validate Required Files
+    # ðŸ” Step 3: Validate Required Files
     $requiredFiles = @(
         "DeskDefinitions.json",
         "DeskPools.json",
@@ -45,18 +45,18 @@ function Restore-ConfigBackup {
     }
 
     if ($missing.Count -gt 0) {
-        Write-Warning "`n❌ The following required files were missing from the archive:"
+        Write-Warning "`nâŒ The following required files were missing from the archive:"
         $missing | ForEach-Object { Write-Host "  - $_" -ForegroundColor Yellow }
         Write-Log "Restore aborted. Missing files: $($missing -join ', ')"
         return
     }
 
-    # 🧪 Step 4: Validate JSON and summarize
+    # ðŸ§ª Step 4: Validate JSON and summarize
     function Try-LoadJson($filePath) {
         try {
             return Get-Content $filePath -Raw | ConvertFrom-Json -ErrorAction Stop
         } catch {
-            Write-Warning "❌ Invalid JSON in $filePath"
+            Write-Warning "âŒ Invalid JSON in $filePath"
             throw
         }
     }
@@ -66,36 +66,39 @@ function Restore-ConfigBackup {
     $sites     = Try-LoadJson "$restoreFolder\SiteDefinitions.json"
     $buildings = Try-LoadJson "$restoreFolder\BuildingDefinitions.json"
 
-    Write-Host "`n📋 Summary of Incoming Metadata:`n" -ForegroundColor Cyan
+    Write-Host "`nðŸ“‹ Summary of Incoming Metadata:`n" -ForegroundColor Cyan
     Write-Host "  Desks:      $($desks.Count)"
     Write-Host "  Desk Pools: $($pools.Count)"
     Write-Host "  Sites:      $($sites.Count)"
     Write-Host "  Buildings:  $($buildings.Count)"
 
-    # 🔐 Step 5: Backup existing metadata first
+    # ðŸ” Step 5: Backup existing metadata first
     $backupChoice = Read-Host "`nDo you want to backup existing metadata before restore? (Y/N)"
     if ($backupChoice -eq 'Y') {
-        . "$PSScriptRoot\Create-ConfigBackup.ps1"
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Configuration\Create-ConfigBackup.ps1"
     }
 
-    # ✅ Step 6: Confirm restore
+    # âœ… Step 6: Confirm restore
     $confirm = Read-Host "`nProceed with overwriting current metadata with the above? (Y/N)"
     if ($confirm -ne 'Y') {
-        Write-Warning "❌ Restore cancelled by user."
+        Write-Warning "âŒ Restore cancelled by user."
         return
     }
 
-    # 🚀 Step 7: Restore JSON files
+    # ðŸš€ Step 7: Restore JSON files
     Copy-Item "$restoreFolder\*.json" ".\Metadata\" -Force
-    Write-Host "`n✅ Metadata restored successfully." -ForegroundColor Green
+    Write-Host "`nâœ… Metadata restored successfully." -ForegroundColor Green
     Write-Log "Restored metadata from backup: $($file.Name)"
 
-    # 🧼 Step 8: Clean temp
+    # ðŸ§¼ Step 8: Clean temp
     try {
         Remove-Item $restoreFolder -Recurse -Force -ErrorAction Stop
     } catch {
-        Write-Warning "⚠️ Could not delete temp folder: $restoreFolder"
+        Write-Warning "âš ï¸ Could not delete temp folder: $restoreFolder"
     }
 }
 
 Restore-ConfigBackup
+
+
+

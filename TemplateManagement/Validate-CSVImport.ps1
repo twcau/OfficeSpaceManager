@@ -1,11 +1,11 @@
-<#
+﻿<#
 .SYNOPSIS
     Validates structure and content of metadata CSV templates before importing.
 .DESCRIPTION
     Ensures correct headers, sample row values, and flags anything that would break import logic.
 #>
 
-. "$PSScriptRoot\Shared\Write-Log.ps1"
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Write-Log.ps1"
 Render-PanelHeader -Title "CSV Template Validation"
 
 $importFolder = ".\Imports"
@@ -103,4 +103,5 @@ if ($invalidRows.Count -gt 0) {
 }
 
 # endregion
+
 

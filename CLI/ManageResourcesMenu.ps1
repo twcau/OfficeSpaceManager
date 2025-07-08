@@ -1,6 +1,6 @@
-Render-PanelHeader -Title "Manage Resources"
+﻿Render-PanelHeader -Title "Manage Resources"
 
-# 👇 Check if any valid drafts exist
+# ðŸ‘‡ Check if any valid drafts exist
 $hasDrafts = @(Get-ChildItem ".\.Drafts" -Filter *.json -ErrorAction SilentlyContinue | Where-Object {
     try {
         $null = Get-Content $_.FullName | ConvertFrom-Json -ErrorAction Stop
@@ -10,7 +10,7 @@ $hasDrafts = @(Get-ChildItem ".\.Drafts" -Filter *.json -ErrorAction SilentlyCon
     }
 }).Count -gt 0
 
-# 👇 Display menu
+# ðŸ‘‡ Display menu
 Write-Host "[1] Create or Edit a Resource (Desk / Room / Equipment)"
 if ($hasDrafts) {
     Write-Host "[2] Recover Failed Draft(s)"
@@ -25,27 +25,27 @@ $choice = Read-Host "`nSelect an option"
 
 switch ($choice) {
     '1' { 
-        . "$PSScriptRoot\Wizards\Manage-ResourceWizard.ps1"
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\CLI\Wizards\Manage-ResourceWizard.ps1"
     }
     '2' {
         if ($hasDrafts) {
-            . "$PSScriptRoot\Wizards\Retry-DraftRunner.ps1"
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\CLI\Wizards\Retry-DraftRunner.ps1"
         } else {
             Write-Host "No drafts available to recover." -ForegroundColor Yellow
             Start-Sleep -Seconds 2
         }
     }
     '3' { 
-        . "$PSScriptRoot\Manage\Toggle-ResourceState.ps1"
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\CLI\Manage\Toggle-ResourceState.ps1"
     }
     '4' { 
-        . "$PSScriptRoot\TestSuite\Run-BookingSimulation.ps1"
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\TestSuite\Run-BookingSimulation.ps1"
     }
     '5' { 
-        . "$PSScriptRoot\Wizards\Create-DeskPoolWizard.ps1" 
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\CLI\Wizards\Create-DeskPoolWizard.ps1"
     }
     '6' { 
-        . "$PSScriptRoot\Wizards\Manage-DeskPools.ps1" 
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\CLI\Wizards\Manage-DeskPools.ps1"
     }
     '7' { 
         return 
@@ -55,4 +55,7 @@ switch ($choice) {
         Start-Sleep -Seconds 2
     }
 }
+
+
+
 

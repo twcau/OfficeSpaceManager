@@ -1,8 +1,8 @@
-# Load Shared Connection Logic
-. "$PSScriptRoot\..\Shared\Connect-ExchangeAdmin.ps1"
+﻿# Load Shared Connection Logic
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
+    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
     return
 }
 
@@ -24,6 +24,9 @@ function Ensure-CalendarProcessingSettings {
         }
     }
 
-    Write-Host "âœ”ï¸ Calendar processing settings validated"
+    Write-Host "Ã¢Å“â€Ã¯Â¸Â Calendar processing settings validated"
 }
 Ensure-CalendarProcessingSettings
+
+
+

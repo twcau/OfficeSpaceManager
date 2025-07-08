@@ -1,8 +1,8 @@
-# Load Shared Connection Logic
-. "$PSScriptRoot\..\Shared\Connect-ExchangeAdmin.ps1"
+﻿# Load Shared Connection Logic
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
+    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
     return
 }
 
@@ -17,7 +17,7 @@ function Test-RoomProvisioning {
     $displayName = "TEST Meeting Room $guid"
     $email = "$alias@$domain"
 
-    Write-Host "ðŸ—ï¸ Creating test room resource: $displayName"
+    Write-Host "Ã°Å¸Ââ€”Ã¯Â¸Â Creating test room resource: $displayName"
 
     New-Mailbox -Name $displayName -Alias $alias -Room `
         -PrimarySmtpAddress $email `
@@ -29,3 +29,6 @@ function Test-RoomProvisioning {
     Write-Log "Test room $alias provisioned."
 }
 Test-RoomProvisioning
+
+
+

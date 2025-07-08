@@ -1,8 +1,8 @@
-# Load Shared Connection Logic
-. "$PSScriptRoot\..\Shared\Connect-ExchangeAdmin.ps1"
+﻿# Load Shared Connection Logic
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
+    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
     return
 }
 
@@ -26,16 +26,19 @@ function Update-MailboxTypes {
         }
 
         if ($suggestedType -ne $type) {
-            Write-Host "$alias â†’ Suggested Type: $suggestedType (Current: $type)"
+            Write-Host "$alias Ã¢â€ â€™ Suggested Type: $suggestedType (Current: $type)"
             $apply = Read-Host "Update mailbox type? (Y/N)"
             if ($apply -eq 'Y') {
                 Set-Mailbox -Identity $alias -Type $suggestedType
-                Write-Host "âœ”ï¸ Updated $alias to $suggestedType"
+                Write-Host "Ã¢Å“â€Ã¯Â¸Â Updated $alias to $suggestedType"
                 Write-Log "$alias type updated to $suggestedType"
             }
         }
     }
 
-    Write-Host "`nâœ… Mailbox type update complete."
+    Write-Host "`nÃ¢Å“â€¦ Mailbox type update complete."
 }
 Update-MailboxTypes
+
+
+

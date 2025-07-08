@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Sync local cache of Exchange/Places resource metadata.
 .DESCRIPTION
@@ -6,18 +6,45 @@
     Saves to .\Metadata\CachedResources.json and writes .lastSync.json for sync freshness tracking.
 #>
 
-# Load Shared Connection Logic
-. "$PSScriptRoot\..\..\Shared\Connect-ExchangeAdmin.ps1"
+param (
+    [switch]$Force
+)
+
+# Load Shared Modules
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Write-Log.ps1"
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
+
+# Ensure connection to Exchange
 $admin = Connect-ExchangeAdmin
 if (-not $admin -or $admin -eq '') {
     Write-Warning "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
     return
 }
 
-    [switch]$Force
-)
+# region 🔁 Metadata Cache Freshness Check with Prompt
+$syncTrackPath = ".\Metadata\.lastSync.json"
+if (Test-Path $syncTrackPath) {
+    try {
+        $lastSync = (Get-Content $syncTrackPath | ConvertFrom-Json).LastRefreshed
+        $lastSyncDate = Get-Date $lastSync
+        $minutesOld = (New-TimeSpan -Start $lastSyncDate -End (Get-Date)).TotalMinutes
 
-. "$PSScriptRoot\Shared\Write-Log.ps1"
+        if ($minutesOld -lt 15 -and -not $Force) {
+            Write-Host "🕒 Metadata was last refreshed $([int]$minutesOld) minutes ago." -ForegroundColor Yellow
+            $doSync = Read-Host "Re-sync cloud metadata anyway? (Y/N)"
+            if ($doSync -notin @('Y', 'y')) {
+                Write-Host "⏭️ Skipping metadata refresh." -ForegroundColor Yellow
+                Write-Log "Skipped Refresh-CachedResources — user declined re-sync at $([int]$minutesOld) minutes."
+                return
+            }
+        }
+    } catch {
+        Write-Warning "⚠️ Failed to evaluate metadata freshness — proceeding with sync."
+        Write-Log "⚠️ Failed to evaluate last sync timestamp — $($_.Exception.Message)"
+    }
+}
+# endregion
+
 Render-PanelHeader -Title "Syncing Cached Resource Metadata"
 
 $cachePath     = ".\Metadata\CachedResources.json"
@@ -90,3 +117,6 @@ try {
     Write-Warning "❌ Sync failed: $($_.Exception.Message)"
     Write-Log "❌ Refresh-CachedResources failed: $($_.Exception.Message)"
 }
+
+
+

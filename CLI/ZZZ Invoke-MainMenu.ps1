@@ -1,11 +1,11 @@
-<#
+﻿<#
     Script: Invoke-MainMenu.ps1
     Purpose: CLI Terminal Navigation Shell for OfficeSpaceManager
     Author: Your Team
     LastUpdated: 2025-07-07
 #>
 
-# region 🔁 PowerShell 7+ Check
+# region ðŸ” PowerShell 7+ Check
 if ($PSVersionTable.PSVersion.Major -lt 7) {
     Write-Warning "This tool requires PowerShell 7 or higher."
     if (Get-Command "pwsh" -ErrorAction SilentlyContinue) {
@@ -19,7 +19,7 @@ if ($PSVersionTable.PSVersion.Major -lt 7) {
 }
 # endregion
 
-# region 🔧 Module Validation
+# region ðŸ”§ Module Validation
 $requiredModules = @(
     'ExchangeOnlineManagement',
     'Microsoft.Graph.Places',
@@ -33,9 +33,9 @@ foreach ($mod in $requiredModules) {
         if ($choice -eq 'Y') {
             try {
                 Install-Module -Name $mod -Scope CurrentUser -Force -ErrorAction Stop
-                Write-Host "✔️ Installed $mod successfully." -ForegroundColor Green
+                Write-Host "âœ”ï¸ Installed $mod successfully." -ForegroundColor Green
             } catch {
-                Write-Error "❌ Failed to install $mod: $_"
+                Write-Error "âŒ Failed to install $mod: $_"
                 Read-Host "Press Enter to continue or Ctrl+C to exit"
             }
         } else {
@@ -48,7 +48,7 @@ foreach ($mod in $requiredModules) {
 
 # endregion
 
-# region 🌐 Init Logging and State
+# region ðŸŒ Init Logging and State
 $Global:ActionLog = @()
 $LogDate = Get-Date -Format 'yyyy-MM-dd'
 $Global:LogFile = ".\Logs\$LogDate.log"
@@ -62,24 +62,24 @@ function Write-Log {
 }
 # endregion
 
-# region 🔄 First-Time Setup
+# region ðŸ”„ First-Time Setup
 $configPath = ".\config\FirstRunComplete.json"
 if (-not (Test-Path $configPath)) {
     if (!(Test-Path ".\config")) { New-Item ".\config" -ItemType Directory | Out-Null }
-    . "$PSScriptRoot\Configuration\Run-FirstTimeSetup.ps1"
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Configuration\Run-FirstTimeSetup.ps1"
 }
 # endregion
 
-# region 🔁 Load Global UI Utilities
-. "$PSScriptRoot\Show-ActionHistory.ps1"
-. "$PSScriptRoot\Render-PanelHeader.ps1"
+# region ðŸ” Load Global UI Utilities
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\CLI\Show-ActionHistory.ps1"
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\CLI\Render-PanelHeader.ps1"
 # endregion
 
-# region 🧼 Refresh Local Cache
-. "$PSScriptRoot\SiteManagement\CachedResources\Refresh-CachedResources.ps1"
+# region ðŸ§¼ Refresh Local Cache
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1"
 # endregion
 
-# region 🧭 Main Menu Navigation
+# region ðŸ§­ Main Menu Navigation
 do {
     Clear-Host
     Render-PanelHeader -Title "OfficeSpaceManager - Main Menu"
@@ -112,10 +112,13 @@ do {
 } while ($true)
 # endregion
 
-# region 🧼 Exit Cleanup
+# region ðŸ§¼ Exit Cleanup
 . "$PSScriptRoot\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
 Write-Log "Exited session and refreshed cache"
 Write-Host "`nSession ended. Cache refreshed. Goodbye!" -ForegroundColor Green
 # endregion
+
+
+
 
 

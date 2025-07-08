@@ -1,8 +1,8 @@
-# Load Shared Connection Logic
-. "$PSScriptRoot\..\Shared\Connect-ExchangeAdmin.ps1"
+﻿# Load Shared Connection Logic
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
+    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
     return
 }
 
@@ -11,12 +11,12 @@ function Cleanup-TestResources {
 
     $mailboxes = Get-Mailbox -ResultSize Unlimited | Where-Object { $_.Alias -like "TEST_*" }
     if ($mailboxes.Count -eq 0) {
-        Write-Host "âœ… No test mailboxes found."
+        Write-Host "Ã¢Å“â€¦ No test mailboxes found."
         return
     }
 
     foreach ($mb in $mailboxes) {
-        Write-Host "ðŸ§¹ Removing test mailbox: $($mb.Alias)"
+        Write-Host "Ã°Å¸Â§Â¹ Removing test mailbox: $($mb.Alias)"
         Remove-Mailbox -Identity $mb.Alias -Confirm:$false
     }
 
@@ -28,7 +28,10 @@ function Cleanup-TestResources {
         $filtered | ConvertTo-Json -Depth 4 | Set-Content $metaPath
     }
 
-    Write-Host "âœ… Cleanup complete."
+    Write-Host "Ã¢Å“â€¦ Cleanup complete."
     Write-Log "All test resources cleaned from Exchange and metadata."
 }
 Cleanup-TestResources
+
+
+

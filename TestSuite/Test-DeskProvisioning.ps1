@@ -1,8 +1,8 @@
-# Load Shared Connection Logic
-. "$PSScriptRoot\..\Shared\Connect-ExchangeAdmin.ps1"
+﻿# Load Shared Connection Logic
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
+    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
     return
 }
 
@@ -17,7 +17,7 @@ function Test-DeskProvisioning {
     $displayName = "TEST Desk $guid (Automation Test)"
     $email = "$alias@$domain"
 
-    Write-Host "ðŸ”§ Creating test desk resource: $displayName"
+    Write-Host "Ã°Å¸â€Â§ Creating test desk resource: $displayName"
 
     New-Mailbox -Name $displayName -Alias $alias -Room `
         -PrimarySmtpAddress $email `
@@ -26,7 +26,7 @@ function Test-DeskProvisioning {
     Set-Mailbox -Identity $alias -Type Room
     Set-CalendarProcessing -Identity $alias -AutomateProcessing AutoAccept
 
-    Write-Host "âœ… Desk created and configured."
+    Write-Host "Ã¢Å“â€¦ Desk created and configured."
 
     # Update metadata
     $metadataPath = ".\Metadata\DeskDefinitions.json"
@@ -48,3 +48,6 @@ function Test-DeskProvisioning {
     Write-Log "Test desk $alias created and added to metadata."
 }
 Test-DeskProvisioning
+
+
+

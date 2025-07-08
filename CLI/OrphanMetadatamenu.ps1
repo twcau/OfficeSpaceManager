@@ -10,10 +10,10 @@ Write-Host "[6] Return to Main Menu"
 $choice = Read-Host "`nSelect an option"
 
 switch ($choice) {
-    '1' { . "$PSScriptRoot\OrphanFixer\Find-OrphanedResources.ps1" }
-    '2' { . "$PSScriptRoot\OrphanFixer\Fix-OrphanedResources.ps1" }
-    '3' { . "$PSScriptRoot\OrphanFixer\Validate-DeskPoolMappings.ps1" }
-    '4' { . "$PSScriptRoot\OrphanFixer\Detect-NonStandardResources.ps1" }
-    '5' { . "$PSScriptRoot\OrphanFixer\Suggest-RenameResource.ps1" }
+    '1' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\OrphanFixer\Find-OrphanedResources.ps1" }
+    '2' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\OrphanFixer\Fix-OrphanedResources.ps1" }
+    '3' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\OrphanFixer\Validate-DeskPoolMappings.ps1" }
+    '4' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\OrphanFixer\Detect-NonStandardResources.ps1" }
+    '5' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\OrphanFixer\Suggest-RenameResource.ps1" }
     '6' { return }
 }

@@ -8,12 +8,16 @@ function Connect-ExchangeAdmin {
     try {
         $info = Get-ConnectionInformation -ErrorAction Stop
         if ($info.UserPrincipalName) {
-            Write-Host "🔐 Already connected as: $($info.UserPrincipalName)" -ForegroundColor Green
-            Write-Log "Exchange connection reused: $($info.UserPrincipalName)"
-            return $info.UserPrincipalName
+            # Handle repeated or malformed UPNs
+            $distinctUPNs = $info.UserPrincipalName -split '\s+' | Select-Object -Unique
+            $upnString = ($distinctUPNs -join ', ')
+
+            Write-Host "🔐 Already connected as: $upnString" -ForegroundColor Green
+            Write-Log "Exchange connection reused: $upnString"
+            return $distinctUPNs[0]  # Return primary UPN for downstream logic
         }
     } catch {
-        # Ignore - fall through
+        # Ignore - fall through to connect
     }
 
     # Attempt new connection

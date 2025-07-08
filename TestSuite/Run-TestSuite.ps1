@@ -1,8 +1,8 @@
-# Load Shared Connection Logic
-. "$PSScriptRoot\..\Shared\Connect-ExchangeAdmin.ps1"
+﻿# Load Shared Connection Logic
+. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
+    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
     return
 }
 
@@ -20,6 +20,9 @@ function Run-TestSuite {
     . "$PSScriptRoot\Test-RoomProvisioning.ps1"     2>&1 | Tee-Object -FilePath $logFile -Append
     . "$PSScriptRoot\Test-MailboxSettings.ps1"      2>&1 | Tee-Object -FilePath $logFile -Append
 
-    Write-Host "`nâœ… Test Suite Completed. Review log at: $logFile"
+    Write-Host "`nÃ¢Å“â€¦ Test Suite Completed. Review log at: $logFile"
 }
 Run-TestSuite
+
+
+
