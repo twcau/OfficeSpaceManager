@@ -1,6 +1,8 @@
 # 🏢 OfficeSpaceManager
 
-A modular PowerShell CLI toolkit for managing Microsoft Places, Exchange Room Resources, and Metadata across Microsoft 365 environments.
+A modular PowerShell CLI toolkit to establish a simple, and logical workflow from a single place to establish and manage Microsoft Places, Exchange Room Resources, and Metadata across Microsoft 365 environments.
+
+WARNING: This repository is still under major initial development, and should be considered 'Extreme Alpha'. Any use of this repository is at your own risk knowing there will be continued and ongoing changes underway.
 
 ---
 
@@ -10,12 +12,13 @@ A modular PowerShell CLI toolkit for managing Microsoft Places, Exchange Room Re
 - ✅ Automated first-time tenant setup
 - ✅ Resource provisioning (Desk / Room / Equipment)
 - ✅ Metadata and site structure management, and local caching of information for speed
-- ✅ CSV template export/import for sites, buildings, floors, desks, desk pools, etc.
+- ✅ CSV template export/import for bulk editing of sites, buildings, floors, desks, desk pools, etc.
 - ✅ Logging, draft recovery, and error handling
 - ✅ Simulation test suite with cleanup tools
 - ✅ Auto-discovery of domains + validation of Exchange & Places configurations to support
 - ✅ Exchange Online + Microsoft Graph Places + Microsoft Teams integration
 - ✅ Uses native functions within existing PowerShell modules wherever possible
+- ✅ Backup and restore features, to enable complete download and upload of your configuration
 
 ---
 
@@ -24,10 +27,10 @@ A modular PowerShell CLI toolkit for managing Microsoft Places, Exchange Room Re
 - PowerShell 7.0+
 - Modules:
   - `ExchangeOnlineManagement`
-  - `Microsoft.Graph.Places`
+  - `Microsoft.Graph`
   - `MicrosoftTeams`
 
-> All required modules are validated or installed at runtime.
+> All required modules are validated as present, or installed at runtime.
 
 ---
 
@@ -48,6 +51,8 @@ You’ll be guided through first-time setup if it's your first run.
 ---
 
 ## 📁 Folder Structure
+
+WARNING: Due to the continued development, this is subject to change.
 
 ```plaintext
 OfficeSpaceManager\
