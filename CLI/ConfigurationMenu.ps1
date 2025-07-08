@@ -19,9 +19,9 @@ switch ($choice) {
         Write-Host "[1.3] Import Validated Templates"
         $sub = Read-Host "`nSelect an option"
         switch ($sub) {
-            '1.1' { . "$PSScriptRoot\..\TemplateManagement\Export-AllTemplates.ps1" }
-            '1.2' { . "$PSScriptRoot\..\TemplateManagement\Validate-CSVImport.ps1" }
-            '1.3' { . "$PSScriptRoot\..\TemplateManagement\Import-FromCSV.ps1" }
+            '1.1' { . "$PSScriptRoot\TemplateManagement\Export-AllTemplates.ps1" }
+            '1.2' { . "$PSScriptRoot\TemplateManagement\Validate-CSVImport.ps1" }
+            '1.3' { . "$PSScriptRoot\TemplateManagement\Import-FromCSV.ps1" }
         }
     }
     '2' {
@@ -32,16 +32,16 @@ switch ($choice) {
 	Write-Host "[2.4] Return to Previous Menu"
 	$sub = Read-Host "`nSelect an option"
 	switch ($sub) {
-    		'2.1' { . "$PSScriptRoot\..\SiteManagement\Export-SiteStructureTemplates.ps1" }
-    		'2.2' { . "$PSScriptRoot\..\SiteManagement\Import-SiteStructureFromCSV.ps1" }
-    		'2.3' { . "$PSScriptRoot\..\SiteManagement\List-SiteStructure.ps1" }
+    		'2.1' { . "$PSScriptRoot\SiteManagement\Export-SiteStructureTemplates.ps1" }
+    		'2.2' { . "$PSScriptRoot\SiteManagement\Import-SiteStructureFromCSV.ps1" }
+    		'2.3' { . "$PSScriptRoot\SiteManagement\List-SiteStructure.ps1" }
     		'2.4' { return }
 	}
 
     }
     '3' {
         Render-PanelHeader -Title "Sync Cloud Resources"
-        . "$PSScriptRoot\..\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
+        . "$PSScriptRoot\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
         Write-Host "✔️ Cached metadata refreshed."
     }
     '4' {
@@ -54,12 +54,12 @@ switch ($choice) {
         Write-Host "[4.6] Pin Places App in Teams"
         $sub = Read-Host "`nSelect an option"
         switch ($sub) {
-            '4.1' { . "$PSScriptRoot\..\Configuration\Enable-PlacesFeatures.ps1" }
-            '4.2' { . "$PSScriptRoot\..\Configuration\Validate-PlacesFeatures.ps1" }
-            '4.3' { . "$PSScriptRoot\..\Configuration\Validate-ExchangeSetup.ps1" }
-            '4.4' { . "$PSScriptRoot\..\EnvironmentSetup\Update-MailboxTypes.ps1" }
-            '4.5' { . "$PSScriptRoot\..\EnvironmentSetup\Ensure-CalendarProcessingSettings.ps1" }
-            '4.6' { . "$PSScriptRoot\..\EnvironmentSetup\Pin-PlacesAppInTeams.ps1" }
+            '4.1' { . "$PSScriptRoot\Configuration\Enable-PlacesFeatures.ps1" }
+            '4.2' { . "$PSScriptRoot\Configuration\Validate-PlacesFeatures.ps1" }
+            '4.3' { . "$PSScriptRoot\Configuration\Validate-ExchangeSetup.ps1" }
+            '4.4' { . "$PSScriptRoot\EnvironmentSetup\Update-MailboxTypes.ps1" }
+            '4.5' { . "$PSScriptRoot\EnvironmentSetup\Ensure-CalendarProcessingSettings.ps1" }
+            '4.6' { . "$PSScriptRoot\EnvironmentSetup\Pin-PlacesAppInTeams.ps1" }
         }
     }
     '5' {
@@ -69,8 +69,8 @@ switch ($choice) {
     Write-Host "[5.3] Return to Previous Menu"
     $sub = Read-Host "`nSelect an option"
     switch ($sub) {
-        '5.1' { . "$PSScriptRoot\..\Configuration\Create-ConfigBackup.ps1" }
-        '5.2' { . "$PSScriptRoot\..\Configuration\Restore-ConfigBackup.ps1" }
+        '5.1' { . "$PSScriptRoot\Configuration\Create-ConfigBackup.ps1" }
+        '5.2' { . "$PSScriptRoot\Configuration\Restore-ConfigBackup.ps1" }
         '5.3' { return }
         default {
             Write-Host "Invalid option." -ForegroundColor Yellow
@@ -86,15 +86,15 @@ Write-Host "     [6.4] Return to Previous Menu"
 
 $backupChoice = Read-Host "`nChoose an option"
 switch ($backupChoice) {
-    '6.1' { . "$PSScriptRoot\..\TemplateManagement\Export-AllTemplates.ps1" }
-    '6.2' { . "$PSScriptRoot\..\Configuration\Create-ConfigBackup.ps1" }
-    '6.3' { . "$PSScriptRoot\..\Configuration\Restore-ConfigBackup.ps1" }
+    '6.1' { . "$PSScriptRoot\TemplateManagement\Export-AllTemplates.ps1" }
+    '6.2' { . "$PSScriptRoot\Configuration\Create-ConfigBackup.ps1" }
+    '6.3' { . "$PSScriptRoot\Configuration\Restore-ConfigBackup.ps1" }
     '6.4' { return }
 }
     }
     }
     '7' {
-        . "$PSScriptRoot\..\Configuration\Run-FirstTimeSetup.ps1"
+        . "$PSScriptRoot\Configuration\Run-FirstTimeSetup.ps1"
     }
     '8' { return }
     default {
@@ -102,3 +102,4 @@ switch ($backupChoice) {
         Start-Sleep -Seconds 2
     }
 }
+

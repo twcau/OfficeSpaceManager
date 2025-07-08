@@ -1,3 +1,11 @@
+# Load Shared Connection Logic
+. "$PSScriptRoot\..\Shared\Connect-ExchangeAdmin.ps1"
+$admin = Connect-ExchangeAdmin
+if (-not $admin) {
+    Write-Warning "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
+    return
+}
+
 function Ensure-CalendarProcessingSettings {
     Render-PanelHeader -Title "Calendar Processing Settings Check"
 
@@ -16,6 +24,6 @@ function Ensure-CalendarProcessingSettings {
         }
     }
 
-    Write-Host "✔️ Calendar processing settings validated"
+    Write-Host "âœ”ï¸ Calendar processing settings validated"
 }
 Ensure-CalendarProcessingSettings

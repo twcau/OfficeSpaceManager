@@ -12,9 +12,9 @@ Write-Host "[8] Return to Main Menu"
 $choice = Read-Host "`nSelect an option"
 
 switch ($choice) {
-    '1' { . "$PSScriptRoot\..\Backups\Save-MetadataSnapshot.ps1" }
+    '1' { . "$PSScriptRoot\Backups\Save-MetadataSnapshot.ps1" }
 
-    '2' { . "$PSScriptRoot\..\Backups\Restore-MetadataSnapshot.ps1" }
+    '2' { . "$PSScriptRoot\Backups\Restore-MetadataSnapshot.ps1" }
 
     '3' {
         $logDate = Get-Date -Format 'yyyy-MM-dd'
@@ -27,19 +27,19 @@ switch ($choice) {
     }
 
     '4' {
-        . "$PSScriptRoot\..\Logs\View-LogHistory.ps1"
+        . "$PSScriptRoot\Logs\View-LogHistory.ps1"
     }
 
     '5' {
-        . "$PSScriptRoot\..\Logs\Export-ActionHistory.ps1"
+        . "$PSScriptRoot\Logs\Export-ActionHistory.ps1"
     }
 
     '6' {
-        . "$PSScriptRoot\..\Logs\Compress-Logs.ps1"
+        . "$PSScriptRoot\Logs\Compress-Logs.ps1"
     }
 
     '7' {
-        . "$PSScriptRoot\..\Logs\Clear-LogHistory.ps1"
+        . "$PSScriptRoot\Logs\Clear-LogHistory.ps1"
     }
 
     '8' { return }
@@ -49,3 +49,4 @@ switch ($choice) {
         Start-Sleep -Seconds 2
     }
 }
+

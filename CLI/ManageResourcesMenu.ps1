@@ -29,7 +29,7 @@ switch ($choice) {
     }
     '2' {
         if ($hasDrafts) {
-            . "$PSScriptRoot\..\Wizards\Retry-DraftRunner.ps1"
+            . "$PSScriptRoot\Wizards\Retry-DraftRunner.ps1"
         } else {
             Write-Host "No drafts available to recover." -ForegroundColor Yellow
             Start-Sleep -Seconds 2
@@ -39,13 +39,13 @@ switch ($choice) {
         . "$PSScriptRoot\Manage\Toggle-ResourceState.ps1"
     }
     '4' { 
-        . "$PSScriptRoot\..\TestSuite\Run-BookingSimulation.ps1"
+        . "$PSScriptRoot\TestSuite\Run-BookingSimulation.ps1"
     }
     '5' { 
-        . "$PSScriptRoot\..\Wizards\Create-DeskPoolWizard.ps1" 
+        . "$PSScriptRoot\Wizards\Create-DeskPoolWizard.ps1" 
     }
     '6' { 
-        . "$PSScriptRoot\..\Wizards\Manage-DeskPools.ps1" 
+        . "$PSScriptRoot\Wizards\Manage-DeskPools.ps1" 
     }
     '7' { 
         return 
@@ -55,3 +55,4 @@ switch ($choice) {
         Start-Sleep -Seconds 2
     }
 }
+

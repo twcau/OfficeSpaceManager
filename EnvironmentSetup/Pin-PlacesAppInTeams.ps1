@@ -1,3 +1,11 @@
+# Load Shared Connection Logic
+. "$PSScriptRoot\..\Shared\Connect-ExchangeAdmin.ps1"
+$admin = Connect-ExchangeAdmin
+if (-not $admin) {
+    Write-Warning "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
+    return
+}
+
 function Pin-PlacesAppInTeams {
     Render-PanelHeader -Title "Pin Places App in Teams"
 
@@ -5,11 +13,11 @@ function Pin-PlacesAppInTeams {
     $appId = "com.microsoft.places"
 
     if ($policy.PinnedApps -contains $appId) {
-        Write-Host "✅ Places app already pinned."
+        Write-Host "âœ… Places app already pinned."
     } else {
         $newPinnedApps = $policy.PinnedApps + $appId
         Set-CsTeamsAppSetupPolicy -Identity "Global" -PinnedApps $newPinnedApps
-        Write-Host "✔️ Pinned Places app in Teams setup policy."
+        Write-Host "âœ”ï¸ Pinned Places app in Teams setup policy."
         Write-Log "Pinned Places app in Teams"
     }
 }

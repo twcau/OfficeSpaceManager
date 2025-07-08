@@ -1,3 +1,11 @@
+# Load Shared Connection Logic
+. "$PSScriptRoot\..\Shared\Connect-ExchangeAdmin.ps1"
+$admin = Connect-ExchangeAdmin
+if (-not $admin) {
+    Write-Warning "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
+    return
+}
+
 function Test-RoomProvisioning {
     Render-PanelHeader -Title "Test: Meeting Room Provisioning"
 
@@ -9,7 +17,7 @@ function Test-RoomProvisioning {
     $displayName = "TEST Meeting Room $guid"
     $email = "$alias@$domain"
 
-    Write-Host "🏗️ Creating test room resource: $displayName"
+    Write-Host "ðŸ—ï¸ Creating test room resource: $displayName"
 
     New-Mailbox -Name $displayName -Alias $alias -Room `
         -PrimarySmtpAddress $email `

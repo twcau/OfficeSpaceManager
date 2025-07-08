@@ -1,4 +1,4 @@
-<# 
+<#
     Script: Invoke-MainMenu.ps1
     Purpose: CLI Terminal Navigation Shell for OfficeSpaceManager
     Author: Your Team
@@ -55,7 +55,6 @@ $Global:LogFile = ".\Logs\$LogDate.log"
 if (!(Test-Path ".\Logs")) { New-Item ".\Logs" -ItemType Directory | Out-Null }
 
 function Write-Log {
-    param([string]$Message)
     $timestamp = Get-Date -Format "HH:mm:ss"
     $entry = "[$timestamp] $Message"
     Add-Content -Path $Global:LogFile -Value $entry
@@ -67,7 +66,7 @@ function Write-Log {
 $configPath = ".\config\FirstRunComplete.json"
 if (-not (Test-Path $configPath)) {
     if (!(Test-Path ".\config")) { New-Item ".\config" -ItemType Directory | Out-Null }
-    . "$PSScriptRoot\..\Configuration\Run-FirstTimeSetup.ps1"
+    . "$PSScriptRoot\Configuration\Run-FirstTimeSetup.ps1"
 }
 # endregion
 
@@ -77,7 +76,7 @@ if (-not (Test-Path $configPath)) {
 # endregion
 
 # region 🧼 Refresh Local Cache
-. "$PSScriptRoot\..\SiteManagement\CachedResources\Refresh-CachedResources.ps1"
+. "$PSScriptRoot\SiteManagement\CachedResources\Refresh-CachedResources.ps1"
 # endregion
 
 # region 🧭 Main Menu Navigation
@@ -100,10 +99,10 @@ do {
         '2' { . "$PSScriptRoot\OrphanMetadataMenu.ps1" }
         '3' { . "$PSScriptRoot\ConfigurationMenu.ps1" }
         '4' { . "$PSScriptRoot\LogsMenu.ps1" }
-	'5' { . "$PSScriptRoot\..\Configuration\Run-FirstTimeSetup.ps1" }
+	'5' { . "$PSScriptRoot\Configuration\Run-FirstTimeSetup.ps1" }
         '6' {
         Write-Host "`nExiting..." -ForegroundColor Cyan
-        . "$PSScriptRoot\..\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
+        . "$PSScriptRoot\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
         Write-Log "User exited the script."
         exit
 	}
@@ -114,7 +113,9 @@ do {
 # endregion
 
 # region 🧼 Exit Cleanup
-. "$PSScriptRoot\..\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
+. "$PSScriptRoot\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
 Write-Log "Exited session and refreshed cache"
 Write-Host "`nSession ended. Cache refreshed. Goodbye!" -ForegroundColor Green
 # endregion
+
+

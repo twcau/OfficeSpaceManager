@@ -1,0 +1,50 @@
+[11:42:30] Session started.
+[11:48:00] User exited the script.
+[12:05:18] Session started.
+[12:06:38] 🔄 Starting cloud metadata sync for Exchange and Places...
+[12:06:38] ❌ Refresh-CachedResources failed: The term 'Get-Mailbox' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+[12:59:17] First-time setup completed and domain info saved
+[13:16:22] Session started.
+[13:16:55] Session started.
+[13:19:58] 🔄 Starting cloud metadata sync for Exchange and Places...
+[13:21:08] ✅ CachedResources.json updated successfully.
+[13:21:09] 🕒 Updated .lastSync.json with current sync timestamp.
+[13:49:23] 🔄 Starting cloud metadata sync for Exchange and Places...
+[13:50:18] ✅ CachedResources.json updated successfully.
+[13:50:18] 🕒 Updated .lastSync.json with current sync timestamp.
+[13:50:18] User exited the script.
+[14:11:47] Session started.
+[14:13:43] User exited the script.
+[15:25:11] Session started.
+[15:25:12] ‼️ Script-level exception: The term 'V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\SiteManagement\CachedResources\Shared\Connect-ExchangeAdmin.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+[15:25:50] Session started.
+[15:25:51] ‼️ Script-level exception: The term 'V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\SiteManagement\CachedResources\..\Shared\Connect-ExchangeAdmin.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+[15:29:22] Session started.
+[15:29:22] ‼️ Script-level exception: At V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1:87 char:19
++ …  Write-Log "ðŸ•’ Updated .lastSync.json with current sync timestamp."
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The string is missing the terminator: '.
+
+At V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1:32 char:5
++ try {
++     ~
+Missing closing '}' in statement block or type definition.
+
+At V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1:92 char:2
++ }
++  ~
+The Try statement is missing its Catch or Finally block.
+[15:36:13] Session started.
+[15:36:13] ‼️ Script-level exception: The term 'V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\SiteManagement\CachedResources\Shared\Connect-ExchangeAdmin.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+[15:57:31] Session started.
+[15:57:48] Connected to Exchange Online as 
+[15:59:44] Connected to Exchange Online as 
+[15:59:44] User exited the script.
+[16:07:46] Session started.
+[16:07:47] Exchange connection reused: Michael.HarrisX@unitingwa.org.au Michael.HarrisX@unitingwa.org.au Michael.HarrisX@unitingwa.org.au
+[16:07:47] ‼️ Script-level exception: The term 'param' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.

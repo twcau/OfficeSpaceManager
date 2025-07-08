@@ -6,11 +6,18 @@
     Saves to .\Metadata\CachedResources.json and writes .lastSync.json for sync freshness tracking.
 #>
 
-param (
+# Load Shared Connection Logic
+. "$PSScriptRoot\..\..\Shared\Connect-ExchangeAdmin.ps1"
+$admin = Connect-ExchangeAdmin
+if (-not $admin -or $admin -eq '') {
+    Write-Warning "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
+    return
+}
+
     [switch]$Force
 )
 
-. "$PSScriptRoot\..\..\Shared\Write-Log.ps1"
+. "$PSScriptRoot\Shared\Write-Log.ps1"
 Render-PanelHeader -Title "Syncing Cached Resource Metadata"
 
 $cachePath     = ".\Metadata\CachedResources.json"
@@ -23,8 +30,8 @@ $newCache = @{
 }
 
 try {
-    Write-Log "🔄 Starting cloud metadata sync for Exchange and Places..."
-    Write-Host "`n📡 Fetching Room and Equipment Mailboxes..."
+    Write-Log "📡 Starting cloud metadata sync for Exchange and Places..."
+    Write-Host "`n📥 Fetching Room and Equipment Mailboxes..."
 
     $mailboxes = Get-Mailbox -RecipientTypeDetails RoomMailbox, EquipmentMailbox -ResultSize Unlimited
 
@@ -69,7 +76,7 @@ try {
         Write-Log "✅ CachedResources.json updated successfully."
     } else {
         Write-Host "`n🟡 No changes detected in metadata. Skipping write."
-        Write-Log "ℹ️ No update to cache — content unchanged."
+        Write-Log "🟡 No update to cache — content unchanged."
     }
 
     # Save sync timestamp
@@ -80,6 +87,6 @@ try {
     Write-Log "🕒 Updated .lastSync.json with current sync timestamp."
 
 } catch {
-    Write-Warning "❌ Sync failed: $_"
-    Write-Log "❌ Refresh-CachedResources failed: $_"
+    Write-Warning "❌ Sync failed: $($_.Exception.Message)"
+    Write-Log "❌ Refresh-CachedResources failed: $($_.Exception.Message)"
 }

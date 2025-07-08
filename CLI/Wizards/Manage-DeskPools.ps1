@@ -3,7 +3,7 @@
     Manage or update existing desk pools.
 #>
 
-. "$PSScriptRoot\..\Shared\Write-Log.ps1"
+. "$PSScriptRoot\Shared\Write-Log.ps1"
 
 $poolsFile = ".\Metadata\DeskPools.json"
 if (-not (Test-Path $poolsFile)) {
@@ -51,3 +51,4 @@ $pools += $selectedPool
 $pools | ConvertTo-Json -Depth 5 | Set-Content $poolsFile
 Write-Log "Updated pool '$($selectedPool.PoolName)'"
 Write-Host "✔️ Pool updated." -ForegroundColor Green
+

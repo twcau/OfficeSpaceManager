@@ -1,3 +1,11 @@
+# Load Shared Connection Logic
+. "$PSScriptRoot\..\Shared\Connect-ExchangeAdmin.ps1"
+$admin = Connect-ExchangeAdmin
+if (-not $admin) {
+    Write-Warning "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
+    return
+}
+
 function Validate-ExchangeSetup {
     Render-PanelHeader -Title "Validating Exchange Setup"
 
@@ -13,6 +21,6 @@ function Validate-ExchangeSetup {
         }
     }
 
-    Write-Host "✔️ Exchange resource validation completed"
+    Write-Host "âœ”ï¸ Exchange resource validation completed"
     Write-Log "Exchange validation completed"
 }

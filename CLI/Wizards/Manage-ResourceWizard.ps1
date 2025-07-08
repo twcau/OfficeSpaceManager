@@ -5,9 +5,9 @@
 #>
 
 #region 🔧 Load Helper Functions
-. "$PSScriptRoot\..\Shared\Get-StandardDeskName.ps1"
-. "$PSScriptRoot\..\Shared\Write-Log.ps1"
-. "$PSScriptRoot\..\TestSuite\Simulate-BookingTest.ps1"
+. "$PSScriptRoot\Shared\Get-StandardDeskName.ps1"
+. "$PSScriptRoot\Shared\Write-Log.ps1"
+. "$PSScriptRoot\TestSuite\Simulate-BookingTest.ps1"
 #endregion
 
 #region 📂 Load Metadata
@@ -223,7 +223,7 @@ if (-not $errorFlag) {
         $runSim = Read-Host "Would you like to run a booking simulation now? (Y/N)"
         if ($runSim -eq 'Y') {
             try {
-                $simResult = . "$PSScriptRoot\..\TestSuite\Simulate-BookingTest.ps1" -Alias $alias -Domain $domain
+                $simResult = . "$PSScriptRoot\TestSuite\Simulate-BookingTest.ps1" -Alias $alias -Domain $domain
                 $success = $simResult.MailboxFound -and $simResult.MailFlowOK -and $simResult.AutoAccept
 
                 if ($success) {
@@ -254,3 +254,4 @@ return
 
 :edit_resource
 # jump label used in editable retry loop above
+

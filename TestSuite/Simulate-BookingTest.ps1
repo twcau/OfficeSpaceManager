@@ -1,4 +1,11 @@
-param (
+# Load Shared Connection Logic
+. "$PSScriptRoot\..\Shared\Connect-ExchangeAdmin.ps1"
+$admin = Connect-ExchangeAdmin
+if (-not $admin) {
+    Write-Warning "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
+    return
+}
+
     [string]$Alias,
     [string]$Domain
 )
@@ -19,12 +26,13 @@ if (-not $Domain) {
 $upn = "$Alias@$Domain"
 
 try {
-    Write-Host "📅 Simulating booking for $upn..."
+    Write-Host "ðŸ“… Simulating booking for $upn..."
     $start = (Get-Date).AddHours(2)
     $end = $start.AddMinutes(30)
 
     New-TestMessage -Recipient $upn -Start $start -End $end -Subject "Test Booking" -ErrorAction Stop
-    Write-Host "✅ Test booking sent." -ForegroundColor Green
+    Write-Host "âœ… Test booking sent." -ForegroundColor Green
 } catch {
-    Write-Warning "❌ Booking test failed: $_"
+    Write-Warning "âŒ Booking test failed: $_"
 }
+

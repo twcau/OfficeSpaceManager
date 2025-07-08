@@ -96,10 +96,11 @@ try {
     # Optionally offer simulation test
     $runTest = Read-Host "Run booking simulation now? (Y/N)"
     if ($runTest -eq 'Y') {
-        . "$PSScriptRoot\..\TestSuite\Simulate-BookingTest.ps1" -Alias $alias -Domain $domain
+        . "$PSScriptRoot\TestSuite\Simulate-BookingTest.ps1" -Alias $alias -Domain $domain
     }
 
 } catch {
     Write-Warning "❌ Retry failed: $_"
     Write-Host "Draft preserved: $($selected.FullName)"
 }
+
