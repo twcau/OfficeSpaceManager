@@ -4,3 +4,5 @@ Logs/
 FixScriptTesting/
 # Files
 Review-ProjectScripts.ps1
+script_review_report.csv
+script_review_report.md

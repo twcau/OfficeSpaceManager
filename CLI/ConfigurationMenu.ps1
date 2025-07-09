@@ -79,7 +79,7 @@ switch ($choice) {
         }
     }
     '6' {
-    	Render-PanelHeader -Title "Backup & Templates"
+        Render-PanelHeader -Title "Backup & Templates"
 Write-Host "     [6.1] Export All Templates (CSV)"
 Write-Host "     [6.2] Create Backup Archive (ZIP)"
 Write-Host "     [6.3] Restore from Backup Archive"
@@ -93,18 +93,11 @@ switch ($backupChoice) {
     '6.4' { return }
 }
     }
-    }
-    '7' {
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Run-FirstTimeSetup.ps1"
+    '7' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Run-FirstTimeSetup.ps1"
     }
     '8' { return }
     default {
-        Write-Host "Invalid option." -ForegroundColor Yellow
+        Write-Host "Invalid option."" -ForegroundColor Yellow
         Start-Sleep -Seconds 2
     }
 }
-
-
-
-
-
