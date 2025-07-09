@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 function Validate-DeskPoolMappings {
     Render-PanelHeader -Title "Validate Desk Pool Mappings"
 

@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 Render-PanelHeader -Title "Configuration & Setup"
 
 Write-Host "[1] Import / Export Templates"
@@ -94,7 +95,7 @@ switch ($backupChoice) {
     }
     }
     '7' {
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\Configuration\Run-FirstTimeSetup.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Run-FirstTimeSetup.ps1"
     }
     '8' { return }
     default {

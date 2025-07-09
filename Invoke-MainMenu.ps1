@@ -8,9 +8,7 @@
     2025-07-08
 #>
 
-# region âš ï¸ Global Error Handling
-$ErrorActionPreference = 'Stop'
-# endregion
+. "$PSScriptRoot/Shared/Global-ErrorHandling.ps1"
 
 try {
     # region ðŸ”§ PowerShell 7+ Check
@@ -64,26 +62,27 @@ try {
     $Global:LogFile = ".\Logs\$LogDate.log"
     if (!(Test-Path ".\Logs")) { New-Item ".\Logs" -ItemType Directory | Out-Null }
 
-    function Write-Log {
-        $timestamp = Get-Date -Format "HH:mm:ss"
-        $entry = "[$timestamp] $Message"
-        Add-Content -Path $Global:LogFile -Value $entry
-        $Global:ActionLog += $entry
-    }
-    Write-Log "Session started."
+    # Write your first log for this session
+    Write-Log -Message "Session started."
     # endregion
 
     # region ðŸ§° First-Time Setup Check
     $configPath = ".\config\FirstRunComplete.json"
     if (-not (Test-Path $configPath)) {
         if (!(Test-Path ".\config")) { New-Item ".\config" -ItemType Directory | Out-Null }
+        Write-Log -Message "Importing Configuration\Run-FirstTimeSetup.ps1"
         . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Run-FirstTimeSetup.ps1"
     }
+    Write-Log -Message "First time setup script imported."
     # endregion
 
     # region ðŸ” Load Global UI Utilities
+    Write-Log -Message "Importing Global UI Utilities"
+    Write-Log -Message "Importing CLI\Show-ActionHistory.ps1"
     . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\Show-ActionHistory.ps1"
+    Write-Log -Message "Importing CLI\Render-PanelHeader.ps1"
     . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\Render-PanelHeader.ps1"
+    Write-Log -Message "Global UI Utilities imported and loaded"
     # endregion
 
     # region 🧼 Check Cached Metadata Freshness
@@ -96,53 +95,60 @@ try {
         $daysOld = $timeSinceSync.Days
         $minutesOld = [int]$timeSinceSync.TotalMinutes
 
-        Write-Log "Last metadata sync was $minutesOld minutes ago ($daysOld days)."
+        Write-Log -Message "Last metadata sync was $minutesOld minutes ago ($daysOld days)."
 
         if ($daysOld -ge $syncAgeDays) {
             Write-Warning "⚠️ Cached metadata is $daysOld days old."
-            Write-Log "Metadata cache is stale (>$syncAgeDays days)."
+            Write-Log -Message "Metadata cache is stale (>$syncAgeDays days)."
 
             $doBackup = Read-Host "Backup metadata before syncing? (Y/N)"
             if ($doBackup -eq 'Y') {
-                Write-Log "User opted to back up config before sync."
+                Write-Log -Message "User opted to back up config before sync."
+                Write-Log -Message "Importing Configuration\Create-ConfigBackup.ps1"
                 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Create-ConfigBackup.ps1"
             }
 
             $doSync = Read-Host "Sync cloud metadata now? (Y/N)"
             if ($doSync -eq 'Y') {
-                Write-Log "User opted to sync metadata (manual confirmation)."
+                Write-Log -Message "User opted to sync metadata (manual confirmation)."
+                Write-Log -Message "Importing CachedResources\Refresh-CachedResources.ps1"
                 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
             }
             else {
-                Write-Log "User skipped metadata sync despite stale cache."
+                Write-Log -Message "User skipped metadata sync despite stale cache."
             }
         }
         elseif ($minutesOld -le 15) {
             Write-Host "🕒 Last metadata sync was just $minutesOld minutes ago."
-            Write-Log "Recent metadata cache detected (<15 mins)."
+            Write-Log -Message "Recent metadata cache detected (<15 mins)."
 
             $quickDecision = Read-Host "Skip sync and use recent cache? (Y/N)"
             if ($quickDecision -ne 'Y') {
-                Write-Log "User chose to refresh metadata despite recent sync."
+                Write-Log -Message "User chose to refresh metadata despite recent sync."
+                Write-Log -Message "Importing CachedResources\Refresh-CachedResources.ps1"
                 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
             }
             else {
-                Write-Log "User skipped metadata sync (recent cache accepted)."
+                Write-Log -Message "User skipped metadata sync (recent cache accepted)."
                 Write-Host "⏩ Skipping sync and using recent cached data."
             }
         }
     }
     else {
         Write-Warning "❌ No metadata sync file found. Performing initial sync..."
-        Write-Log "No existing .lastSync.json found. Initiating first-time sync."
+        Write-Log -Message "No existing .lastSync.json found. Initiating first-time sync."
+        Write-Log -Message "Importing CachedResources\Refresh-CachedResources.ps1"
         . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
     }
     # endregion
 
 
     # region ðŸ§¼ Preload Cached Metadata (Always)
+    Write-Log -Message "Importing CachedResources\Refresh-CachedResources.ps1"
     . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1"
     # endregion
+
+    Write-Log -Message "Invoke-MainMenu script started successfully. Loading menu."
 
     # region ðŸ§­ Main Menu Navigation
     do {
@@ -168,7 +174,7 @@ try {
             '6' {
                 Write-Host "`nExiting..." -ForegroundColor Cyan
                 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
-                Write-Log "User exited the script."
+                Write-Log -Message "User exited the script."
                 exit
             }
             default {
@@ -183,13 +189,13 @@ try {
 catch {
     Write-Host "`nâŒ A critical error occurred while running the CLI:" -ForegroundColor Red
     Write-Host $_.Exception.Message -ForegroundColor Yellow
-    Write-Log "â€¼ï¸ Script-level exception: $($_.Exception.Message)"
+    Write-Log -Message "â€¼ï¸ Script-level exception: $($_.Exception.Message)"
     Read-Host "`nPress Enter to exit..."
     exit
 }
 
 # region ðŸ§¼ Exit Cleanup
 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
-Write-Log "Exited session and refreshed cache"
+Write-Log -Message "Exited session and refreshed cache"
 Write-Host "`nSession ended. Cache refreshed. Goodbye!" -ForegroundColor Green
 # endregion

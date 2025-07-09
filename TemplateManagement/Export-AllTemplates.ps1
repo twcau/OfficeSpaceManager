@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 <#
 .SYNOPSIS
     Exports all supported metadata templates (desks, desk pools, sites, buildings, floors, etc.)

@@ -1,3 +1,4 @@
+. "$PSScriptRoot/Global-ErrorHandling.ps1"
 <#
 .SYNOPSIS
     Generates a standardized desk name using site/building/floor/numbering.

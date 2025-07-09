@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 function Import-MetadataFromCSV {
     Render-PanelHeader -Title "Import Metadata from CSV"
 

@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 function Sync-MetadataToCloud {
     Render-PanelHeader -Title "Sync Metadata to Cloud (Preview Module)"
 

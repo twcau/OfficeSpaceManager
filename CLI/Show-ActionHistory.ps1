@@ -1,27 +1,24 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 function Show-ActionHistory {
-    if ($Global:ActionLog.Count -eq 0) { return }
+  $logDir = Join-Path $PSScriptRoot "..\Logs"
+  $logFile = Join-Path $logDir ("Log_" + (Get-Date -Format "yyyyMMdd") + ".log")
 
-    Write-Host "`n╔══════════ Recent Actions ══════════╗" -ForegroundColor DarkGray
+  if (-not (Test-Path $logFile)) {
+    Write-Host "`n(No log entries found for today.)`n" -ForegroundColor DarkGray
+    return
+  }
 
-    # Take the last 5 entries
-    $Global:ActionLog |
-      Select-Object -Last 5 |
-      ForEach-Object {
-        # If it's a string, just print it
-        if ($_ -is [string]) {
-          Write-Host "• $_" -ForegroundColor Gray
-        }
-        else {
-          # Pull the timestamp & message/action
-          $ts  = $_.Timestamp
-          # different folks name it differently…
-          $msg = $_.Action  ?? $_.Message
-          # fallback if neither prop exists
-          if (-not $msg) { $msg = $_ | Out-String }
+  $lines = Get-Content $logFile | Where-Object { $_.Trim() -ne "" }
+  if ($lines.Count -eq 0) {
+    Write-Host "`n(No log entries found for today.)`n" -ForegroundColor DarkGray
+    return
+  }
 
-          Write-Host ("• [{0}] {1}" -f $ts, $msg) -ForegroundColor Gray
-        }
-      }
+  Write-Host "`n╔══════════ Recent Actions ══════════╗" -ForegroundColor DarkGray
 
-    Write-Host "╚════════════════════════════════════╝`n" -ForegroundColor DarkGray
+  $lines | Select-Object -Last 5 | ForEach-Object {
+    Write-Host "• $_" -ForegroundColor Gray
+  }
+
+  Write-Host "╚════════════════════════════════════╝`n" -ForegroundColor DarkGray
 }

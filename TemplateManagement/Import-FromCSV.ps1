@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 <#
 .SYNOPSIS
     Imports a CSV metadata file into local metadata storage
@@ -5,7 +6,7 @@
     Supports Sites, Buildings+Floors, Desks, Desk Pools, and Equipment resources.
 #>
 
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\Shared\Write-Log.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Write-Log.ps1"
 Render-PanelHeader -Title "Import Metadata from CSV"
 
 $importFolder = ".\Imports"

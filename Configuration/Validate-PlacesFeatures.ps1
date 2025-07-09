@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 function Validate-PlacesFeatures {
     Render-PanelHeader -Title "Validating Microsoft Places Setup"
 

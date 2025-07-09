@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../../Shared/Global-ErrorHandling.ps1"
 <#
 .SYNOPSIS
     Retry creation of failed resources saved as JSON drafts.

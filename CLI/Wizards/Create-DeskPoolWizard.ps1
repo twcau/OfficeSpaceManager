@@ -1,9 +1,10 @@
+. "$PSScriptRoot/../../Shared/Global-ErrorHandling.ps1"
 <#
 .SYNOPSIS
     Wizard to create a Desk Pool and assign desks.
 #>
 
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\..\Shared\Write-Log.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Write-Log.ps1"
 
 $tenantConfig = Get-Content ".\config\TenantConfig.json" | ConvertFrom-Json
 $defaultDomain = $tenantConfig.DefaultDomain

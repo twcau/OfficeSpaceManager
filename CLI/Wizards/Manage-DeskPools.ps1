@@ -1,9 +1,10 @@
+. "$PSScriptRoot/../../Shared/Global-ErrorHandling.ps1"
 <#
 .SYNOPSIS
     Manage or update existing desk pools.
 #>
 
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\..\Shared\Write-Log.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Write-Log.ps1"
 
 $poolsFile = ".\Metadata\DeskPools.json"
 if (-not (Test-Path $poolsFile)) {

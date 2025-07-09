@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 function Suggest-RenameResource {
     Render-PanelHeader -Title "Suggest Rename for Non-Standard Resources"
 

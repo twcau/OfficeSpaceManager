@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 function Export-SiteStructureTemplates {
     Render-PanelHeader -Title "Export Site & Building Templates"
 

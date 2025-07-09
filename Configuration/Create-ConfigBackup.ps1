@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 function Create-ConfigBackup {
     Render-PanelHeader -Title "Creating Configuration Backup"
 

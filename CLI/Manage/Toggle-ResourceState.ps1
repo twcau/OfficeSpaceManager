@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../../Shared/Global-ErrorHandling.ps1"
 Render-PanelHeader -Title "Retire or Reactivate Resource"
 
 $resourceType = Read-Host "What type of resource? (Desk, Room, Equipment)"

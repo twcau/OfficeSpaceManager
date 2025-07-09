@@ -10,14 +10,21 @@ param (
     [switch]$Force
 )
 
+. "$PSScriptRoot/../../Shared/Global-ErrorHandling.ps1"
+
 # Load Shared Modules
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\..\Shared\Write-Log.ps1"
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\..\Shared\Connect-ExchangeAdmin.ps1"
+Write-Log -Message "Loading shared modules"
+Write-Log -Message "Loading Shared\Write-Log.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Write-Log.ps1"
+Write-Log -Message "Loading Shared\Connect-ExchangeAdmin.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
+Write-Log -Message "Shared modules loaded"
 
 # Ensure connection to Exchange
 $admin = Connect-ExchangeAdmin
 if (-not $admin -or $admin -eq '') {
     Write-Warning "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
+    Write-Log -Message "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
     return
 }
 
@@ -30,6 +37,7 @@ if (Test-Path $syncTrackPath) {
         $minutesOld = (New-TimeSpan -Start $lastSyncDate -End (Get-Date)).TotalMinutes
 
         if ($minutesOld -lt 15 -and -not $Force) {
+            Write-Log -Message "🕒 Metadata was last refreshed $([int]$minutesOld) minutes ago."
             Write-Host "🕒 Metadata was last refreshed $([int]$minutesOld) minutes ago." -ForegroundColor Yellow
             $doSync = Read-Host "Re-sync cloud metadata anyway? (Y/N)"
             if ($doSync -notin @('Y', 'y')) {
@@ -38,7 +46,8 @@ if (Test-Path $syncTrackPath) {
                 return
             }
         }
-    } catch {
+    }
+    catch {
         Write-Warning "⚠️ Failed to evaluate metadata freshness — proceeding with sync."
         Write-Log "⚠️ Failed to evaluate last sync timestamp — $($_.Exception.Message)"
     }
@@ -47,7 +56,7 @@ if (Test-Path $syncTrackPath) {
 
 Render-PanelHeader -Title "Syncing Cached Resource Metadata"
 
-$cachePath     = ".\Metadata\CachedResources.json"
+$cachePath = ".\Metadata\CachedResources.json"
 $syncTrackPath = ".\Metadata\.lastSync.json"
 $newCache = @{
     LastSynced = (Get-Date).ToUniversalTime().ToString("o")
@@ -63,10 +72,10 @@ try {
     $mailboxes = Get-Mailbox -RecipientTypeDetails RoomMailbox, EquipmentMailbox -ResultSize Unlimited
 
     foreach ($mb in $mailboxes) {
-        $type     = $mb.RecipientTypeDetails
-        $alias    = $mb.Alias
+        $type = $mb.RecipientTypeDetails
+        $alias = $mb.Alias
         $objectId = $mb.ExchangeObjectId.Guid
-        $place    = Get-Place -Identity $alias -ErrorAction SilentlyContinue
+        $place = Get-Place -Identity $alias -ErrorAction SilentlyContinue
 
         $record = [PSCustomObject]@{
             DisplayName      = $mb.DisplayName
@@ -84,7 +93,8 @@ try {
             "RoomMailbox" {
                 if ($place.IsWheelChairAccessible -or $mb.DisplayName -like "*Desk*") {
                     $newCache.Desks += $record
-                } else {
+                }
+                else {
                     $newCache.Rooms += $record
                 }
             }
@@ -101,7 +111,8 @@ try {
         $jsonNew | Set-Content $cachePath
         Write-Host "`n✅ Cached resource metadata updated." -ForegroundColor Green
         Write-Log "✅ CachedResources.json updated successfully."
-    } else {
+    }
+    else {
         Write-Host "`n🟡 No changes detected in metadata. Skipping write."
         Write-Log "🟡 No update to cache — content unchanged."
     }
@@ -113,11 +124,8 @@ try {
 
     Write-Log "🕒 Updated .lastSync.json with current sync timestamp."
 
-} catch {
+}
+catch {
     Write-Warning "❌ Sync failed: $($_.Exception.Message)"
     Write-Log "❌ Refresh-CachedResources failed: $($_.Exception.Message)"
 }
-
-
-
-

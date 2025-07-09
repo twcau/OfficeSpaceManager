@@ -1,3 +1,4 @@
+. "$PSScriptRoot/Global-ErrorHandling.ps1"
 function Connect-ExchangeAdmin {
     # Ensure ExchangeOnlineManagement module is loaded
     if (-not (Get-Module -Name ExchangeOnlineManagement)) {
@@ -16,13 +17,14 @@ function Connect-ExchangeAdmin {
             Write-Log "Exchange connection reused: $upnString"
             return $distinctUPNs[0]  # Return primary UPN for downstream logic
         }
-    } catch {
+    }
+    catch {
         # Ignore - fall through to connect
     }
 
     # Attempt new connection
     try {
-        $session = Connect-ExchangeOnline -ShowBanner:$false -ShowProgress:$true -LoadCmdletHelp:$false
+        $session = Connect-ExchangeOnline -ShowBanner:$false -ShowProgress:$true
         $upn = ($session | Get-ConnectionInformation).UserPrincipalName
 
         if ([string]::IsNullOrEmpty($upn)) {
@@ -32,7 +34,8 @@ function Connect-ExchangeAdmin {
         Write-Host "🔐 Connected as: $upn" -ForegroundColor Green
         Write-Log "Connected to Exchange Online as $upn"
         return $upn
-    } catch {
+    }
+    catch {
         Write-Warning "❌ Exchange connection failed: $($_.Exception.Message)"
         return $null
     }

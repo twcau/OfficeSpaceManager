@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 function List-SiteStructure {
     Render-PanelHeader -Title "Site, Building & Floor Metadata"
 

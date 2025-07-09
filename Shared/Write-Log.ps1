@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     Provides structured timestamped logging with optional severity indicators.
 .DESCRIPTION
@@ -16,8 +16,8 @@ function Write-Log {
 
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
     $prefix = switch ($Level) {
-        "INFO"  { "ℹ️" }
-        "WARN"  { "⚠️" }
+        "INFO" { "ℹ️" }
+        "WARN" { "⚠️" }
         "ERROR" { "❌" }
         "DEBUG" { "🐛" }
         default { "📝" }
@@ -33,8 +33,8 @@ function Write-Log {
     Add-Content -Path $logPath -Value $line
 
     $color = switch ($Level) {
-        "INFO"  { "White" }
-        "WARN"  { "Yellow" }
+        "INFO" { "White" }
+        "WARN" { "Yellow" }
         "ERROR" { "Red" }
         "DEBUG" { "DarkCyan" }
         default { "Gray" }

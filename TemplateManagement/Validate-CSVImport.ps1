@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 <#
 .SYNOPSIS
     Validates structure and content of metadata CSV templates before importing.
@@ -5,7 +6,7 @@
     Ensures correct headers, sample row values, and flags anything that would break import logic.
 #>
 
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\Shared\Write-Log.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Write-Log.ps1"
 Render-PanelHeader -Title "CSV Template Validation"
 
 $importFolder = ".\Imports"

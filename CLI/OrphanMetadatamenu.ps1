@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 Render-PanelHeader -Title "Orphan & Metadata Management"
 
 Write-Host "[1] Find Orphaned Resources"

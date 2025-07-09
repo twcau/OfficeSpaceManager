@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 Render-PanelHeader -Title "Manage Resources"
 
 # ðŸ‘‡ Check if any valid drafts exist
@@ -39,7 +40,7 @@ switch ($choice) {
 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Manage\Toggle-ResourceState.ps1"
     }
     '4' { 
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\TestSuite\Run-BookingSimulation.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\TestSuite\Run-BookingSimulation.ps1"
     }
     '5' { 
 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Create-DeskPoolWizard.ps1"

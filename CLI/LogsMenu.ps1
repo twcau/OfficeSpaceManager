@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 Render-PanelHeader -Title "Metadata & Logs"
 
 Write-Host "[1] Save Metadata Snapshot"

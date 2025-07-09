@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 <#
 .SYNOPSIS
     Simulates a booking by validating mail flow and calendar processing.
@@ -7,7 +8,7 @@
 #>
 
 # Load Shared Connection Logic
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\Shared\Connect-ExchangeAdmin.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
     Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."

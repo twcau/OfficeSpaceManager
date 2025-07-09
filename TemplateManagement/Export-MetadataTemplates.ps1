@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 function Export-MetadataTemplates {
     Render-PanelHeader -Title "Export Metadata Templates"
 

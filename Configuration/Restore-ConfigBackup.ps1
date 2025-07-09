@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 function Restore-ConfigBackup {
     Render-PanelHeader -Title "Restore Metadata from Backup Archive"
 

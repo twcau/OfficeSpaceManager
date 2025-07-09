@@ -1,3 +1,4 @@
+. "$PSScriptRoot/Global-ErrorHandling.ps1"
 function Connect-TeamsService {
     if (-not (Get-Module MicrosoftTeams)) {
         Import-Module MicrosoftTeams -ErrorAction Stop

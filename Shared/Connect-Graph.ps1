@@ -1,3 +1,4 @@
+. "$PSScriptRoot/Global-ErrorHandling.ps1"
 function Connect-Graph {
     if (-not (Get-Module Microsoft.Graph)) {
         Import-Module Microsoft.Graph -ErrorAction Stop

@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 function Fix-OrphanedResources {
     Render-PanelHeader -Title "Fix Orphaned Desks and Mailboxes"
 

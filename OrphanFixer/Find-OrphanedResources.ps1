@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 function Find-OrphanedResources {
     Render-PanelHeader -Title "Orphaned Resource Detection"
 

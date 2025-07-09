@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 function Detect-NonStandardResources {
     Render-PanelHeader -Title "Detect Non-Standard Resource Calendars"
 

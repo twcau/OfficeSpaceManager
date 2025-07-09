@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../../Shared/Global-ErrorHandling.ps1"
 <#
 .SYNOPSIS
     Interactive wizard for creating or editing a Desk, Room, or Equipment resource
@@ -5,9 +6,9 @@
 #>
 
 #region ðŸ”§ Load Helper Functions
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\..\Shared\Get-StandardDeskName.ps1"
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\..\Shared\Write-Log.ps1"
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\..\TestSuite\Simulate-BookingTest.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Get-StandardDeskName.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Write-Log.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\TestSuite\Simulate-BookingTest.ps1"
 #endregion
 
 #region ðŸ“‚ Load Metadata

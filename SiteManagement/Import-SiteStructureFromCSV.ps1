@@ -1,3 +1,4 @@
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 function Import-SiteStructureFromCSV {
     Render-PanelHeader -Title "Import Site & Building Structure"
 
