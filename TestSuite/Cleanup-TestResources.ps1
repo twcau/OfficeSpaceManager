@@ -1,5 +1,5 @@
-﻿# Load Shared Connection Logic
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
+# Load Shared Connection Logic
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
     Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
@@ -32,6 +32,7 @@ function Cleanup-TestResources {
     Write-Log "All test resources cleaned from Exchange and metadata."
 }
 Cleanup-TestResources
+
 
 
 

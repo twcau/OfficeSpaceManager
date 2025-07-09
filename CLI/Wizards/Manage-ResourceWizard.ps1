@@ -1,13 +1,13 @@
-﻿<#
+<#
 .SYNOPSIS
     Interactive wizard for creating or editing a Desk, Room, or Equipment resource
     with Exchange and Microsoft Places provisioning, validation, retry, and recovery.
 #>
 
 #region ðŸ”§ Load Helper Functions
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Get-StandardDeskName.ps1"
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Write-Log.ps1"
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\TestSuite\Simulate-BookingTest.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\..\Shared\Get-StandardDeskName.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\..\Shared\Write-Log.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\..\TestSuite\Simulate-BookingTest.ps1"
 #endregion
 
 #region ðŸ“‚ Load Metadata
@@ -254,6 +254,7 @@ return
 
 :edit_resource
 # jump label used in editable retry loop above
+
 
 
 

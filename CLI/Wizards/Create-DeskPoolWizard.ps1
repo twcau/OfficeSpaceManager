@@ -1,9 +1,9 @@
-﻿<#
+<#
 .SYNOPSIS
     Wizard to create a Desk Pool and assign desks.
 #>
 
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Write-Log.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\..\Shared\Write-Log.ps1"
 
 $tenantConfig = Get-Content ".\config\TenantConfig.json" | ConvertFrom-Json
 $defaultDomain = $tenantConfig.DefaultDomain
@@ -45,5 +45,6 @@ $existingPools | ConvertTo-Json -Depth 5 | Set-Content $poolsFile
 
 Write-Host "✔️ Desk Pool '$poolName' created with $($selectedDesks.Count) desks." -ForegroundColor Green
 Write-Log "Desk pool '$poolName' created."
+
 
 

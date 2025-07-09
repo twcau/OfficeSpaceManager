@@ -1,4 +1,4 @@
-﻿Render-PanelHeader -Title "Metadata & Logs"
+Render-PanelHeader -Title "Metadata & Logs"
 
 Write-Host "[1] Save Metadata Snapshot"
 Write-Host "[2] Restore Metadata Snapshot"
@@ -12,34 +12,35 @@ Write-Host "[8] Return to Main Menu"
 $choice = Read-Host "`nSelect an option"
 
 switch ($choice) {
-    '1' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Backups\Save-MetadataSnapshot.ps1" }
+    '1' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Backups\Save-MetadataSnapshot.ps1" }
 
-    '2' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Backups\Restore-MetadataSnapshot.ps1" }
+    '2' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Backups\Restore-MetadataSnapshot.ps1" }
 
     '3' {
         $logDate = Get-Date -Format 'yyyy-MM-dd'
         $logFile = ".\Logs\$logDate.log"
         if (Test-Path $logFile) {
             Get-Content $logFile | Out-Host
-        } else {
+        }
+        else {
             Write-Host "No log file found for today." -ForegroundColor Yellow
         }
     }
 
     '4' {
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Logs\View-LogHistory.ps1"
+        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Logs\View-LogHistory.ps1"
     }
 
     '5' {
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Logs\Export-ActionHistory.ps1"
+        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Logs\Export-ActionHistory.ps1"
     }
 
     '6' {
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Logs\Compress-Logs.ps1"
+        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Logs\Compress-Logs.ps1"
     }
 
     '7' {
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Logs\Clear-LogHistory.ps1"
+        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Logs\Clear-LogHistory.ps1"
     }
 
     '8' { return }
@@ -49,6 +50,7 @@ switch ($choice) {
         Start-Sleep -Seconds 2
     }
 }
+
 
 
 

@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     Sync local cache of Exchange/Places resource metadata.
 .DESCRIPTION
@@ -11,8 +11,8 @@ param (
 )
 
 # Load Shared Modules
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Write-Log.ps1"
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\..\Shared\Write-Log.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\..\Shared\Connect-ExchangeAdmin.ps1"
 
 # Ensure connection to Exchange
 $admin = Connect-ExchangeAdmin
@@ -117,6 +117,7 @@ try {
     Write-Warning "❌ Sync failed: $($_.Exception.Message)"
     Write-Log "❌ Refresh-CachedResources failed: $($_.Exception.Message)"
 }
+
 
 
 

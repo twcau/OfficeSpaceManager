@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     Simulates a booking by validating mail flow and calendar processing.
 .DESCRIPTION
@@ -7,7 +7,7 @@
 #>
 
 # Load Shared Connection Logic
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
     Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
@@ -74,6 +74,7 @@ $results | Format-List
 
 Write-Log "Booking simulation results: $(ConvertTo-Json $results -Compress)"
 return $results
+
 
 
 

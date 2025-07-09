@@ -1,4 +1,4 @@
-﻿Render-PanelHeader -Title "Configuration & Setup"
+Render-PanelHeader -Title "Configuration & Setup"
 
 Write-Host "[1] Import / Export Templates"
 Write-Host "[2] Manage Sites, Buildings & Floors"
@@ -19,29 +19,29 @@ switch ($choice) {
         Write-Host "[1.3] Import Validated Templates"
         $sub = Read-Host "`nSelect an option"
         switch ($sub) {
-            '1.1' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\TemplateManagement\Export-AllTemplates.ps1" }
-            '1.2' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\TemplateManagement\Validate-CSVImport.ps1" }
-            '1.3' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\TemplateManagement\Import-FromCSV.ps1" }
+            '1.1' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\TemplateManagement\Export-AllTemplates.ps1" }
+            '1.2' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\TemplateManagement\Validate-CSVImport.ps1" }
+            '1.3' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\TemplateManagement\Import-FromCSV.ps1" }
         }
     }
     '2' {
         Render-PanelHeader -Title "Manage Site, Building & Floor Metadata"
-	Write-Host "[2.1] Export Site/Building Templates"
-	Write-Host "[2.2] Import Site/Building from CSV"
-	Write-Host "[2.3] View Current Site/Building Structure"
-	Write-Host "[2.4] Return to Previous Menu"
-	$sub = Read-Host "`nSelect an option"
-	switch ($sub) {
-    		'2.1' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\SiteManagement\Export-SiteStructureTemplates.ps1" }
-    		'2.2' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\SiteManagement\Import-SiteStructureFromCSV.ps1" }
-    		'2.3' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\SiteManagement\List-SiteStructure.ps1" }
-    		'2.4' { return }
-	}
+        Write-Host "[2.1] Export Site/Building Templates"
+        Write-Host "[2.2] Import Site/Building from CSV"
+        Write-Host "[2.3] View Current Site/Building Structure"
+        Write-Host "[2.4] Return to Previous Menu"
+        $sub = Read-Host "`nSelect an option"
+        switch ($sub) {
+            '2.1' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\Export-SiteStructureTemplates.ps1" }
+            '2.2' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\Import-SiteStructureFromCSV.ps1" }
+            '2.3' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\List-SiteStructure.ps1" }
+            '2.4' { return }
+        }
 
     }
     '3' {
         Render-PanelHeader -Title "Sync Cloud Resources"
-        . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
+        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
         Write-Host "âœ”ï¸ Cached metadata refreshed."
     }
     '4' {
@@ -54,12 +54,12 @@ switch ($choice) {
         Write-Host "[4.6] Pin Places App in Teams"
         $sub = Read-Host "`nSelect an option"
         switch ($sub) {
-            '4.1' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Configuration\Enable-PlacesFeatures.ps1" }
-            '4.2' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Configuration\Validate-PlacesFeatures.ps1" }
-            '4.3' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Configuration\Validate-ExchangeSetup.ps1" }
-            '4.4' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\EnvironmentSetup\Update-MailboxTypes.ps1" }
-            '4.5' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\EnvironmentSetup\Ensure-CalendarProcessingSettings.ps1" }
-            '4.6' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\EnvironmentSetup\Pin-PlacesAppInTeams.ps1" }
+            '4.1' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Enable-PlacesFeatures.ps1" }
+            '4.2' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Validate-PlacesFeatures.ps1" }
+            '4.3' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Validate-ExchangeSetup.ps1" }
+            '4.4' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\EnvironmentSetup\Update-MailboxTypes.ps1" }
+            '4.5' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\EnvironmentSetup\Ensure-CalendarProcessingSettings.ps1" }
+            '4.6' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\EnvironmentSetup\Pin-PlacesAppInTeams.ps1" }
         }
     }
     '5' {
@@ -69,8 +69,8 @@ switch ($choice) {
     Write-Host "[5.3] Return to Previous Menu"
     $sub = Read-Host "`nSelect an option"
     switch ($sub) {
-        '5.1' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Configuration\Create-ConfigBackup.ps1" }
-        '5.2' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Configuration\Restore-ConfigBackup.ps1" }
+        '5.1' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Create-ConfigBackup.ps1" }
+        '5.2' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Restore-ConfigBackup.ps1" }
         '5.3' { return }
         default {
             Write-Host "Invalid option." -ForegroundColor Yellow
@@ -86,15 +86,15 @@ Write-Host "     [6.4] Return to Previous Menu"
 
 $backupChoice = Read-Host "`nChoose an option"
 switch ($backupChoice) {
-    '6.1' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\TemplateManagement\Export-AllTemplates.ps1" }
-    '6.2' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Configuration\Create-ConfigBackup.ps1" }
-    '6.3' { . "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Configuration\Restore-ConfigBackup.ps1" }
+    '6.1' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\TemplateManagement\Export-AllTemplates.ps1" }
+    '6.2' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Create-ConfigBackup.ps1" }
+    '6.3' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Restore-ConfigBackup.ps1" }
     '6.4' { return }
 }
     }
     }
     '7' {
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Configuration\Run-FirstTimeSetup.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\Configuration\Run-FirstTimeSetup.ps1"
     }
     '8' { return }
     default {
@@ -102,6 +102,7 @@ switch ($backupChoice) {
         Start-Sleep -Seconds 2
     }
 }
+
 
 
 

@@ -1,5 +1,5 @@
-﻿# Load Shared Connection Logic
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
+# Load Shared Connection Logic
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
     Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
@@ -35,6 +35,7 @@ try {
 } catch {
     Write-Warning "Ã¢ÂÅ’ Booking test failed: $_"
 }
+
 
 
 

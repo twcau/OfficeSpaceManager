@@ -1,11 +1,11 @@
-﻿<#
+<#
 .SYNOPSIS
     Imports a CSV metadata file into local metadata storage
 .DESCRIPTION
     Supports Sites, Buildings+Floors, Desks, Desk Pools, and Equipment resources.
 #>
 
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Shared\Write-Log.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\Shared\Write-Log.ps1"
 Render-PanelHeader -Title "Import Metadata from CSV"
 
 $importFolder = ".\Imports"
@@ -154,5 +154,6 @@ switch ($filename) {
         Write-Warning "🚫 No import logic exists for: $filename"
     }
 }
+
 
 

@@ -1,4 +1,4 @@
-﻿<#
+<#
     Script: Invoke-MainMenu.ps1
     Purpose: CLI Terminal Navigation Shell for OfficeSpaceManager
     Author: Your Team
@@ -12,7 +12,8 @@ if ($PSVersionTable.PSVersion.Major -lt 7) {
         Write-Host "Launching in PowerShell 7..."
         Start-Process "pwsh.exe" "-File `"$PSCommandPath`""
         exit
-    } else {
+    }
+    else {
         Write-Host "Please install PowerShell 7: https://learn.microsoft.com/powershell/scripting/install/installing-powershell"
         exit
     }
@@ -66,57 +67,58 @@ function Write-Log {
 $configPath = ".\config\FirstRunComplete.json"
 if (-not (Test-Path $configPath)) {
     if (!(Test-Path ".\config")) { New-Item ".\config" -ItemType Directory | Out-Null }
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Configuration\Run-FirstTimeSetup.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Run-FirstTimeSetup.ps1"
 }
 # endregion
 
 # region ðŸ” Load Global UI Utilities
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\CLI\Show-ActionHistory.ps1"
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\CLI\Render-PanelHeader.ps1"
-# endregion
+                . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Show-ActionHistory.ps1"
+                . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Render-PanelHeader.ps1"
+                # endregion
 
-# region ðŸ§¼ Refresh Local Cache
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1"
-# endregion
+                # region ðŸ§¼ Refresh Local Cache
+                . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1"
+                # endregion
 
-# region ðŸ§­ Main Menu Navigation
-do {
-    Clear-Host
-    Render-PanelHeader -Title "OfficeSpaceManager - Main Menu"
+                # region ðŸ§­ Main Menu Navigation
+                do {
+                    Clear-Host
+                    Render-PanelHeader -Title "OfficeSpaceManager - Main Menu"
 
-    Write-Host "[1] Manage Resources"
-    Write-Host "[2] Orphan & Metadata Management"
-    Write-Host "[3] Configuration & Setup"
-    Write-Host "[4] Metadata & Logs"
-    Write-Host "[5] Run First-Time Setup Wizard"
-    Write-Host "[6] Exit"
+                    Write-Host "[1] Manage Resources"
+                    Write-Host "[2] Orphan & Metadata Management"
+                    Write-Host "[3] Configuration & Setup"
+                    Write-Host "[4] Metadata & Logs"
+                    Write-Host "[5] Run First-Time Setup Wizard"
+                    Write-Host "[6] Exit"
 
-    Show-ActionHistory
-    $selection = Read-Host "`nSelect an option"
+                    Show-ActionHistory
+                    $selection = Read-Host "`nSelect an option"
 
-    switch ($selection) {
-        '1' { . "$PSScriptRoot\ManageResourcesMenu.ps1" }
-        '2' { . "$PSScriptRoot\OrphanMetadataMenu.ps1" }
-        '3' { . "$PSScriptRoot\ConfigurationMenu.ps1" }
-        '4' { . "$PSScriptRoot\LogsMenu.ps1" }
-	'5' { . "$PSScriptRoot\Configuration\Run-FirstTimeSetup.ps1" }
-        '6' {
-        Write-Host "`nExiting..." -ForegroundColor Cyan
-        . "$PSScriptRoot\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
-        Write-Log "User exited the script."
-        exit
-	}
+                    switch ($selection) {
+                        '1' { . "$PSScriptRoot\ManageResourcesMenu.ps1" }
+                        '2' { . "$PSScriptRoot\OrphanMetadataMenu.ps1" }
+                        '3' { . "$PSScriptRoot\ConfigurationMenu.ps1" }
+                        '4' { . "$PSScriptRoot\LogsMenu.ps1" }
+                        '5' { . "$PSScriptRoot\Configuration\Run-FirstTimeSetup.ps1" }
+                        '6' {
+                            Write-Host "`nExiting..." -ForegroundColor Cyan
+                            . "$PSScriptRoot\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
+                            Write-Log "User exited the script."
+                            exit
+                        }
 
-    }
+                    }
 
-} while ($true)
-# endregion
+                } while ($true)
+                # endregion
 
-# region ðŸ§¼ Exit Cleanup
-. "$PSScriptRoot\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
-Write-Log "Exited session and refreshed cache"
-Write-Host "`nSession ended. Cache refreshed. Goodbye!" -ForegroundColor Green
-# endregion
+                # region ðŸ§¼ Exit Cleanup
+                . "$PSScriptRoot\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
+                Write-Log "Exited session and refreshed cache"
+                Write-Host "`nSession ended. Cache refreshed. Goodbye!" -ForegroundColor Green
+                # endregion
+
 
 
 

@@ -1,4 +1,4 @@
-﻿function Restore-ConfigBackup {
+function Restore-ConfigBackup {
     Render-PanelHeader -Title "Restore Metadata from Backup Archive"
 
     # ðŸ§­ Step 1: Select Backup
@@ -75,7 +75,7 @@
     # ðŸ” Step 5: Backup existing metadata first
     $backupChoice = Read-Host "`nDo you want to backup existing metadata before restore? (Y/N)"
     if ($backupChoice -eq 'Y') {
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\Configuration\Create-ConfigBackup.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Create-ConfigBackup.ps1"
     }
 
     # âœ… Step 6: Confirm restore
@@ -99,6 +99,7 @@
 }
 
 Restore-ConfigBackup
+
 
 
 

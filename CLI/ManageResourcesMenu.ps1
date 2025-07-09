@@ -1,4 +1,4 @@
-﻿Render-PanelHeader -Title "Manage Resources"
+Render-PanelHeader -Title "Manage Resources"
 
 # ðŸ‘‡ Check if any valid drafts exist
 $hasDrafts = @(Get-ChildItem ".\.Drafts" -Filter *.json -ErrorAction SilentlyContinue | Where-Object {
@@ -25,27 +25,27 @@ $choice = Read-Host "`nSelect an option"
 
 switch ($choice) {
     '1' { 
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\CLI\Wizards\Manage-ResourceWizard.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Manage-ResourceWizard.ps1"
     }
     '2' {
         if ($hasDrafts) {
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\CLI\Wizards\Retry-DraftRunner.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Retry-DraftRunner.ps1"
         } else {
             Write-Host "No drafts available to recover." -ForegroundColor Yellow
             Start-Sleep -Seconds 2
         }
     }
     '3' { 
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\CLI\Manage\Toggle-ResourceState.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Manage\Toggle-ResourceState.ps1"
     }
     '4' { 
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\TestSuite\Run-BookingSimulation.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\..\TestSuite\Run-BookingSimulation.ps1"
     }
     '5' { 
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\CLI\Wizards\Create-DeskPoolWizard.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Create-DeskPoolWizard.ps1"
     }
     '6' { 
-. "V:\Scripts\Saved Scripts\TESTING\OfficeSpaceManager\CLI\Wizards\Manage-DeskPools.ps1"
+. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Manage-DeskPools.ps1"
     }
     '7' { 
         return 
@@ -55,6 +55,7 @@ switch ($choice) {
         Start-Sleep -Seconds 2
     }
 }
+
 
 
 
