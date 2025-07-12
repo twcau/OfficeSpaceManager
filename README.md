@@ -2,11 +2,24 @@
 
 A modular PowerShell CLI toolkit to establish a simple, and logical workflow from a single place to establish and manage Microsoft Places, Exchange Room Resources, and Metadata across Microsoft 365 environments.
 
-WARNING: This repository is still under major initial development, and should be considered 'Extreme Alpha'. Any use of this repository is at your own risk knowing there will be continued and ongoing changes underway.
+> [!CAUTION]
+> This repository is still under major initial development, and should be considered 'Extreme Alpha'. Any use of this repository is at your own risk knowing there will be continued and ongoing changes underway.
+
+<!-- vscode-markdown-toc -->
+* [🚀 Features](#Features)
+* [🔧 Requirements](#Requirements)
+* [🧠 Usage](#Usage)
+* [📁 Folder Structure](#FolderStructure)
+
+<!-- vscode-markdown-toc-config
+	numbering=false
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
 
 ---
 
-## 🚀 Features
+## <a name='Features'></a>🚀 Features
 
 - ✅ Interactive CLI with modular submenus
 - ✅ Automated first-time tenant setup
@@ -22,7 +35,7 @@ WARNING: This repository is still under major initial development, and should be
 
 ---
 
-## 🔧 Requirements
+## <a name='Requirements'></a>🔧 Requirements
 
 - PowerShell 7.0+
 - Modules:
@@ -34,7 +47,7 @@ WARNING: This repository is still under major initial development, and should be
 
 ---
 
-## 🧠 Usage
+## <a name='Usage'></a>🧠 Usage
 
 1. Open PowerShell 7+
 
@@ -50,7 +63,7 @@ You’ll be guided through first-time setup if it's your first run.
 
 ---
 
-## 📁 Folder Structure
+## <a name='FolderStructure'></a>📁 Folder Structure
 
 WARNING: Due to the continued development, this is subject to change.
 
