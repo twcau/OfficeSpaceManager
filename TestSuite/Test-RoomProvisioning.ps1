@@ -3,7 +3,7 @@
 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
+Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     return
 }
 
@@ -18,7 +18,7 @@ function Test-RoomProvisioning {
     $displayName = "TEST Meeting Room $guid"
     $email = "$alias@$domain"
 
-    Write-Host "Ã°Å¸Ââ€”Ã¯Â¸Â Creating test room resource: $displayName"
+Write-Log -Message "Creating test room resource: $displayName" -Level 'INFO'
 
     New-Mailbox -Name $displayName -Alias $alias -Room `
         -PrimarySmtpAddress $email `

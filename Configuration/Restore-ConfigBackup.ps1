@@ -5,7 +5,7 @@ function Restore-ConfigBackup {
     # ðŸ§­ Step 1: Select Backup
     $backups = Get-ChildItem ".\Backups" -Filter *.zip -ErrorAction SilentlyContinue
     if (-not $backups) {
-        Write-Warning "âŒ No backup archives found in .\Backups"
+Write-Log -Message "No backup archives found in .\Backups" -Level 'WARN'
         return
     }
 
@@ -13,7 +13,7 @@ function Restore-ConfigBackup {
         $file = $backups | Out-GridView -Title "Select Backup to Restore" -PassThru
     } catch {
         $file = $backups | Sort-Object LastWriteTime -Descending | Select-Object -First 1
-        Write-Warning "âš ï¸ Out-GridView unavailable. Using most recent backup: $($file.Name)"
+Write-Log -Message "Out-GridView unavailable. Using most recent backup: $($file.Name)" -Level 'WARN'
     }
 
     if (-not $file) { return }
@@ -46,7 +46,7 @@ function Restore-ConfigBackup {
     }
 
     if ($missing.Count -gt 0) {
-        Write-Warning "`nâŒ The following required files were missing from the archive:"
+Write-Log -Message "nâŒ The following required files were missing from the archive:" -Level 'WARN'
         $missing | ForEach-Object { Write-Host "  - $_" -ForegroundColor Yellow }
         Write-Log "Restore aborted. Missing files: $($missing -join ', ')"
         return
@@ -57,7 +57,7 @@ function Restore-ConfigBackup {
         try {
             return Get-Content $filePath -Raw | ConvertFrom-Json -ErrorAction Stop
         } catch {
-            Write-Warning "âŒ Invalid JSON in $filePath"
+Write-Log -Message "Invalid JSON in $filePath" -Level 'WARN'
             throw
         }
     }
@@ -82,7 +82,7 @@ function Restore-ConfigBackup {
     # âœ… Step 6: Confirm restore
     $confirm = Read-Host "`nProceed with overwriting current metadata with the above? (Y/N)"
     if ($confirm -ne 'Y') {
-        Write-Warning "âŒ Restore cancelled by user."
+Write-Log -Message "Restore cancelled by user." -Level 'WARN'
         return
     }
 
@@ -95,7 +95,7 @@ function Restore-ConfigBackup {
     try {
         Remove-Item $restoreFolder -Recurse -Force -ErrorAction Stop
     } catch {
-        Write-Warning "âš ï¸ Could not delete temp folder: $restoreFolder"
+Write-Log -Message "Could not delete temp folder: $restoreFolder" -Level 'WARN'
     }
 }
 

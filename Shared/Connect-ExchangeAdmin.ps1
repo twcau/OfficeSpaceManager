@@ -13,7 +13,7 @@ function Connect-ExchangeAdmin {
             $distinctUPNs = $info.UserPrincipalName -split '\s+' | Select-Object -Unique
             $upnString = ($distinctUPNs -join ', ')
 
-            Write-Host "🔐 Already connected as: $upnString" -ForegroundColor Green
+Write-Log -Message "Already connected as: $upnString" -Level 'INFO'
             Write-Log "Exchange connection reused: $upnString"
             return $distinctUPNs[0]  # Return primary UPN for downstream logic
         }
@@ -31,12 +31,12 @@ function Connect-ExchangeAdmin {
             throw "UserPrincipalName not returned after connection"
         }
 
-        Write-Host "🔐 Connected as: $upn" -ForegroundColor Green
+Write-Log -Message "Connected as: $upn" -Level 'INFO'
         Write-Log "Connected to Exchange Online as $upn"
         return $upn
     }
     catch {
-        Write-Warning "❌ Exchange connection failed: $($_.Exception.Message)"
+Write-Log -Message "Exchange connection failed: $($_.Exception.Message)" -Level 'WARN'
         return $null
     }
 }

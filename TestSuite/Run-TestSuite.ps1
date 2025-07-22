@@ -3,7 +3,7 @@
 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
+Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     return
 }
 
@@ -15,7 +15,7 @@ function Run-TestSuite {
 
     $timestamp = Get-Date -Format "yyyyMMdd-HHmmss"
     $logFile = "$logFolder\TestLog-$timestamp.log"
-    Write-Host "Logging test results to: $logFile`n"
+Write-Log -Message "Logging test results to: $logFile`n" -Level 'INFO'
 
     . "$PSScriptRoot\Test-DeskProvisioning.ps1"     2>&1 | Tee-Object -FilePath $logFile -Append
     . "$PSScriptRoot\Test-RoomProvisioning.ps1"     2>&1 | Tee-Object -FilePath $logFile -Append

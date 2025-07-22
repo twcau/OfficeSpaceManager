@@ -253,6 +253,12 @@ All changes to Exchange/Graph are:
 
 ---
 
+## <a name='todo'></a>🔧 TODO
+
+See [TODO](TODO.md)
+
+---
+
 ## 📘 License & Credits
 
 > OfficeSpaceManager – Internal Admin Toolkit  

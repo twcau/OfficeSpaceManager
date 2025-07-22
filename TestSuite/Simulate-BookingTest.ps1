@@ -3,7 +3,7 @@
 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
+Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     return
 }
 
@@ -27,14 +27,14 @@ if (-not $Domain) {
 $upn = "$Alias@$Domain"
 
 try {
-    Write-Host "Ã°Å¸â€œâ€¦ Simulating booking for $upn..."
+Write-Log -Message "Simulating booking for $upn..." -Level 'INFO'
     $start = (Get-Date).AddHours(2)
     $end = $start.AddMinutes(30)
 
     New-TestMessage -Recipient $upn -Start $start -End $end -Subject "Test Booking" -ErrorAction Stop
-    Write-Host "Ã¢Å“â€¦ Test booking sent." -ForegroundColor Green
+Write-Log -Message "Test booking sent." -Level 'INFO'
 } catch {
-    Write-Warning "Ã¢ÂÅ’ Booking test failed: $_"
+Write-Log -Message "Booking test failed: $_" -Level 'WARN'
 }
 
 

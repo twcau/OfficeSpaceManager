@@ -7,7 +7,7 @@ function Connect-TeamsService {
     # Check existing session
     try {
         $details = Get-CsTenant -ErrorAction Stop
-        Write-Host "🔐 Already connected to Microsoft Teams." -ForegroundColor Green
+Write-Log -Message "Already connected to Microsoft Teams." -Level 'INFO'
         Write-Log "Reused Teams session."
         return $true
     } catch {
@@ -17,11 +17,11 @@ function Connect-TeamsService {
     # New connection
     try {
         Connect-MicrosoftTeams
-        Write-Host "🔐 Connected to Microsoft Teams." -ForegroundColor Green
+Write-Log -Message "Connected to Microsoft Teams." -Level 'INFO'
         Write-Log "Connected to Microsoft Teams."
         return $true
     } catch {
-        Write-Warning "❌ Microsoft Teams connection failed: $($_.Exception.Message)"
+Write-Log -Message "Microsoft Teams connection failed: $($_.Exception.Message)" -Level 'WARN'
         return $false
     }
 }

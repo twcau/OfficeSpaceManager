@@ -3,7 +3,7 @@
 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
+Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     return
 }
 
@@ -14,11 +14,11 @@ function Pin-PlacesAppInTeams {
     $appId = "com.microsoft.places"
 
     if ($policy.PinnedApps -contains $appId) {
-        Write-Host "Ã¢Å“â€¦ Places app already pinned."
+Write-Log -Message "Places app already pinned." -Level 'INFO'
     } else {
         $newPinnedApps = $policy.PinnedApps + $appId
         Set-CsTeamsAppSetupPolicy -Identity "Global" -PinnedApps $newPinnedApps
-        Write-Host "Ã¢Å“â€Ã¯Â¸Â Pinned Places app in Teams setup policy."
+Write-Log -Message "Pinned Places app in Teams setup policy." -Level 'INFO'
         Write-Log "Pinned Places app in Teams"
     }
 }

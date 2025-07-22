@@ -11,13 +11,13 @@ Render-PanelHeader -Title "Import Metadata from CSV"
 
 $importFolder = ".\Imports"
 if (!(Test-Path $importFolder)) {
-    Write-Warning "❌ Imports folder does not exist."
+Write-Log -Message "Imports folder does not exist." -Level 'WARN'
     return
 }
 
 $csvFiles = Get-ChildItem $importFolder -Filter *.csv
 if ($csvFiles.Count -eq 0) {
-    Write-Warning "❌ No CSV files found in .\Imports"
+Write-Log -Message "No CSV files found in .\Imports" -Level 'WARN'
     return
 }
 
@@ -30,11 +30,11 @@ $fullPath = $file.FullName
 try {
     $csvData = Import-Csv $fullPath -ErrorAction Stop
     if ($csvData.Count -eq 0) {
-        Write-Warning "⚠️ CSV is empty."
+Write-Log -Message "CSV is empty." -Level 'WARN'
         return
     }
 } catch {
-    Write-Error "❌ Failed to read CSV file: $_"
+Write-Log -Message "Failed to read CSV file: $_" -Level 'ERROR'
     return
 }
 
@@ -51,10 +51,10 @@ switch ($filename) {
         foreach ($row in $csvData) {
             $match = $existing | Where-Object { $_.SiteCode -eq $row.SiteCode }
             if ($match) {
-                Write-Host "🔁 Updating site: $($row.SiteCode)"
+Write-Log -Message "Updating site: $($row.SiteCode)" -Level 'INFO'
                 $existing = $existing | Where-Object { $_.SiteCode -ne $row.SiteCode }
             } else {
-                Write-Host "➕ Adding site: $($row.SiteCode)"
+Write-Log -Message "Adding site: $($row.SiteCode)" -Level 'INFO'
             }
             $merged += [PSCustomObject]@{
                 SiteCode = $row.SiteCode
@@ -152,7 +152,7 @@ switch ($filename) {
     }
 
     default {
-        Write-Warning "🚫 No import logic exists for: $filename"
+Write-Log -Message "No import logic exists for: $filename" -Level 'WARN'
     }
 }
 

@@ -16,7 +16,7 @@ function Create-ConfigBackup {
         if (Test-Path $p) {
             $itemsToBackup += $p
         } else {
-            Write-Warning "⚠️ Skipping missing path: $p"
+Write-Log -Message "Skipping missing path: $p" -Level 'WARN'
         }
     }
 
@@ -27,7 +27,7 @@ function Create-ConfigBackup {
     }
 
     if ($itemsToBackup.Count -eq 0) {
-        Write-Warning "❌ No valid content found to back up. Backup aborted."
+Write-Log -Message "No valid content found to back up. Backup aborted." -Level 'WARN'
         Write-Log "Backup skipped — no items found."
         return
     }

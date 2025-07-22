@@ -15,7 +15,7 @@
 $resourceType = Read-Host "What type of resource are you creating/editing? [desk / room / equipment]"
 $resourceType = $resourceType.ToLower()
 if ($resourceType -notin @('desk', 'room', 'equipment')) {
-    Write-Host "âŒ Invalid resource type." -ForegroundColor Red
+Write-Log -Message "Invalid resource type." -Level 'ERROR'
     return
 }
 $resourceFile = ".\Metadata\$($resourceType)s.json"
@@ -73,7 +73,7 @@ $domain = if ($domains.Count -eq 1) {
     $domains[0]
 } else {
     for ($i = 0; $i -lt $domains.Count; $i++) {
-        Write-Host "[$($i+1)] $($domains[$i])"
+Write-Log -Message "i+1)] $($domains[$i])" -Level 'INFO'
     }
     $sel = Read-Host "Select domain"
     $domains[$sel - 1]
@@ -170,7 +170,7 @@ if ($existingMailbox) {
 
         $securePwd = (New-SecurePassword) | ConvertTo-SecureString -AsPlainText -Force
 
-        Write-Host "ðŸ›  Creating mailbox in Exchange..."
+Write-Log -Message "Creating mailbox in Exchange..." -Level 'INFO'
         New-Mailbox -Name $resource.DisplayName `
                     -Alias $resource.Alias `
                     -DisplayName $resource.DisplayName `
@@ -196,14 +196,14 @@ if ($existingMailbox) {
         }
 
         Set-Place @placeParams
-        Write-Host "ðŸ¢ Microsoft Places configuration applied." -ForegroundColor Green
+Write-Log -Message "Microsoft Places configuration applied." -Level 'INFO'
 
     } catch {
         $errorFlag = $true
-        Write-Warning "âŒ Exchange provisioning failed: $_"
+Write-Log -Message "Exchange provisioning failed: $_" -Level 'WARN'
         $draftPath = "$draftFolder\Draft_${resourceType}_$(Get-Date -Format 'yyyyMMdd_HHmm').json"
         $resource | ConvertTo-Json -Depth 8 | Set-Content $draftPath
-        Write-Host "ðŸ’¾ Draft saved to $draftPath for retry."
+Write-Log -Message "Draft saved to $draftPath for retry." -Level 'INFO'
         return
     }
 }
@@ -228,17 +228,17 @@ if (-not $errorFlag) {
                 $success = $simResult.MailboxFound -and $simResult.MailFlowOK -and $simResult.AutoAccept
 
                 if ($success) {
-                    Write-Host "âœ… Simulation test passed for $alias@$domain" -ForegroundColor Green
+Write-Log -Message "Simulation test passed for $alias@$domain" -Level 'INFO'
                     Write-Log "Simulation success for $alias@$domain"
                     break
                 } else {
-                    Write-Warning "âš ï¸ Simulation ran but had issues. See log or review above."
+Write-Log -Message "Simulation ran but had issues. See log or review above." -Level 'WARN'
                     Write-Log "Simulation warning for $alias@$domain"
                     $again = Read-Host "Would you like to retry simulation? (Y/N)"
                     if ($again -ne 'Y') { break }
                 }
             } catch {
-                Write-Warning "âŒ Simulation test failed: $_"
+Write-Log -Message "Simulation test failed: $_" -Level 'WARN'
                 Write-Log "Simulation exception: $_"
                 break
             }
@@ -247,7 +247,7 @@ if (-not $errorFlag) {
         }
     } while ($true)
 } else {
-    Write-Host "âŒ Resource not provisioned in Exchange. Skipping simulation." -ForegroundColor Yellow
+Write-Log -Message "Resource not provisioned in Exchange. Skipping simulation." -Level 'WARN'
 }
 #endregion
 

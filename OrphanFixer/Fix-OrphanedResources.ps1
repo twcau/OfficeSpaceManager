@@ -10,7 +10,7 @@ function Fix-OrphanedResources {
     }
 
     if ($fixCandidates.Count -eq 0) {
-        Write-Host "✅ No orphaned mailboxes to fix."
+Write-Log -Message "No orphaned mailboxes to fix." -Level 'INFO'
         return
     }
 
@@ -35,7 +35,7 @@ function Fix-OrphanedResources {
         }
 
         $metadataDesks += $newDesk
-        Write-Host "✔️ Added new desk to metadata: $deskId"
+Write-Log -Message "Added new desk to metadata: $deskId" -Level 'INFO'
         Write-Log "Orphaned mailbox $($orphan.Alias) linked to $deskId"
     }
 

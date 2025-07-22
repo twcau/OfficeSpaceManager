@@ -3,7 +3,7 @@
 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
+Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     return
 }
 
@@ -18,7 +18,7 @@ function Test-DeskProvisioning {
     $displayName = "TEST Desk $guid (Automation Test)"
     $email = "$alias@$domain"
 
-    Write-Host "Ã°Å¸â€Â§ Creating test desk resource: $displayName"
+Write-Log -Message "Creating test desk resource: $displayName" -Level 'INFO'
 
     New-Mailbox -Name $displayName -Alias $alias -Room `
         -PrimarySmtpAddress $email `
@@ -27,7 +27,7 @@ function Test-DeskProvisioning {
     Set-Mailbox -Identity $alias -Type Room
     Set-CalendarProcessing -Identity $alias -AutomateProcessing AutoAccept
 
-    Write-Host "Ã¢Å“â€¦ Desk created and configured."
+Write-Log -Message "Desk created and configured." -Level 'INFO'
 
     # Update metadata
     $metadataPath = ".\Metadata\DeskDefinitions.json"

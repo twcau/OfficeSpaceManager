@@ -3,7 +3,7 @@
 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
+Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     return
 }
 
@@ -15,14 +15,14 @@ function Validate-ExchangeSetup {
     foreach ($r in $resources) {
         $place = Get-Place -Identity $r.Alias -ErrorAction SilentlyContinue
         if (-not $place) {
-            Write-Warning "$($r.Alias): No Place metadata"
+Write-Log -Message "r.Alias): No Place metadata" -Level 'WARN'
         }
         if ($r.HiddenFromAddressListsEnabled) {
-            Write-Warning "$($r.Alias): Hidden from GAL"
+Write-Log -Message "r.Alias): Hidden from GAL" -Level 'WARN'
         }
     }
 
-    Write-Host "Ã¢Å“â€Ã¯Â¸Â Exchange resource validation completed"
+Write-Log -Message "Exchange resource validation completed" -Level 'INFO'
     Write-Log "Exchange validation completed"
 }
 

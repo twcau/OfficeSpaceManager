@@ -3,17 +3,17 @@
 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
+Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     return
 }
 
 function Run-FirstTimeSetup {
     Render-PanelHeader -Title "First-Time Setup Wizard"
 
-    Write-Host "Ã°Å¸â€Â§ Collecting tenant domain info..."
+Write-Log -Message "Collecting tenant domain info..." -Level 'INFO'
     $org = Get-OrganizationConfig
     $defaultDomain = $org.DefaultDomain
-    Write-Host "Detected default domain: $defaultDomain"
+Write-Log -Message "Detected default domain: $defaultDomain" -Level 'INFO'
 
     # Confirm enabling Places
     $placesEnabled = $org.PlacesEnabled

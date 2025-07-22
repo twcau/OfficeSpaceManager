@@ -17,12 +17,12 @@ function Find-OrphanedResources {
 
     Write-Host "`n🔍 Orphaned Desks (in Metadata but not Exchange): $($orphansMetadata.Count)"
     $orphansMetadata | ForEach-Object {
-        Write-Host "🟡 DeskId: $($_.DeskId) – Missing ExchangeObjectId"
+Write-Log -Message "DeskId: $($_.DeskId) – Missing ExchangeObjectId" -Level 'INFO'
     }
 
     Write-Host "`n🔍 Orphaned Mailboxes (Exchange resources not in metadata): $($orphanedMailboxes.Count)"
     $orphanedMailboxes | ForEach-Object {
-        Write-Host "🟡 $($_.Alias) – $($_.DisplayName)"
+Write-Log -Message "Alias) – $($_.DisplayName)" -Level 'INFO'
     }
 
     Write-Log "Orphan detection completed"

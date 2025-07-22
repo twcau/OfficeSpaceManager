@@ -11,7 +11,7 @@
 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
+Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     return
 }
 
@@ -35,18 +35,18 @@ $results = [PSCustomObject]@{
 try {
     $mailbox = Get-Mailbox -Identity $upn -ErrorAction Stop
     $results.MailboxFound = $true
-    Write-Host "Ã¢Å“â€Ã¯Â¸Â Mailbox exists and is reachable." -ForegroundColor Green
+Write-Log -Message "Mailbox exists and is reachable." -Level 'INFO'
     Write-Log "Mailbox $upn found."
 
     $calendarSettings = Get-CalendarProcessing -Identity $upn -ErrorAction Stop
 
     if ($calendarSettings.AutomateProcessing -eq 'AutoAccept') {
         $results.AutoAccept = $true
-        Write-Host "Ã¢Å“â€Ã¯Â¸Â Calendar processing is set to AutoAccept." -ForegroundColor Green
+Write-Log -Message "Calendar processing is set to AutoAccept." -Level 'INFO'
         Write-Log "Calendar processing for $upn is AutoAccept."
     } else {
         $results.Notes += "AutomateProcessing is set to '$($calendarSettings.AutomateProcessing)'. "
-        Write-Warning "Ã¢Å¡Â Ã¯Â¸Â Calendar processing is not AutoAccept: $($calendarSettings.AutomateProcessing)"
+Write-Log -Message "Calendar processing is not AutoAccept: $($calendarSettings.AutomateProcessing)" -Level 'WARN'
         Write-Log "Calendar processing mismatch for $upn."
     }
 
@@ -55,17 +55,17 @@ try {
 
     if ($test.TestResult -eq 'Success') {
         $results.MailFlowOK = $true
-        Write-Host "Ã¢Å“â€Ã¯Â¸Â Mail flow is working." -ForegroundColor Green
+Write-Log -Message "Mail flow is working." -Level 'INFO'
         Write-Log "Test-MailFlow to $upn passed."
     } else {
         $results.Notes += "Mail flow failed: $($test.Message)"
-        Write-Warning "Ã¢ÂÅ’ Mail flow test failed: $($test.Message)"
+Write-Log -Message "Mail flow test failed: $($test.Message)" -Level 'WARN'
         Write-Log "Mail flow to $upn failed: $($test.Message)"
     }
 
 } catch {
     $results.Notes += $_.Exception.Message
-    Write-Warning "Ã¢ÂÅ’ Simulation failed: $_"
+Write-Log -Message "Simulation failed: $_" -Level 'WARN'
     Write-Log "Booking simulation failed for $upn: $_"
 }
 

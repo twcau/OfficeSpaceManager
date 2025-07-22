@@ -3,7 +3,7 @@
 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
+Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     return
 }
 
@@ -12,12 +12,12 @@ function Cleanup-TestResources {
 
     $mailboxes = Get-Mailbox -ResultSize Unlimited | Where-Object { $_.Alias -like "TEST_*" }
     if ($mailboxes.Count -eq 0) {
-        Write-Host "Ã¢Å“â€¦ No test mailboxes found."
+Write-Log -Message "No test mailboxes found." -Level 'INFO'
         return
     }
 
     foreach ($mb in $mailboxes) {
-        Write-Host "Ã°Å¸Â§Â¹ Removing test mailbox: $($mb.Alias)"
+Write-Log -Message "Removing test mailbox: $($mb.Alias)" -Level 'INFO'
         Remove-Mailbox -Identity $mb.Alias -Confirm:$false
     }
 
@@ -29,7 +29,7 @@ function Cleanup-TestResources {
         $filtered | ConvertTo-Json -Depth 4 | Set-Content $metaPath
     }
 
-    Write-Host "Ã¢Å“â€¦ Cleanup complete."
+Write-Log -Message "Cleanup complete." -Level 'INFO'
     Write-Log "All test resources cleaned from Exchange and metadata."
 }
 Cleanup-TestResources

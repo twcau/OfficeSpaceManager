@@ -4,7 +4,7 @@ function Import-SiteStructureFromCSV {
 
     $latestExportFolder = Get-Item ".\Exports\" | Get-ChildItem -Directory | Sort-Object LastWriteTime -Descending | Select-Object -First 1
     if (-not $latestExportFolder) {
-        Write-Warning "No export folder found."
+Write-Log -Message "No export folder found." -Level 'WARN'
         return
     }
 
@@ -16,7 +16,7 @@ function Import-SiteStructureFromCSV {
         "Template-Sites.csv" {
             $data = Import-Csv -Path $file.FullName
             $data | ConvertTo-Json -Depth 5 | Set-Content ".\Metadata\SiteDefinitions.json"
-            Write-Host "✅ Imported Sites"
+Write-Log -Message "Imported Sites" -Level 'INFO'
             Write-Log "Imported SiteDefinitions.json"
         }
         "Template-Buildings.csv" {
@@ -45,11 +45,11 @@ function Import-SiteStructureFromCSV {
             }
 
             $jsonOut | ConvertTo-Json -Depth 5 | Set-Content ".\Metadata\BuildingDefinitions.json"
-            Write-Host "✅ Imported Buildings and Floors"
+Write-Log -Message "Imported Buildings and Floors" -Level 'INFO'
             Write-Log "Imported BuildingDefinitions.json"
         }
         default {
-            Write-Warning "❌ Unsupported template format"
+Write-Log -Message "Unsupported template format" -Level 'WARN'
         }
     }
 }

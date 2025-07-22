@@ -15,14 +15,14 @@ $siteCode = Read-Host "Site Code (e.g. FRE)"
 
 $deskFile = ".\Metadata\desks.json"
 if (-not (Test-Path $deskFile)) {
-    Write-Host "No desks available. Please create desks first." -ForegroundColor Yellow
+Write-Log -Message "No desks available. Please create desks first." -Level 'WARN'
     return
 }
 $desks = Get-Content $deskFile | ConvertFrom-Json
 $eligibleDesks = $desks | Where-Object { $_.SiteCode -eq $siteCode }
 
 if ($eligibleDesks.Count -eq 0) {
-    Write-Host "❌ No desks found for site '$siteCode'." -ForegroundColor Red
+Write-Log -Message "No desks found for site '$siteCode'." -Level 'ERROR'
     return
 }
 
@@ -44,7 +44,7 @@ $existingPools = Get-Content $poolsFile | ConvertFrom-Json
 $existingPools += $pool
 $existingPools | ConvertTo-Json -Depth 5 | Set-Content $poolsFile
 
-Write-Host "✔️ Desk Pool '$poolName' created with $($selectedDesks.Count) desks." -ForegroundColor Green
+Write-Log -Message "Desk Pool '$poolName' created with $($selectedDesks.Count) desks." -Level 'INFO'
 Write-Log "Desk pool '$poolName' created."
 
 

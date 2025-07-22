@@ -8,7 +8,7 @@
 
 $poolsFile = ".\Metadata\DeskPools.json"
 if (-not (Test-Path $poolsFile)) {
-    Write-Warning "No pools found."
+Write-Log -Message "No pools found." -Level 'WARN'
     return
 }
 $pools = Get-Content $poolsFile | ConvertFrom-Json
@@ -39,7 +39,7 @@ switch ($opt) {
         if ($confirm -eq "DELETE") {
             $pools = $pools | Where-Object { $_.PoolName -ne $selectedPool.PoolName }
             $pools | ConvertTo-Json -Depth 5 | Set-Content $poolsFile
-            Write-Host "🗑 Pool deleted." -ForegroundColor Red
+Write-Log -Message "Pool deleted." -Level 'ERROR'
             Write-Log "Deleted pool '$($selectedPool.PoolName)'"
             return
         }
@@ -51,7 +51,7 @@ $pools = $pools | Where-Object { $_.PoolName -ne $selectedPool.PoolName }
 $pools += $selectedPool
 $pools | ConvertTo-Json -Depth 5 | Set-Content $poolsFile
 Write-Log "Updated pool '$($selectedPool.PoolName)'"
-Write-Host "✔️ Pool updated." -ForegroundColor Green
+Write-Log -Message "Pool updated." -Level 'INFO'
 
 
 

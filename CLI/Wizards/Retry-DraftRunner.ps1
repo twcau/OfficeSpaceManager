@@ -11,7 +11,7 @@ $draftFolder = ".\.Drafts"
 $files = Get-ChildItem -Path $draftFolder -Filter *.json -ErrorAction SilentlyContinue
 
 if (-not $files) {
-    Write-Host "🎉 No draft resources found to recover." -ForegroundColor Green
+Write-Log -Message "No draft resources found to recover." -Level 'INFO'
     return
 }
 
@@ -43,12 +43,12 @@ try {
 
     $securePwd = (New-SecurePassword) | ConvertTo-SecureString -AsPlainText -Force
 
-    Write-Host "📦 Retrying Exchange provisioning for: $($resource.DisplayName)" -ForegroundColor Cyan
+Write-Log -Message "Retrying Exchange provisioning for: $($resource.DisplayName)" -Level 'INFO'
 
     # Check if already exists again
     $existing = Get-Mailbox -Identity $upn -ErrorAction SilentlyContinue
     if ($existing) {
-        Write-Host "⚠️ Mailbox already exists in Exchange. Skipping creation." -ForegroundColor Yellow
+Write-Log -Message "Mailbox already exists in Exchange. Skipping creation." -Level 'WARN'
     } else {
         New-Mailbox -Name $resource.DisplayName `
                     -Alias $resource.Alias `
@@ -78,7 +78,7 @@ try {
 
     Set-Place @placeParams
 
-    Write-Host "✅ Retry successful. Updating metadata and cleaning up draft..." -ForegroundColor Green
+Write-Log -Message "Retry successful. Updating metadata and cleaning up draft..." -Level 'INFO'
 
     # Save into metadata
     $metadataPath = ".\Metadata\$($resourceType)s.json"
@@ -92,7 +92,7 @@ try {
 
     # Remove draft
     Remove-Item $selected.FullName -Force
-    Write-Host "🧹 Draft cleaned up."
+Write-Log -Message "Draft cleaned up." -Level 'INFO'
 
     # Optionally offer simulation test
     $runTest = Read-Host "Run booking simulation now? (Y/N)"
@@ -101,7 +101,7 @@ try {
     }
 
 } catch {
-    Write-Warning "❌ Retry failed: $_"
-    Write-Host "Draft preserved: $($selected.FullName)"
+Write-Log -Message "Retry failed: $_" -Level 'WARN'
+Write-Log -Message "Draft preserved: $($selected.FullName)" -Level 'INFO'
 }
 

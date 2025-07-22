@@ -5,7 +5,7 @@ $resourceType = Read-Host "What type of resource? (Desk, Room, Equipment)"
 $resourceType = $resourceType.Trim().ToLower()
 
 if ($resourceType -notin @('desk', 'room', 'equipment')) {
-    Write-Host "❌ Invalid type." -ForegroundColor Red
+Write-Log -Message "Invalid type." -Level 'ERROR'
     return
 }
 
@@ -17,7 +17,7 @@ switch ($resourceType) {
 }
 
 if (-not (Test-Path $file)) {
-    Write-Host "⚠ No $resourceType data file found." -ForegroundColor Yellow
+Write-Log -Message "No $resourceType data file found." -Level 'WARN'
     return
 }
 
@@ -32,5 +32,5 @@ $data = $data | Where-Object { $_.Alias -ne $selected.Alias }
 $data += $selected
 $data | ConvertTo-Json -Depth 8 | Set-Content $file
 
-Write-Host "✔️ $resourceType '$($selected.DisplayName)' is now $status." -ForegroundColor Cyan
+Write-Log -Message "resourceType '$($selected.DisplayName)' is now $status." -Level 'INFO'
 Write-Log "$resourceType '$($selected.DisplayName)' set to $status."

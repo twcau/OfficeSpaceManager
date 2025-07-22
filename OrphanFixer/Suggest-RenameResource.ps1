@@ -12,7 +12,7 @@ function Suggest-RenameResource {
             if ($confirm -eq 'Y') {
                 Set-Mailbox -Identity $r.Email -DisplayName $suggest
                 Write-Log "Renamed $($r.Email) to $suggest"
-                Write-Host "✔️ Renamed."
+Write-Log -Message "Renamed." -Level 'INFO'
             }
         }
     }

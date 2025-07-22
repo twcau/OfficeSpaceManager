@@ -4,16 +4,16 @@ function Validate-PlacesFeatures {
 
     $org = Get-OrganizationConfig
     if ($org.PlacesEnabled) {
-        Write-Host "✅ Places feature is ENABLED."
+Write-Log -Message "Places feature is ENABLED." -Level 'INFO'
     } else {
-        Write-Warning "❌ Places feature is DISABLED."
+Write-Log -Message "Places feature is DISABLED." -Level 'WARN'
     }
 
     $apps = Get-CsTeamsAppSetupPolicy -Identity Global
     if ($apps.PinnedApps -contains "com.microsoft.places") {
-        Write-Host "✅ Places App is pinned in Teams."
+Write-Log -Message "Places App is pinned in Teams." -Level 'INFO'
     } else {
-        Write-Warning "⚠️ Places App is not pinned."
+Write-Log -Message "Places App is not pinned." -Level 'WARN'
     }
 
     Write-Log "Places features validated"

@@ -11,7 +11,7 @@ function Export-AllTemplates {
     # region 🔍 Domain Context for Templates
     $tenantConfigPath = ".\config\TenantConfig.json"
     if (-not (Test-Path $tenantConfigPath)) {
-        Write-Warning "TenantConfig.json not found. Please run first-time setup."
+Write-Log -Message "TenantConfig.json not found. Please run first-time setup." -Level 'WARN'
         return
     }
     $tenantConfig = Get-Content $tenantConfigPath | ConvertFrom-Json

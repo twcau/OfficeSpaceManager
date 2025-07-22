@@ -1,7 +1,7 @@
 . "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 function Enable-PlacesFeatures {
-    Write-Host "✔️ Enabling Microsoft Places features..."
+Write-Log -Message "Enabling Microsoft Places features..." -Level 'INFO'
     Set-OrganizationConfig -PlacesEnabled $true
-    Write-Host "✅ Microsoft Places enabled."
+Write-Log -Message "Microsoft Places enabled." -Level 'INFO'
     Write-Log "Enabled Microsoft Places"
 }

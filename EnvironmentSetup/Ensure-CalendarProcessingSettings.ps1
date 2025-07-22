@@ -3,7 +3,7 @@
 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
+Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     return
 }
 
@@ -16,7 +16,7 @@ function Ensure-CalendarProcessingSettings {
         $cp = Get-CalendarProcessing -Identity $r.Alias
 
         if (-not $cp.AutomateProcessing -eq "AutoAccept") {
-            Write-Warning "$($r.DisplayName): not set to AutoAccept"
+Write-Log -Message "r.DisplayName): not set to AutoAccept" -Level 'WARN'
             $fix = Read-Host "Fix this? (Y/N)"
             if ($fix -eq 'Y') {
                 Set-CalendarProcessing -Identity $r.Alias -AutomateProcessing AutoAccept -RemoveOldMeetingMessages $true
@@ -25,7 +25,7 @@ function Ensure-CalendarProcessingSettings {
         }
     }
 
-    Write-Host "Ã¢Å“â€Ã¯Â¸Â Calendar processing settings validated"
+Write-Log -Message "Calendar processing settings validated" -Level 'INFO'
 }
 Ensure-CalendarProcessingSettings
 

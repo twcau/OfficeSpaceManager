@@ -3,7 +3,7 @@
 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-    Write-Warning "âš ï¸ Skipping resource sync: unable to authenticate with Exchange Online."
+Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     return
 }
 
@@ -27,11 +27,11 @@ function Update-MailboxTypes {
         }
 
         if ($suggestedType -ne $type) {
-            Write-Host "$alias Ã¢â€ â€™ Suggested Type: $suggestedType (Current: $type)"
+Write-Log -Message "alias Ã¢â€ â€™ Suggested Type: $suggestedType (Current: $type)" -Level 'INFO'
             $apply = Read-Host "Update mailbox type? (Y/N)"
             if ($apply -eq 'Y') {
                 Set-Mailbox -Identity $alias -Type $suggestedType
-                Write-Host "Ã¢Å“â€Ã¯Â¸Â Updated $alias to $suggestedType"
+Write-Log -Message "Updated $alias to $suggestedType" -Level 'INFO'
                 Write-Log "$alias type updated to $suggestedType"
             }
         }

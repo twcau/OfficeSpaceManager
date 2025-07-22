@@ -9,12 +9,12 @@ function Validate-DeskPoolMappings {
         foreach ($memberId in $pool.Members) {
             $match = $desks | Where-Object { $_.DeskId -eq $memberId }
             if (-not $match) {
-                Write-Warning "❌ Pool [$($pool.PoolName)] references non-existent desk: $memberId"
+Write-Log -Message "Pool [$($pool.PoolName)] references non-existent desk: $memberId" -Level 'WARN'
             }
         }
     }
 
-    Write-Host "✅ Desk pool mapping validation complete."
+Write-Log -Message "Desk pool mapping validation complete." -Level 'INFO'
     Write-Log "Validated desk pool mappings"
 }
 Validate-DeskPoolMappings

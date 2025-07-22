@@ -13,14 +13,14 @@
 try {
     # region ðŸ”§ PowerShell 7+ Check
     if ($PSVersionTable.PSVersion.Major -lt 7) {
-        Write-Warning "This tool requires PowerShell 7 or higher."
+Write-Log -Message "This tool requires PowerShell 7 or higher." -Level 'WARN'
         if (Get-Command "pwsh" -ErrorAction SilentlyContinue) {
-            Write-Host "Launching in PowerShell 7..."
+Write-Log -Message "Launching in PowerShell 7..." -Level 'INFO'
             Start-Process "pwsh.exe" "-File `"$PSCommandPath`""
             exit
         }
         else {
-            Write-Host "Please install PowerShell 7: https://learn.microsoft.com/powershell/scripting/install/installing-powershell"
+Write-Log -Message "Please install PowerShell 7: https://learn.microsoft.com/powershell/scripting/install/installing-powershell" -Level 'INFO'
             exit
         }
     }
@@ -35,20 +35,20 @@ try {
 
     foreach ($mod in $requiredModules) {
         if (-not (Get-Module -ListAvailable -Name $mod)) {
-            Write-Warning "Required module '$mod' is missing."
+Write-Log -Message "Required module '$mod' is missing." -Level 'WARN'
             $choice = Read-Host "Do you want to install $mod now? (Y/N)"
             if ($choice -eq 'Y') {
                 try {
                     Install-Module -Name $mod -Scope CurrentUser -Force -ErrorAction Stop
-                    Write-Host "Installed $mod successfully." -ForegroundColor Green
+Write-Log -Message "Installed $mod successfully." -Level 'INFO'
                 }
                 catch {
-                    Write-Error "âŒ Failed to install ${mod}: $($_.Exception.Message)"
+Write-Log -Message "Failed to install ${mod}: $($_.Exception.Message)" -Level 'ERROR'
                     Read-Host "Press Enter to continue or Ctrl+C to exit"
                 }
             }
             else {
-                Write-Error "Cannot continue without $mod. Please install it manually."
+Write-Log -Message "Cannot continue without $mod. Please install it manually." -Level 'ERROR'
                 Read-Host "Press Enter to exit..."
                 exit
             }
@@ -98,7 +98,7 @@ try {
         Write-Log -Message "Last metadata sync was $minutesOld minutes ago ($daysOld days)."
 
         if ($daysOld -ge $syncAgeDays) {
-            Write-Warning "⚠️ Cached metadata is $daysOld days old."
+Write-Log -Message "Cached metadata is $daysOld days old." -Level 'WARN'
             Write-Log -Message "Metadata cache is stale (>$syncAgeDays days)."
 
             $doBackup = Read-Host "Backup metadata before syncing? (Y/N)"
@@ -119,7 +119,7 @@ try {
             }
         }
         elseif ($minutesOld -le 15) {
-            Write-Host "🕒 Last metadata sync was just $minutesOld minutes ago."
+Write-Log -Message "Last metadata sync was just $minutesOld minutes ago." -Level 'INFO'
             Write-Log -Message "Recent metadata cache detected (<15 mins)."
 
             $quickDecision = Read-Host "Skip sync and use recent cache? (Y/N)"
@@ -130,12 +130,12 @@ try {
             }
             else {
                 Write-Log -Message "User skipped metadata sync (recent cache accepted)."
-                Write-Host "⏩ Skipping sync and using recent cached data."
+Write-Log -Message "Skipping sync and using recent cached data." -Level 'INFO'
             }
         }
     }
     else {
-        Write-Warning "❌ No metadata sync file found. Performing initial sync..."
+Write-Log -Message "No metadata sync file found. Performing initial sync..." -Level 'WARN'
         Write-Log -Message "No existing .lastSync.json found. Initiating first-time sync."
         Write-Log -Message "Importing CachedResources\Refresh-CachedResources.ps1"
         . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
@@ -188,7 +188,7 @@ try {
 }
 catch {
     Write-Host "`nâŒ A critical error occurred while running the CLI:" -ForegroundColor Red
-    Write-Host $_.Exception.Message -ForegroundColor Yellow
+Write-Log -Message "Exception.Message" -Level 'WARN'
     Write-Log -Message "â€¼ï¸ Script-level exception: $($_.Exception.Message)"
     Read-Host "`nPress Enter to exit..."
     exit

@@ -43,7 +43,7 @@ switch ($choice) {
     '3' {
         Render-PanelHeader -Title "Sync Cloud Resources"
         . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
-        Write-Host "âœ”ï¸ Cached metadata refreshed."
+Write-Log -Message "Cached metadata refreshed." -Level 'INFO'
     }
     '4' {
         Render-PanelHeader -Title "Environment Setup & Validation"
@@ -97,7 +97,7 @@ switch ($backupChoice) {
     }
     '8' { return }
     default {
-        Write-Host "Invalid option."" -ForegroundColor Yellow
+Write-Log -Message "Invalid option."" -Level 'WARN'
         Start-Sleep -Seconds 2
     }
 }

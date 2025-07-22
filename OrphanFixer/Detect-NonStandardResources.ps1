@@ -6,7 +6,7 @@ function Detect-NonStandardResources {
 
     foreach ($desk in $cache.Desks) {
         if ($desk.DisplayName -notmatch '^[A-Z]{3}[A-Z0-9]+ Shared Desk \d+ \(.+\)$') {
-            Write-Warning "❌ $($desk.DisplayName) does not match naming convention"
+Write-Log -Message "desk.DisplayName) does not match naming convention" -Level 'WARN'
         }
     }
 

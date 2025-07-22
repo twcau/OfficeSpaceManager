@@ -23,7 +23,7 @@ Write-Log -Message "Shared modules loaded"
 # Ensure connection to Exchange
 $admin = Connect-ExchangeAdmin
 if (-not $admin -or $admin -eq '') {
-    Write-Warning "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
+Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     Write-Log -Message "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
     return
 }
@@ -38,17 +38,17 @@ if (Test-Path $syncTrackPath) {
 
         if ($minutesOld -lt 15 -and -not $Force) {
             Write-Log -Message "🕒 Metadata was last refreshed $([int]$minutesOld) minutes ago."
-            Write-Host "🕒 Metadata was last refreshed $([int]$minutesOld) minutes ago." -ForegroundColor Yellow
+Write-Log -Message "Metadata was last refreshed $([int]$minutesOld) minutes ago." -Level 'WARN'
             $doSync = Read-Host "Re-sync cloud metadata anyway? (Y/N)"
             if ($doSync -notin @('Y', 'y')) {
-                Write-Host "⏭️ Skipping metadata refresh." -ForegroundColor Yellow
+Write-Log -Message "Skipping metadata refresh." -Level 'WARN'
                 Write-Log "Skipped Refresh-CachedResources — user declined re-sync at $([int]$minutesOld) minutes."
                 return
             }
         }
     }
     catch {
-        Write-Warning "⚠️ Failed to evaluate metadata freshness — proceeding with sync."
+Write-Log -Message "Failed to evaluate metadata freshness — proceeding with sync." -Level 'WARN'
         Write-Log "⚠️ Failed to evaluate last sync timestamp — $($_.Exception.Message)"
     }
 }
@@ -126,6 +126,6 @@ try {
 
 }
 catch {
-    Write-Warning "❌ Sync failed: $($_.Exception.Message)"
+Write-Log -Message "Sync failed: $($_.Exception.Message)" -Level 'WARN'
     Write-Log "❌ Refresh-CachedResources failed: $($_.Exception.Message)"
 }

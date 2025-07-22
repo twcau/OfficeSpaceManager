@@ -11,13 +11,13 @@ Render-PanelHeader -Title "CSV Template Validation"
 
 $importFolder = ".\Imports"
 if (!(Test-Path $importFolder)) {
-    Write-Warning "No .\Imports folder found. Please place CSV files there first."
+Write-Log -Message "No .\Imports folder found. Please place CSV files there first." -Level 'WARN'
     return
 }
 
 $csvFiles = Get-ChildItem $importFolder -Filter *.csv
 if ($csvFiles.Count -eq 0) {
-    Write-Warning "No CSV files found in .\Imports."
+Write-Log -Message "No CSV files found in .\Imports." -Level 'WARN'
     return
 }
 
@@ -32,11 +32,11 @@ $fileName = $selected.Name
 try {
     $data = Import-Csv $csvPath -ErrorAction Stop
     if ($data.Count -eq 0) {
-        Write-Warning "CSV appears empty."
+Write-Log -Message "CSV appears empty." -Level 'WARN'
         return
     }
 } catch {
-    Write-Warning "❌ Failed to load CSV: $_"
+Write-Log -Message "Failed to load CSV: $_" -Level 'WARN'
     return
 }
 
@@ -50,7 +50,7 @@ $expectedHeadersMap = @{
 }
 
 if (-not $expectedHeadersMap.ContainsKey($fileName)) {
-    Write-Warning "⚠️ Unknown file type: $fileName. No validation map available."
+Write-Log -Message "Unknown file type: $fileName. No validation map available." -Level 'WARN'
     return
 }
 $expected = $expectedHeadersMap[$fileName]
@@ -62,11 +62,11 @@ $missing = $expected | Where-Object { $_ -notin $headers }
 $unexpected = $headers | Where-Object { $_ -notin $expected }
 
 if ($missing.Count -gt 0) {
-    Write-Warning "Missing expected fields: $($missing -join ', ')"
+Write-Log -Message "Missing expected fields: $($missing -join ', ')" -Level 'WARN'
     Write-Log "CSV Validation: Missing headers in $fileName: $($missing -join ', ')"
 }
 if ($unexpected.Count -gt 0) {
-    Write-Warning "Unexpected fields present: $($unexpected -join ', ')"
+Write-Log -Message "Unexpected fields present: $($unexpected -join ', ')" -Level 'WARN'
     Write-Log "CSV Validation: Extra fields in $fileName: $($unexpected -join ', ')"
 }
 
@@ -95,7 +95,7 @@ if ($invalidRows.Count -gt 0) {
     Write-Host "`n⚠️ Found $($invalidRows.Count) data issues:" -ForegroundColor Yellow
     $invalidRows | Select-Object -First 10 | ForEach-Object { Write-Host $_ }
     if ($invalidRows.Count -gt 10) {
-        Write-Host "...and $($invalidRows.Count - 10) more issues not shown"
+Write-Log -Message "and $($invalidRows.Count - 10) more issues not shown" -Level 'INFO'
     }
     Write-Log "CSV validation for $fileName found $($invalidRows.Count) row-level issues."
 } else {
