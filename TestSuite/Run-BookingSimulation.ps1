@@ -17,22 +17,21 @@
 #>
 
 . (Join-Path $PSScriptRoot '..\Modules\Utilities\Resolve-OfficeSpaceManagerRoot.ps1')
-Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Utilities\Utilities.psm1')
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Utilities/Utilities.psm1')
 
 # Load Shared Connection Logic
-. "$PSScriptRoot/../Shared/Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
     Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
+    Read-Host "Press Enter to continue..."
     return
 }
 
 # Accept parameters for alias and domain
 param(
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory = $true)]
     [string]$Alias,
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory = $true)]
     [string]$Domain
 )
 
@@ -41,12 +40,12 @@ Write-Host "`n4d3 Simulating booking test for: $upn" -ForegroundColor Cyan
 Write-Log "Starting booking simulation for $upn"
 
 $results = [PSCustomObject]@{
-    Resource      = $upn
-    MailboxFound  = $false
-    AutoAccept    = $false
-    MailFlowOK    = $false
-    Timestamp     = (Get-Date)
-    Notes         = ""
+    Resource     = $upn
+    MailboxFound = $false
+    AutoAccept   = $false
+    MailFlowOK   = $false
+    Timestamp    = (Get-Date)
+    Notes        = ""
 }
 
 try {
@@ -60,7 +59,8 @@ try {
         $results.AutoAccept = $true
         Write-Log -Message "Calendar processing is set to AutoAccept." -Level 'INFO'
         Write-Log "Calendar processing for $upn is AutoAccept."
-    } else {
+    }
+    else {
         $results.Notes += "AutomateProcessing is set to '$($calendarSettings.AutomateProcessing)'. "
         Write-Log -Message "Calendar processing is not AutoAccept: $($calendarSettings.AutomateProcessing)" -Level 'WARN'
         Write-Log "Calendar processing mismatch for $upn."
@@ -72,11 +72,13 @@ try {
         $results.MailFlowOK = $true
         Write-Log -Message "Mail flow is working." -Level 'INFO'
         Write-Log "Test-MailFlow to $upn passed."
-    } else {
+    }
+    else {
         $results.Notes += "Mail flow test failed. "
         Write-Log -Message "Mail flow test failed for $upn." -Level 'WARN'
     }
-} catch {
+}
+catch {
     $results.Notes += $_.Exception.Message
     Write-Log -Message "Booking simulation failed: $_" -Level 'ERROR'
 }

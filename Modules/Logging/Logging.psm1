@@ -9,6 +9,6 @@
     2025-07-23
 #>
 # Logging.psm1
-. $PSScriptRoot\Logging.ps1
-. $PSScriptRoot\GlobalErrorHandling.ps1
+. (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/Logging.ps1')
+. (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
 Export-ModuleMember -Function Write-Log

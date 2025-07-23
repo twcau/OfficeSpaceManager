@@ -8,7 +8,7 @@
 .FILELASTUPDATED
     2025-07-23
 #>
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
+. (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
 # Import Configuration module
 Import-Module "$PSScriptRoot/../Modules/Configuration/Configuration.psm1" -Force
 

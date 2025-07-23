@@ -17,7 +17,7 @@
 #>
 
 # Import global error handling and logging
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
+. (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
 
 function Import-MetadataFromCSV {
     <#

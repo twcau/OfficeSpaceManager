@@ -8,6 +8,8 @@
 - [2. Proposed Folder Structure](#2-proposed-folder-structure)
 - [3. How to Modularise](#3-how-to-modularise)
 - [4. Example: Logging Module](#4-example-logging-module)
+  - [Modules/Logging/Logging.psm1](#modulesloggingloggingpsm1)
+  - [Usage in another script](#usage-in-another-script)
 - [5. Refactoring Existing Scripts](#5-refactoring-existing-scripts)
 - [6. Naming and Documentation](#6-naming-and-documentation)
 - [7. Testing](#7-testing)
@@ -19,6 +21,7 @@
 ## 0. Modularisation areas
 
 // NOTE - Modularisation
+
 - [X] TODO: Logging (e.g., Write-Log, error handling)
 - [X] TODO: Utilities (helper functions, shared logic)
 - [X] TODO: CLI (menu rendering, prompts, CLI output)
@@ -40,13 +43,12 @@ Consolidate all logging and error handling logic into this file.
 Ensure it dot-sources *.ps1 and exports all public functions.
 4. Update all scripts that use logging
 Remove any direct dot-sourcing of the old scripts.
-And where needed, Add Import-Module *.psm1 (or the correct relative path) at the top of scripts that use *.
-Replace any duplicate or now-centralised logging function definitions.
-5. Clean up
+And where needed, Add Import-Module *.psm1 (or the correct relative path) at the top of scripts that use*.
+5. Replace any duplicate or now-centralised logging function definitions.
+6. Clean up
 Remove the old *.ps1 and any other now-obsolete logging scripts after confirming all references are updated.
-6. Test
+7. Test
 Run scripts and flows that use * to ensure no regressions.
-
 
 ### OB. Modularisation question
 
@@ -84,7 +86,7 @@ Think about the main “areas” or “domains” of your project. For example:
 
 ## 2. Proposed Folder Structure
 
-```
+```text
 OfficeSpaceManager/
 │
 ├── Modules/
@@ -130,14 +132,16 @@ OfficeSpaceManager/
 
 ## 4. Example: Logging Module
 
-**Modules/Logging/Logging.psm1**
+### Modules/Logging/Logging.psm1
+
 ```powershell
 function Write-Log { ... }
 function Get-LogLevel { ... }
 Export-ModuleMember -Function Write-Log, Get-LogLevel
 ```
 
-**Usage in another script:**
+### Usage in another script
+
 ```powershell
 Import-Module "$PSScriptRoot/../Modules/Logging/Logging.psm1"
 Write-Log -Message "Hello" -Level "INFO"
@@ -201,4 +205,4 @@ Write-Log -Message "Hello" -Level "INFO"
 
 - Start by creating the `Modules/` structure and moving functions into logical `.psm1` files.
 - Update your entry scripts to use `Import-Module`.
-- Test each module in isolation, then as part of
+- Test each module in isolation, then as part of whatever.

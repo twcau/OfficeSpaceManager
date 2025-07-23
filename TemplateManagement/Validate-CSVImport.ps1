@@ -17,9 +17,8 @@
 #>
 
 # Import global error handling and logging
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
-. "$PSScriptRoot/../Shared/Write-Log.ps1"
-
+. (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/Logging.psm1')
 Display-PanelHeader -Title "CSV Template Validation"
 
 $importFolder = ".\Imports"

@@ -3,6 +3,8 @@
     CLI Terminal Navigation Shell for OfficeSpaceManager.
 .DESCRIPTION
     Root launcher that governs CLI flow, validates setup, syncs resources, and routes to all submenus. Ensures all required modules are present, validates PowerShell version, and provides a robust entry point for all CLI operations. All output and prompts use inclusive, accessible language and EN-AU spelling.
+.PARAMETER LogVerbose
+    If specified, enables full session transcript and input logging to Logs\TerminalVerbose.
 .FILECREATED
     2023-12-01
 .FILELASTUPDATED
@@ -10,15 +12,19 @@
 .OUTPUTS
     None. Launches CLI and routes to submenus.
 .EXAMPLE
-    .\Invoke-MainMenu.ps1
-    # Launches the main CLI menu for OfficeSpaceManager.
+    .\Invoke-MainMenu.ps1 -LogVerbose
+    # Launches the main CLI menu and logs all input/output to a transcript file.
 #>
+
+param(
+    [switch]$LogVerbose
+)
 
 # Set project root for robust module referencing
 $env:OfficeSpaceManagerRoot = $PSScriptRoot
 
 # Robustly resolve project root for all module imports
-. "$PSScriptRoot\Modules\Utilities\Resolve-OfficeSpaceManagerRoot.ps1"
+. (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Utilities/Resolve-OfficeSpaceManagerRoot.ps1')
 
 # Import Logging module for Write-Log function
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Logging\Logging.psm1') -Force
@@ -26,6 +32,28 @@ Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Logging\Logging.ps
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\CLI\CLI.psm1') -Force
 # Import Configuration module for New-ConfigBackup and related functions
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Configuration\Configuration.psm1') -Force
+
+# region Verbose Transcript & Input Logging
+if ($LogVerbose) {
+    $logDir = Join-Path $env:OfficeSpaceManagerRoot 'Logs/TerminalVerbose'
+    if (-not (Test-Path -Path $logDir)) {
+        New-Item -ItemType Directory -Path $logDir | Out-Null
+    }
+    $timestamp = Get-Date -Format "yyyy-MM-dd-HH-mm"
+    $logFile = Join-Path $logDir "verboselog-invoke-mainmenu-ps1-$timestamp.txt"
+    # Override Read-Host for input logging (if not already overridden)
+    if (-not (Get-Command global:Read-Host -ErrorAction SilentlyContinue)) {
+        function global:Read-Host {
+            param([string]$prompt)
+            $userInput = Microsoft.PowerShell.Utility\Read-Host $prompt
+            Write-Output "[$(Get-Date -Format 'HH:mm:ss')] User input for '$prompt': $userInput"
+            $global:LastUserInput = $userInput
+            return $userInput
+        }
+    }
+    Start-Transcript -Path $logFile -Append
+}
+# endregion
 
 try {
     # region 6e0 PowerShell 7+ Check
@@ -91,7 +119,7 @@ try {
     if (-not (Test-Path $configPath)) {
         if (!(Test-Path ".\config")) { New-Item ".\config" -ItemType Directory | Out-Null }
         Write-Log -Message "Importing Configuration/Invoke-FirstTimeSetup.ps1"
-        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Invoke-FirstTimeSetup.ps1"
+        . (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Invoke-FirstTimeSetup.ps1')
     }
     Write-Log -Message "First time setup script imported."
     # endregion
@@ -129,7 +157,7 @@ try {
             if ($doSync -eq 'Y') {
                 Write-Log -Message "User opted to sync metadata (manual confirmation)."
                 Write-Log -Message "Importing CachedResources\Refresh-CachedResources.ps1"
-                . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
+                . (Join-Path $env:OfficeSpaceManagerRoot 'SiteManagement/CachedResources/Refresh-CachedResources.ps1') -Force
             }
             else {
                 Write-Log -Message "User skipped metadata sync despite stale cache."
@@ -143,7 +171,7 @@ try {
             if ($quickDecision -ne 'Y') {
                 Write-Log -Message "User chose to refresh metadata despite recent sync."
                 Write-Log -Message "Importing CachedResources\Refresh-CachedResources.ps1"
-                . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
+                . (Join-Path $env:OfficeSpaceManagerRoot 'SiteManagement/CachedResources/Refresh-CachedResources.ps1') -Force
             }
             else {
                 Write-Log -Message "User skipped metadata sync (recent cache accepted)."
@@ -155,14 +183,14 @@ try {
         Write-Log -Message "No metadata sync file found. Performing initial sync..." -Level 'WARN'
         Write-Log -Message "No existing .lastSync.json found. Initiating first-time sync."
         Write-Log -Message "Importing CachedResources\Refresh-CachedResources.ps1"
-        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
+        . (Join-Path $env:OfficeSpaceManagerRoot 'SiteManagement/CachedResources/Refresh-CachedResources.ps1') -Force
     }
     # endregion
 
     # region 🧩 Preload Cached Metadata (Always)
     # Preload cached metadata on every script start
     Write-Log -Message "Importing CachedResources\Refresh-CachedResources.ps1"
-    . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1"
+    . (Join-Path $env:OfficeSpaceManagerRoot 'SiteManagement/CachedResources/Refresh-CachedResources.ps1')
     # endregion
 
     Write-Log -Message "Invoke-MainMenu script started successfully. Loading menu."
@@ -183,14 +211,14 @@ try {
         $selection = Read-Host "`nSelect an option"
 
         switch ($selection) {
-            '1' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\ManageResourcesMenu.ps1" }
-            '2' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\OrphanMetadataMenu.ps1" }
-            '3' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\ConfigurationMenu.ps1" }
-            '4' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\LogsMenu.ps1" }
-            '5' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\Configuration\Invoke-FirstTimeSetup.ps1" }
+            '1' { . (Join-Path $env:OfficeSpaceManagerRoot 'CLI/ManageResourcesMenu.ps1') }
+            '2' { . (Join-Path $env:OfficeSpaceManagerRoot 'CLI/OrphanMetadatamenu.ps1') }
+            '3' { . (Join-Path $env:OfficeSpaceManagerRoot 'CLI/ConfigurationMenu.ps1') }
+            '4' { . (Join-Path $env:OfficeSpaceManagerRoot 'CLI/LogsMenu.ps1') }
+            '5' { . (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Invoke-FirstTimeSetup.ps1') }
             '6' {
                 Write-Host "`nExiting..." -ForegroundColor Cyan
-                . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
+                . (Join-Path $env:OfficeSpaceManagerRoot 'SiteManagement/CachedResources/Refresh-CachedResources.ps1') -Force
                 Write-Log -Message "User exited the script."
                 exit
             }
@@ -210,9 +238,16 @@ catch {
     Read-Host "\nPress Enter to exit..."
     exit
 }
+finally {
+    if ($LogVerbose) {
+        Stop-Transcript | Out-Null
+        Write-Host ("`nSession transcript saved to: $logFile") -ForegroundColor Green
+        Read-Host "Press Enter to close and exit..."
+    }
+}
 
 # region 🧩 Exit Cleanup
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
+. (Join-Path $env:OfficeSpaceManagerRoot 'SiteManagement/CachedResources/Refresh-CachedResources.ps1') -Force
 Write-Log -Message "Exited session and refreshed cache"
 Write-Host "\nSession ended. Cache refreshed. Goodbye!" -ForegroundColor Green
 # endregion

@@ -17,11 +17,12 @@
 # Load shared modules and error handling
 . (Join-Path $PSScriptRoot '..\Modules\Utilities\Resolve-OfficeSpaceManagerRoot.ps1')
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Utilities\Utilities.psm1')
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
+. (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
 
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
     Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
+    Read-Host "Press Enter to continue..."
     return
 }
 
@@ -46,9 +47,9 @@ function Run-TestSuite {
     Write-Log -Message "Logging test results to: $logFile`n" -Level 'INFO'
 
     # Execute test scripts and log output
-    . "$PSScriptRoot\Test-DeskProvisioning.ps1"     2>&1 | Tee-Object -FilePath $logFile -Append
-    . "$PSScriptRoot\Test-RoomProvisioning.ps1"     2>&1 | Tee-Object -FilePath $logFile -Append
-    . "$PSScriptRoot\Test-MailboxSettings.ps1"      2>&1 | Tee-Object -FilePath $logFile -Append
+    . (Join-Path $env:OfficeSpaceManagerRoot 'TestSuite/Test-DeskProvisioning.ps1') 2>&1 | Tee-Object -FilePath $logFile -Append
+    . (Join-Path $env:OfficeSpaceManagerRoot 'TestSuite/Test-RoomProvisioning.ps1') 2>&1 | Tee-Object -FilePath $logFile -Append
+    . (Join-Path $env:OfficeSpaceManagerRoot 'TestSuite/Test-MailboxSettings.ps1') 2>&1 | Tee-Object -FilePath $logFile -Append
 
     Write-Host "`n4e2 Test Suite Completed. Review log at: $logFile"
 }

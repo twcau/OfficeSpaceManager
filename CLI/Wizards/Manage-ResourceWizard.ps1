@@ -10,7 +10,7 @@
 #>
 
 Import-Module "$PSScriptRoot/../../Modules/CLI/CLI.psm1"
-. "$PSScriptRoot/../../Shared/Global-ErrorHandling.ps1"
+. (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
 <#
 .SYNOPSIS
     Interactive wizard for creating or editing a Desk, Room, or Equipment resource
@@ -18,9 +18,9 @@ Import-Module "$PSScriptRoot/../../Modules/CLI/CLI.psm1"
 #>
 
 #region [🔧] Load Helper Functions
-. "$PSScriptRoot/../../Shared/Get-StandardDeskName.ps1"
-. "$PSScriptRoot/../../Shared/Write-Log.ps1"
-. "$PSScriptRoot/../../TestSuite/Simulate-BookingTest.ps1"
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Utilities/Utilities.psm1')
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/Logging.psm1')
+. (Join-Path $env:OfficeSpaceManagerRoot 'TestSuite/Simulate-BookingTest.ps1')
 #endregion
 
 #region [📂] Load Metadata
@@ -138,7 +138,7 @@ do {
             $props = $resource.PSObject.Properties | Select-Object -ExpandProperty Name
             foreach ($prop in $props) {
                 $curr = $resource.$prop
-                $action = Read-Host ("$prop: [$curr] -> Keep (K), Replace (R), or Skip")
+                $action = Read-Host ("${prop}: [${curr}] -> Keep (K), Replace (R), or Skip")
                 if ($action -eq 'R') {
                     $resource.$prop = Read-Host "New value for $prop"
                 }
@@ -214,7 +214,7 @@ if (-not $errorFlag) {
         $runSim = Read-Host "Would you like to run a booking simulation now? (Y/N)"
         if ($runSim -eq 'Y') {
             try {
-                $simResult = . "$PSScriptRoot/../../TestSuite/Simulate-BookingTest.ps1" -Alias $alias -Domain $domain
+                $simResult = . (Join-Path $env:OfficeSpaceManagerRoot 'TestSuite/Simulate-BookingTest.ps1') -Alias $alias -Domain $domain
                 $success = $simResult.MailboxFound -and $simResult.MailFlowOK -and $simResult.AutoAccept
                 if ($success) {
                     Write-Log -Message "Simulation test passed for $alias@$domain" -Level 'INFO'

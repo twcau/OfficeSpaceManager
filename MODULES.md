@@ -15,6 +15,7 @@ This document describes all PowerShell modules in the OfficeSpaceManager project
   - [SiteManagement](#sitemanagement)
   - [UserManagement](#usermanagement)
   - [Utilities](#utilities)
+  - [Modules](#modules)
   - [Notes](#notes)
 
 ---
@@ -112,6 +113,18 @@ This document describes all PowerShell modules in the OfficeSpaceManager project
 - **Special Utility:**
   - `Resolve-OfficeSpaceManagerRoot.ps1` — Robustly resolves the project root and sets `$env:OfficeSpaceManagerRoot` for all module imports. This script is dot-sourced at the top of every script that uses Import-Module, ensuring all module paths are absolute and error-proof regardless of working directory or invocation method.
 - Used by: All scripts and modules for common logic.
+
+---
+
+## Modules
+
+- CLI: User interface and menu logic
+- Configuration: Handles configuration and validation
+- Logging: Centralised logging and error handling
+- Reporting: Generates reports and exports
+- SiteManagement: Manages sites, buildings, floors, desks
+- UserManagement: User and permissions management
+- Utilities: Helper functions and root resolution
 
 ---
 

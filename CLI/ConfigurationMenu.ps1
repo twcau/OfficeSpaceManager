@@ -33,9 +33,36 @@ switch ($choice) {
         Write-Host "[1.3] Import Validated Templates"
         $sub = Read-Host "`nSelect an option"
         switch ($sub) {
-            '1.1' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\TemplateManagement\Export-AllTemplates.ps1" }
-            '1.2' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\TemplateManagement\Validate-CSVImport.ps1" }
-            '1.3' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\TemplateManagement\Import-FromCSV.ps1" }
+            '1.1' {
+                try {
+                    . (Join-Path $env:OfficeSpaceManagerRoot 'TemplateManagement/Export-AllTemplates.ps1')
+                }
+                catch {
+                    Write-Log -Message "Failed to run Export-AllTemplates.ps1: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Export-AllTemplates.ps1. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
+            '1.2' {
+                try {
+                    . (Join-Path $env:OfficeSpaceManagerRoot 'TemplateManagement/Validate-CSVImport.ps1')
+                }
+                catch {
+                    Write-Log -Message "Failed to run Validate-CSVImport.ps1: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Validate-CSVImport.ps1. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
+            '1.3' {
+                try {
+                    . (Join-Path $env:OfficeSpaceManagerRoot 'TemplateManagement/Import-FromCSV.ps1')
+                }
+                catch {
+                    Write-Log -Message "Failed to run Import-FromCSV.ps1: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Import-FromCSV.ps1. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
         }
     }
     '2' {
@@ -46,16 +73,50 @@ switch ($choice) {
         Write-Host "[2.4] Return to Previous Menu"
         $sub = Read-Host "`nSelect an option"
         switch ($sub) {
-            '2.1' { Export-SiteStructureTemplates }
-            '2.2' { Import-SiteStructureFromCSV }
-            '2.3' { Get-SiteStructure }
+            '2.1' {
+                try {
+                    Export-SiteStructureTemplates
+                }
+                catch {
+                    Write-Log -Message "Failed to run Export-SiteStructureTemplates: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Export-SiteStructureTemplates. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
+            '2.2' {
+                try {
+                    Import-SiteStructureFromCSV
+                }
+                catch {
+                    Write-Log -Message "Failed to run Import-SiteStructureFromCSV: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Import-SiteStructureFromCSV. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
+            '2.3' {
+                try {
+                    Get-SiteStructure
+                }
+                catch {
+                    Write-Log -Message "Failed to run Get-SiteStructure: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Get-SiteStructure. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
             '2.4' { return }
         }
     }
     '3' {
         Display-PanelHeader -Title "Sync Cloud Resources"
-        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources\Refresh-CachedResources.ps1" -Force
-        Write-Log -Message "Cached metadata refreshed." -Level 'INFO'
+        try {
+            . (Join-Path $env:OfficeSpaceManagerRoot 'SiteManagement/CachedResources/Refresh-CachedResources.ps1') -Force
+            Write-Log -Message "Cached metadata refreshed." -Level 'INFO'
+        }
+        catch {
+            Write-Log -Message "Failed to run Refresh-CachedResources.ps1: $($_.Exception.Message)" -Level 'ERROR'
+            Write-Host "\n❌ Error running Refresh-CachedResources.ps1. See log for details." -ForegroundColor Red
+            Read-Host "Press Enter to return to menu..."
+        }
     }
     '4' {
         Display-PanelHeader -Title "Environment Setup & Validation"
@@ -67,12 +128,66 @@ switch ($choice) {
         Write-Host "[4.6] Pin Places App in Teams"
         $sub = Read-Host "`nSelect an option"
         switch ($sub) {
-            '4.1' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Enable-PlacesFeatures.ps1" }
-            '4.2' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Validate-PlacesFeatures.ps1" }
-            '4.3' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Validate-ExchangeSetup.ps1" }
-            '4.4' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\EnvironmentSetup\Update-MailboxTypes.ps1" }
-            '4.5' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\EnvironmentSetup\Ensure-CalendarProcessingSettings.ps1" }
-            '4.6' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\EnvironmentSetup\Pin-PlacesAppInTeams.ps1" }
+            '4.1' {
+                try {
+                    . (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Enable-PlacesFeatures.ps1')
+                }
+                catch {
+                    Write-Log -Message "Failed to run Enable-PlacesFeatures.ps1: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Enable-PlacesFeatures.ps1. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
+            '4.2' {
+                try {
+                    . (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Validate-PlacesFeatures.ps1')
+                }
+                catch {
+                    Write-Log -Message "Failed to run Validate-PlacesFeatures.ps1: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Validate-PlacesFeatures.ps1. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
+            '4.3' {
+                try {
+                    . (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Validate-ExchangeSetup.ps1')
+                }
+                catch {
+                    Write-Log -Message "Failed to run Validate-ExchangeSetup.ps1: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Validate-ExchangeSetup.ps1. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
+            '4.4' {
+                try {
+                    . (Join-Path $env:OfficeSpaceManagerRoot 'EnvironmentSetup/Update-MailboxTypes.ps1')
+                }
+                catch {
+                    Write-Log -Message "Failed to run Update-MailboxTypes.ps1: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Update-MailboxTypes.ps1. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
+            '4.5' {
+                try {
+                    . (Join-Path $env:OfficeSpaceManagerRoot 'EnvironmentSetup/Ensure-CalendarProcessingSettings.ps1')
+                }
+                catch {
+                    Write-Log -Message "Failed to run Ensure-CalendarProcessingSettings.ps1: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Ensure-CalendarProcessingSettings.ps1. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
+            '4.6' {
+                try {
+                    . (Join-Path $env:OfficeSpaceManagerRoot 'EnvironmentSetup/Pin-PlacesAppInTeams.ps1')
+                }
+                catch {
+                    Write-Log -Message "Failed to run Pin-PlacesAppInTeams.ps1: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Pin-PlacesAppInTeams.ps1. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
         }
     }
     '5' {
@@ -82,8 +197,26 @@ switch ($choice) {
         Write-Host "[5.3] Return to Previous Menu"
         $sub = Read-Host "`nSelect an option"
         switch ($sub) {
-            '5.1' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\New-ConfigBackup.ps1" }
-            '5.2' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Restore-ConfigBackup.ps1" }
+            '5.1' {
+                try {
+                    . (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Create-ConfigBackup.ps1')
+                }
+                catch {
+                    Write-Log -Message "Failed to run Create-ConfigBackup.ps1: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Create-ConfigBackup.ps1. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
+            '5.2' {
+                try {
+                    . (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Restore-ConfigBackup.ps1')
+                }
+                catch {
+                    Write-Log -Message "Failed to run Restore-ConfigBackup.ps1: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Restore-ConfigBackup.ps1. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
             '5.3' { return }
             default {
                 Write-Host "Invalid option." -ForegroundColor Yellow
@@ -100,13 +233,49 @@ switch ($choice) {
 
         $backupChoice = Read-Host "`nChoose an option"
         switch ($backupChoice) {
-            '6.1' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\TemplateManagement\Export-AllTemplates.ps1" }
-            '6.2' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\New-ConfigBackup.ps1" }
-            '6.3' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Restore-ConfigBackup.ps1" }
+            '6.1' {
+                try {
+                    . (Join-Path $env:OfficeSpaceManagerRoot 'TemplateManagement/Export-AllTemplates.ps1')
+                }
+                catch {
+                    Write-Log -Message "Failed to run Export-AllTemplates.ps1: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Export-AllTemplates.ps1. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
+            '6.2' {
+                try {
+                    . (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Create-ConfigBackup.ps1')
+                }
+                catch {
+                    Write-Log -Message "Failed to run Create-ConfigBackup.ps1: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Create-ConfigBackup.ps1. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
+            '6.3' {
+                try {
+                    . (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Restore-ConfigBackup.ps1')
+                }
+                catch {
+                    Write-Log -Message "Failed to run Restore-ConfigBackup.ps1: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Restore-ConfigBackup.ps1. See log for details." -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
             '6.4' { return }
         }
     }
-    '7' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Invoke-FirstTimeSetup.ps1" }
+    '7' {
+        try {
+            . (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Invoke-FirstTimeSetup.ps1')
+        }
+        catch {
+            Write-Log -Message "Failed to run Invoke-FirstTimeSetup.ps1: $($_.Exception.Message)" -Level 'ERROR'
+            Write-Host "\n❌ Error running Invoke-FirstTimeSetup.ps1. See log for details." -ForegroundColor Red
+            Read-Host "Press Enter to return to menu..."
+        }
+    }
     '8' { return }
     default {
         Write-Log -Message "Invalid option." -Level 'WARN'

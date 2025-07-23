@@ -1,31 +1,36 @@
 <!-- omit from toc -->
+
 # OfficeSpaceManager Improvement Opportunities
 
 This document summarizes code review findings and improvement opportunities for the OfficeSpaceManager project. Each area in the summary table links to a detailed section below, including observations, opportunities, and where to apply them.
 
-- [Summary Table](#summary-table)
-- [Modularisation](#modularisation)
-- [Logging and Error Handling](#logging-and-error-handling)
-- [Parameter Validation and Consistency](#parameter-validation-and-consistency)
-- [Code Reuse and Modularity](#code-reuse-and-modularity)
-- [Naming Conventions](#naming-conventions)
-- [Documentation and Comments](#documentation-and-comments)
-- [Testing and Validation](#testing-and-validation)
-- [Configuration Management](#configuration-management)
-- [User Experience (CLI Menus)](#user-experience-cli-menus)
-- [Bulk Operations and Data Validation](#bulk-operations-and-data-validation)
-- [Module Packaging](#module-packaging)
-- [Backup and Restore](#backup-and-restore)
-- [Security](#security)
-- [Performance](#performance)
-- [Output Formatting](#output-formatting)
-- [Error Recovery and Reporting](#error-recovery-and-reporting)
-- [Specification Alignment](#specification-alignment)
-- [Project Specification TODOs](#project-specification-todos)
+- [OfficeSpaceManager Improvement Opportunities](#officespacemanager-improvement-opportunities)
+  - [Summary Table](#summary-table)
+  - [Modularisation](#modularisation)
+  - [Logging and Error Handling](#logging-and-error-handling)
+  - [Parameter Validation and Consistency](#parameter-validation-and-consistency)
+  - [Code Reuse and Modularity](#code-reuse-and-modularity)
+  - [Naming Conventions](#naming-conventions)
+  - [Documentation and Comments](#documentation-and-comments)
+  - [Testing and Validation](#testing-and-validation)
+  - [Configuration Management](#configuration-management)
+  - [User Experience (CLI Menus)](#user-experience-cli-menus)
+  - [Bulk Operations and Data Validation](#bulk-operations-and-data-validation)
+  - [Module Packaging](#module-packaging)
+  - [Backup and Restore](#backup-and-restore)
+  - [Security](#security)
+  - [Performance](#performance)
+  - [Output Formatting](#output-formatting)
+  - [Error Recovery and Reporting](#error-recovery-and-reporting)
+  - [Specification Alignment](#specification-alignment)
+  - [Project Specification TODOs](#project-specification-todos)
+  - [Tasks](#tasks)
 
 ---
 
-## <a name='SummaryTable'></a>Summary Table
+## Summary Table
+
+<!-- TOC anchor intentionally omitted for MD033 compliance -->
 
 | Area                  | Opportunity                                 | Where                                      |
 |-----------------------|---------------------------------------------|--------------------------------------------|
@@ -49,48 +54,57 @@ This document summarizes code review findings and improvement opportunities for 
 
 ---
 
+## Modularisation
 
-## <a name='modularisation'></a>Modularisation
+<!-- TOC anchor intentionally omitted for MD033 compliance -->
 
 **Status:**  
 Complete  
 // NOTE - Modularisation
-- [X] TODO: Modularisation - First pass
 
+- [X] TODO: Modularisation - First pass
 
 **Observation:**  
 As part of cleaning up the code, it becomes harder to understand where each function is located, and due to the size of the .ps1 files they're contained within, harder to navigate.
 
 **Opportunities:**  
+
 - Fully modularise all function code within the project
 
 **Where:**  
+
 - Whole project
 
 ---
 
-## <a name='LoggingandErrorHandling'></a>Logging and Error Handling
+## Logging and Error Handling
+
+<!-- TOC anchor intentionally omitted for MD033 compliance -->
 
 **Status:**  
 Complete
 // NOTE -  Logging and Error Handling
-- [X] TODO: Improve Logging and Error Handling
 
+- [X] TODO: Improve Logging and Error Handling
 
 **Observation:**  
 Some scripts use custom logging and error handling, while others use inline `Write-Host` or `Write-Error`. Not all scripts leverage shared logging utilities.
 
 **Opportunities:**  
+
 - [X] TODO: Refactor all scripts to use centralized logging functions from `Shared\Logging.ps1`.
 - [X] TODO: Replace direct `Write-Host`/`Write-Error` with `Write-Log` or similar.
 - [X] TODO: Ensure all try/catch blocks use a standard error reporting function.
 
 **Where:**  
+
 - `CLI\*`, `Configuration\*`, `OrphanFixer\*`, `SiteManagement\*`, and any script with direct output or error handling.
 
 ---
 
-## <a name='ParameterValidationandConsistency'></a>Parameter Validation and Consistency
+## Parameter Validation and Consistency
+
+<!-- TOC anchor intentionally omitted for MD033 compliance -->
 
 **Status:**  
 Incomplete  
@@ -100,15 +114,19 @@ Incomplete
 Some functions/scripts use `[Parameter()]` attributes and validation, others accept parameters without validation.
 
 **Opportunities:**  
+
 - [ ] TODO: Add `[Parameter(Mandatory=$true)]` and `[ValidateNotNullOrEmpty()]` to all function parameters.
 - [ ] TODO: Use consistent parameter naming and casing.
 
 **Where:**  
+
 - All function definitions, especially in `Shared\`, `SiteManagement\`, and `TemplateManagement\`.
 
 ---
 
-## <a name='CodeReuseandModularity'></a>Code Reuse and Modularity
+## Code Reuse and Modularity
+
+<!-- TOC anchor intentionally omitted for MD033 compliance -->
 
 **Status:**  
 Incomplete  
@@ -118,17 +136,21 @@ Incomplete
 There is some duplication of logic (e.g., connecting to Exchange/Graph, reading/writing JSON).
 
 **Opportunities:**  
+
 - [X] TODO: Move all connection logic to `Shared\Connection.ps1`.
   > Mitigated by modularisation.
 - [ ] TODO: Centralize JSON/CSV read/write functions.
 - [ ] TODO: Refactor repeated code into reusable functions.
 
 **Where:**  
+
 - `CLI\*`, `Configuration\*`, `OrphanFixer\*`, `TestSuite\*`.
 
 ---
 
-## <a name='NamingConventions'></a>Naming Conventions
+## Naming Conventions
+
+<!-- TOC anchor intentionally omitted for MD033 compliance -->
 
 **Status:**  
 Incomplete  
@@ -138,19 +160,24 @@ Incomplete
 Script and function names are mostly consistent, but some use different casing or abbreviations.
 
 **Opportunities:**
+
 - [ ] TODO: Standardize on `PascalCase` for functions and scripts.
 - [ ] TODO: Prefix all public functions with `OSM-` (e.g., `OSM-ConnectToExchange`).
 
 **Where:**  
+
 - All scripts and function definitions.
 
 ---
 
-## <a name='DocumentationandComments'></a>Documentation and Comments
+## Documentation and Comments
+
+<!-- TOC anchor intentionally omitted for MD033 compliance -->
 
 **Status:**  
 In progress  
 // FIXME - Documentation and Comments
+
 - [ ] TODO: Fix Documentation and Comments
     > Forms part of project instructions.
 - [ ] TODO: Revisit resource and alias naming conventions, and look for ways to provide options within the CLI for constructing a naming convention, modifying a naming convention, and applying modified naming conventions to existing resources where needed (version 2 release feature)  
@@ -159,17 +186,19 @@ In progress
 Some scripts have good comments, others lack parameter/function descriptions.
 
 **Opportunities:**  
+
 - [X] TODO: Add comment-based help to all functions (`.SYNOPSIS`, `.DESCRIPTION`, `.PARAMETER`, `.EXAMPLE`).
-> Forms part of project instructions.
 - [X] TODO: Ensure every script has a header comment describing its purpose.
-> Forms part of project instructions.
+
+> Addressing of both these issues forms part of project instructions.
 
 **Where:**  
+
 - All scripts, especially in `Shared\`, `CLI\`, and `TestSuite\`.
 
 ---
 
-## <a name='TestingandValidation'></a>Testing and Validation
+## Testing and Validation
 
 **Status:**  
 Incomplete  
@@ -179,15 +208,17 @@ Incomplete
 There is a `TestSuite`, but not all core functions are covered by tests.
 
 **Opportunities:**  
+
 - [ ] TODO: Add Pester tests for all critical functions (connection, provisioning, sync, orphan detection).
 - [ ] TODO: Validate output and error scenarios.
 
 **Where:**  
+
 - `TestSuite\*`, and create a `Tests\` folder for unit tests.
 
 ---
 
-## <a name='ConfigurationManagement'></a>Configuration Management
+## Configuration Management
 
 **Status:**  
 Incomplete  
@@ -197,15 +228,17 @@ Incomplete
 Configuration is spread across scripts and JSON files.
 
 **Opportunities:**  
+
 - [ ] TODO: Centralize all configuration in a single JSON or PowerShell data file.
 - [ ] TODO: Load configuration at startup and pass as needed.
 
 **Where:**  
+
 - `Configuration\*`, `Shared\*`.
 
 ---
 
-## <a name='UserExperienceCLIMenus'></a>User Experience (CLI Menus)
+## User Experience (CLI Menus)
 
 **Status:**  
 Incomplete  
@@ -215,15 +248,17 @@ Incomplete
 CLI menus are functional but could be more consistent in style and navigation.
 
 **Opportunities:**  
+
 - [ ] TODO: Standardize menu prompts, input validation, and navigation (e.g., always offer "Back" and "Exit").
 - [ ] TODO: Use a shared menu rendering function.
 
 **Where:**  
+
 - `CLI\*`.
 
 ---
 
-## <a name='BulkOperationsandDataValidation'></a>Bulk Operations and Data Validation
+## Bulk Operations and Data Validation
 
 **Status:**  
 Incomplete  
@@ -233,15 +268,17 @@ Incomplete
 CSV import/export scripts do not always validate data before processing.
 
 **Opportunities:**  
+
 - [ ] TODO: Add schema validation for CSV/JSON before import.
 - [ ] TODO: Provide clear error messages for invalid data.
 
 **Where:**  
+
 - `TemplateManagement\*`, `SiteManagement\*`.
 
 ---
 
-## <a name='ModulePackaging'></a>Module Packaging
+## Module Packaging
 
 **Status:**  
 Incomplete  
@@ -251,15 +288,17 @@ Incomplete
 Reusable functions are in `.ps1` files, not a PowerShell module.
 
 **Opportunities:**  
+
 - [ ] TODO: Package shared functions as a `.psm1` module with a manifest.
 - [ ] TODO: Import the module in all scripts.
 
 **Where:**  
+
 - `Shared\*`.
 
 ---
 
-## <a name='BackupandRestore'></a>Backup and Restore
+## Backup and Restore
 
 **Status:**  
 Incomplete  
@@ -269,15 +308,17 @@ Incomplete
 Backup/restore scripts exist but could be more robust.
 
 **Opportunities:**  
+
 - [ ] TODO: Add versioning to backups.
 - [ ] TODO: Validate backup integrity before restore.
 
 **Where:**  
+
 - `Configuration\BackupRestore.ps1`.
 
 ---
 
-## <a name='Security'></a>Security
+## Security
 
 **Status:**  
 Incomplete  
@@ -287,15 +328,17 @@ Incomplete
 Some scripts may store credentials or tokens in plain text.
 
 **Opportunities:**  
+
 - [ ] TODO: Use `Get-Credential` or secure vaults for sensitive data.
 - [ ] TODO: Never write credentials to disk.
 
 **Where:**  
+
 - Any script handling authentication.
 
 ---
 
-## <a name='Performance'></a>Performance
+## Performance
 
 **Status:**  
 Incomplete  
@@ -305,14 +348,16 @@ Incomplete
 Some scripts process resources sequentially.
 
 **Opportunities:**  
+
 - [ ] TODO: Use parallel processing (`ForEach-Object -Parallel`) for large bulk operations.
 
 **Where:**  
+
 - Bulk provisioning, sync, and orphan detection scripts.
 
 ---
 
-## <a name='OutputFormatting'></a>Output Formatting
+## Output Formatting
 
 **Status:**  
 Incomplete  
@@ -322,15 +367,17 @@ Incomplete
 Output is sometimes raw, sometimes formatted.
 
 **Opportunities:**  
+
 - [ ] TODO: Standardize output formatting (tables, lists, JSON).
 - [ ] TODO: Offer a `-Verbose` or `-Quiet` switch.
 
 **Where:**  
+
 - All user-facing scripts.
 
 ---
 
-## <a name='ErrorRecoveryandReporting'></a>Error Recovery and Reporting
+## Error Recovery and Reporting
 
 **Status:**  
 Incomplete  
@@ -340,14 +387,16 @@ Incomplete
 Batch operations may stop on first error.
 
 **Opportunities:**  
+
 - [ ] TODO: Implement error aggregation and summary reporting at the end of batch jobs.
 
 **Where:**  
+
 - Bulk import/export, sync, and other batch processing scripts.
 
 ---
 
-## <a name='SpecificationAlignment'></a>Specification Alignment
+## Specification Alignment
 
 **Status:**  
 Incomplete  
@@ -357,15 +406,17 @@ Incomplete
 Not all features and requirements from SPECIFICATION.md are clearly tracked or implemented.
 
 **Opportunities:**  
+
 - [ ] TODO: Review SPECIFICATION.md and ensure all items are addressed in the project.
 - [ ] TODO: Create tasks or documentation for any missing features or requirements.
 
 **Where:**  
+
 - Review entire project against SPECIFICATION.md.
 
 ---
 
-## <a name='ProjectSpecificationTODOs'></a>Project Specification TODOs
+## Project Specification TODOs
 
 **Status:**  
 Incomplete  
@@ -375,6 +426,7 @@ Incomplete
 The following items from the project specification require implementation:
 
 **Opportunities:**  
+
 - [ ] TODO: Check and correct any absolute dot-sourcing in the project (for example C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\)
 - [X] TODO: Implement a unified, menu-driven CLI entry point that covers all major operations (resource provisioning, metadata management, backup/restore, etc.).
 - [X] TODO: Ensure all CLI menus use a consistent style, navigation, and input validation, with shared rendering functions.
@@ -400,4 +452,9 @@ The following items from the project specification require implementation:
 - [ ] TODO: Ensure all scripts clean up after themselves (temp files, test data, connections) and document cleanup steps.
 - [ ] TODO: Review and update README.md to ensure all specification requirements are documented and up to date.
 
----
+## Tasks
+
+- Refactor all scripts for robust root-based referencing
+- Ensure all modules use approved verbs
+- Update documentation for new architecture
+- Add unit tests for all exported functions

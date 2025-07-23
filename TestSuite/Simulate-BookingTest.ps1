@@ -22,6 +22,7 @@ Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Utilities\Utilitie
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
     Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
+    Read-Host "Press Enter to continue..."
     return
 }
 
@@ -30,6 +31,7 @@ if (-not $Alias) {
     $Alias = Read-Host "Enter alias (e.g. FREFRE01SD17ICT)"
     if (-not $Alias) {
         Write-Log -Message "Alias is required." -Level 'WARN'
+        Read-Host "Press Enter to continue..."
         return
     }
 }
@@ -43,6 +45,7 @@ if (-not $Domain) {
         $Domain = Read-Host "Domain (e.g. yourdomain.com)"
         if (-not $Domain) {
             Write-Log -Message "Domain is required." -Level 'WARN'
+            Read-Host "Press Enter to continue..."
             return
         }
     }

@@ -17,7 +17,7 @@
 #>
 
 # Import global error handling and logging
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
+. (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
 
 function Export-AllTemplates {
     <#
@@ -34,11 +34,10 @@ function Export-AllTemplates {
     $tenantConfigPath = ".\config\TenantConfig.json"
     if (-not (Test-Path $tenantConfigPath)) {
         Write-Log -Message "TenantConfig.json not found. Please run first-time setup." -Level 'WARN'
+        Read-Host "Press Enter to continue..."
         return
     }
     $tenantConfig = Get-Content $tenantConfigPath | ConvertFrom-Json
-    $domains = @($tenantConfig.DefaultDomain) + ($tenantConfig.Domains | Where-Object { $_ -ne $tenantConfig.DefaultDomain })
-    $domainHint = ($domains -join ", ")
     # endregion
 
     # region 4c1 Folder Structure
@@ -53,15 +52,15 @@ function Export-AllTemplates {
     if ($desks.Count -eq 0) {
         $desks = @(
             [PSCustomObject]@{
-                DisplayName        = "FRE-FIN-17 Ops Desk"
+                DisplayName        = "FRE-FIN-E7 Ops Desk"
                 Alias              = "frefin17ops"
                 Domain             = $tenantConfig.DefaultDomain
                 SiteCode           = "FRE"
                 BuildingCode       = "01"
-                FloorId            = "FRE-01-F1"
-                FloorName          = "Level 1"
+                FloorId            = "FRE-01-G"
+                FloorName          = "Ground Floor"
                 Pathway            = "FIN"
-                DeskNumber         = "17"
+                DeskNumber         = "E7"
                 Role               = "Ops"
                 ObjectType         = "desk"
                 IsHeightAdjustable = "Y"

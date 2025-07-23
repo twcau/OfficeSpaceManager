@@ -17,25 +17,27 @@
 #>
 
 # Import global error handling and logging
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
-. "$PSScriptRoot/../Shared/Write-Log.ps1"
+. (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/Logging.psm1')
 
 Display-PanelHeader -Title "Import Metadata from CSV"
 
 $importFolder = ".\Imports"
 if (!(Test-Path $importFolder)) {
     Write-Log -Message "Imports folder does not exist." -Level 'WARN'
+    Read-Host "Press Enter to continue..."
     return
 }
 
 $csvFiles = Get-ChildItem $importFolder -Filter *.csv
 if ($csvFiles.Count -eq 0) {
     Write-Log -Message "No CSV files found in .\Imports" -Level 'WARN'
+    Read-Host "Press Enter to continue..."
     return
 }
 
 $file = $csvFiles | Out-GridView -Title "📂 Select a CSV file to import" -PassThru
-if (-not $file) { return }
+if (-not $file) { Read-Host "Press Enter to continue..."; return }
 
 $filename = $file.Name
 $fullPath = $file.FullName
@@ -44,11 +46,13 @@ try {
     $csvData = Import-Csv $fullPath -ErrorAction Stop
     if ($csvData.Count -eq 0) {
         Write-Log -Message "CSV is empty." -Level 'WARN'
+        Read-Host "Press Enter to continue..."
         return
     }
 }
 catch {
     Write-Log -Message "Failed to read CSV file: $_" -Level 'ERROR'
+    Read-Host "Press Enter to continue..."
     return
 }
 

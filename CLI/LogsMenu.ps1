@@ -26,10 +26,26 @@ Write-Host "[8] Return to Main Menu"
 $choice = Read-Host "`nSelect an option"
 
 switch ($choice) {
-    '1' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Backups\Save-MetadataSnapshot.ps1" }
-
-    '2' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Backups\Restore-MetadataSnapshot.ps1" }
-
+    '1' {
+        try {
+            . (Join-Path $env:OfficeSpaceManagerRoot 'Backups/Save-MetadataSnapshot.ps1')
+        }
+        catch {
+            Write-Log -Message "Failed to run Save-MetadataSnapshot.ps1: $($_.Exception.Message)" -Level 'ERROR'
+            Write-Host "\n❌ Error running Save-MetadataSnapshot.ps1. See log for details." -ForegroundColor Red
+            Read-Host "Press Enter to return to menu..."
+        }
+    }
+    '2' {
+        try {
+            . (Join-Path $env:OfficeSpaceManagerRoot 'Backups/Restore-MetadataSnapshot.ps1')
+        }
+        catch {
+            Write-Log -Message "Failed to run Restore-MetadataSnapshot.ps1: $($_.Exception.Message)" -Level 'ERROR'
+            Write-Host "\n❌ Error running Restore-MetadataSnapshot.ps1. See log for details." -ForegroundColor Red
+            Read-Host "Press Enter to return to menu..."
+        }
+    }
     '3' {
         $logDate = Get-Date -Format 'yyyy-MM-dd'
         $logFile = ".\Logs\$logDate.log"
@@ -38,27 +54,50 @@ switch ($choice) {
         }
         else {
             Write-Host "No log file found for today." -ForegroundColor Yellow
+            Read-Host "Press Enter to return to menu..."
         }
     }
-
     '4' {
-        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Logs\View-LogHistory.ps1"
+        try {
+            . (Join-Path $env:OfficeSpaceManagerRoot 'Logs/View-LogHistory.ps1')
+        }
+        catch {
+            Write-Log -Message "Failed to run View-LogHistory.ps1: $($_.Exception.Message)" -Level 'ERROR'
+            Write-Host "\n❌ Error running View-LogHistory.ps1. See log for details." -ForegroundColor Red
+            Read-Host "Press Enter to return to menu..."
+        }
     }
-
     '5' {
-        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Logs\Export-ActionHistory.ps1"
+        try {
+            . (Join-Path $env:OfficeSpaceManagerRoot 'Logs/Export-ActionHistory.ps1')
+        }
+        catch {
+            Write-Log -Message "Failed to run Export-ActionHistory.ps1: $($_.Exception.Message)" -Level 'ERROR'
+            Write-Host "\n❌ Error running Export-ActionHistory.ps1. See log for details." -ForegroundColor Red
+            Read-Host "Press Enter to return to menu..."
+        }
     }
-
     '6' {
-        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Logs\Compress-Logs.ps1"
+        try {
+            . (Join-Path $env:OfficeSpaceManagerRoot 'Logs/Compress-Logs.ps1')
+        }
+        catch {
+            Write-Log -Message "Failed to run Compress-Logs.ps1: $($_.Exception.Message)" -Level 'ERROR'
+            Write-Host "\n❌ Error running Compress-Logs.ps1. See log for details." -ForegroundColor Red
+            Read-Host "Press Enter to return to menu..."
+        }
     }
-
     '7' {
-        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Logs\Clear-LogHistory.ps1"
+        try {
+            . (Join-Path $env:OfficeSpaceManagerRoot 'Logs/Clear-LogHistory.ps1')
+        }
+        catch {
+            Write-Log -Message "Failed to run Clear-LogHistory.ps1: $($_.Exception.Message)" -Level 'ERROR'
+            Write-Host "\n❌ Error running Clear-LogHistory.ps1. See log for details." -ForegroundColor Red
+            Read-Host "Press Enter to return to menu..."
+        }
     }
-
     '8' { return }
-
     default {
         Write-Host "Invalid option." -ForegroundColor Yellow
         Start-Sleep -Seconds 2

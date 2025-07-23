@@ -1,9 +1,11 @@
 # 📋 Project Specification: OfficeSpaceManager
 
 ## 1. Scope
+
 OfficeSpaceManager manages the lifecycle of Microsoft Places, Exchange Room Resources, and related metadata (sites, buildings, floors, desk groups, desks, desk pools) in Microsoft 365 environments.
 
 ## 2. Features
+
 - **Interactive CLI:** Modular, menu-driven interface for all operations.
 - **Automated Setup:** First-time setup and validation of Exchange/Teams/Places configuration.
 - **Resource Provisioning:** Create, manage, rename, reassign, and retire desks, rooms, and equipment.
@@ -17,12 +19,14 @@ OfficeSpaceManager manages the lifecycle of Microsoft Places, Exchange Room Reso
 - **Extensibility:** Modular codebase for easy addition of new features and domains.
 
 ## 3. Requirements
+
 - PowerShell 7.0+
 - Modules: ExchangeOnlineManagement, MicrosoftTeams
 - Supported OS: Windows (cross-platform support planned)
 - All dependencies validated or installed at runtime
 
 ## 4. Constraints
+
 - Must follow modularisation and code quality standards (see project instructions)
 - All scripts must be idempotent, robust, and production-ready
 - No hardcoded credentials; secure handling of secrets
@@ -30,6 +34,7 @@ OfficeSpaceManager manages the lifecycle of Microsoft Places, Exchange Room Reso
 - Must support backup/restore and disaster recovery scenarios
 
 ## 5. Intended Outcomes
+
 - Streamlined, reliable admin workflows for Microsoft 365 resource management
 - Consistent, auditable, and recoverable environment configuration
 - Reduced manual effort and error rates

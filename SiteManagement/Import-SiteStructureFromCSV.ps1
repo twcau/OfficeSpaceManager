@@ -17,12 +17,13 @@ Display-PanelHeader -Title "Import Site & Building Structure"
 $latestExportFolder = Get-Item ".\Exports\" | Get-ChildItem -Directory | Sort-Object LastWriteTime -Descending | Select-Object -First 1
 if (-not $latestExportFolder) {
 Write-Log -Message "No export folder found." -Level 'WARN'
+    Read-Host "Press Enter to continue..."
     return
 }
 
 $csvFiles = Get-ChildItem $latestExportFolder.FullName -Filter "Template-*.csv"
 $file = $csvFiles | Out-GridView -Title "Select a Site/Building CSV to import" -PassThru
-if (-not $file) { return }
+if (-not $file) { Read-Host "Press Enter to continue..."; return }
 
 switch -Wildcard ($file.Name) {
     "Template-Sites.csv" {

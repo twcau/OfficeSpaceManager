@@ -10,7 +10,7 @@
 #>
 
 Import-Module "$PSScriptRoot/../../Modules/CLI/CLI.psm1"
-. "$PSScriptRoot/../../Shared/Global-ErrorHandling.ps1"
+. (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
 <#
 .SYNOPSIS
     Retry creation of failed resources saved as JSON drafts.
@@ -95,7 +95,7 @@ try {
     # Optionally offer simulation test
     $runTest = Read-Host "Run booking simulation now? (Y/N)"
     if ($runTest -eq 'Y') {
-        . "$PSScriptRoot\TestSuite\Simulate-BookingTest.ps1" -Alias $alias -Domain $domain
+        . (Join-Path $env:OfficeSpaceManagerRoot 'TestSuite/Simulate-BookingTest.ps1') -Alias $alias -Domain $domain
     }
 
 }

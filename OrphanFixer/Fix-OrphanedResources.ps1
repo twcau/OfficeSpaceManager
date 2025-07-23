@@ -21,7 +21,7 @@ function Fix-OrphanedResources {
     }
 
     if ($fixCandidates.Count -eq 0) {
-Write-Log -Message "No orphaned mailboxes to fix." -Level 'INFO'
+        Write-Log -Message "No orphaned mailboxes to fix." -Level 'INFO'
         return
     }
 
@@ -34,19 +34,19 @@ Write-Log -Message "No orphaned mailboxes to fix." -Level 'INFO'
         $deskId = "$site-$building-$floor-$deskNumber"
 
         $newDesk = @{
-            DeskId             = $deskId
-            DisplayName        = $orphan.DisplayName
-            ExchangeObjectId   = $orphan.ExchangeObjectId
-            Email              = $orphan.Email
-            SiteCode           = $site
-            BuildingCode       = $building
-            FloorNumber        = [int]$floor
-            DeskNumber         = [int]$deskNumber
-            Retired            = $false
+            DeskId           = $deskId
+            DisplayName      = $orphan.DisplayName
+            ExchangeObjectId = $orphan.ExchangeObjectId
+            Email            = $orphan.Email
+            SiteCode         = $site
+            BuildingCode     = $building
+            FloorNumber      = [int]$floor
+            DeskNumber       = [int]$deskNumber
+            Retired          = $false
         }
 
         $metadataDesks += $newDesk
-Write-Log -Message "Added new desk to metadata: $deskId" -Level 'INFO'
+        Write-Log -Message "Added new desk to metadata: $deskId" -Level 'INFO'
         Write-Log "Orphaned mailbox $($orphan.Alias) linked to $deskId"
     }
 
@@ -54,3 +54,7 @@ Write-Log -Message "Added new desk to metadata: $deskId" -Level 'INFO'
     Write-Host "`n✅ Metadata updated with fixed orphans."
 }
 Fix-OrphanedResources
+catch {
+    Write-Host "An error occurred: $($_.Exception.Message)" -ForegroundColor Red
+    Read-Host "Press Enter to continue..."
+}

@@ -1,4 +1,4 @@
-. "$PSScriptRoot/../../Shared/Global-ErrorHandling.ps1"
+. (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
 <#
 .SYNOPSIS
     Wizard for creating a new desk pool in OfficeSpaceManager.

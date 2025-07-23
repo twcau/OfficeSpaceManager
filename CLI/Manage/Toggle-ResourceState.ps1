@@ -1,5 +1,5 @@
 Import-Module "$PSScriptRoot/../../Modules/CLI/CLI.psm1"
-. "$PSScriptRoot/../../Shared/Global-ErrorHandling.ps1"
+. (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
 Display-PanelHeader -Title "Retire or Reactivate Resource"
 
 $resourceType = Read-Host "What type of resource? (Desk, Room, Equipment)"

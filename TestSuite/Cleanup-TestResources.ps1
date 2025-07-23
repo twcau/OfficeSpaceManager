@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Cleans up all test resources (mailboxes and metadata) created for simulation/testing.
+    Removes all test resources (mailboxes and metadata) created for simulation/testing.
 .DESCRIPTION
     This script removes all test mailboxes (aliases starting with TEST_) from Exchange Online and cleans up any test desk metadata from DeskDefinitions.json. Intended for use after running simulation or test suites to ensure a clean environment.
 .FILECREATED
@@ -10,8 +10,8 @@
 .OUTPUTS
     Removes test mailboxes and updates metadata JSON files.
 .EXAMPLE
-    .\Cleanup-TestResources.ps1
-    # Cleans up all test mailboxes and test desk metadata.
+    .\Remove-TestResources.ps1
+    # Removes all test mailboxes and test desk metadata.
 .DOCUMENTATION Remove-Mailbox
     https://learn.microsoft.com/en-au/powershell/module/exchange/remove-mailbox
 #>
@@ -19,17 +19,18 @@
 # Load shared modules and error handling
 . (Join-Path $PSScriptRoot '..\Modules\Utilities\Resolve-OfficeSpaceManagerRoot.ps1')
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Utilities\Utilities.psm1')
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
+. (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
 
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
     Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
+    Read-Host "Press Enter to continue..."
     return
 }
 
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\CLI\CLI.psm1')
 
-function Cleanup-TestResources {
+function Remove-TestResources {
     <#
     .SYNOPSIS
         Removes all test mailboxes and test desk metadata.
@@ -44,6 +45,7 @@ function Cleanup-TestResources {
     $mailboxes = Get-Mailbox -ResultSize Unlimited | Where-Object { $_.Alias -like "TEST_*" }
     if ($mailboxes.Count -eq 0) {
         Write-Log -Message "No test mailboxes found." -Level 'INFO'
+        Read-Host "Press Enter to continue..."
         return
     }
     foreach ($mb in $mailboxes) {
@@ -63,7 +65,7 @@ function Cleanup-TestResources {
     Write-Log "All test resources cleaned from Exchange and metadata."
 }
 
-Cleanup-TestResources
+Remove-TestResources
 
 
 

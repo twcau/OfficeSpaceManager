@@ -21,9 +21,15 @@ function Suggest-RenameResource {
             $suggest = Read-Host "Suggested Name"
             $confirm = Read-Host "Rename in Exchange now? (Y/N)"
             if ($confirm -eq 'Y') {
-                Set-Mailbox -Identity $r.Email -DisplayName $suggest
-                Write-Log "Renamed $($r.Email) to $suggest"
-Write-Log -Message "Renamed." -Level 'INFO'
+                try {
+                    Set-Mailbox -Identity $r.Email -DisplayName $suggest
+                    Write-Log "Renamed $($r.Email) to $suggest"
+                    Write-Log -Message "Renamed." -Level 'INFO'
+                }
+                catch {
+                    Write-Host "An error occurred: $($_.Exception.Message)" -ForegroundColor Red
+                    Read-Host "Press Enter to continue..."
+                }
             }
         }
     }

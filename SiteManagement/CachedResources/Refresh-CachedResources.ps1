@@ -24,6 +24,7 @@ if (-not $admin -or $admin -eq '') {
     Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     Write-Log -Message "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
     Write-Host "\n❌ Unable to connect to Exchange Online. Please ensure ExchangeOnlineManagement module is installed and you have network connectivity." -ForegroundColor Red
+    Read-Host "Press Enter to continue..."
     return
 }
 
@@ -42,6 +43,7 @@ if (Test-Path $syncTrackPath) {
             if ($doSync -notin @('Y', 'y')) {
                 Write-Log -Message "Skipping metadata refresh." -Level 'WARN'
                 Write-Log "Skipped Refresh-CachedResources — user declined re-sync at $([int]$minutesOld) minutes."
+                Read-Host "Press Enter to continue..."
                 return
             }
         }

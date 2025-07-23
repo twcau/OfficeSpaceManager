@@ -9,6 +9,7 @@
     2025-07-23
 #>
 
+# Robustly resolve project root for all module imports
 . (Join-Path $PSScriptRoot '..\Modules\Utilities\Resolve-OfficeSpaceManagerRoot.ps1')
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\CLI\CLI.psm1')
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Logging\Logging.psm1')
@@ -24,10 +25,59 @@ Write-Host "[6] Return to Main Menu"
 $choice = Read-Host "`nSelect an option"
 
 switch ($choice) {
-    '1' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\OrphanFixer\Find-OrphanedResources.ps1" }
-    '2' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\OrphanFixer\Fix-OrphanedResources.ps1" }
-    '3' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\OrphanFixer\Validate-DeskPoolMappings.ps1" }
-    '4' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\OrphanFixer\Detect-NonStandardResources.ps1" }
-    '5' { . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\OrphanFixer\Suggest-RenameResource.ps1" }
+    '1' {
+        try {
+            . (Join-Path $env:OfficeSpaceManagerRoot 'OrphanFixer/Find-OrphanedResources.ps1')
+        }
+        catch {
+            Write-Log -Message "Failed to run Find-OrphanedResources.ps1: $($_.Exception.Message)" -Level 'ERROR'
+            Write-Host "\n❌ Error running Find-OrphanedResources.ps1. See log for details." -ForegroundColor Red
+            Read-Host "Press Enter to return to menu..."
+        }
+    }
+    '2' {
+        try {
+            . (Join-Path $env:OfficeSpaceManagerRoot 'OrphanFixer/Fix-OrphanedResources.ps1')
+        }
+        catch {
+            Write-Log -Message "Failed to run Fix-OrphanedResources.ps1: $($_.Exception.Message)" -Level 'ERROR'
+            Write-Host "\n❌ Error running Fix-OrphanedResources.ps1. See log for details." -ForegroundColor Red
+            Read-Host "Press Enter to return to menu..."
+        }
+    }
+    '3' {
+        try {
+            . (Join-Path $env:OfficeSpaceManagerRoot 'OrphanFixer/Validate-DeskPoolMappings.ps1')
+        }
+        catch {
+            Write-Log -Message "Failed to run Validate-DeskPoolMappings.ps1: $($_.Exception.Message)" -Level 'ERROR'
+            Write-Host "\n❌ Error running Validate-DeskPoolMappings.ps1. See log for details." -ForegroundColor Red
+            Read-Host "Press Enter to return to menu..."
+        }
+    }
+    '4' {
+        try {
+            . (Join-Path $env:OfficeSpaceManagerRoot 'OrphanFixer/Detect-NonStandardResources.ps1')
+        }
+        catch {
+            Write-Log -Message "Failed to run Detect-NonStandardResources.ps1: $($_.Exception.Message)" -Level 'ERROR'
+            Write-Host "\n❌ Error running Detect-NonStandardResources.ps1. See log for details." -ForegroundColor Red
+            Read-Host "Press Enter to return to menu..."
+        }
+    }
+    '5' {
+        try {
+            . (Join-Path $env:OfficeSpaceManagerRoot 'OrphanFixer/Suggest-RenameResource.ps1')
+        }
+        catch {
+            Write-Log -Message "Failed to run Suggest-RenameResource.ps1: $($_.Exception.Message)" -Level 'ERROR'
+            Write-Host "\n❌ Error running Suggest-RenameResource.ps1. See log for details." -ForegroundColor Red
+            Read-Host "Press Enter to return to menu..."
+        }
+    }
     '6' { return }
+    default {
+        Write-Host "Invalid option." -ForegroundColor Yellow
+        Start-Sleep -Seconds 2
+    }
 }

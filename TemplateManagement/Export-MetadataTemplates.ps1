@@ -17,8 +17,8 @@
 #>
 
 # Import global error handling and reporting module
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
-Import-Module "$PSScriptRoot/../Modules/Reporting/Reporting.psm1" -Force
+. (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Reporting/Reporting.psm1') -Force
 
 function Export-MetadataTemplates {
     <#

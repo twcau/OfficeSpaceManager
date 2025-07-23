@@ -18,18 +18,17 @@ A modular PowerShell CLI toolkit to establish a simple, and logical workflow fro
 - [📁 Folder Structure](#-folder-structure)
 - [🧪 Running Tests](#-running-tests)
 - [🔁 Backup \& Restore](#-backup--restore)
-  - [Save current metadata snapshot:](#save-current-metadata-snapshot)
-  - [Restore from snapshot:](#restore-from-snapshot)
+  - [Save current metadata snapshot](#save-current-metadata-snapshot)
+  - [Restore from snapshot](#restore-from-snapshot)
 - [🔗 Useful Microsoft Docs](#-useful-microsoft-docs)
 - [🙋 Support](#-support)
 - [🔐 Data Safety](#-data-safety)
 - [🔧 TODO](#-todo)
 - [📘 License \& Credits](#-license--credits)
 
-
 ---
 
-## <a name='Purpose'></a>🏗️ Purpose
+## 🏗️ Purpose
 
 This script is intended to help someone either setup, or manage, a Microsoft Exchange and Teams environment to:
 
@@ -55,7 +54,7 @@ A more detailed explaination to the working approach for this project can be fou
 
 ---
 
-## <a name='Features'></a>🚀 Features
+## 🚀 Features
 
 - ✅ Interactive CLI with modular submenus
 - ✅ Automated first-time tenant setup
@@ -71,10 +70,11 @@ A more detailed explaination to the working approach for this project can be fou
 
 ---
 
-## <a name='Requirements'></a>🔧 Requirements
+## 🔧 Requirements
 
 - PowerShell 7.0+
 - Modules:
+
   - `ExchangeOnlineManagement`
   - `Microsoft.Graph`
   - `MicrosoftTeams`
@@ -83,7 +83,7 @@ A more detailed explaination to the working approach for this project can be fou
 
 ---
 
-## <a name='Usage'></a>🧠 Usage
+## 🧠 Usage
 
 1. Open PowerShell 7+
 
@@ -91,15 +91,15 @@ A more detailed explaination to the working approach for this project can be fou
 
 3. Run:
 
-```powershell
-.\Invoke-MainMenu.ps1
-```
+    ```powershell
+    .\Invoke-MainMenu.ps1
+    ```
 
-You’ll be guided through first-time setup if it's your first run.
+    You’ll be guided through first-time setup if it's your first run.
 
 ---
 
-## <a name='FolderStructure'></a>📁 Folder Structure
+## 📁 Folder Structure
 
 WARNING: Due to continued development, this is subject to change.
 
@@ -113,6 +113,8 @@ OfficeSpaceManager/                  # Project root
 │   - See Modules/Utilities/Resolve-OfficeSpaceManagerRoot.ps1 for implementation details.
 │
 ├── Invoke-MainMenu.ps1              # Main CLI entry point for all operations
+├── Invoke-Verbose.ps1               # Current method for full verbose recording of what is being done │                                      by Invoke-MainMenu.ps1, and logging all output as a text file to:
+│                                      Logs\TerminalVerbose\
 ├── [README.md](./README.md)                # Main documentation and usage guide
 ├── [IDEA.md](./IDEA.md)                    # Project vision and rationale
 ├── [KNOWNISSUES.md](./KNOWNISSUES.md)      # Known issues and limitations
@@ -130,8 +132,8 @@ OfficeSpaceManager/                  # Project root
 │   ├── LogsMenu.ps1                 # Logs menu
 │   ├── ManageResourcesMenu.ps1      # Resource management menu
 │   ├── OrphanMetadatamenu.ps1       # Orphan metadata menu
-│   ├── Display-PanelHeader.ps1      # Shared panel header rendering
-│   ├── Show-ActionHistory.ps1       # Action history viewer
+│   ├── Display-PanelHeader.ps1      # (Obsolete) Use Display-PanelHeader from CLI module
+│   ├── Show-ActionHistory.ps1       # (Obsolete) Use Display-ActionHistory from CLI module
 │   ├── Logs/                        # CLI-specific logs
 │   ├── Manage/                      # CLI-specific management scripts
 │   └── Wizards/                     # Interactive CLI wizards for resource/desk pools
@@ -228,7 +230,7 @@ To remove all test resources:
 
 Test results and logs are saved in:
 
-```
+```powershell
 \TestResults\
 ```
 
@@ -236,11 +238,11 @@ Test results and logs are saved in:
 
 ## 🔁 Backup & Restore
 
-### Save current metadata snapshot:
+### Save current metadata snapshot
 
 From the menu:
 
-```
+```text
 Main Menu > Metadata & Logs > Save Metadata Snapshot
 ```
 
@@ -250,7 +252,7 @@ Or run manually:
 .\Backups\Save-MetadataSnapshot.ps1
 ```
 
-### Restore from snapshot:
+### Restore from snapshot
 
 ```powershell
 .\Backups\Restore-MetadataSnapshot.ps1
@@ -259,8 +261,8 @@ Or run manually:
 You can also use:
 
 ```powershell
-.\Configuration\Create-ConfigBackup.ps1
-.\Configuration\Restore-ConfigBackup.ps1
+. (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Create-ConfigBackup.ps1')
+. (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Restore-ConfigBackup.ps1')
 ```
 
 To create/import a full `.zip` archive of your working config.
@@ -297,7 +299,7 @@ All changes to Exchange/Graph are:
 
 ---
 
-## <a name='todo'></a>🔧 TODO
+## 🔧 TODO
 
 See [TODO](TODO.md).
 
@@ -309,4 +311,4 @@ See [TODO](TODO.md).
 > © 2025 – Michael Harris. Use it well.
 > Built with PowerShell for Microsoft 365 tenants
 
-See [LICENSE](license) for further information.
+See [LICENSE](LICENSE) for further information.
