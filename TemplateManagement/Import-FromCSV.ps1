@@ -1,23 +1,36 @@
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 <#
 .SYNOPSIS
-    Imports a CSV metadata file into local metadata storage
+    Imports a CSV metadata file into local metadata storage for supported resource types.
 .DESCRIPTION
-    Supports Sites, Buildings+Floors, Desks, Desk Pools, and Equipment resources.
+    This script allows the user to select a CSV file from the .\Imports folder and imports its contents into the appropriate local metadata JSON file. Supports Sites, Buildings+Floors, Desks, Desk Pools, and Equipment. Handles merging and updating of existing records, and logs all actions.
+.FILECREATED
+    2023-07-01
+.FILELASTUPDATED
+    2025-07-23
+.OUTPUTS
+    Updates local metadata JSON files based on imported CSV data.
+.EXAMPLE
+    .\Import-FromCSV.ps1
+    # Imports a selected CSV file from .\Imports into the appropriate metadata store.
+.DOCUMENTATION Import-Csv
+    https://learn.microsoft.com/en-au/powershell/module/microsoft.powershell.utility/import-csv
 #>
 
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Write-Log.ps1"
-Render-PanelHeader -Title "Import Metadata from CSV"
+# Import global error handling and logging
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
+. "$PSScriptRoot/../Shared/Write-Log.ps1"
+
+Display-PanelHeader -Title "Import Metadata from CSV"
 
 $importFolder = ".\Imports"
 if (!(Test-Path $importFolder)) {
-Write-Log -Message "Imports folder does not exist." -Level 'WARN'
+    Write-Log -Message "Imports folder does not exist." -Level 'WARN'
     return
 }
 
 $csvFiles = Get-ChildItem $importFolder -Filter *.csv
 if ($csvFiles.Count -eq 0) {
-Write-Log -Message "No CSV files found in .\Imports" -Level 'WARN'
+    Write-Log -Message "No CSV files found in .\Imports" -Level 'WARN'
     return
 }
 
@@ -30,11 +43,12 @@ $fullPath = $file.FullName
 try {
     $csvData = Import-Csv $fullPath -ErrorAction Stop
     if ($csvData.Count -eq 0) {
-Write-Log -Message "CSV is empty." -Level 'WARN'
+        Write-Log -Message "CSV is empty." -Level 'WARN'
         return
     }
-} catch {
-Write-Log -Message "Failed to read CSV file: $_" -Level 'ERROR'
+}
+catch {
+    Write-Log -Message "Failed to read CSV file: $_" -Level 'ERROR'
     return
 }
 
@@ -51,10 +65,11 @@ switch ($filename) {
         foreach ($row in $csvData) {
             $match = $existing | Where-Object { $_.SiteCode -eq $row.SiteCode }
             if ($match) {
-Write-Log -Message "Updating site: $($row.SiteCode)" -Level 'INFO'
+                Write-Log -Message "Updating site: $($row.SiteCode)" -Level 'INFO'
                 $existing = $existing | Where-Object { $_.SiteCode -ne $row.SiteCode }
-            } else {
-Write-Log -Message "Adding site: $($row.SiteCode)" -Level 'INFO'
+            }
+            else {
+                Write-Log -Message "Adding site: $($row.SiteCode)" -Level 'INFO'
             }
             $merged += [PSCustomObject]@{
                 SiteCode = $row.SiteCode
@@ -95,17 +110,17 @@ Write-Log -Message "Adding site: $($row.SiteCode)" -Level 'INFO'
         $target = ".\Metadata\Desks.json"
         $converted = foreach ($row in $csvData) {
             [PSCustomObject]@{
-                DisplayName       = $row.DisplayName
-                Alias             = $row.Alias
-                Domain            = $row.Domain
-                SiteCode          = $row.SiteCode
-                BuildingCode      = $row.BuildingCode
-                FloorId           = $row.FloorId
-                FloorName         = $row.FloorName
-                Pathway           = $row.Pathway
-                DeskNumber        = $row.DeskNumber
-                Role              = $row.Role
-                ObjectType        = "desk"
+                DisplayName        = $row.DisplayName
+                Alias              = $row.Alias
+                Domain             = $row.Domain
+                SiteCode           = $row.SiteCode
+                BuildingCode       = $row.BuildingCode
+                FloorId            = $row.FloorId
+                FloorName          = $row.FloorName
+                Pathway            = $row.Pathway
+                DeskNumber         = $row.DeskNumber
+                Role               = $row.Role
+                ObjectType         = "desk"
                 IsHeightAdjustable = $row.IsHeightAdjustable
                 HasDockingStation  = $row.HasDockingStation
                 IsAccessible       = $row.IsAccessible
@@ -137,13 +152,13 @@ Write-Log -Message "Adding site: $($row.SiteCode)" -Level 'INFO'
         $target = ".\Metadata\Equipment.json"
         $converted = foreach ($row in $csvData) {
             [PSCustomObject]@{
-                DisplayName  = $row.DisplayName
-                Alias        = $row.Alias
-                Domain       = $row.Domain
-                SiteCode     = $row.SiteCode
-                BuildingCode = $row.BuildingCode
-                FloorId      = $row.FloorId
-                Pathway      = $row.Pathway
+                DisplayName   = $row.DisplayName
+                Alias         = $row.Alias
+                Domain        = $row.Domain
+                SiteCode      = $row.SiteCode
+                BuildingCode  = $row.BuildingCode
+                FloorId       = $row.FloorId
+                Pathway       = $row.Pathway
                 EquipmentType = $row.EquipmentType
             }
         }
@@ -152,7 +167,7 @@ Write-Log -Message "Adding site: $($row.SiteCode)" -Level 'INFO'
     }
 
     default {
-Write-Log -Message "No import logic exists for: $filename" -Level 'WARN'
+        Write-Log -Message "No import logic exists for: $filename" -Level 'WARN'
     }
 }
 

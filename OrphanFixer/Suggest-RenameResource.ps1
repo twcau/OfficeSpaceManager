@@ -1,6 +1,17 @@
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
+<#
+.SYNOPSIS
+    Suggests and applies renames for non-standard resources in OfficeSpaceManager.
+.DESCRIPTION
+    Analyses resource names and suggests or applies renames to match the standard convention. Uses EN-AU spelling and accessible output.
+.FILECREATED
+    2023-12-01
+.FILELASTUPDATED
+    2025-07-23
+#>
+Import-Module "$PSScriptRoot/../Modules/CLI/CLI.psm1"
+Import-Module "$PSScriptRoot/../Modules/Logging/Logging.psm1"
 function Suggest-RenameResource {
-    Render-PanelHeader -Title "Suggest Rename for Non-Standard Resources"
+    Display-PanelHeader -Title "Suggest Rename for Non-Standard Resources"
 
     $cache = Get-Content ".\Metadata\CachedResources.json" | ConvertFrom-Json
 

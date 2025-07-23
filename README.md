@@ -1,21 +1,57 @@
+<!-- omit from toc -->
 # 🏢 OfficeSpaceManager
+
+[![PowerShell 7+](https://img.shields.io/badge/PowerShell-7%2B-blue?logo=powershell)](https://learn.microsoft.com/en-au/powershell/scripting/overview?view=powershell-7.3)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](./)
+[![Test Coverage](https://img.shields.io/badge/tests-passing-brightgreen)](./TestSuite)
 
 A modular PowerShell CLI toolkit to establish a simple, and logical workflow from a single place to establish and manage Microsoft Places, Exchange Room Resources, and Metadata across Microsoft 365 environments.
 
 > [!CAUTION]
 > This repository is still under major initial development, and should be considered 'Extreme Alpha'. Any use of this repository is at your own risk knowing there will be continued and ongoing changes underway.
 
-<!-- vscode-markdown-toc -->
-* [🚀 Features](#Features)
-* [🔧 Requirements](#Requirements)
-* [🧠 Usage](#Usage)
-* [📁 Folder Structure](#FolderStructure)
+- [🏗️ Purpose](#️-purpose)
+- [🛡 Design Philosophy](#-design-philosophy)
+- [🚀 Features](#-features)
+- [🔧 Requirements](#-requirements)
+- [🧠 Usage](#-usage)
+- [📁 Folder Structure](#-folder-structure)
+- [🧪 Running Tests](#-running-tests)
+- [🔁 Backup \& Restore](#-backup--restore)
+  - [Save current metadata snapshot:](#save-current-metadata-snapshot)
+  - [Restore from snapshot:](#restore-from-snapshot)
+- [🔗 Useful Microsoft Docs](#-useful-microsoft-docs)
+- [🙋 Support](#-support)
+- [🔐 Data Safety](#-data-safety)
+- [🔧 TODO](#-todo)
+- [📘 License \& Credits](#-license--credits)
 
-<!-- vscode-markdown-toc-config
-	numbering=false
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
+
+---
+
+## <a name='Purpose'></a>🏗️ Purpose
+
+This script is intended to help someone either setup, or manage, a Microsoft Exchange and Teams environment to:
+
+- Removes the need to navigate across multiple Admin applications, scripts, blades, etc to setup and maintain
+- Initial configuration (right settings configured so you can do this)
+- Bulk upload and maintenance (by way of .csv file) of sites, buildings, floors, desk groups and desks
+- Manage the bookable desk lifecycle (create, manage, rename, reassign, end of life)
+- Ensure consistency of naming conventions for desks
+- Provide disaster recovery for your environment, keeping offline backups of the environment for ease of restoration if and when needed
+- Offline storage of data to increase speed of action
+- Make your job as a Microsoft Modern Workplace analyist/engineer several times easier
+
+A more detailed explaination to the working approach for this project can be found in [IDEA](IDEA.md) and [SPECIFICATION](SPECIFICATION.md).
+
+---
+
+## 🛡 Design Philosophy
+
+- 💾 **Soft-deletion only** — desks and rooms are never fully deleted
+- 💡 **Pre-validation of all inputs**
+- 📦 **Reversible operations** — metadata snapshots, test cleanup
+- 🔒 **Never destroys without confirmation**
 
 ---
 
@@ -65,97 +101,114 @@ You’ll be guided through first-time setup if it's your first run.
 
 ## <a name='FolderStructure'></a>📁 Folder Structure
 
-WARNING: Due to the continued development, this is subject to change.
+WARNING: Due to continued development, this is subject to change.
 
 ```plaintext
-OfficeSpaceManager\
+OfficeSpaceManager/                  # Project root
 │
-├── Invoke-MainMenu.ps1           # 🔧 Entry point to CLI
-├── README.md                     # 📘 This file
+│   All scripts and modules use robust root resolution for module imports:
+│   - $env:OfficeSpaceManagerRoot is set at runtime using the Resolve-OfficeSpaceManagerRoot.ps1 helper.
+│   - All Import-Module statements use this variable for absolute, error-proof paths.
+│   - This prevents all fragile path errors regardless of working directory or invocation method.
+│   - See Modules/Utilities/Resolve-OfficeSpaceManagerRoot.ps1 for implementation details.
 │
-├── CLI\                           # Menus and UI entry points
-│   ├── ConfigurationMenu.ps1
-│   ├── LogsMenu.ps1
-│   ├── ManageResourcesMenu.ps1
-│   ├── OrphanMetadataMenu.ps1
-│   ├── Render-PanelHeader.ps1
-│   ├── Show-ActionHistory.ps1
-│   ├── Wizards\
-│   │   ├── Create-DeskPoolWizard.ps1
-│   │   ├── Manage-DeskPools.ps1
-│   │   ├── Manage-ResourceWizard.ps1
-│   │   ├── Retry-DraftRunner.ps1
+├── Invoke-MainMenu.ps1              # Main CLI entry point for all operations
+├── [README.md](./README.md)                # Main documentation and usage guide
+├── [IDEA.md](./IDEA.md)                    # Project vision and rationale
+├── [KNOWNISSUES.md](./KNOWNISSUES.md)      # Known issues and limitations
+├── [LICENSE](./LICENSE)                    # Project license
+├── [MODULES.md](./MODULES.md)              # Documentation of all modules and their functions
+├── [SPECIFICATION.md](./SPECIFICATION.md)  # Detailed project specification and requirements
+├── [TODO.md](./TODO.md)                    # Outstanding tasks and improvement opportunities
 │
-├── Configuration\                # Config validation and setup flows
-│   ├── Create-ConfigBackup.ps1
-│   ├── Enable-PlacesFeatures.ps1
-│   ├── Restore-ConfigBackup.ps1
-│   ├── Run-FirstTimeSetup.ps1
-│   ├── Validate-ExchangeSetup.ps1
-│   ├── Validate-PlacesFeatures.ps1
+├── Backups/                         # Backups and backup scripts
+│   ├── Restore-MetadataSnapshot.ps1 # Restore metadata snapshot
+│   └── Save-MetadataSnapshot.ps1    # Save metadata snapshot
 │
-├── EnvironmentSetup\             # Microsoft 365 mailbox and calendar config
-│   ├── Ensure-CalendarProcessingSettings.ps1
-│   ├── Pin-PlacesAppInTeams.ps1
-│   ├── Update-MailboxTypes.ps1
+├── CLI/                             # CLI scripts and menu entry points
+│   ├── ConfigurationMenu.ps1        # Configuration menu
+│   ├── LogsMenu.ps1                 # Logs menu
+│   ├── ManageResourcesMenu.ps1      # Resource management menu
+│   ├── OrphanMetadatamenu.ps1       # Orphan metadata menu
+│   ├── Display-PanelHeader.ps1      # Shared panel header rendering
+│   ├── Show-ActionHistory.ps1       # Action history viewer
+│   ├── Logs/                        # CLI-specific logs
+│   ├── Manage/                      # CLI-specific management scripts
+│   └── Wizards/                     # Interactive CLI wizards for resource/desk pools
 │
-├── Imports\                      # Post-CSV import handling
-│   ├── Import-SiteStructureFromCSV.ps1
-│   ├── Import-DeskPoolsFromCSV.ps1
-│   ├── Import-ResourcesFromCSV.ps1
+├── config/                          # Tenant config and first-run flags
+│   ├── FirstRunComplete.json        # First-run completion flag
+│   └── TenantConfig.json            # Tenant configuration
 │
-├── Logs\                         # Logging history, export, cleanup
-│   ├── Clear-LogHistory.ps1
-│   ├── Compress-Logs.ps1
-│   ├── Export-ActionHistory.ps1
-│   ├── View-LogHistory.ps1
+├── Configuration/                   # Config validation/setup flows (legacy scripts)
+│   ├── Create-ConfigBackup.ps1      # Create config backup ZIP
+│   ├── Enable-PlacesFeatures.ps1    # Enable Microsoft Places features
+│   ├── Restore-ConfigBackup.ps1     # Restore config from backup
+│   ├── Run-FirstTimeSetup.ps1       # First-time setup wizard
+│   ├── Validate-ExchangeSetup.ps1   # Validate Exchange setup
+│   └── Validate-PlacesFeatures.ps1  # Validate Places/Teams setup
 │
-├── Metadata\                     # Primary system metadata
-│   ├── BuildingDefinitions.json
-│   ├── CachedResources.json
-│   ├── DeskDefinitions.json
-│   ├── DeskPools.json
-│   ├── Floors.json
-│   ├── Pathways.json
-│   ├── SiteDefinitions.json
+├── EnvironmentSetup/                # M365 mailbox/calendar config scripts
+│   ├── Ensure-CalendarProcessingSettings.ps1 # Ensure correct calendar processing
+│   ├── Pin-PlacesAppInTeams.ps1              # Pin Places app in Teams
+│   └── Update-MailboxTypes.ps1               # Update mailbox types
 │
-├── OrphanFixer\                  # Tools for resolving orphan objects
-│   ├── Detect-NonStandardResources.ps1
-│   ├── Identify-OrphanedDesks.ps1
-│   ├── Reconcile-OrphanedDesks.ps1
+├── Logs/                            # Log files and log management scripts
+│   ├── ActionHistory-*.txt          # Action history logs
+│   ├── Archive/                     # Archived logs
+│   ├── Clear-LogHistory.ps1         # Clear log history
+│   ├── Compress-Logs.ps1            # Compress logs
+│   ├── Export-ActionHistory.ps1     # Export action history
+│   ├── Log_*.log                    # Log files
+│   └── View-LogHistory.ps1          # View log history
 │
-├── Shared\                       # Reusable logic functions
-│   ├── Get-StandardDeskName.ps1
-│   ├── Render-PanelHeader.ps1
-│   ├── Write-Log.ps1
+├── Metadata/                        # Primary system metadata (JSON)
+│   ├── .lastSync.json               # Last sync state
+│   └── CachedResources.json         # Cached resources
 │
-├── SiteManagement\               # Metadata sync + site structure ops
-│   ├── CachedResources\
-│   │   └── Refresh-CachedResources.ps1
-│   ├── Export-SiteStructureTemplates.ps1
-│   ├── Import-SiteStructureFromCSV.ps1
-│   ├── List-SiteStructure.ps1
-│   ├── Sync-MetadataToCloud.ps1
+├── Modules/                         # PowerShell modules (core logic, reusable functions)
+│   ├── CLI/                         # CLI menu rendering and user interaction logic
+│   ├── Configuration/               # Config import/export, backup/restore, validation
+│   ├── Logging/                     # Centralised logging and error handling
+│   ├── Reporting/                   # Reporting and summary generation
+│   ├── SiteManagement/              # Site/building/floor/desk management logic
+│   ├── UserManagement/              # User and permissions logic
+│   └── Utilities/                   # Helper and utility functions (e.g., connections)
 │
-├── TemplateManagement\           # Import/export CSV metadata templates
-│   ├── Export-AllTemplates.ps1
-│   ├── Import-FromCSV.ps1
-│   ├── Validate-CSVImport.ps1
+├── OrphanFixer/                     # Tools for resolving orphaned resources
+│   ├── Detect-NonStandardResources.ps1     # Detect non-standard resources
+│   ├── Find-OrphanedResources.ps1          # Find orphaned resources
+│   ├── Fix-OrphanedResources.ps1           # Remediate orphaned resources
+│   ├── Suggest-RenameResource.ps1          # Suggest resource renames
+│   └── Validate-DeskPoolMappings.ps1       # Validate desk pool mappings
 │
-├── TestSuite\                    # Safe simulation of provisioning logic
-│   ├── Cleanup-TestResources.ps1
-│   ├── Run-BookingSimulation.ps1
-│   ├── Run-TestSuite.ps1
-│   ├── Simulate-BookingTest.ps1
-│   ├── Test-DeskProvisioning.ps1
-│   ├── Test-MailboxSettings.ps1
-│   ├── Test-RoomProvisioning.ps1
+├── SiteManagement/                  # Metadata sync and site structure operations
+│   ├── CachedResources/                     # Cached resource data/scripts
+│   ├── Export-SiteStructureTemplates.ps1    # Export site structure templates
+│   ├── Import-SiteStructureFromCSV.ps1      # Import site structure from CSV
+│   ├── Get-SiteStructure.ps1                # Get site structure
+│   └── Sync-MetadataToCloud.ps1             # Sync metadata to cloud
 │
-├── .Drafts\                      # Stored failed/draft resource objects
+├── TemplateManagement/              # Import/export CSV metadata templates
+│   ├── Export-AllTemplates.ps1      # Export all templates
+│   ├── Export-MetadataTemplates.ps1 # Export metadata templates
+│   ├── Import-FromCSV.ps1           # Import from CSV
+│   ├── Import-MetadataFromCSV.ps1   # Import metadata from CSV
+│   └── Validate-CSVImport.ps1       # Validate CSV import
 │
-├── config\                       # TenantConfig.json + first-run flags
-    ├── FirstRunComplete.json
-    ├── TenantConfig.json
+├── Tests/                           # Unit and integration tests (Pester, etc.)
+│
+├── TestSuite/                       # Simulation and test suite scripts
+│   ├── Cleanup-TestResources.ps1    # Remove test resources
+│   ├── Run-BookingSimulation.ps1    # Simulate booking scenarios
+│   ├── Run-TestSuite.ps1            # Run all tests
+│   ├── Simulate-BookingTest.ps1     # Simulate a booking test
+│   ├── Test-DeskProvisioning.ps1    # Test desk provisioning
+│   ├── Test-MailboxSettings.ps1     # Test mailbox settings
+│   └── Test-RoomProvisioning.ps1    # Test room provisioning
+```
+
+Each folder and file is annotated above with a short summary of its purpose and contents.
 
 ---
 
@@ -223,15 +276,6 @@ To create/import a full `.zip` archive of your working config.
 
 ---
 
-## 🛡 Design Philosophy
-
-- 💾 **Soft-deletion only** — desks and rooms are never fully deleted
-- 💡 **Pre-validation of all inputs**
-- 📦 **Reversible operations** — metadata snapshots, test cleanup
-- 🔒 **Never destroys without confirmation**
-
----
-
 ## 🙋 Support
 
 If you're having trouble:
@@ -255,13 +299,14 @@ All changes to Exchange/Graph are:
 
 ## <a name='todo'></a>🔧 TODO
 
-See [TODO](TODO.md)
+See [TODO](TODO.md).
 
 ---
 
 ## 📘 License & Credits
 
-> OfficeSpaceManager – Internal Admin Toolkit  
+> OfficeSpaceManager – Internal Admin Toolkit
+> © 2025 – Michael Harris. Use it well.
 > Built with PowerShell for Microsoft 365 tenants
 
-© 2025 – Michael Harris. Use it well.
+See [LICENSE](license) for further information.

@@ -1,23 +1,36 @@
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 <#
 .SYNOPSIS
     Validates structure and content of metadata CSV templates before importing.
 .DESCRIPTION
-    Ensures correct headers, sample row values, and flags anything that would break import logic.
+    This script checks that CSV templates for metadata import have the correct headers and sample row values, and flags anything that would break import logic. It provides user feedback and logs all validation results.
+.FILECREATED
+    2023-07-01
+.FILELASTUPDATED
+    2025-07-23
+.OUTPUTS
+    Validation results to console and log file.
+.EXAMPLE
+    .\Validate-CSVImport.ps1
+    # Validates a selected CSV template from .\Imports.
+.DOCUMENTATION Import-Csv
+    https://learn.microsoft.com/en-au/powershell/module/microsoft.powershell.utility/import-csv
 #>
 
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Write-Log.ps1"
-Render-PanelHeader -Title "CSV Template Validation"
+# Import global error handling and logging
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
+. "$PSScriptRoot/../Shared/Write-Log.ps1"
+
+Display-PanelHeader -Title "CSV Template Validation"
 
 $importFolder = ".\Imports"
 if (!(Test-Path $importFolder)) {
-Write-Log -Message "No .\Imports folder found. Please place CSV files there first." -Level 'WARN'
+    Write-Log -Message "No .\Imports folder found. Please place CSV files there first." -Level 'WARN'
     return
 }
 
 $csvFiles = Get-ChildItem $importFolder -Filter *.csv
 if ($csvFiles.Count -eq 0) {
-Write-Log -Message "No CSV files found in .\Imports." -Level 'WARN'
+    Write-Log -Message "No CSV files found in .\Imports." -Level 'WARN'
     return
 }
 
@@ -32,11 +45,11 @@ $fileName = $selected.Name
 try {
     $data = Import-Csv $csvPath -ErrorAction Stop
     if ($data.Count -eq 0) {
-Write-Log -Message "CSV appears empty." -Level 'WARN'
+        Write-Log -Message "CSV appears empty." -Level 'WARN'
         return
     }
 } catch {
-Write-Log -Message "Failed to load CSV: $_" -Level 'WARN'
+    Write-Log -Message "Failed to load CSV: $_" -Level 'WARN'
     return
 }
 
@@ -50,7 +63,7 @@ $expectedHeadersMap = @{
 }
 
 if (-not $expectedHeadersMap.ContainsKey($fileName)) {
-Write-Log -Message "Unknown file type: $fileName. No validation map available." -Level 'WARN'
+    Write-Log -Message "Unknown file type: $fileName. No validation map available." -Level 'WARN'
     return
 }
 $expected = $expectedHeadersMap[$fileName]
@@ -62,11 +75,11 @@ $missing = $expected | Where-Object { $_ -notin $headers }
 $unexpected = $headers | Where-Object { $_ -notin $expected }
 
 if ($missing.Count -gt 0) {
-Write-Log -Message "Missing expected fields: $($missing -join ', ')" -Level 'WARN'
+    Write-Log -Message "Missing expected fields: $($missing -join ', ')" -Level 'WARN'
     Write-Log "CSV Validation: Missing headers in $fileName: $($missing -join ', ')"
 }
 if ($unexpected.Count -gt 0) {
-Write-Log -Message "Unexpected fields present: $($unexpected -join ', ')" -Level 'WARN'
+    Write-Log -Message "Unexpected fields present: $($unexpected -join ', ')" -Level 'WARN'
     Write-Log "CSV Validation: Extra fields in $fileName: $($unexpected -join ', ')"
 }
 
@@ -95,7 +108,7 @@ if ($invalidRows.Count -gt 0) {
     Write-Host "`n⚠️ Found $($invalidRows.Count) data issues:" -ForegroundColor Yellow
     $invalidRows | Select-Object -First 10 | ForEach-Object { Write-Host $_ }
     if ($invalidRows.Count -gt 10) {
-Write-Log -Message "and $($invalidRows.Count - 10) more issues not shown" -Level 'INFO'
+        Write-Log -Message "and $($invalidRows.Count - 10) more issues not shown" -Level 'INFO'
     }
     Write-Log "CSV validation for $fileName found $($invalidRows.Count) row-level issues."
 } else {

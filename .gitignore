@@ -3,9 +3,7 @@ Backups/
 Logs/
 FixScriptTesting/
 # Files
-Review-ProjectScripts.ps1
+MODULARISATION.md
 script_review_report.csv
 script_review_report.md
 OfficeSpaceManager.code-workspace
-script_review_report.md
-script_review_report.csv

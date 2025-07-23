@@ -1,5 +1,18 @@
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
-Render-PanelHeader -Title "Metadata & Logs"
+<#
+.SYNOPSIS
+    Metadata and logs menu for OfficeSpaceManager CLI.
+.DESCRIPTION
+    Provides interactive options for saving/restoring metadata snapshots, viewing logs, exporting action history, compressing and clearing logs. All output uses inclusive, accessible language and EN-AU spelling.
+.FILECREATED
+    2023-12-01
+.FILELASTUPDATED
+    2025-07-23
+#>
+
+. (Join-Path $PSScriptRoot '..\Modules\Utilities\Resolve-OfficeSpaceManagerRoot.ps1')
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\CLI\CLI.psm1')
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Logging\Logging.psm1')
+Display-PanelHeader -Title "Metadata & Logs"
 
 Write-Host "[1] Save Metadata Snapshot"
 Write-Host "[2] Restore Metadata Snapshot"

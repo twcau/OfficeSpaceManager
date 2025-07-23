@@ -1,20 +1,14 @@
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
-function List-SiteStructure {
-    Render-PanelHeader -Title "Site, Building & Floor Metadata"
+<#
+.SYNOPSIS
+    Lists the current site and building structure in OfficeSpaceManager.
+.DESCRIPTION
+    Displays or exports the current site/building structure for review or reporting. Uses EN-AU spelling and accessible output.
+.FILECREATED
+    2023-12-01
+.FILELASTUPDATED
+    2025-07-23
+#>
 
-    $sites     = Get-Content ".\Metadata\SiteDefinitions.json" | ConvertFrom-Json
-    $buildings = Get-Content ".\Metadata\BuildingDefinitions.json" | ConvertFrom-Json
+Remove-Module "$PSScriptRoot/../Modules/SiteManagement/SiteManagement.psm1" -Force
 
-    foreach ($site in $sites) {
-        Write-Host "`n📍 Site: $($site.SiteCode) - $($site.SiteName)" -ForegroundColor Cyan
-        $siteBuildings = $buildings | Where-Object { $_.SiteCode -eq $site.SiteCode }
-
-        foreach ($b in $siteBuildings) {
-            Write-Host "  🏢 Building: $($b.BuildingCode) - $($b.BuildingName)" -ForegroundColor Yellow
-            foreach ($floor in $b.Floors) {
-                Write-Host "    ▸ Floor $($floor.FloorNumber): $($floor.FloorName)" -ForegroundColor Gray
-            }
-        }
-    }
-}
-List-SiteStructure
+# Finalized removal of obsolete function file.

@@ -1,17 +1,39 @@
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 <#
 .SYNOPSIS
-    Exports all supported metadata templates (desks, desk pools, sites, buildings, floors, etc.)
-    into a date-stamped folder for bulk data import.
+    Exports all supported metadata templates (desks, desk pools, sites, buildings, floors, etc.) into a date-stamped folder for bulk data import.
+.DESCRIPTION
+    This script exports all key metadata templates used by OfficeSpaceManager, including desks, desk pools, sites, buildings, and floors, to CSV files in a date-stamped export folder. It ensures that sample data is available if no data exists, and provides a consistent export structure for bulk import or backup.
+.FILECREATED
+    2023-07-01
+.FILELASTUPDATED
+    2025-07-23
+.OUTPUTS
+    CSV files for each metadata type in the .\Exports\<date> folder.
+.EXAMPLE
+    .\Export-AllTemplates.ps1
+    # Exports all templates to a new folder under .\Exports
+.DOCUMENTATION Export-Csv
+    https://learn.microsoft.com/en-au/powershell/module/microsoft.powershell.utility/export-csv
 #>
 
-function Export-AllTemplates {
-    Render-PanelHeader -Title "Export All Metadata Templates"
+# Import global error handling and logging
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 
-    # region 🔍 Domain Context for Templates
+function Export-AllTemplates {
+    <#
+    .SYNOPSIS
+        Main function to export all metadata templates.
+    .DESCRIPTION
+        Handles folder creation, loads tenant config, and exports each template type to CSV.
+    .OUTPUTS
+        None. Writes CSV files to disk.
+    #>
+    Display-PanelHeader -Title "Export All Metadata Templates"
+
+    # region 50d Domain Context for Templates
     $tenantConfigPath = ".\config\TenantConfig.json"
     if (-not (Test-Path $tenantConfigPath)) {
-Write-Log -Message "TenantConfig.json not found. Please run first-time setup." -Level 'WARN'
+        Write-Log -Message "TenantConfig.json not found. Please run first-time setup." -Level 'WARN'
         return
     }
     $tenantConfig = Get-Content $tenantConfigPath | ConvertFrom-Json
@@ -19,28 +41,29 @@ Write-Log -Message "TenantConfig.json not found. Please run first-time setup." -
     $domainHint = ($domains -join ", ")
     # endregion
 
-    # region 📁 Folder Structure
+    # region 4c1 Folder Structure
     $exportDate = Get-Date -Format 'yyyy-MM-dd'
     $folder = ".\Exports\$exportDate"
     if (!(Test-Path $folder)) { New-Item -ItemType Directory -Path $folder | Out-Null }
     # endregion
 
-    # region 🪑 Desks
+    # region a91 Desks
+    # Export desks, or provide a sample if none exist
     $desks = Get-Content ".\Metadata\DeskDefinitions.json" -Raw | ConvertFrom-Json
     if ($desks.Count -eq 0) {
         $desks = @(
             [PSCustomObject]@{
-                DisplayName       = "FRE-FIN-17 Ops Desk"
-                Alias             = "frefin17ops"
-                Domain            = $tenantConfig.DefaultDomain
-                SiteCode          = "FRE"
-                BuildingCode      = "01"
-                FloorId           = "FRE-01-F1"
-                FloorName         = "Level 1"
-                Pathway           = "FIN"
-                DeskNumber        = "17"
-                Role              = "Ops"
-                ObjectType        = "desk"
+                DisplayName        = "FRE-FIN-17 Ops Desk"
+                Alias              = "frefin17ops"
+                Domain             = $tenantConfig.DefaultDomain
+                SiteCode           = "FRE"
+                BuildingCode       = "01"
+                FloorId            = "FRE-01-F1"
+                FloorName          = "Level 1"
+                Pathway            = "FIN"
+                DeskNumber         = "17"
+                Role               = "Ops"
+                ObjectType         = "desk"
                 IsHeightAdjustable = "Y"
                 HasDockingStation  = "Y"
                 IsAccessible       = "N"
@@ -50,7 +73,7 @@ Write-Log -Message "TenantConfig.json not found. Please run first-time setup." -
     $desks | Export-Csv "$folder\Template-Desks.csv" -NoTypeInformation
     # endregion
 
-    # region 🪑 Desk Pools
+    # region a91 Desk Pools
     $pools = Get-Content ".\Metadata\DeskPools.json" -Raw | ConvertFrom-Json
     $flatPools = foreach ($p in $pools) {
         foreach ($member in $p.Members) {
@@ -61,9 +84,7 @@ Write-Log -Message "TenantConfig.json not found. Please run first-time setup." -
             }
         }
     }
-    if ($flatPools) {
-        $flatPools | Export-Csv "$folder\Template-DeskPools.csv" -NoTypeInformation
-    }
+    $flatPools | Export-Csv "$folder\Template-DeskPools.csv" -NoTypeInformation
     # endregion
 
     # region 🏢 Sites
@@ -103,14 +124,14 @@ Write-Log -Message "TenantConfig.json not found. Please run first-time setup." -
     if (!(Test-Path $equipmentFile) -or ((Get-Content $equipmentFile | ConvertFrom-Json).Count -eq 0)) {
         $equipment = @(
             [PSCustomObject]@{
-                DisplayName    = "FRE-PROJ-A01"
-                Alias          = "freproja01"
-                Domain         = $tenantConfig.DefaultDomain
-                SiteCode       = "FRE"
-                BuildingCode   = "01"
-                FloorId        = "FRE-01-F1"
-                Pathway        = "FIN"
-                EquipmentType  = "Projector"
+                DisplayName   = "FRE-PROJ-A01"
+                Alias         = "freproja01"
+                Domain        = $tenantConfig.DefaultDomain
+                SiteCode      = "FRE"
+                BuildingCode  = "01"
+                FloorId       = "FRE-01-F1"
+                Pathway       = "FIN"
+                EquipmentType = "Projector"
             }
         )
         $equipment | Export-Csv "$folder\Template-Equipment.csv" -NoTypeInformation
@@ -123,4 +144,5 @@ Write-Log -Message "TenantConfig.json not found. Please run first-time setup." -
     # endregion
 }
 
+# Call the main function
 Export-AllTemplates

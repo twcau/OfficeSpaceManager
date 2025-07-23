@@ -1,6 +1,17 @@
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
+<#
+.SYNOPSIS
+    Fixes orphaned resources in OfficeSpaceManager.
+.DESCRIPTION
+    Attempts to remediate or reassign orphaned resources to restore metadata integrity. Uses EN-AU spelling and accessible output.
+.FILECREATED
+    2023-12-01
+.FILELASTUPDATED
+    2025-07-23
+#>
+Import-Module "$PSScriptRoot/../Modules/CLI/CLI.psm1"
+Import-Module "$PSScriptRoot/../Modules/Logging/Logging.psm1"
 function Fix-OrphanedResources {
-    Render-PanelHeader -Title "Fix Orphaned Desks and Mailboxes"
+    Display-PanelHeader -Title "Fix Orphaned Desks and Mailboxes"
 
     $metadataDesks = Get-Content ".\Metadata\DeskDefinitions.json" | ConvertFrom-Json
     $cache = Get-Content ".\Metadata\CachedResources.json" | ConvertFrom-Json

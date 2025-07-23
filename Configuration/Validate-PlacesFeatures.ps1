@@ -1,20 +1,16 @@
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
-function Validate-PlacesFeatures {
-    Render-PanelHeader -Title "Validating Microsoft Places Setup"
+<#
+.SYNOPSIS
+    Validates Microsoft Places features and Teams app pinning for OfficeSpaceManager.
+.DESCRIPTION
+    Imports the Configuration module and calls Validate-PlacesFeatures to check Places features and Teams app pinning. All output uses EN-AU spelling and accessible language.
+.FILECREATED
+    2023-12-01
+.FILELASTUPDATED
+    2025-07-23
+#>
 
-    $org = Get-OrganizationConfig
-    if ($org.PlacesEnabled) {
-Write-Log -Message "Places feature is ENABLED." -Level 'INFO'
-    } else {
-Write-Log -Message "Places feature is DISABLED." -Level 'WARN'
-    }
+# Import Configuration module
+Import-Module "$PSScriptRoot/../Modules/Configuration/Configuration.psm1" -Force
 
-    $apps = Get-CsTeamsAppSetupPolicy -Identity Global
-    if ($apps.PinnedApps -contains "com.microsoft.places") {
-Write-Log -Message "Places App is pinned in Teams." -Level 'INFO'
-    } else {
-Write-Log -Message "Places App is not pinned." -Level 'WARN'
-    }
-
-    Write-Log "Places features validated"
-}
+# Call the main function
+Validate-PlacesFeatures

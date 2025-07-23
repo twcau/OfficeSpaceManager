@@ -1,3 +1,15 @@
+<#
+.SYNOPSIS
+    Wizard for recovering failed or draft resource objects in OfficeSpaceManager.
+.DESCRIPTION
+    Guides the user through the process of retrying or recovering failed/draft resource objects. Uses EN-AU spelling and accessible output.
+.FILECREATED
+    2023-12-01
+.FILELASTUPDATED
+    2025-07-23
+#>
+
+Import-Module "$PSScriptRoot/../../Modules/CLI/CLI.psm1"
 . "$PSScriptRoot/../../Shared/Global-ErrorHandling.ps1"
 <#
 .SYNOPSIS
@@ -11,7 +23,7 @@ $draftFolder = ".\.Drafts"
 $files = Get-ChildItem -Path $draftFolder -Filter *.json -ErrorAction SilentlyContinue
 
 if (-not $files) {
-Write-Log -Message "No draft resources found to recover." -Level 'INFO'
+    Write-Log -Message "No draft resources found to recover." -Level 'INFO'
     return
 }
 
@@ -25,48 +37,34 @@ try {
     $upn = "$alias@$domain"
     $resourceType = $resource.ObjectType
 
-    # Password generator inline
-    function New-SecurePassword {
-        $chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^&*'
-        do {
-            $pwd = -join ((65..90)+(97..122)+(48..57)+33..47 | Get-Random -Count 14 | ForEach-Object {[char]$_})
-        } while (
-            $pwd -notmatch '[A-Z]' -or
-            $pwd -notmatch '[a-z]' -or
-            $pwd -notmatch '[0-9]' -or
-            $pwd -notmatch '[\!\@\#\$\%\^\&\*]' -or
-            $pwd -match '(.)\1{2,}' -or
-            $pwd -match '(012|123|234|345|456|567|678|789)'
-        )
-        return $pwd
-    }
-
+    # Use module version of New-SecurePassword
     $securePwd = (New-SecurePassword) | ConvertTo-SecureString -AsPlainText -Force
 
-Write-Log -Message "Retrying Exchange provisioning for: $($resource.DisplayName)" -Level 'INFO'
+    Write-Log -Message "Retrying Exchange provisioning for: $($resource.DisplayName)" -Level 'INFO'
 
     # Check if already exists again
     $existing = Get-Mailbox -Identity $upn -ErrorAction SilentlyContinue
     if ($existing) {
-Write-Log -Message "Mailbox already exists in Exchange. Skipping creation." -Level 'WARN'
-    } else {
+        Write-Log -Message "Mailbox already exists in Exchange. Skipping creation." -Level 'WARN'
+    }
+    else {
         New-Mailbox -Name $resource.DisplayName `
-                    -Alias $resource.Alias `
-                    -DisplayName $resource.DisplayName `
-                    -MicrosoftOnlineServicesID $upn `
-                    -Room `
-                    -EnableRoomMailboxAccount $true `
-                    -RoomMailboxPassword $securePwd
+            -Alias $resource.Alias `
+            -DisplayName $resource.DisplayName `
+            -MicrosoftOnlineServicesID $upn `
+            -Room `
+            -EnableRoomMailboxAccount $true `
+            -RoomMailboxPassword $securePwd
 
         Set-Mailbox -Identity $upn -Type Room
     }
 
     # Set Places attributes
     $placeParams = @{
-        Identity     = $upn
-        Building     = $resource.BuildingCode
-        FloorLabel   = $resource.FloorName
-        FloorNumber  = $resource.FloorNumber
+        Identity    = $upn
+        Building    = $resource.BuildingCode
+        FloorLabel  = $resource.FloorName
+        FloorNumber = $resource.FloorNumber
     }
 
     if ($resourceType -eq 'desk') {
@@ -78,7 +76,7 @@ Write-Log -Message "Mailbox already exists in Exchange. Skipping creation." -Lev
 
     Set-Place @placeParams
 
-Write-Log -Message "Retry successful. Updating metadata and cleaning up draft..." -Level 'INFO'
+    Write-Log -Message "Retry successful. Updating metadata and cleaning up draft..." -Level 'INFO'
 
     # Save into metadata
     $metadataPath = ".\Metadata\$($resourceType)s.json"
@@ -92,7 +90,7 @@ Write-Log -Message "Retry successful. Updating metadata and cleaning up draft...
 
     # Remove draft
     Remove-Item $selected.FullName -Force
-Write-Log -Message "Draft cleaned up." -Level 'INFO'
+    Write-Log -Message "Draft cleaned up." -Level 'INFO'
 
     # Optionally offer simulation test
     $runTest = Read-Host "Run booking simulation now? (Y/N)"
@@ -100,8 +98,9 @@ Write-Log -Message "Draft cleaned up." -Level 'INFO'
         . "$PSScriptRoot\TestSuite\Simulate-BookingTest.ps1" -Alias $alias -Domain $domain
     }
 
-} catch {
-Write-Log -Message "Retry failed: $_" -Level 'WARN'
-Write-Log -Message "Draft preserved: $($selected.FullName)" -Level 'INFO'
+}
+catch {
+    Write-Log -Message "Retry failed: $_" -Level 'WARN'
+    Write-Log -Message "Draft preserved: $($selected.FullName)" -Level 'INFO'
 }
 

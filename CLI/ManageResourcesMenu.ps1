@@ -1,15 +1,29 @@
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
-Render-PanelHeader -Title "Manage Resources"
+<#
+.SYNOPSIS
+    Resource management menu for OfficeSpaceManager CLI.
+.DESCRIPTION
+    Provides interactive options for creating/editing resources, recovering drafts, retiring/reactivating resources, running booking simulations, and managing desk pools. All output uses inclusive, accessible language and EN-AU spelling.
+.FILECREATED
+    2023-12-01
+.FILELASTUPDATED
+    2025-07-23
+#>
+
+. (Join-Path $PSScriptRoot '..\Modules\Utilities\Resolve-OfficeSpaceManagerRoot.ps1')
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\CLI\CLI.psm1')
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Logging\Logging.psm1')
+Display-PanelHeader -Title "Manage Resources"
 
 # ðŸ‘‡ Check if any valid drafts exist
 $hasDrafts = @(Get-ChildItem ".\.Drafts" -Filter *.json -ErrorAction SilentlyContinue | Where-Object {
-    try {
-        $null = Get-Content $_.FullName | ConvertFrom-Json -ErrorAction Stop
-        return $true
-    } catch {
-        return $false
-    }
-}).Count -gt 0
+        try {
+            $null = Get-Content $_.FullName | ConvertFrom-Json -ErrorAction Stop
+            return $true
+        }
+        catch {
+            return $false
+        }
+    }).Count -gt 0
 
 # ðŸ‘‡ Display menu
 Write-Host "[1] Create or Edit a Resource (Desk / Room / Equipment)"
@@ -26,27 +40,28 @@ $choice = Read-Host "`nSelect an option"
 
 switch ($choice) {
     '1' { 
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Manage-ResourceWizard.ps1"
+        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Manage-ResourceWizard.ps1"
     }
     '2' {
         if ($hasDrafts) {
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Retry-DraftRunner.ps1"
-        } else {
+            . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Retry-DraftRunner.ps1"
+        }
+        else {
             Write-Host "No drafts available to recover." -ForegroundColor Yellow
             Start-Sleep -Seconds 2
         }
     }
     '3' { 
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Manage\Toggle-ResourceState.ps1"
+        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Manage\Toggle-ResourceState.ps1"
     }
     '4' { 
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\TestSuite\Run-BookingSimulation.ps1"
+        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\TestSuite\Run-BookingSimulation.ps1"
     }
     '5' { 
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Create-DeskPoolWizard.ps1"
+        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Create-DeskPoolWizard.ps1"
     }
     '6' { 
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Manage-DeskPools.ps1"
+        . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Manage-DeskPools.ps1"
     }
     '7' { 
         return 

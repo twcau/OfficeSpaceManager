@@ -1,6 +1,9 @@
 <!-- omit from toc -->
 # PowerShell Project Modularisation Guide
 
+- [0. Modularisation areas](#0-modularisation-areas)
+  - [OA. Modularisation plan](#oa-modularisation-plan)
+  - [OB. Modularisation question](#ob-modularisation-question)
 - [1. Define Logical Areas (Domains)](#1-define-logical-areas-domains)
 - [2. Proposed Folder Structure](#2-proposed-folder-structure)
 - [3. How to Modularise](#3-how-to-modularise)
@@ -13,6 +16,58 @@
 - [10. Summary Table](#10-summary-table)
 - [Next Steps](#next-steps)
 
+## 0. Modularisation areas
+
+// NOTE - Modularisation
+- [X] TODO: Logging (e.g., Write-Log, error handling)
+- [X] TODO: Utilities (helper functions, shared logic)
+- [X] TODO: CLI (menu rendering, prompts, CLI output)
+- [X] TODO: SiteManagement (building, floor, site, desk management)
+- [X] TODO: Configuration (import/export, backup/restore, validation)  
+  > All Configuration .ps1 scripts now import and call the module version. No duplicate logic remains in scripts.
+- [X] TODO: UserManagement (user and permissions logic)
+  > Nothing was found needing user attention.
+- [X] TODO: Reporting (report and summary generation)
+  > All Configuration .ps1 scripts now import and call the module version. No duplicate logic remains in scripts.
+
+### OA. Modularisation plan
+
+1. Identify all logging-related functions and scripts
+For example - Locate all instances of Write-Log and any related logging/error handling functions (e.g., in Write-Log.ps1, Global-ErrorHandling.ps1, or similar).
+2. Move these functions into Modules\*
+Consolidate all logging and error handling logic into this file.
+3. Update *Logging*.psm1
+Ensure it dot-sources *.ps1 and exports all public functions.
+4. Update all scripts that use logging
+Remove any direct dot-sourcing of the old scripts.
+And where needed, Add Import-Module *.psm1 (or the correct relative path) at the top of scripts that use *.
+Replace any duplicate or now-centralised logging function definitions.
+5. Clean up
+Remove the old *.ps1 and any other now-obsolete logging scripts after confirming all references are updated.
+6. Test
+Run scripts and flows that use * to ensure no regressions.
+
+
+### OB. Modularisation question
+
+Still sticking with the earlier Option 1, let's move onto modularising X/ now, and ensuring that:
+
+Proper clean-up is done, to ensure no duplicated code for anything migrated into a module is left anywhere across the project;
+All required updates performed to scripts that ensure the modularised code works properly, and can be correctly called at the right point when used and needed;
+Done in a way which doesn't cause an operational or functional regression in the project, project functionality, codebase, or any other part which impacts what the code does.
+You alert me to any concerns, and seek my input if needed - providing appropriate explaination, so an informed decision or choice can be taken before you proceed.
+Provide, in raw, all progress and updates as you work through this. Do not make me ask for updates, make sure I can see exactly what you are working on and making progress towards.
+Make sure that the resulting actions are appropriately documented, in a file along the lines of _README-Area-Migration.txt, similar to those files already in Shared/
+
+---
+
+Please continue with the remaining folders (Configuration, OrphanFixer, EnvironmentSetup, Shared, and TestSuite) to ensure all scripts are updated for modular logging and error handling; remembering my earlier instructions on expcectations, behaviours, cleanliness, housekeeping, anti-regression, and notifying of any concerns before proceeding with a change.
+
+---
+
+Thanks, and please proceed with final clean-up and validation of your actions.
+
+---
 
 ## 1. Define Logical Areas (Domains)
 

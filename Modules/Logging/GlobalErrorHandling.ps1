@@ -2,14 +2,8 @@
 .SYNOPSIS
     Global error handler for OfficeSpaceManager
 .DESCRIPTION
-    Ensures that consistent error handling, and associated logging, is implimented across all scripts.
-.LASTUPDATED
-    2025-07-09
+    Ensures that consistent error handling, and associated logging, is implemented across all scripts.
 #>
-
-# region ⚠️ Global Error Handling
-# Dot-source the logging function
-. "$PSScriptRoot\Write-Log.ps1"
 
 if (-not $Global:OSM_ErrorTrapLoaded) {
     $Global:OSM_ErrorTrapLoaded = $true
@@ -24,4 +18,3 @@ if (-not $Global:OSM_ErrorTrapLoaded) {
         continue
     }
 }
-# endregion

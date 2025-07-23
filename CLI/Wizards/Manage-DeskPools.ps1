@@ -1,14 +1,20 @@
 . "$PSScriptRoot/../../Shared/Global-ErrorHandling.ps1"
 <#
 .SYNOPSIS
-    Manage or update existing desk pools.
+    Wizard for managing desk pools in OfficeSpaceManager.
+.DESCRIPTION
+    Provides interactive options for editing, deleting, or viewing desk pools. Uses EN-AU spelling and accessible output.
+.FILECREATED
+    2023-12-01
+.FILELASTUPDATED
+    2025-07-23
 #>
 
 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Write-Log.ps1"
 
 $poolsFile = ".\Metadata\DeskPools.json"
 if (-not (Test-Path $poolsFile)) {
-Write-Log -Message "No pools found." -Level 'WARN'
+    Write-Log -Message "No pools found." -Level 'WARN'
     return
 }
 $pools = Get-Content $poolsFile | ConvertFrom-Json
@@ -39,7 +45,7 @@ switch ($opt) {
         if ($confirm -eq "DELETE") {
             $pools = $pools | Where-Object { $_.PoolName -ne $selectedPool.PoolName }
             $pools | ConvertTo-Json -Depth 5 | Set-Content $poolsFile
-Write-Log -Message "Pool deleted." -Level 'ERROR'
+            Write-Log -Message "Pool deleted." -Level 'ERROR'
             Write-Log "Deleted pool '$($selectedPool.PoolName)'"
             return
         }

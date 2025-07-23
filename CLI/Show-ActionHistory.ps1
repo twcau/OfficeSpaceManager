@@ -1,24 +1,13 @@
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
-function Show-ActionHistory {
-  $logDir = Join-Path $PSScriptRoot "..\Logs"
-  $logFile = Join-Path $logDir ("Log_" + (Get-Date -Format "yyyyMMdd") + ".log")
+<#
+.SYNOPSIS
+    Displays recent action history from the log file in OfficeSpaceManager CLI.
+.DESCRIPTION
+    Reads and displays the last 5 actions from today's log file in a formatted box. Uses EN-AU spelling and accessible output.
+.FILECREATED
+    2023-12-01
+.FILELASTUPDATED
+    2025-07-23
+#>
 
-  if (-not (Test-Path $logFile)) {
-    Write-Host "`n(No log entries found for today.)`n" -ForegroundColor DarkGray
-    return
-  }
-
-  $lines = Get-Content $logFile | Where-Object { $_.Trim() -ne "" }
-  if ($lines.Count -eq 0) {
-    Write-Host "`n(No log entries found for today.)`n" -ForegroundColor DarkGray
-    return
-  }
-
-  Write-Host "`n╔══════════ Recent Actions ══════════╗" -ForegroundColor DarkGray
-
-  $lines | Select-Object -Last 5 | ForEach-Object {
-    Write-Host "• $_" -ForegroundColor Gray
-  }
-
-  Write-Host "╚════════════════════════════════════╝`n" -ForegroundColor DarkGray
-}
+. (Join-Path $PSScriptRoot '..\Modules\Utilities\Resolve-OfficeSpaceManagerRoot.ps1')
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\CLI\CLI.psm1')

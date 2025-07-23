@@ -1,7 +1,16 @@
+<#
+.SYNOPSIS
+    Enables Microsoft Places features in the tenant for OfficeSpaceManager.
+.DESCRIPTION
+    Imports the Configuration module and calls Enable-PlacesFeatures to enable Places features. All output uses EN-AU spelling and accessible language.
+.FILECREATED
+    2023-12-01
+.FILELASTUPDATED
+    2025-07-23
+#>
 . "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
-function Enable-PlacesFeatures {
-Write-Log -Message "Enabling Microsoft Places features..." -Level 'INFO'
-    Set-OrganizationConfig -PlacesEnabled $true
-Write-Log -Message "Microsoft Places enabled." -Level 'INFO'
-    Write-Log "Enabled Microsoft Places"
-}
+# Import Configuration module
+Import-Module "$PSScriptRoot/../Modules/Configuration/Configuration.psm1" -Force
+
+# Call the main function
+Enable-PlacesFeatures

@@ -1,30 +1,28 @@
+<#
+.SYNOPSIS
+    Validates Exchange resource setup and metadata for OfficeSpaceManager.
+.DESCRIPTION
+    Imports the Configuration module and calls Validate-ExchangeSetup to check Exchange resources. All output uses EN-AU spelling and accessible language.
+.FILECREATED
+    2023-12-01
+.FILELASTUPDATED
+    2025-07-23
+#>
+
 # Load Shared Connection Logic
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
+Import-Module "$PSScriptRoot/../Modules/Logging/Logging.psm1"
 . "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
+    Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     return
 }
 
-function Validate-ExchangeSetup {
-    Render-PanelHeader -Title "Validating Exchange Setup"
+# Import Configuration module
+Import-Module "$PSScriptRoot/../Modules/Configuration/Configuration.psm1" -Force
 
-    $resources = Get-Mailbox -RecipientTypeDetails RoomMailbox -ResultSize Unlimited
-
-    foreach ($r in $resources) {
-        $place = Get-Place -Identity $r.Alias -ErrorAction SilentlyContinue
-        if (-not $place) {
-Write-Log -Message "r.Alias): No Place metadata" -Level 'WARN'
-        }
-        if ($r.HiddenFromAddressListsEnabled) {
-Write-Log -Message "r.Alias): Hidden from GAL" -Level 'WARN'
-        }
-    }
-
-Write-Log -Message "Exchange resource validation completed" -Level 'INFO'
-    Write-Log "Exchange validation completed"
-}
+# Call the main function
+Validate-ExchangeSetup
 
 
 

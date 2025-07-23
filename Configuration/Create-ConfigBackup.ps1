@@ -1,41 +1,16 @@
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
-function Create-ConfigBackup {
-    Render-PanelHeader -Title "Creating Configuration Backup"
+<#
+.SYNOPSIS
+    Creates a ZIP backup of key configuration, metadata, and log files for OfficeSpaceManager.
+.DESCRIPTION
+    Imports the Configuration module and calls New-ConfigBackup to generate a timestamped backup archive. All output uses EN-AU spelling and accessible language.
+.FILECREATED
+    2023-12-01
+.FILELASTUPDATED
+    2025-07-23
+#>
 
-    $timestamp = Get-Date -Format 'yyyy-MM-dd-HHmm'
-    $zipPath = ".\Backups\ConfigBackup-$timestamp.zip"
+# Import Configuration module
+Import-Module "$PSScriptRoot/../Modules/Configuration/Configuration.psm1" -Force
 
-    if (!(Test-Path ".\Backups")) {
-        New-Item -Path ".\Backups" -ItemType Directory | Out-Null
-    }
-
-    $itemsToBackup = @()
-    $paths = @(".\Metadata", ".\Logs", ".\config")
-
-    foreach ($p in $paths) {
-        if (Test-Path $p) {
-            $itemsToBackup += $p
-        } else {
-Write-Log -Message "Skipping missing path: $p" -Level 'WARN'
-        }
-    }
-
-    # Include specific JSON files from Backups
-    $jsonFiles = Get-ChildItem ".\Backups" -Filter *.json -ErrorAction SilentlyContinue
-    if ($jsonFiles) {
-        $itemsToBackup += $jsonFiles.FullName
-    }
-
-    if ($itemsToBackup.Count -eq 0) {
-Write-Log -Message "No valid content found to back up. Backup aborted." -Level 'WARN'
-        Write-Log "Backup skipped — no items found."
-        return
-    }
-
-    Compress-Archive -Path $itemsToBackup -DestinationPath $zipPath -Force
-
-    Write-Host "`n📦 Backup created: $zipPath" -ForegroundColor Green
-    Write-Log "Created config backup ZIP: $zipPath"
-}
-
-Create-ConfigBackup
+# Call the main function
+New-ConfigBackup

@@ -1,6 +1,17 @@
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
+<#
+.SYNOPSIS
+    Finds orphaned resources in OfficeSpaceManager.
+.DESCRIPTION
+    Identifies resources that are not mapped or referenced in metadata. Uses EN-AU spelling and accessible output.
+.FILECREATED
+    2023-12-01
+.FILELASTUPDATED
+    2025-07-23
+#>
+Import-Module "$PSScriptRoot/../Modules/CLI/CLI.psm1"
+Import-Module "$PSScriptRoot/../Modules/Logging/Logging.psm1"
 function Find-OrphanedResources {
-    Render-PanelHeader -Title "Orphaned Resource Detection"
+    Display-PanelHeader -Title "Orphaned Resource Detection"
 
     $cache = Get-Content ".\Metadata\CachedResources.json" | ConvertFrom-Json
     $metadataDesks = Get-Content ".\Metadata\DeskDefinitions.json" | ConvertFrom-Json
@@ -24,7 +35,6 @@ Write-Log -Message "DeskId: $($_.DeskId) – Missing ExchangeObjectId" -Level 'I
     $orphanedMailboxes | ForEach-Object {
 Write-Log -Message "Alias) – $($_.DisplayName)" -Level 'INFO'
     }
-
     Write-Log "Orphan detection completed"
 }
 Find-OrphanedResources

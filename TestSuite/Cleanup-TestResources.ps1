@@ -1,27 +1,57 @@
-# Load Shared Connection Logic
+<#
+.SYNOPSIS
+    Cleans up all test resources (mailboxes and metadata) created for simulation/testing.
+.DESCRIPTION
+    This script removes all test mailboxes (aliases starting with TEST_) from Exchange Online and cleans up any test desk metadata from DeskDefinitions.json. Intended for use after running simulation or test suites to ensure a clean environment.
+.FILECREATED
+    2023-07-01
+.FILELASTUPDATED
+    2025-07-23
+.OUTPUTS
+    Removes test mailboxes and updates metadata JSON files.
+.EXAMPLE
+    .\Cleanup-TestResources.ps1
+    # Cleans up all test mailboxes and test desk metadata.
+.DOCUMENTATION Remove-Mailbox
+    https://learn.microsoft.com/en-au/powershell/module/exchange/remove-mailbox
+#>
+
+# Load shared modules and error handling
+. (Join-Path $PSScriptRoot '..\Modules\Utilities\Resolve-OfficeSpaceManagerRoot.ps1')
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Utilities\Utilities.psm1')
 . "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
+
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
+    Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     return
 }
 
-function Cleanup-TestResources {
-    Render-PanelHeader -Title "Cleanup: Test Resources"
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\CLI\CLI.psm1')
 
+function Cleanup-TestResources {
+    <#
+    .SYNOPSIS
+        Removes all test mailboxes and test desk metadata.
+    .DESCRIPTION
+        Finds and removes all mailboxes with aliases starting with TEST_ and cleans up test desk entries in DeskDefinitions.json.
+    .OUTPUTS
+        None. Updates Exchange and metadata files.
+    #>
+    Display-PanelHeader -Title "Cleanup: Test Resources"
+
+    # Find and remove test mailboxes
     $mailboxes = Get-Mailbox -ResultSize Unlimited | Where-Object { $_.Alias -like "TEST_*" }
     if ($mailboxes.Count -eq 0) {
-Write-Log -Message "No test mailboxes found." -Level 'INFO'
+        Write-Log -Message "No test mailboxes found." -Level 'INFO'
         return
     }
-
     foreach ($mb in $mailboxes) {
-Write-Log -Message "Removing test mailbox: $($mb.Alias)" -Level 'INFO'
+        Write-Log -Message "Removing test mailbox: $($mb.Alias)" -Level 'INFO'
         Remove-Mailbox -Identity $mb.Alias -Confirm:$false
     }
 
-    # Remove test metadata if present
+    # Remove test desk metadata
     $metaPath = ".\Metadata\DeskDefinitions.json"
     if (Test-Path $metaPath) {
         $desks = Get-Content $metaPath | ConvertFrom-Json
@@ -29,9 +59,10 @@ Write-Log -Message "Removing test mailbox: $($mb.Alias)" -Level 'INFO'
         $filtered | ConvertTo-Json -Depth 4 | Set-Content $metaPath
     }
 
-Write-Log -Message "Cleanup complete." -Level 'INFO'
+    Write-Log -Message "Cleanup complete." -Level 'INFO'
     Write-Log "All test resources cleaned from Exchange and metadata."
 }
+
 Cleanup-TestResources
 
 

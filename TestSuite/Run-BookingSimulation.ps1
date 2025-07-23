@@ -1,26 +1,43 @@
-. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
 <#
 .SYNOPSIS
-    Simulates a booking by validating mail flow and calendar processing.
+    Simulates a booking by validating mail flow and calendar processing for a resource mailbox.
 .DESCRIPTION
-    Verifies whether the resource mailbox is healthy, auto-accepting,
-    and ready for meeting bookings via Exchange Online.
+    This script verifies whether a resource mailbox is healthy, auto-accepting, and ready for meeting bookings via Exchange Online. It checks mailbox existence, calendar processing settings, and mail flow using Test-MailFlow.
+.FILECREATED
+    2023-07-01
+.FILELASTUPDATED
+    2025-07-23
+.OUTPUTS
+    Test results as a custom object and log entries.
+.EXAMPLE
+    .\Run-BookingSimulation.ps1 -Alias "FREFRE01SD17ICT" -Domain "contoso.com"
+    # Simulates a booking test for the specified resource mailbox.
+.DOCUMENTATION Test-MailFlow
+    https://learn.microsoft.com/en-au/powershell/module/exchange/test-mailflow
 #>
 
+. (Join-Path $PSScriptRoot '..\Modules\Utilities\Resolve-OfficeSpaceManagerRoot.ps1')
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Utilities\Utilities.psm1')
+. "$PSScriptRoot/../Shared/Global-ErrorHandling.ps1"
+
 # Load Shared Connection Logic
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
+. "$PSScriptRoot/../Shared/Connect-ExchangeAdmin.ps1"
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
-Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
+    Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     return
 }
 
+# Accept parameters for alias and domain
+param(
+    [Parameter(Mandatory=$true)]
     [string]$Alias,
+    [Parameter(Mandatory=$true)]
     [string]$Domain
 )
 
 $upn = "$Alias@$Domain"
-Write-Host "`nÃ°Å¸â€œâ€¦ Simulating booking test for: $upn" -ForegroundColor Cyan
+Write-Host "`n4d3 Simulating booking test for: $upn" -ForegroundColor Cyan
 Write-Log "Starting booking simulation for $upn"
 
 $results = [PSCustomObject]@{
@@ -35,46 +52,37 @@ $results = [PSCustomObject]@{
 try {
     $mailbox = Get-Mailbox -Identity $upn -ErrorAction Stop
     $results.MailboxFound = $true
-Write-Log -Message "Mailbox exists and is reachable." -Level 'INFO'
+    Write-Log -Message "Mailbox exists and is reachable." -Level 'INFO'
     Write-Log "Mailbox $upn found."
 
     $calendarSettings = Get-CalendarProcessing -Identity $upn -ErrorAction Stop
-
     if ($calendarSettings.AutomateProcessing -eq 'AutoAccept') {
         $results.AutoAccept = $true
-Write-Log -Message "Calendar processing is set to AutoAccept." -Level 'INFO'
+        Write-Log -Message "Calendar processing is set to AutoAccept." -Level 'INFO'
         Write-Log "Calendar processing for $upn is AutoAccept."
     } else {
         $results.Notes += "AutomateProcessing is set to '$($calendarSettings.AutomateProcessing)'. "
-Write-Log -Message "Calendar processing is not AutoAccept: $($calendarSettings.AutomateProcessing)" -Level 'WARN'
+        Write-Log -Message "Calendar processing is not AutoAccept: $($calendarSettings.AutomateProcessing)" -Level 'WARN'
         Write-Log "Calendar processing mismatch for $upn."
     }
 
-    Write-Host "`nÃ°Å¸â€œÂ¬ Running mail flow test..." -ForegroundColor Cyan
+    Write-Host "`n4d3 Running mail flow test..." -ForegroundColor Cyan
     $test = Test-MailFlow -TargetEmailAddress $upn -ErrorAction Stop
-
     if ($test.TestResult -eq 'Success') {
         $results.MailFlowOK = $true
-Write-Log -Message "Mail flow is working." -Level 'INFO'
+        Write-Log -Message "Mail flow is working." -Level 'INFO'
         Write-Log "Test-MailFlow to $upn passed."
     } else {
-        $results.Notes += "Mail flow failed: $($test.Message)"
-Write-Log -Message "Mail flow test failed: $($test.Message)" -Level 'WARN'
-        Write-Log "Mail flow to $upn failed: $($test.Message)"
+        $results.Notes += "Mail flow test failed. "
+        Write-Log -Message "Mail flow test failed for $upn." -Level 'WARN'
     }
-
 } catch {
     $results.Notes += $_.Exception.Message
-Write-Log -Message "Simulation failed: $_" -Level 'WARN'
-    Write-Log "Booking simulation failed for $upn: $_"
+    Write-Log -Message "Booking simulation failed: $_" -Level 'ERROR'
 }
 
-# Output result and log it
-Write-Host "`nÃ°Å¸â€œÅ  Simulation Summary:`n" -ForegroundColor Cyan
-$results | Format-List
-
-Write-Log "Booking simulation results: $(ConvertTo-Json $results -Compress)"
-return $results
+$results | Format-List | Out-String | Write-Host
+Write-Log "Booking simulation results: $($results | ConvertTo-Json -Depth 4)"
 
 
 

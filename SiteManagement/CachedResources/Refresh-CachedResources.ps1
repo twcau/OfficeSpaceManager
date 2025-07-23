@@ -10,21 +10,20 @@ param (
     [switch]$Force
 )
 
-. "$PSScriptRoot/../../Shared/Global-ErrorHandling.ps1"
+# Import Logging module for Write-Log function
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Logging\Logging.psm1') -Force
 
 # Load Shared Modules
 Write-Log -Message "Loading shared modules"
-Write-Log -Message "Loading Shared\Write-Log.ps1"
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Write-Log.ps1"
-Write-Log -Message "Loading Shared\Connect-ExchangeAdmin.ps1"
-. "C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1"
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Utilities\Utilities.psm1') -Force
 Write-Log -Message "Shared modules loaded"
 
 # Ensure connection to Exchange
 $admin = Connect-ExchangeAdmin
 if (-not $admin -or $admin -eq '') {
-Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
+    Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
     Write-Log -Message "⚠️ Skipping resource sync: unable to authenticate with Exchange Online."
+    Write-Host "\n❌ Unable to connect to Exchange Online. Please ensure ExchangeOnlineManagement module is installed and you have network connectivity." -ForegroundColor Red
     return
 }
 
@@ -38,23 +37,23 @@ if (Test-Path $syncTrackPath) {
 
         if ($minutesOld -lt 15 -and -not $Force) {
             Write-Log -Message "🕒 Metadata was last refreshed $([int]$minutesOld) minutes ago."
-Write-Log -Message "Metadata was last refreshed $([int]$minutesOld) minutes ago." -Level 'WARN'
+            Write-Log -Message "Metadata was last refreshed $([int]$minutesOld) minutes ago." -Level 'WARN'
             $doSync = Read-Host "Re-sync cloud metadata anyway? (Y/N)"
             if ($doSync -notin @('Y', 'y')) {
-Write-Log -Message "Skipping metadata refresh." -Level 'WARN'
+                Write-Log -Message "Skipping metadata refresh." -Level 'WARN'
                 Write-Log "Skipped Refresh-CachedResources — user declined re-sync at $([int]$minutesOld) minutes."
                 return
             }
         }
     }
     catch {
-Write-Log -Message "Failed to evaluate metadata freshness — proceeding with sync." -Level 'WARN'
+        Write-Log -Message "Failed to evaluate metadata freshness — proceeding with sync." -Level 'WARN'
         Write-Log "⚠️ Failed to evaluate last sync timestamp — $($_.Exception.Message)"
     }
 }
 # endregion
 
-Render-PanelHeader -Title "Syncing Cached Resource Metadata"
+Display-PanelHeader -Title "Syncing Cached Resource Metadata"
 
 $cachePath = ".\Metadata\CachedResources.json"
 $syncTrackPath = ".\Metadata\.lastSync.json"
@@ -126,6 +125,6 @@ try {
 
 }
 catch {
-Write-Log -Message "Sync failed: $($_.Exception.Message)" -Level 'WARN'
+    Write-Log -Message "Sync failed: $($_.Exception.Message)" -Level 'WARN'
     Write-Log "❌ Refresh-CachedResources failed: $($_.Exception.Message)"
 }
