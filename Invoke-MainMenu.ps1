@@ -32,6 +32,8 @@ Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Logging\Logging.ps
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\CLI\CLI.psm1') -Force
 # Import Configuration module for New-ConfigBackup and related functions
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Configuration\Configuration.psm1') -Force
+# Import Utilities module for connection and helper functions
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Utilities/Utilities.psm1') -Force
 
 # region Verbose Transcript & Input Logging
 if ($LogVerbose) {
@@ -102,6 +104,16 @@ try {
     }
     # endregion
 
+    # region Exchange Connection
+    $exchangeUPN = Connect-ExchangeAdmin
+    if (-not $exchangeUPN) {
+        Write-Log -Message "Unable to connect to Exchange Online. Exiting." -Level 'ERROR'
+        Write-Host "`n❌ Unable to connect to Exchange Online. Please check your credentials and network." -ForegroundColor Red
+        Read-Host "Press Enter to exit..."
+        exit
+    }
+    # endregion
+
     # region 310 Init Logging
     # Initialize logging for the session
     $Global:ActionLog = @()
@@ -116,10 +128,19 @@ try {
     # region 👾 First-Time Setup Check
     # Check if first-time setup has been completed
     $configPath = ".\config\FirstRunComplete.json"
+    $firstTimeSetupScript = Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Run-FirstTimeSetup.ps1'
     if (-not (Test-Path $configPath)) {
         if (!(Test-Path ".\config")) { New-Item ".\config" -ItemType Directory | Out-Null }
-        Write-Log -Message "Importing Configuration/Invoke-FirstTimeSetup.ps1"
-        . (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Invoke-FirstTimeSetup.ps1')
+        Write-Log -Message "Importing Configuration/Run-FirstTimeSetup.ps1"
+        if (Test-Path $firstTimeSetupScript) {
+            . $firstTimeSetupScript
+        }
+        else {
+            Write-Log -Message "First-time setup script not found at $firstTimeSetupScript" -Level 'ERROR'
+            Write-Host "\n❌ First-time setup script not found at $firstTimeSetupScript" -ForegroundColor Red
+            Read-Host "Press Enter to exit..."
+            exit
+        }
     }
     Write-Log -Message "First time setup script imported."
     # endregion
@@ -209,13 +230,26 @@ try {
 
         Display-ActionHistory
         $selection = Read-Host "`nSelect an option"
+        if ($LogVerbose) {
+            $timestamp = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
+            Write-Log -Message "[$timestamp] User selected menu option: $selection" -Level 'INFO'
+        }
 
         switch ($selection) {
             '1' { . (Join-Path $env:OfficeSpaceManagerRoot 'CLI/ManageResourcesMenu.ps1') }
             '2' { . (Join-Path $env:OfficeSpaceManagerRoot 'CLI/OrphanMetadatamenu.ps1') }
             '3' { . (Join-Path $env:OfficeSpaceManagerRoot 'CLI/ConfigurationMenu.ps1') }
             '4' { . (Join-Path $env:OfficeSpaceManagerRoot 'CLI/LogsMenu.ps1') }
-            '5' { . (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Invoke-FirstTimeSetup.ps1') }
+            '5' {
+                if (Test-Path $firstTimeSetupScript) {
+                    . $firstTimeSetupScript
+                }
+                else {
+                    Write-Log -Message "First-time setup script not found at $firstTimeSetupScript" -Level 'ERROR'
+                    Write-Host "\n❌ First-time setup script not found at $firstTimeSetupScript" -ForegroundColor Red
+                    Read-Host "Press Enter to return to menu..."
+                }
+            }
             '6' {
                 Write-Host "`nExiting..." -ForegroundColor Cyan
                 . (Join-Path $env:OfficeSpaceManagerRoot 'SiteManagement/CachedResources/Refresh-CachedResources.ps1') -Force

@@ -57,6 +57,8 @@ This document describes all PowerShell modules in the OfficeSpaceManager project
 - Centralises all logging, transcript, and error reporting logic.
 - **Exported Functions:**
   - `Write-Log` — Writes timestamped log entries to file and console.
+- **Note:**
+  - Full session transcript and input logging are now supported via the `-LogVerbose` flag in `Invoke-MainMenu.ps1`.
 - Used by: All scripts for consistent logging and diagnostics.
 
 ---
@@ -112,6 +114,8 @@ This document describes all PowerShell modules in the OfficeSpaceManager project
   - `Connect-TeamsService` — Connects to Microsoft Teams service.
 - **Special Utility:**
   - `Resolve-OfficeSpaceManagerRoot.ps1` — Robustly resolves the project root and sets `$env:OfficeSpaceManagerRoot` for all module imports. This script is dot-sourced at the top of every script that uses Import-Module, ensuring all module paths are absolute and error-proof regardless of working directory or invocation method.
+- **Note:**
+  - `Connect-ExchangeAdmin` is now proactively called and robustly error-handled in the main entry script (`Invoke-MainMenu.ps1`).
 - Used by: All scripts and modules for common logic.
 
 ---

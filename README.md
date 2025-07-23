@@ -16,6 +16,8 @@ A modular PowerShell CLI toolkit to establish a simple, and logical workflow fro
 - [🔧 Requirements](#-requirements)
 - [🧠 Usage](#-usage)
 - [📁 Folder Structure](#-folder-structure)
+  - [Key Documentation](#key-documentation)
+  - [Folder tree](#folder-tree)
 - [🧪 Running Tests](#-running-tests)
 - [🔁 Backup \& Restore](#-backup--restore)
   - [Save current metadata snapshot](#save-current-metadata-snapshot)
@@ -57,7 +59,7 @@ A more detailed explaination to the working approach for this project can be fou
 ## 🚀 Features
 
 - ✅ Interactive CLI with modular submenus
-- ✅ Automated first-time tenant setup
+- ✅ Automated first-time tenant setup (robustly enforced at launch)
 - ✅ Resource provisioning (Desk / Room / Equipment)
 - ✅ Metadata and site structure management, and local caching of information for speed
 - ✅ CSV template export/import for bulk editing of sites, buildings, floors, desks, desk pools, etc.
@@ -67,6 +69,9 @@ A more detailed explaination to the working approach for this project can be fou
 - ✅ Exchange Online + Microsoft Graph Places + Microsoft Teams integration
 - ✅ Uses native functions within existing PowerShell modules wherever possible
 - ✅ Backup and restore features, to enable complete download and upload of your configuration
+- ✅ **Verbose session logging and input capture via `-LogVerbose` flag**
+- ✅ **Robust error handling and user acknowledgement for all critical failures**
+- ✅ **Proactive Exchange Online connection and first-time setup enforcement**
 
 ---
 
@@ -79,7 +84,7 @@ A more detailed explaination to the working approach for this project can be fou
   - `Microsoft.Graph`
   - `MicrosoftTeams`
 
-> All required modules are validated as present, or installed at runtime.
+> All required modules are validated as present, or user is prompted to install at runtime. Exchange Online connection and first-time setup are enforced at launch.
 
 ---
 
@@ -92,16 +97,29 @@ A more detailed explaination to the working approach for this project can be fou
 3. Run:
 
     ```powershell
-    .\Invoke-MainMenu.ps1
+    .\Invoke-MainMenu.ps1 [-LogVerbose]
     ```
 
-    You’ll be guided through first-time setup if it's your first run.
+    - The optional `-LogVerbose` flag enables full session transcript and input logging to `Logs/TerminalVerbose`.
+    - On first run, you will be guided through robust first-time setup and Exchange Online connection. All errors require user acknowledgement and are logged.
 
 ---
 
 ## 📁 Folder Structure
 
 WARNING: Due to continued development, this is subject to change.
+
+### Key Documentation
+
+- [README.md](./README.md) – Main documentation and usage guide (This file)
+- [LICENSE](./LICENSE) – Project license
+- [IDEA.md](./IDEA.md) – Project vision and rationale
+- [SPECIFICATION.md](./SPECIFICATION.md) – Detailed project specification and requirements
+- [MODULES.md](./MODULES.md) – Documentation of all modules and their functions
+- [TODO.md](./TODO.md) – Outstanding tasks and improvement opportunities
+- [KNOWNISSUES.md](./KNOWNISSUES.md) – Known issues and limitations
+
+### Folder tree
 
 ```plaintext
 OfficeSpaceManager/                  # Project root
@@ -113,16 +131,8 @@ OfficeSpaceManager/                  # Project root
 │   - See Modules/Utilities/Resolve-OfficeSpaceManagerRoot.ps1 for implementation details.
 │
 ├── Invoke-MainMenu.ps1              # Main CLI entry point for all operations
-├── Invoke-Verbose.ps1               # Current method for full verbose recording of what is being done │                                      by Invoke-MainMenu.ps1, and logging all output as a text file to:
-│                                      Logs\TerminalVerbose\
-├── [README.md](./README.md)                # Main documentation and usage guide
-├── [IDEA.md](./IDEA.md)                    # Project vision and rationale
-├── [KNOWNISSUES.md](./KNOWNISSUES.md)      # Known issues and limitations
-├── [LICENSE](./LICENSE)                    # Project license
-├── [MODULES.md](./MODULES.md)              # Documentation of all modules and their functions
-├── [SPECIFICATION.md](./SPECIFICATION.md)  # Detailed project specification and requirements
-├── [TODO.md](./TODO.md)                    # Outstanding tasks and improvement opportunities
-│
+│                                    # Supports -LogVerbose for transcript and input logging.
+│                                    # Robustly enforces first-time setup and Exchange Online connection │                                      at launch.
 ├── Backups/                         # Backups and backup scripts
 │   ├── Restore-MetadataSnapshot.ps1 # Restore metadata snapshot
 │   └── Save-MetadataSnapshot.ps1    # Save metadata snapshot
