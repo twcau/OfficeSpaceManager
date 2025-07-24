@@ -1,6 +1,6 @@
 Import-Module "$PSScriptRoot/../../Modules/CLI/CLI.psm1"
 . (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
-Display-PanelHeader -Title "Retire or Reactivate Resource"
+Get-PanelHeader -Title "Retire or Reactivate Resource"
 
 $resourceType = Read-Host "What type of resource? (Desk, Room, Equipment)"
 $resourceType = $resourceType.Trim().ToLower()

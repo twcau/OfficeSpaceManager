@@ -127,7 +127,7 @@ elseif ($resourceType -eq 'equipment') {
 #region [✅] Review Loop
 do {
     Clear-Host
-    Display-PanelHeader -Title "Review $resourceType Details Before Saving"
+    Get-PanelHeader -Title "Review $resourceType Details Before Saving"
     $resource | Format-List | Out-Host
     $confirm = Read-Host "Do you want to [A]ccept & Save, [E]dit, [C]ancel?"
     switch ($confirm.ToUpper()) {

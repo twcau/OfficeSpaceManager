@@ -10,8 +10,8 @@
 #>
 Import-Module "$PSScriptRoot/../Modules/CLI/CLI.psm1"
 Import-Module "$PSScriptRoot/../Modules/Logging/Logging.psm1"
-function Suggest-RenameResource {
-    Display-PanelHeader -Title "Suggest Rename for Non-Standard Resources"
+function Invoke-RenameResource {
+    Get-PanelHeader -Title "Suggest Rename for Non-Standard Resources"
 
     $cache = Get-Content ".\Metadata\CachedResources.json" | ConvertFrom-Json
 
@@ -34,4 +34,4 @@ function Suggest-RenameResource {
         }
     }
 }
-Suggest-RenameResource
+Invoke-RenameResource

@@ -28,7 +28,7 @@ function Export-AllTemplates {
     .OUTPUTS
         None. Writes CSV files to disk.
     #>
-    Display-PanelHeader -Title "Export All Metadata Templates"
+    Get-PanelHeader -Title "Export All Metadata Templates"
 
     # region 50d Domain Context for Templates
     $tenantConfigPath = ".\config\TenantConfig.json"

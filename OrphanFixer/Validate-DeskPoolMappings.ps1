@@ -10,8 +10,8 @@
 #>
 Import-Module "$PSScriptRoot/../Modules/CLI/CLI.psm1"
 Import-Module "$PSScriptRoot/../Modules/Logging/Logging.psm1"
-function Validate-DeskPoolMappings {
-    Display-PanelHeader -Title "Validate Desk Pool Mappings"
+function Test-DeskPoolMappings {
+    Get-PanelHeader -Title "Validate Desk Pool Mappings"
 
     $desks = Get-Content ".\Metadata\DeskDefinitions.json" | ConvertFrom-Json
     $pools = Get-Content ".\Metadata\DeskPools.json" | ConvertFrom-Json
@@ -28,4 +28,4 @@ function Validate-DeskPoolMappings {
     Write-Log -Message "Desk pool mapping validation complete." -Level 'INFO'
     Write-Log "Validated desk pool mappings"
 }
-Validate-DeskPoolMappings
+Test-DeskPoolMappings

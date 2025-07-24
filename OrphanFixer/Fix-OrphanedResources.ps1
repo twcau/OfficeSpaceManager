@@ -10,8 +10,8 @@
 #>
 Import-Module "$PSScriptRoot/../Modules/CLI/CLI.psm1"
 Import-Module "$PSScriptRoot/../Modules/Logging/Logging.psm1"
-function Fix-OrphanedResources {
-    Display-PanelHeader -Title "Fix Orphaned Desks and Mailboxes"
+function Repair-OrphanedResources {
+    Get-PanelHeader -Title "Fix Orphaned Desks and Mailboxes"
 
     $metadataDesks = Get-Content ".\Metadata\DeskDefinitions.json" | ConvertFrom-Json
     $cache = Get-Content ".\Metadata\CachedResources.json" | ConvertFrom-Json
@@ -53,7 +53,7 @@ function Fix-OrphanedResources {
     $metadataDesks | ConvertTo-Json -Depth 5 | Set-Content ".\Metadata\DeskDefinitions.json"
     Write-Host "`n✅ Metadata updated with fixed orphans."
 }
-Fix-OrphanedResources
+Repair-OrphanedResources
 catch {
     Write-Host "An error occurred: $($_.Exception.Message)" -ForegroundColor Red
     Read-Host "Press Enter to continue..."

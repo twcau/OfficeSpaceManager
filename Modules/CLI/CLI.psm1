@@ -9,14 +9,14 @@
     2025-07-23
 #>
 
-function Display-PanelHeader {
+function Get-PanelHeader {
     <#
     .SYNOPSIS
         Renders a stylized panel header for CLI menus.
     .PARAMETER Title
         [string] The title to display in the header (default: "Main Menu").
     .EXAMPLE
-        Display-PanelHeader -Title "Resource Management"
+        Get-PanelHeader -Title "Resource Management"
     .OUTPUTS
         None. Writes to console.
     #>
@@ -35,7 +35,7 @@ function Display-PanelHeader {
     Write-Host ""
 }
 
-function Display-ActionHistory {
+function Get-ActionHistory {
     <#
     .SYNOPSIS
         Displays the last 5 actions from today's log file in a stylized box.
@@ -44,7 +44,7 @@ function Display-ActionHistory {
     .OUTPUTS
         None. Writes to console.
     .EXAMPLE
-        Display-ActionHistory
+        Get-ActionHistory
     #>
     $logDir = Join-Path $PSScriptRoot "..\Logs"
     $logFile = Join-Path $logDir ("Log_" + (Get-Date -Format "yyyyMMdd") + ".log")
@@ -75,18 +75,18 @@ function New-SecurePassword {
     .EXAMPLE
         $pwd = New-SecurePassword
     #>
-    $chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^&*'
+    $allowedChars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^&*'
     do {
-        $pwd = -join ((65..90) + (97..122) + (48..57) + 33..47 | Get-Random -Count 14 | ForEach-Object { [char]$_ })
+        $generatedPwd = -join ((65..90) + (97..122) + (48..57) + 33..47 | Get-Random -Count 14 | ForEach-Object { [char]$_ })
     } while (
-        $pwd -notmatch '[A-Z]' -or
-        $pwd -notmatch '[a-z]' -or
-        $pwd -notmatch '[0-9]' -or
-        $pwd -notmatch '[\!\@\#\$\%\^\&\*]' -or
-        $pwd -match '(.)\1{2,}' -or
-        $pwd -match '(012|123|234|345|456|567|678|789)'
+        $generatedPwd -notmatch '[A-Z]' -or
+        $generatedPwd -notmatch '[a-z]' -or
+        $generatedPwd -notmatch '[0-9]' -or
+        $generatedPwd -notmatch '[\!\@\#\$\%\^\&\*]' -or
+        $generatedPwd -match '(.)\1{2,}' -or
+        $generatedPwd -match '(012|123|234|345|456|567|678|789)'
     )
-    return $pwd
+    return $generatedPwd
 }
 
-Export-ModuleMember -Function Display-PanelHeader, Display-ActionHistory, New-SecurePassword
+Export-ModuleMember -Function Get-PanelHeader, Get-ActionHistory, New-SecurePassword

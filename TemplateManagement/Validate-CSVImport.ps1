@@ -19,7 +19,7 @@
 # Import global error handling and logging
 . (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/Logging.psm1')
-Display-PanelHeader -Title "CSV Template Validation"
+Get-PanelHeader -Title "CSV Template Validation"
 
 $importFolder = ".\Imports"
 if (!(Test-Path $importFolder)) {
@@ -74,12 +74,12 @@ $missing = $expected | Where-Object { $_ -notin $headers }
 $unexpected = $headers | Where-Object { $_ -notin $expected }
 
 if ($missing.Count -gt 0) {
-    Write-Log -Message "Missing expected fields: $($missing -join ', ')" -Level 'WARN'
-    Write-Log "CSV Validation: Missing headers in $fileName: $($missing -join ', ')"
+    Write-Log -Message ("Missing expected fields: {0}" -f ($missing -join ', ')) -Level 'WARN'
+    Write-Log ("CSV Validation: Missing headers in {0}: {1}" -f $fileName, ($missing -join ', '))
 }
 if ($unexpected.Count -gt 0) {
-    Write-Log -Message "Unexpected fields present: $($unexpected -join ', ')" -Level 'WARN'
-    Write-Log "CSV Validation: Extra fields in $fileName: $($unexpected -join ', ')"
+    Write-Log -Message ("Unexpected fields present: {0}" -f ($unexpected -join ', ')) -Level 'WARN'
+    Write-Log ("CSV Validation: Extra fields in {0}: {1}" -f $fileName, ($unexpected -join ', '))
 }
 
 if ($missing.Count -gt 0) {

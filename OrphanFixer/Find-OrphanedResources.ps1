@@ -11,7 +11,7 @@
 Import-Module "$PSScriptRoot/../Modules/CLI/CLI.psm1"
 Import-Module "$PSScriptRoot/../Modules/Logging/Logging.psm1"
 function Find-OrphanedResources {
-    Display-PanelHeader -Title "Orphaned Resource Detection"
+    Get-PanelHeader -Title "Orphaned Resource Detection"
 
     $cache = Get-Content ".\Metadata\CachedResources.json" | ConvertFrom-Json
     $metadataDesks = Get-Content ".\Metadata\DeskDefinitions.json" | ConvertFrom-Json

@@ -20,7 +20,7 @@
 . (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/Logging.psm1')
 
-Display-PanelHeader -Title "Import Metadata from CSV"
+Get-PanelHeader -Title "Import Metadata from CSV"
 
 $importFolder = ".\Imports"
 if (!(Test-Path $importFolder)) {

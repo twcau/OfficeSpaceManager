@@ -28,7 +28,7 @@ function Import-MetadataFromCSV {
     .OUTPUTS
         None. Updates local JSON files.
     #>
-    Display-PanelHeader -Title "Import Metadata from CSV"
+    Get-PanelHeader -Title "Import Metadata from CSV"
 
     # Get the most recent export folder
     $folder = Get-Item ".\Exports\" | Get-ChildItem -Directory | Sort-Object LastWriteTime -Descending | Select-Object -First 1

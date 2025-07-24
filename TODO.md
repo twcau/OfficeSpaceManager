@@ -458,3 +458,17 @@ The following items from the project specification require implementation:
 - Ensure all modules use approved verbs
 - Update documentation for new architecture
 - Add unit tests for all exported functions
+
+---
+
+## Additional TODOs from Recent Work
+
+- [ ] TODO: Continue real-world testing of Exchange, Teams, and Places connection routines to ensure session validation is reliable in all scenarios (including authentication cancellation and session reuse).
+- [ ] TODO: Document and address any remaining edge cases where Connect-ExchangeOnline or Get-ConnectionInformation may not reliably indicate session status.
+- [ ] TODO: Perform a final recursive search for any lingering references to obsolete function names or unapproved verbs in scripts, modules, and documentation.
+- [ ] TODO: Ensure all future refactors and renames are accompanied by project-wide updates to references and documentation.
+- [ ] TODO: Address any remaining markdownlint warnings (e.g., blank lines around lists) in documentation.
+- [ ] TODO: Ensure all scripts and modules pass PSScriptAnalyzer linting before each release.
+- [ ] TODO: Review all legacy scripts to ensure error messages require user acknowledgement and remain visible until acknowledged.
+- [ ] TODO: Audit all output and documentation for EN-AU spelling and accessible, inclusive language.
+- [ ] TODO: Expand end-to-end and edge case testing for connection logic, error handling, and session validation.

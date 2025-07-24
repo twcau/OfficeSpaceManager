@@ -21,6 +21,9 @@
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Utilities\Utilities.psm1')
 . (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
 
+# Import Connections module for robust service connections
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Connections/Connections.psm1') -Force
+
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
     Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
@@ -39,7 +42,7 @@ function Remove-TestResources {
     .OUTPUTS
         None. Updates Exchange and metadata files.
     #>
-    Display-PanelHeader -Title "Cleanup: Test Resources"
+    Get-PanelHeader -Title "Cleanup: Test Resources"
 
     # Find and remove test mailboxes
     $mailboxes = Get-Mailbox -ResultSize Unlimited | Where-Object { $_.Alias -like "TEST_*" }

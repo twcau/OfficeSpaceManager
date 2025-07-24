@@ -11,8 +11,8 @@
 
 Import-Module "$PSScriptRoot/../Modules/CLI/CLI.psm1"
 Import-Module "$PSScriptRoot/../Modules/Logging/Logging.psm1"
-function Detect-NonStandardResources {
-    Display-PanelHeader -Title "Detect Non-Standard Resource Calendars"
+function Test-NonStandardResources {
+    Get-PanelHeader -Title "Detect Non-Standard Resource Calendars"
 
     $cache = Get-Content ".\Metadata\CachedResources.json" | ConvertFrom-Json
 
@@ -24,4 +24,4 @@ Write-Log -Message "desk.DisplayName) does not match naming convention" -Level '
 
     Write-Log "Naming convention audit completed"
 }
-Detect-NonStandardResources
+Test-NonStandardResources

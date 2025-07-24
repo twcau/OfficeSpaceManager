@@ -12,7 +12,7 @@
 . (Join-Path $PSScriptRoot '..\Modules\Utilities\Resolve-OfficeSpaceManagerRoot.ps1')
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\CLI\CLI.psm1')
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Logging\Logging.psm1')
-Display-PanelHeader -Title "Metadata & Logs"
+Get-PanelHeader -Title "Metadata & Logs"
 
 Write-Host "[1] Save Metadata Snapshot"
 Write-Host "[2] Restore Metadata Snapshot"

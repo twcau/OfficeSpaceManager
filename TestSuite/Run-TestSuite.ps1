@@ -19,6 +19,9 @@
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Utilities\Utilities.psm1')
 . (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/GlobalErrorHandling.ps1')
 
+# Import Connections module for robust service connections
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Connections/Connections.psm1') -Force
+
 $admin = Connect-ExchangeAdmin
 if (-not $admin) {
     Write-Log -Message "Skipping resource sync: unable to authenticate with Exchange Online." -Level 'WARN'
@@ -37,7 +40,7 @@ function Run-TestSuite {
     .OUTPUTS
         None. Results are logged to file.
     #>
-    Display-PanelHeader -Title "OfficeSpaceManager - Run Full Test Suite"
+    Get-PanelHeader -Title "OfficeSpaceManager - Run Full Test Suite"
 
     $logFolder = ".\TestResults"
     if (!(Test-Path $logFolder)) { New-Item -Path $logFolder -ItemType Directory | Out-Null }

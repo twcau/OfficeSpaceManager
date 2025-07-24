@@ -28,12 +28,14 @@ $env:OfficeSpaceManagerRoot = $PSScriptRoot
 
 # Import Logging module for Write-Log function
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Logging\Logging.psm1') -Force
-# Import CLI module for Display-PanelHeader and Display-ActionHistory
+# Import CLI module for Get-PanelHeader and Get-ActionHistory
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\CLI\CLI.psm1') -Force
 # Import Configuration module for New-ConfigBackup and related functions
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Configuration\Configuration.psm1') -Force
 # Import Utilities module for connection and helper functions
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Utilities/Utilities.psm1') -Force
+# Import Connections module for robust service connections
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Connections/Connections.psm1') -Force
 
 # region Verbose Transcript & Input Logging
 if ($LogVerbose) {
@@ -48,7 +50,7 @@ if ($LogVerbose) {
         function global:Read-Host {
             param([string]$prompt)
             $userInput = Microsoft.PowerShell.Utility\Read-Host $prompt
-            Write-Output "[$(Get-Date -Format 'HH:mm:ss')] User input for '$prompt': $userInput"
+            Write-Log -Message ("[{0}] User input for '{1}': {2}" -f (Get-Date -Format 'HH:mm:ss'), $prompt, $userInput) -Level 'INFO'
             $global:LastUserInput = $userInput
             return $userInput
         }
@@ -78,37 +80,104 @@ try {
     # Check for required modules and prompt to install if missing
     $requiredModules = @(
         'ExchangeOnlineManagement',
-        'Microsoft.Graph',
-        'MicrosoftTeams'
+        'MicrosoftTeams',
+        #'Microsoft.Graph', Removing as takes ages to import
+        'MicrosoftPlaces'
     )
     foreach ($mod in $requiredModules) {
         if (-not (Get-Module -ListAvailable -Name $mod)) {
             Write-Log -Message "Required module '$mod' is missing." -Level 'WARN'
-            $choice = Read-Host "Do you want to install $mod now? (Y/N)"
+            $choice = Read-Host ("Do you want to install {0} now? (Y/N, default: Y)" -f $mod)
+            if ([string]::IsNullOrWhiteSpace($choice)) { $choice = 'Y' }
+            $choice = $choice.Trim().ToUpper()
             if ($choice -eq 'Y') {
                 try {
                     Install-Module -Name $mod -Scope CurrentUser -Force -ErrorAction Stop
-                    Write-Log -Message "Installed $mod successfully." -Level 'INFO'
+                    Write-Log -Message ("Installed {0} successfully." -f $mod) -Level 'INFO'
                 }
                 catch {
-                    Write-Log -Message "Failed to install ${mod}: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Log -Message ("Failed to install {0}: {1}" -f $mod, $_.Exception.Message) -Level 'ERROR'
                     Read-Host "Press Enter to continue or Ctrl+C to exit"
                 }
             }
             else {
-                Write-Log -Message "Cannot continue without $mod. Please install it manually." -Level 'ERROR'
+                Write-Log -Message ("Cannot continue without {0}. Please install it manually." -f $mod) -Level 'ERROR'
                 Read-Host "Press Enter to exit..."
                 exit
+            }
+        }
+        else {
+            Write-Log -Message ("Required module '{0}' is already installed and available." -f $mod) -Level 'INFO'
+            try {
+                Import-Module -Name $mod -Force -ErrorAction Stop
+                Write-Log -Message ("Module '{0}' imported successfully." -f $mod) -Level 'INFO'
+                Write-Host ("✅ Module '{0}' is installed and imported." -f $mod) -ForegroundColor Green
+            }
+            catch {
+                Write-Log -Message ("Module '{0}' is installed but failed to import: {1}" -f $mod, $_.Exception.Message) -Level 'ERROR'
+                Write-Host ("❌ Module '{0}' is installed but failed to import. See logs for details." -f $mod) -ForegroundColor Red
+                Read-Host "Press Enter to continue or Ctrl+C to exit"
             }
         }
     }
     # endregion
 
     # region Exchange Connection
-    $exchangeUPN = Connect-ExchangeAdmin
-    if (-not $exchangeUPN) {
-        Write-Log -Message "Unable to connect to Exchange Online. Exiting." -Level 'ERROR'
+    try {
+        Connect-ExchangeAdmin
+        $exoConn = Get-ConnectionInformation | Where-Object { $_.State -eq 'Connected' -and $_.Name -like 'ExchangeOnline*' }
+        if (-not $exoConn) {
+            Write-Log -Message "Unable to connect to Exchange Online. Exiting." -Level 'ERROR'
+            Write-Host "`n❌ Unable to connect to Exchange Online. Please check your credentials and network." -ForegroundColor Red
+            Read-Host "Press Enter to exit..."
+            exit
+        }
+        else {
+            Write-Log -Message ("Exchange Online connection established for: {0}" -f $exoConn.UserPrincipalName) -Level 'INFO'
+        }
+    }
+    catch [System.OperationCanceledException] {
+        Write-Log -Message "Exchange Online authentication was cancelled by the user." -Level 'ERROR'
+        Write-Host "`n❌ Exchange Online authentication was cancelled. Please try again." -ForegroundColor Red
+        Read-Host "Press Enter to exit..."
+        exit
+    }
+    catch {
+        Write-Log -Message ("Exchange Online connection failed: {0}" -f $_.Exception.Message) -Level 'ERROR'
         Write-Host "`n❌ Unable to connect to Exchange Online. Please check your credentials and network." -ForegroundColor Red
+        Read-Host "Press Enter to exit..."
+        exit
+    }
+    # endregion
+
+    # region Graph Connection
+    <#
+    // NOTE: Ignoring connections to Microsoft Graph at this time, due to the length of time needed for this, and the delays it causes running the script.
+    $graphAccount = Connect-Graph
+    if (-not $graphAccount) {
+        Write-Log -Message "Unable to connect to Microsoft Graph. Exiting." -Level 'ERROR'
+        Write-Host "`n❌ Unable to connect to Microsoft Graph. Please check your credentials and network." -ForegroundColor Red
+        Read-Host "Press Enter to exit..."
+        exit
+    }
+    #>
+    # endregion
+
+    # region Teams Connection
+    $teamsConnected = Connect-TeamsService
+    if (-not $teamsConnected) {
+        Write-Log -Message "Unable to connect to Microsoft Teams. Exiting." -Level 'ERROR'
+        Write-Host "`n❌ Unable to connect to Microsoft Teams. Please check your credentials and network." -ForegroundColor Red
+        Read-Host "Press Enter to exit..."
+        exit
+    }
+    # endregion
+
+    # region Places Connection
+    $placesConnected = Connect-PlacesService
+    if (-not $placesConnected) {
+        Write-Log -Message "Unable to connect to Microsoft Places. Exiting." -Level 'ERROR'
+        Write-Host "`n❌ Unable to connect to Microsoft Places. Please check your credentials and network." -ForegroundColor Red
         Read-Host "Press Enter to exit..."
         exit
     }
@@ -168,13 +237,17 @@ try {
             Write-Log -Message "Cached metadata is $daysOld days old." -Level 'WARN'
             Write-Log -Message "Metadata cache is stale (>$syncAgeDays days)."
 
-            $doBackup = Read-Host "Backup metadata before syncing? (Y/N)"
+            $doBackup = Read-Host "Backup metadata before syncing? (Y/N, default: Y)"
+            if ([string]::IsNullOrWhiteSpace($doBackup)) { $doBackup = 'Y' }
+            $doBackup = $doBackup.Trim().ToUpper()
             if ($doBackup -eq 'Y') {
                 Write-Log -Message "User opted to back up config before sync."
                 New-ConfigBackup
             }
 
-            $doSync = Read-Host "Sync cloud metadata now? (Y/N)"
+            $doSync = Read-Host "Sync cloud metadata now? (Y/N, default: N)"
+            if ([string]::IsNullOrWhiteSpace($doSync)) { $doSync = 'N' }
+            $doSync = $doSync.Trim().ToUpper()
             if ($doSync -eq 'Y') {
                 Write-Log -Message "User opted to sync metadata (manual confirmation)."
                 Write-Log -Message "Importing CachedResources\Refresh-CachedResources.ps1"
@@ -188,15 +261,23 @@ try {
             Write-Log -Message "Last metadata sync was just $minutesOld minutes ago." -Level 'INFO'
             Write-Log -Message "Recent metadata cache detected (<15 mins)."
 
-            $quickDecision = Read-Host "Skip sync and use recent cache? (Y/N)"
-            if ($quickDecision -ne 'Y') {
-                Write-Log -Message "User chose to refresh metadata despite recent sync."
-                Write-Log -Message "Importing CachedResources\Refresh-CachedResources.ps1"
-                . (Join-Path $env:OfficeSpaceManagerRoot 'SiteManagement/CachedResources/Refresh-CachedResources.ps1') -Force
+            try {
+                $quickDecision = Read-Host "Skip sync and use recent cache? (Y/N, default: Y)"
+                if ([string]::IsNullOrWhiteSpace($quickDecision)) { $quickDecision = 'Y' }
+                $quickDecision = $quickDecision.Trim().ToUpper()
+                if ($quickDecision -ne 'Y') {
+                    Write-Log -Message "User chose to refresh metadata despite recent sync."
+                    Write-Log -Message "Importing CachedResources\Refresh-CachedResources.ps1"
+                    . (Join-Path $env:OfficeSpaceManagerRoot 'SiteManagement/CachedResources/Refresh-CachedResources.ps1') -Force
+                }
+                else {
+                    Write-Log -Message "User skipped metadata sync (recent cache accepted)."
+                    Write-Log -Message "Skipping sync and using recent cached data." -Level 'INFO'
+                }
             }
-            else {
-                Write-Log -Message "User skipped metadata sync (recent cache accepted)."
-                Write-Log -Message "Skipping sync and using recent cached data." -Level 'INFO'
+            catch {
+                Write-Log -Message ("Error during recent cache decision: {0}" -f $_.Exception.Message) -Level 'ERROR'
+                Write-Host "❌ Error during recent cache decision. See logs for details." -ForegroundColor Red
             }
         }
     }
@@ -214,12 +295,16 @@ try {
     . (Join-Path $env:OfficeSpaceManagerRoot 'SiteManagement/CachedResources/Refresh-CachedResources.ps1')
     # endregion
 
+    # region Service Connections
+    Connect-AllServices
+    # endregion
+
     Write-Log -Message "Invoke-MainMenu script started successfully. Loading menu."
 
     # region 🗂 Main Menu Navigation
     do {
         Clear-Host
-        Display-PanelHeader -Title "OfficeSpaceManager - Main Menu"
+        Get-PanelHeader -Title "OfficeSpaceManager - Main Menu"
 
         Write-Host "[1] Manage Resources"
         Write-Host "[2] Orphan & Metadata Management"
@@ -228,7 +313,7 @@ try {
         Write-Host "[5] Run First-Time Setup Wizard"
         Write-Host "[6] Exit"
 
-        Display-ActionHistory
+        Get-ActionHistory
         $selection = Read-Host "`nSelect an option"
         if ($LogVerbose) {
             $timestamp = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'

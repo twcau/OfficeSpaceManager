@@ -20,6 +20,21 @@ OfficeSpaceManager is a modular, production-grade PowerShell CLI toolkit designe
 
 - Microsoft 365 administrators, Modern Workplace engineers, and IT professionals responsible for resource and metadata management.
 
+## Key Technical Principles and Recent Improvements
+
+- **Robust Connection Logic:**
+  Connection routines are designed to be resilient, with session reuse, robust error handling, and clear diagnostic output for all Microsoft 365 services (Exchange, Teams, Places).
+- **Approved Verb Compliance:**
+  All cmdlets and scripts use approved PowerShell verbs, ensuring best practice, discoverability, and compatibility with PowerShell tooling.
+- **Linting and Static Analysis:**
+  Linting and static analysis are integrated into the workflow, with PSScriptAnalyzer used to ensure code quality and prevent regressions.
+- **Refactor Hygiene:**
+  All refactors and renames are performed project-wide, with automated updates to all references and documentation to prevent legacy issues.
+- **Accessible and Inclusive Output:**
+  All output and documentation use EN-AU spelling and accessible, inclusive language for clarity and compliance.
+- **Error Handling and User Experience:**
+  Error handling is standardised, with actionable messages and prompts that remain visible until acknowledged, ensuring no errors are missed.
+
 ## Project Ideas
 
 - Automated resource provisioning for Microsoft Places

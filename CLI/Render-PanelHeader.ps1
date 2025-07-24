@@ -9,7 +9,7 @@
     2025-07-23
 #>
 
-function Display-PanelHeader {
+function Get-PanelHeader {
     param (
         [string]$Title,
         [string]$Subtitle = "",
@@ -30,4 +30,4 @@ function Display-PanelHeader {
 }
 
 # Example usage
-Display-PanelHeader -Title "Main Menu" -Subtitle "Select an option" -Icon "🏠"
+Get-PanelHeader -Title "Main Menu" -Subtitle "Select an option" -Icon "🏠"

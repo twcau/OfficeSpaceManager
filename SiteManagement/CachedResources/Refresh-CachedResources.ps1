@@ -18,6 +18,9 @@ Write-Log -Message "Loading shared modules"
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Utilities\Utilities.psm1') -Force
 Write-Log -Message "Shared modules loaded"
 
+# Import Connections module for robust service connections
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Connections/Connections.psm1') -Force
+
 # Ensure connection to Exchange
 $admin = Connect-ExchangeAdmin
 if (-not $admin -or $admin -eq '') {
@@ -39,8 +42,10 @@ if (Test-Path $syncTrackPath) {
         if ($minutesOld -lt 15 -and -not $Force) {
             Write-Log -Message "🕒 Metadata was last refreshed $([int]$minutesOld) minutes ago."
             Write-Log -Message "Metadata was last refreshed $([int]$minutesOld) minutes ago." -Level 'WARN'
-            $doSync = Read-Host "Re-sync cloud metadata anyway? (Y/N)"
-            if ($doSync -notin @('Y', 'y')) {
+            $doSync = Read-Host "Re-sync cloud metadata anyway? (Y/N, default: N)"
+            if ([string]::IsNullOrWhiteSpace($doSync)) { $doSync = 'N' }
+            $doSync = $doSync.Trim().ToUpper()
+            if ($doSync -ne 'Y') {
                 Write-Log -Message "Skipping metadata refresh." -Level 'WARN'
                 Write-Log "Skipped Refresh-CachedResources — user declined re-sync at $([int]$minutesOld) minutes."
                 Read-Host "Press Enter to continue..."
@@ -55,7 +60,7 @@ if (Test-Path $syncTrackPath) {
 }
 # endregion
 
-Display-PanelHeader -Title "Syncing Cached Resource Metadata"
+Get-PanelHeader -Title "Syncing Cached Resource Metadata"
 
 $cachePath = ".\Metadata\CachedResources.json"
 $syncTrackPath = ".\Metadata\.lastSync.json"

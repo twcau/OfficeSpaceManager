@@ -29,7 +29,7 @@ function Export-MetadataTemplates {
     .OUTPUTS
         None. Writes CSV files to disk.
     #>
-    Display-PanelHeader -Title "Export Metadata Templates"
+    Get-PanelHeader -Title "Export Metadata Templates"
 
     $exportDate = Get-Date -Format 'yyyy-MM-dd'
     $exportFolder = ".\Exports\$exportDate"

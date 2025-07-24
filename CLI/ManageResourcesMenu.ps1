@@ -12,7 +12,7 @@
 . (Join-Path $PSScriptRoot '..\Modules\Utilities\Resolve-OfficeSpaceManagerRoot.ps1')
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\CLI\CLI.psm1')
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Logging\Logging.psm1')
-Display-PanelHeader -Title "Manage Resources"
+Get-PanelHeader -Title "Manage Resources"
 
 # ðŸ‘‡ Check if any valid drafts exist
 $hasDrafts = @(Get-ChildItem ".\.Drafts" -Filter *.json -ErrorAction SilentlyContinue | Where-Object {

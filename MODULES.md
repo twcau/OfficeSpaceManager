@@ -26,9 +26,11 @@ This document describes all PowerShell modules in the OfficeSpaceManager project
 
 - Provides all core CLI menu rendering, navigation, and user interaction logic.
 - **Exported Functions:**
-  - `Display-PanelHeader` — Renders a standard panel header for CLI menus.
-  - `Show-ActionHistory` — Displays recent user or system actions.
+  - `Get-PanelHeader` — Renders a standard panel header for CLI menus (replaces obsolete `Display-PanelHeader`).
+  - `Get-ActionHistory` — Displays recent user or system actions (replaces obsolete `Show-ActionHistory`).
   - `New-SecurePassword` — Generates a secure password for provisioning flows.
+- **Note:**
+  - All references to obsolete functions have been updated project-wide for verb compliance and maintainability.
 - Used by: All main CLI scripts and wizards.
 
 ---
@@ -109,13 +111,19 @@ This document describes all PowerShell modules in the OfficeSpaceManager project
 - Provides shared utility functions (validation, file I/O, connection helpers, etc.).
 - **Exported Functions:**
   - `Get-StandardDeskName` — Returns a standardised desk name for a given resource.
-  - `Connect-ExchangeAdmin` — Connects to Exchange Online as an admin.
-  - `Connect-Graph` — Connects to Microsoft Graph.
-  - `Connect-TeamsService` — Connects to Microsoft Teams service.
+  - `Connect-ExchangeAdmin` — Connects to Exchange Online as an admin (robust, session-reusing, authoritative session validation, clear diagnostic output).
+  - `Connect-Graph` — Connects to Microsoft Graph (robust, session-reusing, authoritative session validation, clear diagnostic output).
+  - `Connect-TeamsService` — Connects to Microsoft Teams service (robust, session-reusing, authoritative session validation, clear diagnostic output).
 - **Special Utility:**
   - `Resolve-OfficeSpaceManagerRoot.ps1` — Robustly resolves the project root and sets `$env:OfficeSpaceManagerRoot` for all module imports. This script is dot-sourced at the top of every script that uses Import-Module, ensuring all module paths are absolute and error-proof regardless of working directory or invocation method.
-- **Note:**
-  - `Connect-ExchangeAdmin` is now proactively called and robustly error-handled in the main entry script (`Invoke-MainMenu.ps1`).
+- **Notes:**
+  - All connection routines handle authentication cancellation and log all outcomes.
+  - All connection logic is proactively called and robustly error-handled in the main entry script (`Invoke-MainMenu.ps1`).
+  - All modules and functions use approved PowerShell verbs for discoverability and linter compliance.
+  - All modules are validated with PSScriptAnalyzer for code quality.
+  - Any rename or modularisation includes a project-wide update of all references and documentation.
+  - All error messages require user acknowledgement and remain visible until acknowledged.
+  - All output and documentation use EN-AU spelling and accessible, inclusive language.
 - Used by: All scripts and modules for common logic.
 
 ---

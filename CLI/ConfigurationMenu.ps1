@@ -12,7 +12,7 @@
 . (Join-Path $PSScriptRoot '..\Modules\Utilities\Resolve-OfficeSpaceManagerRoot.ps1')
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\CLI\CLI.psm1')
 Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\Logging\Logging.psm1')
-Display-PanelHeader -Title "Configuration & Setup"
+Get-PanelHeader -Title "Configuration & Setup"
 
 Write-Host "[1] Import / Export Templates"
 Write-Host "[2] Manage Sites, Buildings & Floors"
@@ -27,7 +27,7 @@ $choice = Read-Host "`nSelect an option"
 
 switch ($choice) {
     '1' {
-        Display-PanelHeader -Title "Import / Export Templates"
+        Get-PanelHeader -Title "Import / Export Templates"
         Write-Host "[1.1] Export All Templates"
         Write-Host "[1.2] Validate Templates"
         Write-Host "[1.3] Import Validated Templates"
@@ -66,7 +66,7 @@ switch ($choice) {
         }
     }
     '2' {
-        Display-PanelHeader -Title "Manage Site, Building & Floor Metadata"
+        Get-PanelHeader -Title "Manage Site, Building & Floor Metadata"
         Write-Host "[2.1] Export Site/Building Templates"
         Write-Host "[2.2] Import Site/Building from CSV"
         Write-Host "[2.3] View Current Site/Building Structure"
@@ -107,7 +107,7 @@ switch ($choice) {
         }
     }
     '3' {
-        Display-PanelHeader -Title "Sync Cloud Resources"
+        Get-PanelHeader -Title "Sync Cloud Resources"
         try {
             . (Join-Path $env:OfficeSpaceManagerRoot 'SiteManagement/CachedResources/Refresh-CachedResources.ps1') -Force
             Write-Log -Message "Cached metadata refreshed." -Level 'INFO'
@@ -119,7 +119,7 @@ switch ($choice) {
         }
     }
     '4' {
-        Display-PanelHeader -Title "Environment Setup & Validation"
+        Get-PanelHeader -Title "Environment Setup & Validation"
         Write-Host "[4.1] Enable Microsoft Places Features"
         Write-Host "[4.2] Validate Microsoft Places Configuration"
         Write-Host "[4.3] Validate Exchange Resource Setup"
@@ -130,21 +130,21 @@ switch ($choice) {
         switch ($sub) {
             '4.1' {
                 try {
-                    . (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Enable-PlacesFeatures.ps1')
+                    Enable-PlacesFeatures
                 }
                 catch {
-                    Write-Log -Message "Failed to run Enable-PlacesFeatures.ps1: $($_.Exception.Message)" -Level 'ERROR'
-                    Write-Host "\n❌ Error running Enable-PlacesFeatures.ps1. See log for details." -ForegroundColor Red
+                    Write-Log -Message "Failed to run Enable-PlacesFeatures: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Enable-PlacesFeatures. See log for details." -ForegroundColor Red
                     Read-Host "Press Enter to return to menu..."
                 }
             }
             '4.2' {
                 try {
-                    . (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Validate-PlacesFeatures.ps1')
+                    Test-PlacesFeatures
                 }
                 catch {
-                    Write-Log -Message "Failed to run Validate-PlacesFeatures.ps1: $($_.Exception.Message)" -Level 'ERROR'
-                    Write-Host "\n❌ Error running Validate-PlacesFeatures.ps1. See log for details." -ForegroundColor Red
+                    Write-Log -Message "Failed to run Test-PlacesFeatures: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Test-PlacesFeatures. See log for details." -ForegroundColor Red
                     Read-Host "Press Enter to return to menu..."
                 }
             }
@@ -170,11 +170,11 @@ switch ($choice) {
             }
             '4.5' {
                 try {
-                    . (Join-Path $env:OfficeSpaceManagerRoot 'EnvironmentSetup/Ensure-CalendarProcessingSettings.ps1')
+                    . (Join-Path $env:OfficeSpaceManagerRoot 'EnvironmentSetup/Set-CalendarProcessingSettings.ps1')
                 }
                 catch {
-                    Write-Log -Message "Failed to run Ensure-CalendarProcessingSettings.ps1: $($_.Exception.Message)" -Level 'ERROR'
-                    Write-Host "\n❌ Error running Ensure-CalendarProcessingSettings.ps1. See log for details." -ForegroundColor Red
+                    Write-Log -Message "Failed to run Set-CalendarProcessingSettings.ps1: $($_.Exception.Message)" -Level 'ERROR'
+                    Write-Host "\n❌ Error running Set-CalendarProcessingSettings.ps1. See log for details." -ForegroundColor Red
                     Read-Host "Press Enter to return to menu..."
                 }
             }
@@ -191,7 +191,7 @@ switch ($choice) {
         }
     }
     '5' {
-        Display-PanelHeader -Title "Backup & Restore"
+        Get-PanelHeader -Title "Backup & Restore"
         Write-Host "[5.1] Create Configuration Backup (.zip)"
         Write-Host "[5.2] Restore Configuration from Backup"
         Write-Host "[5.3] Return to Previous Menu"
@@ -225,7 +225,7 @@ switch ($choice) {
         }
     }
     '6' {
-        Display-PanelHeader -Title "Backup & Templates"
+        Get-PanelHeader -Title "Backup & Templates"
         Write-Host "     [6.1] Export All Templates (CSV)"
         Write-Host "     [6.2] Create Backup Archive (ZIP)"
         Write-Host "     [6.3] Restore from Backup Archive"
@@ -282,3 +282,25 @@ switch ($choice) {
         Start-Sleep -Seconds 2
     }
 }
+
+# region Verbose Transcript & Input Logging
+if ($LogVerbose) {
+    $logDir = Join-Path $env:OfficeSpaceManagerRoot 'Logs/TerminalVerbose'
+    if (-not (Test-Path -Path $logDir)) {
+        New-Item -ItemType Directory -Path $logDir | Out-Null
+    }
+    $timestamp = Get-Date -Format "yyyy-MM-dd-HH-mm"
+    $logFile = Join-Path $logDir "verboselog-configurationmenu-ps1-$timestamp.txt"
+    # Override Read-Host for input logging (if not already overridden)
+    if (-not (Get-Command global:Read-Host -ErrorAction SilentlyContinue)) {
+        function global:Read-Host {
+            param([string]$prompt)
+            $userInput = Microsoft.PowerShell.Utility\Read-Host $prompt
+            Write-Log -Message ("[{0}] User input for '{1}': {2}" -f (Get-Date -Format 'HH:mm:ss'), $prompt, $userInput) -Level 'INFO'
+            $global:LastUserInput = $userInput
+            return $userInput
+        }
+    }
+    Start-Transcript -Path $logFile -Append
+}
+# endregion

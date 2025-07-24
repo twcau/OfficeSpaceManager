@@ -53,6 +53,7 @@ A more detailed explaination to the working approach for this project can be fou
 - 💡 **Pre-validation of all inputs**
 - 📦 **Reversible operations** — metadata snapshots, test cleanup
 - 🔒 **Never destroys without confirmation**
+- 🔄 **Project-wide refactor hygiene** — all renames and modularisation are performed project-wide, with automated updates to all references and documentation to prevent legacy issues.
 
 ---
 
@@ -72,6 +73,9 @@ A more detailed explaination to the working approach for this project can be fou
 - ✅ **Verbose session logging and input capture via `-LogVerbose` flag**
 - ✅ **Robust error handling and user acknowledgement for all critical failures**
 - ✅ **Proactive Exchange Online connection and first-time setup enforcement**
+- ✅ **All connection routines are robust, session-reusing, and provide clear diagnostic output for Exchange, Teams, and Places.**
+- ✅ **All cmdlets and scripts use approved PowerShell verbs for discoverability and linter compliance.**
+- ✅ **Project is fully linted with PSScriptAnalyzer; all code changes validated for compliance.**
 
 ---
 
@@ -142,8 +146,8 @@ OfficeSpaceManager/                  # Project root
 │   ├── LogsMenu.ps1                 # Logs menu
 │   ├── ManageResourcesMenu.ps1      # Resource management menu
 │   ├── OrphanMetadatamenu.ps1       # Orphan metadata menu
-│   ├── Display-PanelHeader.ps1      # (Obsolete) Use Display-PanelHeader from CLI module
-│   ├── Show-ActionHistory.ps1       # (Obsolete) Use Display-ActionHistory from CLI module
+│   ├── Display-PanelHeader.ps1      # (Obsolete) All references replaced with approved verb functions
+│   ├── Show-ActionHistory.ps1       # (Obsolete) All references replaced with approved verb functions
 │   ├── Logs/                        # CLI-specific logs
 │   ├── Manage/                      # CLI-specific management scripts
 │   └── Wizards/                     # Interactive CLI wizards for resource/desk pools

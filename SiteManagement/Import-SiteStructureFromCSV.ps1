@@ -12,7 +12,7 @@
 Import-Module "$PSScriptRoot/../Modules/Logging/Logging.psm1"
 Import-Module "$PSScriptRoot/../Modules/SiteManagement/SiteManagement.psm1"
 
-Display-PanelHeader -Title "Import Site & Building Structure"
+Get-PanelHeader -Title "Import Site & Building Structure"
 
 $latestExportFolder = Get-Item ".\Exports\" | Get-ChildItem -Directory | Sort-Object LastWriteTime -Descending | Select-Object -First 1
 if (-not $latestExportFolder) {
