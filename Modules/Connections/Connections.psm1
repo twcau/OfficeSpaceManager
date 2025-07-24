@@ -261,7 +261,7 @@ function Connect-AllServices {
     .EXAMPLE
         Connect-AllServices
     #>
-    Display-PanelHeader -Title "Connecting to Microsoft 365 Services"
+    Get-PanelHeader -Title "Connecting to Microsoft 365 Services"
     Write-Host "\nConnecting to Exchange Online..." -ForegroundColor Cyan
     $exchangeUPN = Connect-ExchangeAdmin
     if (-not $exchangeUPN) {

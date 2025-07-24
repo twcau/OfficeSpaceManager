@@ -22,7 +22,7 @@ function Export-SiteStructureTemplates {
     .EXAMPLE
         Export-SiteStructureTemplates
     #>
-    Display-PanelHeader -Title "Export Site & Building Templates"
+    Get-PanelHeader -Title "Export Site & Building Templates"
     $date = Get-Date -Format "yyyy-MM-dd"
     $folder = ".\Exports\$date"
     if (!(Test-Path $folder)) { New-Item -ItemType Directory -Path $folder | Out-Null }
@@ -65,7 +65,7 @@ function Import-SiteStructureFromCSV {
     .EXAMPLE
         Import-SiteStructureFromCSV
     #>
-    Display-PanelHeader -Title "Import Site & Building Structure"
+    Get-PanelHeader -Title "Import Site & Building Structure"
     $latestExportFolder = Get-Item ".\Exports\" | Get-ChildItem -Directory | Sort-Object LastWriteTime -Descending | Select-Object -First 1
     if (-not $latestExportFolder) {
         Write-Log -Message "No export folder found." -Level 'WARN'
@@ -122,7 +122,7 @@ function Get-SiteStructure {
     .EXAMPLE
         Get-SiteStructure
     #>
-    Display-PanelHeader -Title "Site, Building & Floor Metadata"
+    Get-PanelHeader -Title "Site, Building & Floor Metadata"
     $sites = Get-Content ".\Metadata\SiteDefinitions.json" | ConvertFrom-Json
     $buildings = Get-Content ".\Metadata\BuildingDefinitions.json" | ConvertFrom-Json
     foreach ($site in $sites) {
@@ -148,7 +148,7 @@ function Sync-MetadataToCloud {
     .EXAMPLE
         Sync-MetadataToCloud
     #>
-    Display-PanelHeader -Title "Sync Metadata to Cloud (Preview Module)"
+    Get-PanelHeader -Title "Sync Metadata to Cloud (Preview Module)"
     Write-Log -Message "n🛠 This feature is not yet implemented." -Level 'WARN'
     Write-Log -Message "Microsoft Places currently does not provide full Graph API write support for sites/buildings/floors." -Level 'INFO'
     Write-Host "`nℹ️ Keep track of Places API features here:"

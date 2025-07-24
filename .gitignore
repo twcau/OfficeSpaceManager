@@ -1,7 +1,17 @@
 # Folders
-Backups/
-Logs/
+Backups/CleanScriptBackups/
+Backups/ConfigBackups/
+Backups/InstructionBackups/
+Backups/ScriptReview/
+Backups/Snapshots/
 FixScriptTesting/
+Logs/Archive/
+Logs/LogFiles/
+TerminalVerbose/
+.Drafts
+.retype/
+.website/
+node_modules/
 # Files
 MODULARISATION.md
 script_review_report.csv
@@ -9,4 +19,7 @@ script_review_report.md
 OfficeSpaceManager.code-workspace
 Metadata/.lastSync.json
 Metadata/CachedResources.json
-invoke-verbose.ps1
+package-lock.json
+package.json
+retype.yml
+retype.manifest

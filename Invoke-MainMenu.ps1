@@ -311,7 +311,8 @@ try {
         Write-Host "[3] Configuration & Setup"
         Write-Host "[4] Metadata & Logs"
         Write-Host "[5] Run First-Time Setup Wizard"
-        Write-Host "[6] Exit"
+        Write-Host "[6] About, Help & Instructions"
+        Write-Host "[7] Exit"
 
         Get-ActionHistory
         $selection = Read-Host "`nSelect an option"
@@ -335,7 +336,8 @@ try {
                     Read-Host "Press Enter to return to menu..."
                 }
             }
-            '6' {
+            '6' { . (Join-Path $env:OfficeSpaceManagerRoot 'CLI/help.ps1') }
+            '7' {
                 Write-Host "`nExiting..." -ForegroundColor Cyan
                 . (Join-Path $env:OfficeSpaceManagerRoot 'SiteManagement/CachedResources/Refresh-CachedResources.ps1') -Force
                 Write-Log -Message "User exited the script."

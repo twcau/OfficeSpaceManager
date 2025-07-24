@@ -47,13 +47,22 @@ switch ($choice) {
         }
     }
     '3' {
-        $logDate = Get-Date -Format 'yyyy-MM-dd'
-        $logFile = ".\Logs\$logDate.log"
+        $today = Get-Date -Format 'yyyyMMdd'
+        $logFolder = Join-Path $env:OfficeSpaceManagerRoot 'Logs'
+        $logFile = Join-Path $logFolder "Log_${today}.log"
+        Write-Host ("DEBUG: Checking for today's log file at: {0}" -f $logFile) -ForegroundColor Magenta
         if (Test-Path $logFile) {
-            Get-Content $logFile | Out-Host
+            try {
+                Start-Process notepad.exe $logFile
+                Write-Log ("Opened today's log file: Log_{0}.log" -f $today)
+            }
+            catch {
+                Write-Host "⚠️ Unable to open today's log file. It may be locked or in use. Please close any other applications using this file and try again." -ForegroundColor Yellow
+                Write-Log ("Failed to open today's log file: Log_{0}.log. Error: {1}" -f $today, $_.Exception.Message)
+            }
         }
         else {
-            Write-Host "No log file found for today." -ForegroundColor Yellow
+            Write-Host ("No log file found for today. Searched for: {0}" -f $logFile) -ForegroundColor Yellow
             Read-Host "Press Enter to return to menu..."
         }
     }

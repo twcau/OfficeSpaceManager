@@ -1,0 +1,114 @@
+2025-07-09 19:45:54 [INFO] User exited the script.
+2025-07-09 19:51:06 [INFO] Session started.
+2025-07-09 19:51:06 [INFO] First time setup script imported.
+2025-07-09 19:51:06 [INFO] Global utilities loaded
+2025-07-09 19:51:06 [INFO] No existing .lastSync.json found. Initiating first-time sync.
+2025-07-09 19:53:20 [INFO] User exited the script.
+2025-07-09 19:53:58 [INFO] Test entry
+2025-07-09 19:54:19 [INFO] Test entry
+2025-07-09 19:54:46 [INFO] Test entry
+2025-07-09 20:00:28 [INFO] Session started.
+2025-07-09 20:00:28 [INFO] First time setup script imported.
+2025-07-09 20:00:28 [INFO] Global utilities loaded
+2025-07-09 20:00:28 [INFO] No existing .lastSync.json found. Initiating first-time sync.2025-07-09 20:05:52 [INFO] User exited the script.
+2025-07-09 20:05:56 [INFO] Session started.
+2025-07-09 20:05:56 [INFO] First time setup script imported.
+2025-07-09 20:05:56 [INFO] Global utilities loaded
+2025-07-09 20:05:56 [INFO] No existing .lastSync.json found. Initiating first-time sync.
+2025-07-09 20:11:02 [INFO] User exited the script.
+2025-07-09 20:11:05 [INFO] Session started.
+2025-07-09 20:11:05 [INFO] First time setup script imported.
+2025-07-09 20:11:05 [INFO] Global utilities loaded
+2025-07-09 20:11:05 [INFO] No existing .lastSync.json found. Initiating first-time sync.
+2025-07-09 20:20:42 [INFO] User exited the script.
+2025-07-09 20:24:21 [INFO] Non-fatal error: The script failed due to call depth overflow.
+2025-07-09 20:24:21 [INFO] Session started.
+2025-07-09 20:24:21 [INFO] First time setup script imported.
+2025-07-09 20:24:30 [INFO] Non-fatal error: The script failed due to call depth overflow.
+2025-07-09 20:25:31 [INFO] Non-fatal error: The script failed due to call depth overflow.
+2025-07-09 20:26:17 [INFO] Global utilities loaded
+2025-07-09 20:26:17 [INFO] No existing .lastSync.json found. Initiating first-time sync.
+2025-07-09 20:26:27 [INFO] Non-fatal error: The script failed due to call depth overflow.
+2025-07-09 20:26:27 [INFO] â€¼ï¸ Script-level exception: The term 'param' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-09 20:29:21 [INFO] Session started.
+2025-07-09 20:29:21 [INFO] First time setup script imported.
+2025-07-09 20:29:21 [INFO] â€¼ï¸ Script-level exception: At C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Global-ErrorHandling.ps1:21 char:45
++         Write-Host "`n⚠️ Non-fatal error in $scriptName: $($_.Excepti …
++                                             ~~~~~~~~~~~~
+Variable reference is not valid. ':' was not followed by a valid variable name character. Consider using ${} to delimit the name.
+
+At C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Global-ErrorHandling.ps1:22 char:48
++         Write-Log -Message "Non-fatal error in $scriptName: $($_.Exce …
++                                                ~~~~~~~~~~~~
+Variable reference is not valid. ':' was not followed by a valid variable name character. Consider using ${} to delimit the name.
+2025-07-09 20:36:43 [INFO] Session started.
+2025-07-09 20:36:43 [INFO] First time setup script imported.
+2025-07-09 20:36:43 [INFO] Global utilities loaded
+2025-07-09 20:36:43 [INFO] No existing .lastSync.json found. Initiating first-time sync.
+2025-07-09 20:36:43 [INFO] â€¼ï¸ Script-level exception: The term 'param' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-09 20:42:50 [INFO] Session started.
+2025-07-09 20:42:50 [INFO] First time setup script imported.
+2025-07-09 20:42:50 [INFO] Importing CLI\Show-ActionHistory.ps1
+2025-07-09 20:42:50 [INFO] Importing Render-PanelHeader.ps1
+2025-07-09 20:42:50 [INFO] Global utilities loaded
+2025-07-09 20:42:50 [INFO] No existing .lastSync.json found. Initiating first-time sync.
+2025-07-09 20:42:50 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-09 20:42:50 [INFO] â€¼ï¸ Script-level exception: The term 'param' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-09 20:47:44 [INFO] Session started.
+2025-07-09 20:47:44 [INFO] First time setup script imported.
+2025-07-09 20:47:44 [INFO] Importing Global UI Utilities
+2025-07-09 20:47:44 [INFO] Importing CLI\Show-ActionHistory.ps1
+2025-07-09 20:47:44 [INFO] Importing CLI\Render-PanelHeader.ps1
+2025-07-09 20:47:44 [INFO] Global UI Utilities imported and loaded
+2025-07-09 20:47:44 [INFO] No existing .lastSync.json found. Initiating first-time sync.
+2025-07-09 20:47:44 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-09 20:47:44 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-09 20:47:44 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-09 20:48:58 [INFO] User exited the script.
+2025-07-09 21:00:38 [INFO] Session started.
+2025-07-09 21:00:38 [INFO] First time setup script imported.
+2025-07-09 21:00:38 [INFO] Importing Global UI Utilities
+2025-07-09 21:00:39 [INFO] Importing CLI\Show-ActionHistory.ps1
+2025-07-09 21:00:39 [INFO] Importing CLI\Render-PanelHeader.ps1
+2025-07-09 21:00:39 [INFO] Global UI Utilities imported and loaded
+2025-07-09 21:00:39 [INFO] No existing .lastSync.json found. Initiating first-time sync.
+2025-07-09 21:00:39 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-09 21:00:39 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-09 21:00:39 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-09 21:00:53 [INFO] User exited the script.
+2025-07-09 21:07:39 [INFO] Session started.
+2025-07-09 21:07:39 [INFO] First time setup script imported.
+2025-07-09 21:07:39 [INFO] Importing Global UI Utilities
+2025-07-09 21:07:39 [INFO] Importing CLI\Show-ActionHistory.ps1
+2025-07-09 21:07:39 [INFO] Importing CLI\Render-PanelHeader.ps1
+2025-07-09 21:07:39 [INFO] Global UI Utilities imported and loaded
+2025-07-09 21:07:39 [INFO] No existing .lastSync.json found. Initiating first-time sync.
+2025-07-09 21:07:39 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-09 21:07:39 [INFO] Loading shared modules
+2025-07-09 21:07:39 [INFO] Loading Shared\Write-Log.ps1
+2025-07-09 21:07:39 [INFO] Loading Shared\Connect-ExchangeAdmin.ps1
+2025-07-09 21:07:40 [INFO] Shared modules loaded
+2025-07-09 21:08:16 [INFO] ⚠️ Skipping resource sync: unable to authenticate with Exchange Online.
+2025-07-09 21:08:16 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-09 21:08:16 [INFO] Loading shared modules
+2025-07-09 21:08:16 [INFO] Loading Shared\Write-Log.ps1
+2025-07-09 21:08:16 [INFO] Loading Shared\Connect-ExchangeAdmin.ps1
+2025-07-09 21:08:16 [INFO] Shared modules loaded
+2025-07-09 21:08:17 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-09 21:08:17 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-09 21:08:18 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-09 21:08:18 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-09 21:08:18 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-09 21:09:06 [INFO] Viewed log file: Log_20250709.log
+2025-07-09 21:09:24 [INFO] Loading shared modules
+2025-07-09 21:09:24 [INFO] Loading Shared\Write-Log.ps1
+2025-07-09 21:09:24 [INFO] Loading Shared\Connect-ExchangeAdmin.ps1
+2025-07-09 21:09:24 [INFO] Shared modules loaded
+2025-07-09 21:09:25 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-09 21:09:25 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-09 21:09:25 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-09 21:09:25 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-09 21:09:25 [INFO] User exited the script.

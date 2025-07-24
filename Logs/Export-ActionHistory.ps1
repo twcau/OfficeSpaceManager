@@ -1,4 +1,5 @@
-Render-PanelHeader -Title "Export Action History"
+Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules\CLI\CLI.psm1')
+Get-PanelHeader -Title "Export Action History"
 
 if (-not $Global:ActionLog -or $Global:ActionLog.Count -eq 0) {
     Write-Host "⚠️ No action history available to export." -ForegroundColor Yellow

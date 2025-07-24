@@ -41,7 +41,7 @@ function New-ConfigBackup {
         [string] Path to the created ZIP file, or null if backup was skipped.
     #>
     # Display a header in the CLI for user context
-    Display-PanelHeader -Title "Creating Configuration Backup"
+    Get-PanelHeader -Title "Creating Configuration Backup"
     $timestamp = Get-Date -Format 'yyyy-MM-dd-HHmm'
     $zipPath = ".\Backups\ConfigBackup-$timestamp.zip"
     # Ensure the Backups directory exists
@@ -83,7 +83,7 @@ function Restore-ConfigBackup {
     .OUTPUTS
         [void]
     #>
-    Display-PanelHeader -Title "Restore Metadata from Backup Archive"
+    Get-PanelHeader -Title "Restore Metadata from Backup Archive"
     $backups = Get-ChildItem ".\Backups" -Filter *.zip -ErrorAction SilentlyContinue
     if (-not $backups) {
         Write-Log -Message "No backup archives found in .\Backups" -Level 'WARN'
@@ -146,7 +146,7 @@ function Invoke-FirstTimeSetup {
     .OUTPUTS
         [void]
     #>
-    Display-PanelHeader -Title "First-Time Setup Wizard"
+    Get-PanelHeader -Title "First-Time Setup Wizard"
     Write-Log -Message "Collecting tenant domain info..." -Level 'INFO'
     $org = Get-OrganizationConfig
     $defaultDomain = $org.DefaultDomain
@@ -178,7 +178,7 @@ function Test-ExchangeSetup {
     .OUTPUTS
         [void]
     #>
-    Display-PanelHeader -Title "Validating Exchange Setup"
+    Get-PanelHeader -Title "Validating Exchange Setup"
     $resources = Get-Mailbox -RecipientTypeDetails RoomMailbox -ResultSize Unlimited
     foreach ($r in $resources) {
         $place = Get-Place -Identity $r.Alias -ErrorAction SilentlyContinue

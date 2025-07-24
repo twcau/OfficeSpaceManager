@@ -1,0 +1,1537 @@
+2025-07-23 18:19:55 [INFO] Session started.
+2025-07-23 18:19:55 [INFO] First time setup script imported.
+2025-07-23 18:19:55 [INFO] Importing Global UI Utilities
+2025-07-23 18:19:55 [INFO] Importing CLI\Show-ActionHistory.ps1
+2025-07-23 18:19:55 [INFO] Importing CLI\Render-PanelHeader.ps1
+2025-07-23 18:19:55 [INFO] Global UI Utilities imported and loaded
+2025-07-23 18:19:55 [INFO] Last metadata sync was 19990 minutes ago (13 days).
+2025-07-23 18:19:55 [WARN] Cached metadata is 13 days old.
+2025-07-23 18:19:55 [INFO] Metadata cache is stale (>3 days).
+2025-07-23 18:20:04 [INFO] User opted to back up config before sync.
+2025-07-23 18:20:04 [INFO] Importing Configuration\Create-ConfigBackup.ps1
+2025-07-23 18:20:05 [INFO] Created config backup ZIP: .\Backups\ConfigBackup-2025-07-23-1820.zip
+2025-07-23 18:20:08 [INFO] User opted to sync metadata (manual confirmation).
+2025-07-23 18:20:08 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 18:20:08 [WARN] Exception.Message
+2025-07-23 18:20:08 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\SiteManagement\CachedResources/../../Shared/Global-ErrorHandling.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 18:30:25 [INFO] Session started.
+2025-07-23 18:30:25 [INFO] First time setup script imported.
+2025-07-23 18:30:25 [INFO] Importing Global UI Utilities
+2025-07-23 18:30:25 [INFO] Importing CLI\Show-ActionHistory.ps1
+2025-07-23 18:30:25 [INFO] Importing CLI\Display-PanelHeader.ps1
+2025-07-23 18:30:25 [WARN] Exception.Message
+2025-07-23 18:30:25 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\Display-PanelHeader.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 18:32:35 [INFO] Session started.
+2025-07-23 18:32:35 [INFO] First time setup script imported.
+2025-07-23 18:32:35 [INFO] Importing Global UI Utilities
+2025-07-23 18:32:35 [INFO] Importing CLI\Show-ActionHistory.ps1
+2025-07-23 18:32:35 [INFO] Global UI Utilities imported and loaded
+2025-07-23 18:32:35 [INFO] Last metadata sync was 20003 minutes ago (13 days).
+2025-07-23 18:32:35 [WARN] Cached metadata is 13 days old.
+2025-07-23 18:32:35 [INFO] Metadata cache is stale (>3 days).
+2025-07-23 18:33:05 [INFO] User opted to back up config before sync.
+2025-07-23 18:33:05 [INFO] Importing Configuration\Create-ConfigBackup.ps1
+2025-07-23 18:33:05 [WARN] Exception.Message
+2025-07-23 18:33:05 [INFO] ⚠️ Script-level exception: The term 'Render-PanelHeader' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 18:37:26 [INFO] Session started.
+2025-07-23 18:37:26 [INFO] First time setup script imported.
+2025-07-23 18:37:26 [INFO] Importing Global UI Utilities
+2025-07-23 18:37:26 [INFO] Global UI Utilities imported and loaded
+2025-07-23 18:37:26 [INFO] Last metadata sync was 20008 minutes ago (13 days).
+2025-07-23 18:37:26 [WARN] Cached metadata is 13 days old.
+2025-07-23 18:37:26 [INFO] Metadata cache is stale (>3 days).
+2025-07-23 18:37:28 [INFO] User opted to back up config before sync.
+2025-07-23 18:37:28 [INFO] Importing Configuration\New-ConfigBackup.ps1
+2025-07-23 18:37:28 [WARN] Exception.Message
+2025-07-23 18:37:28 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\New-ConfigBackup.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 18:38:39 [INFO] Session started.
+2025-07-23 18:38:39 [INFO] First time setup script imported.
+2025-07-23 18:38:39 [INFO] Importing Global UI Utilities
+2025-07-23 18:38:39 [INFO] Global UI Utilities imported and loaded
+2025-07-23 18:38:39 [INFO] Last metadata sync was 20009 minutes ago (13 days).
+2025-07-23 18:38:39 [WARN] Cached metadata is 13 days old.
+2025-07-23 18:38:39 [INFO] Metadata cache is stale (>3 days).
+2025-07-23 18:38:43 [INFO] User opted to back up config before sync.
+2025-07-23 18:38:43 [WARN] Exception.Message
+2025-07-23 18:38:43 [INFO] ⚠️ Script-level exception: The term 'Render-PanelHeader' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 18:42:05 [INFO] Session started.
+2025-07-23 18:42:05 [INFO] First time setup script imported.
+2025-07-23 18:42:05 [INFO] Importing Global UI Utilities
+2025-07-23 18:42:05 [INFO] Global UI Utilities imported and loaded
+2025-07-23 18:42:05 [INFO] Last metadata sync was 20013 minutes ago (13 days).
+2025-07-23 18:42:05 [WARN] Cached metadata is 13 days old.
+2025-07-23 18:42:05 [INFO] Metadata cache is stale (>3 days).
+2025-07-23 18:42:06 [INFO] User opted to back up config before sync.
+2025-07-23 18:42:06 [WARN] Exception.Message
+2025-07-23 18:42:06 [INFO] ⚠️ Script-level exception: The term 'Render-PanelHeader' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 18:44:07 [INFO] Session started.
+2025-07-23 18:44:07 [INFO] First time setup script imported.
+2025-07-23 18:44:07 [INFO] Importing Global UI Utilities
+2025-07-23 18:44:07 [INFO] Global UI Utilities imported and loaded
+2025-07-23 18:44:07 [INFO] Last metadata sync was 20015 minutes ago (13 days).
+2025-07-23 18:44:07 [WARN] Cached metadata is 13 days old.
+2025-07-23 18:44:07 [INFO] Metadata cache is stale (>3 days).
+2025-07-23 18:44:10 [INFO] User opted to back up config before sync.
+2025-07-23 18:44:10 [WARN] Exception.Message
+2025-07-23 18:44:10 [INFO] ⚠️ Script-level exception: The term 'Render-PanelHeader' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 18:45:21 [INFO] Session started.
+2025-07-23 18:45:21 [INFO] First time setup script imported.
+2025-07-23 18:45:21 [INFO] Importing Global UI Utilities
+2025-07-23 18:45:21 [INFO] Global UI Utilities imported and loaded
+2025-07-23 18:45:21 [INFO] Last metadata sync was 20016 minutes ago (13 days).
+2025-07-23 18:45:21 [WARN] Cached metadata is 13 days old.
+2025-07-23 18:45:21 [INFO] Metadata cache is stale (>3 days).
+2025-07-23 18:45:23 [INFO] User opted to back up config before sync.
+2025-07-23 18:45:23 [WARN] Exception.Message
+2025-07-23 18:45:23 [INFO] ⚠️ Script-level exception: The term 'Render-PanelHeader' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 18:50:26 [INFO] Session started.
+2025-07-23 18:50:26 [INFO] First time setup script imported.
+2025-07-23 18:50:26 [INFO] Importing Global UI Utilities
+2025-07-23 18:50:26 [INFO] Global UI Utilities imported and loaded
+2025-07-23 18:50:26 [INFO] Last metadata sync was 20021 minutes ago (13 days).
+2025-07-23 18:50:26 [WARN] Cached metadata is 13 days old.
+2025-07-23 18:50:26 [INFO] Metadata cache is stale (>3 days).
+2025-07-23 18:50:28 [INFO] User opted to back up config before sync.
+2025-07-23 18:50:28 [INFO] Created config backup ZIP: .\Backups\ConfigBackup-2025-07-23-1850.zip
+2025-07-23 18:50:31 [INFO] User opted to sync metadata (manual confirmation).
+2025-07-23 18:50:31 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 18:50:31 [INFO] Loading shared modules
+2025-07-23 18:50:31 [INFO] Shared modules loaded
+2025-07-23 18:50:31 [WARN] Exception.Message
+2025-07-23 18:50:31 [INFO] ⚠️ Script-level exception: The term 'Connect-ExchangeAdmin' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 18:52:53 [INFO] Session started.
+2025-07-23 18:52:53 [INFO] First time setup script imported.
+2025-07-23 18:52:53 [INFO] Importing Global UI Utilities
+2025-07-23 18:52:53 [INFO] Global UI Utilities imported and loaded
+2025-07-23 18:52:53 [INFO] Last metadata sync was 20023 minutes ago (13 days).
+2025-07-23 18:52:53 [WARN] Cached metadata is 13 days old.
+2025-07-23 18:52:53 [INFO] Metadata cache is stale (>3 days).
+2025-07-23 18:52:55 [INFO] User opted to back up config before sync.
+2025-07-23 18:52:55 [INFO] Created config backup ZIP: .\Backups\ConfigBackup-2025-07-23-1852.zip
+2025-07-23 18:52:56 [INFO] User opted to sync metadata (manual confirmation).
+2025-07-23 18:52:56 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 18:52:56 [INFO] Loading shared modules
+2025-07-23 18:52:56 [INFO] Shared modules loaded
+2025-07-23 18:52:56 [WARN] Exception.Message
+2025-07-23 18:52:56 [INFO] ⚠️ Script-level exception: The term 'Connect-ExchangeAdmin' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 18:56:40 [INFO] Session started.
+2025-07-23 18:56:40 [INFO] First time setup script imported.
+2025-07-23 18:56:40 [INFO] Importing Global UI Utilities
+2025-07-23 18:56:40 [INFO] Global UI Utilities imported and loaded
+2025-07-23 18:56:40 [INFO] Last metadata sync was 20027 minutes ago (13 days).
+2025-07-23 18:56:40 [WARN] Cached metadata is 13 days old.
+2025-07-23 18:56:40 [INFO] Metadata cache is stale (>3 days).
+2025-07-23 18:56:41 [INFO] User opted to back up config before sync.
+2025-07-23 18:56:41 [INFO] Created config backup ZIP: .\Backups\ConfigBackup-2025-07-23-1856.zip
+2025-07-23 18:56:47 [INFO] User opted to sync metadata (manual confirmation).
+2025-07-23 18:56:47 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 18:56:47 [INFO] Loading shared modules
+2025-07-23 18:56:47 [INFO] Shared modules loaded
+2025-07-23 18:56:47 [WARN] Exception.Message
+2025-07-23 18:56:47 [INFO] ⚠️ Script-level exception: The term 'Connect-ExchangeAdmin' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 19:15:08 [INFO] Session started.
+2025-07-23 19:15:08 [INFO] First time setup script imported.
+2025-07-23 19:15:09 [INFO] Importing Global UI Utilities
+2025-07-23 19:15:09 [INFO] Global UI Utilities imported and loaded
+2025-07-23 19:15:09 [INFO] Last metadata sync was 20046 minutes ago (13 days).
+2025-07-23 19:15:09 [WARN] Cached metadata is 13 days old.
+2025-07-23 19:15:09 [INFO] Metadata cache is stale (>3 days).
+2025-07-23 19:15:14 [INFO] User skipped metadata sync despite stale cache.
+2025-07-23 19:15:14 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:15:14 [INFO] Loading shared modules
+2025-07-23 19:15:14 [INFO] Shared modules loaded
+2025-07-23 19:15:25 [WARN] Exchange connection failed: UserPrincipalName not returned after connection
+2025-07-23 19:15:25 [WARN] Skipping resource sync: unable to authenticate with Exchange Online.
+2025-07-23 19:15:25 [INFO] ⚠️ Skipping resource sync: unable to authenticate with Exchange Online.
+2025-07-23 19:15:25 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 19:16:06 [INFO] Loading shared modules
+2025-07-23 19:16:07 [INFO] Shared modules loaded
+2025-07-23 19:16:07 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:16:07 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:16:07 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 19:16:07 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 19:16:07 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 19:16:07 [INFO] User exited the script.
+2025-07-23 19:16:13 [INFO] Session started.
+2025-07-23 19:16:13 [INFO] First time setup script imported.
+2025-07-23 19:16:13 [INFO] Importing Global UI Utilities
+2025-07-23 19:16:13 [INFO] Global UI Utilities imported and loaded
+2025-07-23 19:16:13 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 19:16:13 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 19:16:13 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 19:16:18 [INFO] User skipped metadata sync (recent cache accepted).
+2025-07-23 19:16:18 [INFO] Skipping sync and using recent cached data.
+2025-07-23 19:16:18 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:16:18 [INFO] Loading shared modules
+2025-07-23 19:16:18 [INFO] Shared modules loaded
+2025-07-23 19:16:18 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:16:18 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:16:18 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:16:18 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:16:21 [WARN] Skipping metadata refresh.
+2025-07-23 19:16:21 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 19:16:21 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 19:19:00 [INFO] Loading shared modules
+2025-07-23 19:19:00 [INFO] Shared modules loaded
+2025-07-23 19:19:00 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:19:00 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:19:00 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 19:19:00 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 19:19:00 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 19:19:00 [INFO] User exited the script.
+2025-07-23 19:22:08 [INFO] Session started.
+2025-07-23 19:22:08 [INFO] First time setup script imported.
+2025-07-23 19:22:08 [INFO] Importing Global UI Utilities
+2025-07-23 19:22:08 [INFO] Global UI Utilities imported and loaded
+2025-07-23 19:22:08 [INFO] Last metadata sync was 3 minutes ago (0 days).
+2025-07-23 19:22:08 [INFO] Last metadata sync was just 3 minutes ago.
+2025-07-23 19:22:08 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 19:22:10 [INFO] User skipped metadata sync (recent cache accepted).
+2025-07-23 19:22:10 [INFO] Skipping sync and using recent cached data.
+2025-07-23 19:22:10 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:22:10 [INFO] Loading shared modules
+2025-07-23 19:22:10 [INFO] Shared modules loaded
+2025-07-23 19:22:11 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:22:11 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:22:11 [INFO] 🕒 Metadata was last refreshed 3 minutes ago.
+2025-07-23 19:22:11 [WARN] Metadata was last refreshed 3 minutes ago.
+2025-07-23 19:22:12 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 19:22:12 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 19:22:12 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 19:22:12 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 19:22:36 [WARN] Exception.Message
+2025-07-23 19:22:36 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Manage-DeskPools.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 19:22:46 [INFO] Session started.
+2025-07-23 19:22:46 [INFO] First time setup script imported.
+2025-07-23 19:22:46 [INFO] Importing Global UI Utilities
+2025-07-23 19:22:46 [INFO] Global UI Utilities imported and loaded
+2025-07-23 19:22:46 [INFO] Last metadata sync was 1 minutes ago (0 days).
+2025-07-23 19:22:46 [INFO] Last metadata sync was just 1 minutes ago.
+2025-07-23 19:22:46 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 19:22:51 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 19:22:51 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:22:51 [INFO] Loading shared modules
+2025-07-23 19:22:51 [INFO] Shared modules loaded
+2025-07-23 19:22:51 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:22:51 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:22:51 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 19:22:51 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 19:22:51 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 19:22:51 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:22:51 [INFO] Loading shared modules
+2025-07-23 19:22:51 [INFO] Shared modules loaded
+2025-07-23 19:22:51 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:22:51 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:22:51 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:22:51 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:22:55 [WARN] Skipping metadata refresh.
+2025-07-23 19:22:55 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 19:22:55 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 19:22:59 [WARN] Exception.Message
+2025-07-23 19:22:59 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Manage-ResourceWizard.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 19:23:12 [INFO] Session started.
+2025-07-23 19:23:12 [INFO] First time setup script imported.
+2025-07-23 19:23:12 [INFO] Importing Global UI Utilities
+2025-07-23 19:23:12 [INFO] Global UI Utilities imported and loaded
+2025-07-23 19:23:12 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 19:23:12 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 19:23:12 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 19:23:17 [INFO] User skipped metadata sync (recent cache accepted).
+2025-07-23 19:23:17 [INFO] Skipping sync and using recent cached data.
+2025-07-23 19:23:17 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:23:17 [INFO] Loading shared modules
+2025-07-23 19:23:17 [INFO] Shared modules loaded
+2025-07-23 19:23:17 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:23:17 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:23:18 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:23:18 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:23:20 [WARN] Skipping metadata refresh.
+2025-07-23 19:23:20 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 19:23:20 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 19:23:26 [WARN] Exception.Message
+2025-07-23 19:23:26 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\TestSuite/../Shared/Global-ErrorHandling.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 19:24:22 [INFO] Session started.
+2025-07-23 19:24:22 [INFO] First time setup script imported.
+2025-07-23 19:24:22 [INFO] Importing Global UI Utilities
+2025-07-23 19:24:22 [INFO] Global UI Utilities imported and loaded
+2025-07-23 19:24:22 [INFO] Last metadata sync was 2 minutes ago (0 days).
+2025-07-23 19:24:22 [INFO] Last metadata sync was just 2 minutes ago.
+2025-07-23 19:24:22 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 19:24:25 [INFO] User skipped metadata sync (recent cache accepted).
+2025-07-23 19:24:25 [INFO] Skipping sync and using recent cached data.
+2025-07-23 19:24:25 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:24:25 [INFO] Loading shared modules
+2025-07-23 19:24:25 [INFO] Shared modules loaded
+2025-07-23 19:24:25 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:24:25 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:24:25 [INFO] 🕒 Metadata was last refreshed 2 minutes ago.
+2025-07-23 19:24:25 [WARN] Metadata was last refreshed 2 minutes ago.
+2025-07-23 19:24:27 [WARN] Skipping metadata refresh.
+2025-07-23 19:24:27 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 2 minutes.
+2025-07-23 19:24:27 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 19:24:31 [WARN] Exception.Message
+2025-07-23 19:24:31 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Manage-ResourceWizard.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 19:24:45 [INFO] Session started.
+2025-07-23 19:24:45 [INFO] First time setup script imported.
+2025-07-23 19:24:45 [INFO] Importing Global UI Utilities
+2025-07-23 19:24:45 [INFO] Global UI Utilities imported and loaded
+2025-07-23 19:24:45 [INFO] Last metadata sync was 2 minutes ago (0 days).
+2025-07-23 19:24:45 [INFO] Last metadata sync was just 2 minutes ago.
+2025-07-23 19:24:45 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 19:24:47 [INFO] User skipped metadata sync (recent cache accepted).
+2025-07-23 19:24:47 [INFO] Skipping sync and using recent cached data.
+2025-07-23 19:24:47 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:24:48 [INFO] Loading shared modules
+2025-07-23 19:24:48 [INFO] Shared modules loaded
+2025-07-23 19:24:48 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:24:48 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:24:48 [INFO] 🕒 Metadata was last refreshed 2 minutes ago.
+2025-07-23 19:24:48 [WARN] Metadata was last refreshed 2 minutes ago.
+2025-07-23 19:24:52 [WARN] Skipping metadata refresh.
+2025-07-23 19:24:52 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 2 minutes.
+2025-07-23 19:24:52 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 19:24:59 [WARN] Exception.Message
+2025-07-23 19:24:59 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Manage\Toggle-ResourceState.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 19:25:13 [INFO] Session started.
+2025-07-23 19:25:13 [INFO] First time setup script imported.
+2025-07-23 19:25:13 [INFO] Importing Global UI Utilities
+2025-07-23 19:25:13 [INFO] Global UI Utilities imported and loaded
+2025-07-23 19:25:13 [INFO] Last metadata sync was 2 minutes ago (0 days).
+2025-07-23 19:25:13 [INFO] Last metadata sync was just 2 minutes ago.
+2025-07-23 19:25:13 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 19:25:14 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 19:25:15 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:25:15 [INFO] Loading shared modules
+2025-07-23 19:25:15 [INFO] Shared modules loaded
+2025-07-23 19:25:15 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:25:15 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:25:15 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 19:25:15 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 19:25:15 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 19:25:15 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:25:15 [INFO] Loading shared modules
+2025-07-23 19:25:15 [INFO] Shared modules loaded
+2025-07-23 19:25:15 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:25:15 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:25:15 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:25:15 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:25:17 [WARN] Skipping metadata refresh.
+2025-07-23 19:25:17 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 19:25:17 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 19:25:23 [WARN] Exception.Message
+2025-07-23 19:25:23 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\TestSuite/../Shared/Global-ErrorHandling.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 19:25:35 [INFO] Session started.
+2025-07-23 19:25:35 [INFO] First time setup script imported.
+2025-07-23 19:25:35 [INFO] Importing Global UI Utilities
+2025-07-23 19:25:35 [INFO] Global UI Utilities imported and loaded
+2025-07-23 19:25:35 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 19:25:35 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 19:25:35 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 19:25:36 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 19:25:36 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:25:36 [INFO] Loading shared modules
+2025-07-23 19:25:36 [INFO] Shared modules loaded
+2025-07-23 19:25:36 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:25:36 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:25:36 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 19:25:37 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 19:25:37 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 19:25:37 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:25:37 [INFO] Loading shared modules
+2025-07-23 19:25:37 [INFO] Shared modules loaded
+2025-07-23 19:25:37 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:25:37 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:25:37 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:25:37 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:25:39 [WARN] Skipping metadata refresh.
+2025-07-23 19:25:39 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 19:25:39 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 19:25:45 [WARN] Exception.Message
+2025-07-23 19:25:45 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Wizards\Create-DeskPoolWizard.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 19:48:46 [INFO] Session started.
+2025-07-23 19:48:46 [INFO] First time setup script imported.
+2025-07-23 19:48:46 [INFO] Importing Global UI Utilities
+2025-07-23 19:48:46 [INFO] Global UI Utilities imported and loaded
+2025-07-23 19:48:46 [INFO] Last metadata sync was 23 minutes ago (0 days).
+2025-07-23 19:48:46 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:48:46 [INFO] Loading shared modules
+2025-07-23 19:48:46 [INFO] Shared modules loaded
+2025-07-23 19:48:47 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:48:47 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:48:47 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 19:48:47 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 19:48:47 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 19:48:47 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 19:48:50 [WARN] Exception.Message
+2025-07-23 19:48:50 [INFO] ⚠️ Script-level exception: At C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\Wizards\Manage-ResourceWizard.ps1:141 char:39
++                 $action = Read-Host ("$prop: [$curr] -> Keep (K), Rep …
++                                       ~~~~~~
+Variable reference is not valid. ':' was not followed by a valid variable name character. Consider using ${} to delimit the name.
+2025-07-23 19:49:28 [INFO] Session started.
+2025-07-23 19:49:28 [INFO] First time setup script imported.
+2025-07-23 19:49:28 [INFO] Importing Global UI Utilities
+2025-07-23 19:49:28 [INFO] Global UI Utilities imported and loaded
+2025-07-23 19:49:28 [INFO] Last metadata sync was 1 minutes ago (0 days).
+2025-07-23 19:49:28 [INFO] Last metadata sync was just 1 minutes ago.
+2025-07-23 19:49:28 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 19:49:29 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 19:49:29 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:49:29 [INFO] Loading shared modules
+2025-07-23 19:49:29 [INFO] Shared modules loaded
+2025-07-23 19:49:29 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:49:29 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:49:29 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 19:49:30 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 19:49:30 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 19:49:30 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:49:30 [INFO] Loading shared modules
+2025-07-23 19:49:30 [INFO] Shared modules loaded
+2025-07-23 19:49:30 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:49:30 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:49:30 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:49:30 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:49:31 [WARN] Skipping metadata refresh.
+2025-07-23 19:49:31 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 19:49:31 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 19:49:39 [WARN] No desk data file found.
+2025-07-23 19:49:44 [WARN] Exception.Message
+2025-07-23 19:49:44 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\TestSuite/../Shared/Connect-ExchangeAdmin.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 19:50:00 [INFO] Session started.
+2025-07-23 19:50:00 [INFO] First time setup script imported.
+2025-07-23 19:50:00 [INFO] Importing Global UI Utilities
+2025-07-23 19:50:01 [INFO] Global UI Utilities imported and loaded
+2025-07-23 19:50:01 [INFO] Last metadata sync was 1 minutes ago (0 days).
+2025-07-23 19:50:01 [INFO] Last metadata sync was just 1 minutes ago.
+2025-07-23 19:50:01 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 19:50:02 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 19:50:02 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:50:02 [INFO] Loading shared modules
+2025-07-23 19:50:02 [INFO] Shared modules loaded
+2025-07-23 19:50:02 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:50:02 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:50:02 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 19:50:03 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 19:50:03 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 19:50:03 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:50:03 [INFO] Loading shared modules
+2025-07-23 19:50:03 [INFO] Shared modules loaded
+2025-07-23 19:50:03 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:50:03 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:50:03 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:50:03 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:50:04 [WARN] Skipping metadata refresh.
+2025-07-23 19:50:04 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 19:50:04 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 19:50:08 [WARN] Exception.Message
+2025-07-23 19:50:08 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\Wizards/../../Shared/Global-ErrorHandling.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 19:50:30 [INFO] Session started.
+2025-07-23 19:50:30 [INFO] First time setup script imported.
+2025-07-23 19:50:30 [INFO] Importing Global UI Utilities
+2025-07-23 19:50:30 [INFO] Global UI Utilities imported and loaded
+2025-07-23 19:50:30 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 19:50:30 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 19:50:30 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 19:50:31 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 19:50:31 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:50:31 [INFO] Loading shared modules
+2025-07-23 19:50:31 [INFO] Shared modules loaded
+2025-07-23 19:50:31 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:50:31 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:50:31 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 19:50:32 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 19:50:32 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 19:50:32 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:50:32 [INFO] Loading shared modules
+2025-07-23 19:50:32 [INFO] Shared modules loaded
+2025-07-23 19:50:32 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:50:32 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:50:32 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:50:32 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:50:33 [WARN] Skipping metadata refresh.
+2025-07-23 19:50:33 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 19:50:33 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 19:50:34 [WARN] Exception.Message
+2025-07-23 19:50:34 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\Wizards/../../Shared/Global-ErrorHandling.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 19:50:51 [INFO] Session started.
+2025-07-23 19:50:51 [INFO] First time setup script imported.
+2025-07-23 19:50:51 [INFO] Importing Global UI Utilities
+2025-07-23 19:50:51 [INFO] Global UI Utilities imported and loaded
+2025-07-23 19:50:51 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 19:50:51 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 19:50:51 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 19:50:52 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 19:50:52 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:50:52 [INFO] Loading shared modules
+2025-07-23 19:50:52 [INFO] Shared modules loaded
+2025-07-23 19:50:53 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:50:53 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:50:53 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 19:50:53 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 19:50:53 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 19:50:53 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 19:50:53 [INFO] Loading shared modules
+2025-07-23 19:50:53 [INFO] Shared modules loaded
+2025-07-23 19:50:53 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 19:50:53 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 19:50:53 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:50:53 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 19:50:53 [WARN] Skipping metadata refresh.
+2025-07-23 19:50:53 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 19:50:53 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 19:50:58 [INFO] Orphan detection completed
+2025-07-23 19:51:06 [INFO] No orphaned mailboxes to fix.
+2025-07-23 19:51:09 [INFO] Desk pool mapping validation complete.
+2025-07-23 19:51:09 [INFO] Validated desk pool mappings
+2025-07-23 19:51:12 [INFO] Naming convention audit completed
+2025-07-23 19:52:48 [INFO] Desk pool mapping validation complete.
+2025-07-23 19:52:48 [INFO] Validated desk pool mappings
+2025-07-23 19:52:52 [INFO] Saved metadata snapshot at 2025-07-23T19-52-52
+2025-07-23 19:53:12 [WARN] Exception.Message
+2025-07-23 19:53:12 [INFO] ⚠️ Script-level exception: The term 'Render-PanelHeader' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 20:07:17 [INFO] Session started.
+2025-07-23 20:07:17 [INFO] First time setup script imported.
+2025-07-23 20:07:17 [INFO] Importing Global UI Utilities
+2025-07-23 20:07:17 [INFO] Global UI Utilities imported and loaded
+2025-07-23 20:07:17 [INFO] Last metadata sync was 16 minutes ago (0 days).
+2025-07-23 20:07:17 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:07:17 [INFO] Loading shared modules
+2025-07-23 20:07:17 [INFO] Shared modules loaded
+2025-07-23 20:07:17 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:07:17 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:07:17 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:07:18 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:07:18 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:07:18 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 20:07:25 [WARN] Exception.Message
+2025-07-23 20:07:25 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\Wizards/../../Shared/Get-StandardDeskName.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 20:07:52 [INFO] Session started.
+2025-07-23 20:07:52 [INFO] First time setup script imported.
+2025-07-23 20:07:52 [INFO] Importing Global UI Utilities
+2025-07-23 20:07:52 [INFO] Global UI Utilities imported and loaded
+2025-07-23 20:07:52 [INFO] Last metadata sync was 1 minutes ago (0 days).
+2025-07-23 20:07:52 [INFO] Last metadata sync was just 1 minutes ago.
+2025-07-23 20:07:52 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 20:07:53 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 20:07:53 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:07:53 [INFO] Loading shared modules
+2025-07-23 20:07:53 [INFO] Shared modules loaded
+2025-07-23 20:07:53 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:07:53 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:07:53 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:07:54 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:07:54 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:07:54 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:07:54 [INFO] Loading shared modules
+2025-07-23 20:07:54 [INFO] Shared modules loaded
+2025-07-23 20:07:54 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:07:54 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:07:54 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:07:54 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:07:55 [WARN] Skipping metadata refresh.
+2025-07-23 20:07:55 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 20:07:55 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 20:08:02 [WARN] No desk data file found.
+2025-07-23 20:08:07 [WARN] Exception.Message
+2025-07-23 20:08:07 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\TestSuite/../Shared/Connect-ExchangeAdmin.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 20:08:40 [INFO] Session started.
+2025-07-23 20:08:40 [INFO] First time setup script imported.
+2025-07-23 20:08:40 [INFO] Importing Global UI Utilities
+2025-07-23 20:08:40 [INFO] Global UI Utilities imported and loaded
+2025-07-23 20:08:40 [INFO] Last metadata sync was 1 minutes ago (0 days).
+2025-07-23 20:08:40 [INFO] Last metadata sync was just 1 minutes ago.
+2025-07-23 20:08:40 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 20:08:41 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 20:08:41 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:08:41 [INFO] Loading shared modules
+2025-07-23 20:08:41 [INFO] Shared modules loaded
+2025-07-23 20:08:42 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:08:42 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:08:42 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:08:42 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:08:42 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:08:42 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:08:42 [INFO] Loading shared modules
+2025-07-23 20:08:42 [INFO] Shared modules loaded
+2025-07-23 20:08:42 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:08:43 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:08:43 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:08:43 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:08:44 [WARN] Skipping metadata refresh.
+2025-07-23 20:08:44 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 20:08:44 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 20:08:53 [WARN] Exception.Message
+2025-07-23 20:08:53 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Write-Log.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 20:09:06 [INFO] Session started.
+2025-07-23 20:09:06 [INFO] First time setup script imported.
+2025-07-23 20:09:06 [INFO] Importing Global UI Utilities
+2025-07-23 20:09:06 [INFO] Global UI Utilities imported and loaded
+2025-07-23 20:09:06 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 20:09:06 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 20:09:06 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 20:09:06 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 20:09:06 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:09:07 [INFO] Loading shared modules
+2025-07-23 20:09:07 [INFO] Shared modules loaded
+2025-07-23 20:09:07 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:09:07 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:09:07 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:09:07 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:09:07 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:09:07 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:09:07 [INFO] Loading shared modules
+2025-07-23 20:09:07 [INFO] Shared modules loaded
+2025-07-23 20:09:07 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:09:07 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:09:07 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:09:07 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:09:07 [WARN] Skipping metadata refresh.
+2025-07-23 20:09:07 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 20:09:07 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 20:09:11 [WARN] Exception.Message
+2025-07-23 20:09:11 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Write-Log.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 20:18:13 [INFO] Session started.
+2025-07-23 20:18:13 [INFO] First time setup script imported.
+2025-07-23 20:18:13 [INFO] Importing Global UI Utilities
+2025-07-23 20:18:13 [INFO] Global UI Utilities imported and loaded
+2025-07-23 20:18:13 [INFO] Last metadata sync was 9 minutes ago (0 days).
+2025-07-23 20:18:13 [INFO] Last metadata sync was just 9 minutes ago.
+2025-07-23 20:18:13 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 20:18:14 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 20:18:14 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:18:14 [INFO] Loading shared modules
+2025-07-23 20:18:14 [INFO] Shared modules loaded
+2025-07-23 20:18:15 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:18:15 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:18:15 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:18:15 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:18:15 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:18:15 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:18:15 [INFO] Loading shared modules
+2025-07-23 20:18:15 [INFO] Shared modules loaded
+2025-07-23 20:18:15 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:18:15 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:18:15 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:18:15 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:18:16 [WARN] Skipping metadata refresh.
+2025-07-23 20:18:16 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 20:18:16 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 20:18:19 [WARN] Exception.Message
+2025-07-23 20:18:19 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Get-StandardDeskName.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 20:22:29 [INFO] Session started.
+2025-07-23 20:22:29 [INFO] First time setup script imported.
+2025-07-23 20:22:29 [INFO] Importing Global UI Utilities
+2025-07-23 20:22:29 [INFO] Global UI Utilities imported and loaded
+2025-07-23 20:22:29 [INFO] Last metadata sync was 4 minutes ago (0 days).
+2025-07-23 20:22:29 [INFO] Last metadata sync was just 4 minutes ago.
+2025-07-23 20:22:29 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 20:22:30 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 20:22:30 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:22:30 [INFO] Loading shared modules
+2025-07-23 20:22:30 [INFO] Shared modules loaded
+2025-07-23 20:22:30 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:22:30 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:22:30 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:22:30 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:22:30 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:22:30 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:22:30 [INFO] Loading shared modules
+2025-07-23 20:22:30 [INFO] Shared modules loaded
+2025-07-23 20:22:31 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:22:31 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:22:31 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:22:31 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:22:31 [WARN] Skipping metadata refresh.
+2025-07-23 20:22:31 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 20:22:31 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 20:22:34 [ERROR] Invalid type.
+2025-07-23 20:22:36 [WARN] Exception.Message
+2025-07-23 20:22:36 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Connect-ExchangeAdmin.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 20:24:05 [INFO] Session started.
+2025-07-23 20:24:05 [INFO] First time setup script imported.
+2025-07-23 20:24:05 [INFO] Importing Global UI Utilities
+2025-07-23 20:24:05 [INFO] Global UI Utilities imported and loaded
+2025-07-23 20:24:05 [INFO] Last metadata sync was 2 minutes ago (0 days).
+2025-07-23 20:24:05 [INFO] Last metadata sync was just 2 minutes ago.
+2025-07-23 20:24:05 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 20:24:06 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 20:24:06 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:24:06 [INFO] Loading shared modules
+2025-07-23 20:24:06 [INFO] Shared modules loaded
+2025-07-23 20:24:06 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:24:06 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:24:06 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:24:07 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:24:07 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:24:07 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:24:07 [INFO] Loading shared modules
+2025-07-23 20:24:07 [INFO] Shared modules loaded
+2025-07-23 20:24:07 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:24:07 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:24:07 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:24:07 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:24:08 [WARN] Skipping metadata refresh.
+2025-07-23 20:24:08 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 20:24:08 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 20:24:10 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:24:10 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:25:04 [INFO] Simulating booking for JOOJOO01OFF01OFF@crispykangaroo.com...
+2025-07-23 20:25:04 [INFO] Test booking sent (simulation only, New-TestMessage not implemented).
+2025-07-23 20:30:15 [INFO] Loading shared modules
+2025-07-23 20:30:15 [INFO] Shared modules loaded
+2025-07-23 20:30:15 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:30:15 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:30:15 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:30:15 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:30:16 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:30:16 [INFO] User exited the script.
+2025-07-23 20:33:22 [INFO] Session started.
+2025-07-23 20:33:22 [INFO] First time setup script imported.
+2025-07-23 20:33:22 [INFO] Importing Global UI Utilities
+2025-07-23 20:33:22 [INFO] Global UI Utilities imported and loaded
+2025-07-23 20:33:22 [INFO] Last metadata sync was 3 minutes ago (0 days).
+2025-07-23 20:33:22 [INFO] Last metadata sync was just 3 minutes ago.
+2025-07-23 20:33:22 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 20:33:23 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 20:33:23 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:33:23 [INFO] Loading shared modules
+2025-07-23 20:33:23 [INFO] Shared modules loaded
+2025-07-23 20:33:24 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:33:24 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:33:24 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:33:24 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:33:24 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:33:24 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:33:24 [INFO] Loading shared modules
+2025-07-23 20:33:24 [INFO] Shared modules loaded
+2025-07-23 20:33:24 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:33:24 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:33:24 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:33:24 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:33:25 [WARN] Skipping metadata refresh.
+2025-07-23 20:33:25 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 20:33:25 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 20:33:29 [WARN] Exception.Message
+2025-07-23 20:33:29 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Write-Log.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 20:33:32 [INFO] Session started.
+2025-07-23 20:33:32 [INFO] First time setup script imported.
+2025-07-23 20:33:32 [INFO] Importing Global UI Utilities
+2025-07-23 20:33:32 [INFO] Global UI Utilities imported and loaded
+2025-07-23 20:33:32 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 20:33:32 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 20:33:32 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 20:33:33 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 20:33:33 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:33:33 [INFO] Loading shared modules
+2025-07-23 20:33:33 [INFO] Shared modules loaded
+2025-07-23 20:33:33 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:33:34 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:33:34 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:33:34 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:33:34 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:33:34 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:33:34 [INFO] Loading shared modules
+2025-07-23 20:33:34 [INFO] Shared modules loaded
+2025-07-23 20:33:34 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:33:34 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:33:34 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:33:34 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:33:35 [WARN] Skipping metadata refresh.
+2025-07-23 20:33:35 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 20:33:35 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 20:33:38 [WARN] Exception.Message
+2025-07-23 20:33:38 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Shared\Write-Log.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 20:33:44 [INFO] Session started.
+2025-07-23 20:33:44 [INFO] First time setup script imported.
+2025-07-23 20:33:44 [INFO] Importing Global UI Utilities
+2025-07-23 20:33:44 [INFO] Global UI Utilities imported and loaded
+2025-07-23 20:33:44 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 20:33:44 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 20:33:44 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 20:33:45 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 20:33:45 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:33:45 [INFO] Loading shared modules
+2025-07-23 20:33:45 [INFO] Shared modules loaded
+2025-07-23 20:33:45 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:33:45 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:33:45 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:33:46 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:33:46 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:33:46 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:33:46 [INFO] Loading shared modules
+2025-07-23 20:33:46 [INFO] Shared modules loaded
+2025-07-23 20:33:46 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:33:46 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:33:46 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:33:46 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:33:46 [WARN] Skipping metadata refresh.
+2025-07-23 20:33:46 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 20:33:46 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 20:33:49 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:33:49 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:33:49 [WARN] Exception.Message
+2025-07-23 20:33:49 [INFO] ⚠️ Script-level exception: The term 'param' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 20:33:55 [INFO] Session started.
+2025-07-23 20:33:55 [INFO] First time setup script imported.
+2025-07-23 20:33:55 [INFO] Importing Global UI Utilities
+2025-07-23 20:33:55 [INFO] Global UI Utilities imported and loaded
+2025-07-23 20:33:55 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 20:33:55 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 20:33:55 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 20:33:56 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 20:33:56 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:33:56 [INFO] Loading shared modules
+2025-07-23 20:33:56 [INFO] Shared modules loaded
+2025-07-23 20:33:56 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:33:56 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:33:56 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:33:56 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:33:56 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:33:56 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:33:56 [INFO] Loading shared modules
+2025-07-23 20:33:56 [INFO] Shared modules loaded
+2025-07-23 20:33:57 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:33:57 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:33:57 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:33:57 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:33:57 [WARN] Skipping metadata refresh.
+2025-07-23 20:33:57 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 20:33:57 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 20:34:03 [WARN] No desk data file found.
+2025-07-23 20:34:06 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:34:06 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:34:29 [INFO] Simulating booking for JOOJOO01OFF01@crispykangaroo.com...
+2025-07-23 20:34:29 [INFO] Test booking sent (simulation only, New-TestMessage not implemented).
+2025-07-23 20:34:41 [INFO] Orphan detection completed
+2025-07-23 20:34:45 [INFO] No orphaned mailboxes to fix.
+2025-07-23 20:34:45 [WARN] Exception.Message
+2025-07-23 20:34:45 [INFO] ⚠️ Script-level exception: The term 'catch' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 20:34:48 [INFO] Session started.
+2025-07-23 20:34:48 [INFO] First time setup script imported.
+2025-07-23 20:34:48 [INFO] Importing Global UI Utilities
+2025-07-23 20:34:48 [INFO] Global UI Utilities imported and loaded
+2025-07-23 20:34:48 [INFO] Last metadata sync was 1 minutes ago (0 days).
+2025-07-23 20:34:48 [INFO] Last metadata sync was just 1 minutes ago.
+2025-07-23 20:34:48 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 20:34:49 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 20:34:49 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:34:49 [INFO] Loading shared modules
+2025-07-23 20:34:49 [INFO] Shared modules loaded
+2025-07-23 20:34:49 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:34:49 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:34:49 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:34:49 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:34:49 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:34:49 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:34:49 [INFO] Loading shared modules
+2025-07-23 20:34:49 [INFO] Shared modules loaded
+2025-07-23 20:34:50 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:34:50 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:34:50 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:34:50 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:34:50 [WARN] Skipping metadata refresh.
+2025-07-23 20:34:50 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 20:34:50 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 20:34:52 [INFO] Desk pool mapping validation complete.
+2025-07-23 20:34:52 [INFO] Validated desk pool mappings
+2025-07-23 20:34:57 [INFO] Naming convention audit completed
+2025-07-23 20:35:14 [WARN] Exception.Message
+2025-07-23 20:35:14 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Invoke-FirstTimeSetup.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 20:35:17 [INFO] Session started.
+2025-07-23 20:35:17 [INFO] First time setup script imported.
+2025-07-23 20:35:17 [INFO] Importing Global UI Utilities
+2025-07-23 20:35:17 [INFO] Global UI Utilities imported and loaded
+2025-07-23 20:35:17 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 20:35:17 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 20:35:17 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 20:35:18 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 20:35:18 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:35:18 [INFO] Loading shared modules
+2025-07-23 20:35:18 [INFO] Shared modules loaded
+2025-07-23 20:35:18 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:35:18 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:35:18 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:35:19 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:35:19 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:35:19 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:35:19 [INFO] Loading shared modules
+2025-07-23 20:35:19 [INFO] Shared modules loaded
+2025-07-23 20:35:19 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:35:19 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:35:19 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:35:19 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:35:19 [WARN] Skipping metadata refresh.
+2025-07-23 20:35:19 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 20:35:19 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 20:35:30 [WARN] TenantConfig.json not found. Please run first-time setup.
+2025-07-23 20:35:52 [WARN] Exception.Message
+2025-07-23 20:35:52 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\New-ConfigBackup.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 20:35:55 [INFO] Session started.
+2025-07-23 20:35:55 [INFO] First time setup script imported.
+2025-07-23 20:35:55 [INFO] Importing Global UI Utilities
+2025-07-23 20:35:55 [INFO] Global UI Utilities imported and loaded
+2025-07-23 20:35:55 [INFO] Last metadata sync was 1 minutes ago (0 days).
+2025-07-23 20:35:55 [INFO] Last metadata sync was just 1 minutes ago.
+2025-07-23 20:35:55 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 20:35:56 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 20:35:56 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:35:56 [INFO] Loading shared modules
+2025-07-23 20:35:56 [INFO] Shared modules loaded
+2025-07-23 20:35:56 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:35:56 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:35:56 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:35:56 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:35:57 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:35:57 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:35:57 [INFO] Loading shared modules
+2025-07-23 20:35:57 [INFO] Shared modules loaded
+2025-07-23 20:35:57 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:35:57 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:35:57 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:35:57 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:35:57 [WARN] Skipping metadata refresh.
+2025-07-23 20:35:57 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 20:35:57 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 20:36:07 [INFO] Loading shared modules
+2025-07-23 20:36:07 [INFO] Shared modules loaded
+2025-07-23 20:36:07 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:36:07 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:36:07 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:36:07 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:36:07 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:36:07 [INFO] Cached metadata refreshed.
+2025-07-23 20:36:14 [INFO] Enabling Microsoft Places features...
+2025-07-23 20:36:14 [WARN] Exception.Message
+2025-07-23 20:36:14 [INFO] ⚠️ Script-level exception: A parameter cannot be found that matches parameter name 'PlacesEnabled'.
+2025-07-23 20:36:18 [INFO] Session started.
+2025-07-23 20:36:18 [INFO] First time setup script imported.
+2025-07-23 20:36:18 [INFO] Importing Global UI Utilities
+2025-07-23 20:36:18 [INFO] Global UI Utilities imported and loaded
+2025-07-23 20:36:18 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 20:36:18 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 20:36:18 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 20:36:26 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 20:36:26 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:36:26 [INFO] Loading shared modules
+2025-07-23 20:36:26 [INFO] Shared modules loaded
+2025-07-23 20:36:26 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:36:26 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:36:26 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 20:36:26 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 20:36:26 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 20:36:26 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 20:36:26 [INFO] Loading shared modules
+2025-07-23 20:36:26 [INFO] Shared modules loaded
+2025-07-23 20:36:26 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 20:36:26 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 20:36:26 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:36:26 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 20:36:27 [WARN] Skipping metadata refresh.
+2025-07-23 20:36:27 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 20:36:27 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 20:36:54 [WARN] Exception.Message
+2025-07-23 20:36:54 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\New-ConfigBackup.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 22:27:21 [INFO] Session started.
+2025-07-23 22:27:21 [INFO] First time setup script imported.
+2025-07-23 22:27:21 [INFO] Importing Global UI Utilities
+2025-07-23 22:27:21 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:27:21 [INFO] Last metadata sync was 111 minutes ago (0 days).
+2025-07-23 22:27:21 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:27:22 [INFO] Loading shared modules
+2025-07-23 22:27:22 [INFO] Shared modules loaded
+2025-07-23 22:27:33 [WARN] Exchange connection failed: UserPrincipalName not returned after connection
+2025-07-23 22:27:33 [WARN] Skipping resource sync: unable to authenticate with Exchange Online.
+2025-07-23 22:27:33 [INFO] ⚠️ Skipping resource sync: unable to authenticate with Exchange Online.
+2025-07-23 22:27:33 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:28:45 [INFO] Session started.
+2025-07-23 22:28:45 [INFO] First time setup script imported.
+2025-07-23 22:28:45 [INFO] Importing Global UI Utilities
+2025-07-23 22:28:45 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:28:45 [INFO] Last metadata sync was 112 minutes ago (0 days).
+2025-07-23 22:28:45 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:28:45 [INFO] Loading shared modules
+2025-07-23 22:28:45 [INFO] Shared modules loaded
+2025-07-23 22:28:54 [WARN] Exchange connection failed: UserPrincipalName not returned after connection
+2025-07-23 22:28:55 [WARN] Skipping resource sync: unable to authenticate with Exchange Online.
+2025-07-23 22:28:55 [INFO] ⚠️ Skipping resource sync: unable to authenticate with Exchange Online.
+2025-07-23 22:28:55 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:28:59 [WARN] Exception.Message
+2025-07-23 22:28:59 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\Configuration\Invoke-FirstTimeSetup.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 22:29:04 [INFO] Session started.
+2025-07-23 22:29:04 [INFO] First time setup script imported.
+2025-07-23 22:29:04 [INFO] Importing Global UI Utilities
+2025-07-23 22:29:04 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:29:04 [INFO] Last metadata sync was 113 minutes ago (0 days).
+2025-07-23 22:29:04 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:29:05 [INFO] Loading shared modules
+2025-07-23 22:29:05 [INFO] Shared modules loaded
+2025-07-23 22:29:05 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:29:05 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:29:05 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 22:29:05 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 22:29:05 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 22:29:05 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:29:12 [WARN] Exception.Message
+2025-07-23 22:29:12 [INFO] ⚠️ Script-level exception: The term 'Render-PanelHeader' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 22:29:15 [INFO] Session started.
+2025-07-23 22:29:15 [INFO] First time setup script imported.
+2025-07-23 22:29:15 [INFO] Importing Global UI Utilities
+2025-07-23 22:29:15 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:29:15 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 22:29:15 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 22:29:15 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 22:29:16 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 22:29:16 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:29:16 [INFO] Loading shared modules
+2025-07-23 22:29:16 [INFO] Shared modules loaded
+2025-07-23 22:29:16 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:29:16 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:29:16 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 22:29:17 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 22:29:17 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 22:29:17 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:29:17 [INFO] Loading shared modules
+2025-07-23 22:29:17 [INFO] Shared modules loaded
+2025-07-23 22:29:17 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:29:17 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:29:17 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:29:17 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:29:18 [WARN] Skipping metadata refresh.
+2025-07-23 22:29:18 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 22:29:18 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:29:24 [WARN] Exception.Message
+2025-07-23 22:29:24 [INFO] ⚠️ Script-level exception: The term 'Render-PanelHeader' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 22:29:28 [INFO] Session started.
+2025-07-23 22:29:28 [INFO] First time setup script imported.
+2025-07-23 22:29:28 [INFO] Importing Global UI Utilities
+2025-07-23 22:29:28 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:29:28 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 22:29:28 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 22:29:28 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 22:29:29 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 22:29:29 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:29:29 [INFO] Loading shared modules
+2025-07-23 22:29:29 [INFO] Shared modules loaded
+2025-07-23 22:29:29 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:29:30 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:29:30 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 22:29:30 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 22:29:30 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 22:29:30 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:29:30 [INFO] Loading shared modules
+2025-07-23 22:29:30 [INFO] Shared modules loaded
+2025-07-23 22:29:30 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:29:30 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:29:30 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:29:30 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:29:30 [WARN] Skipping metadata refresh.
+2025-07-23 22:29:30 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 22:29:30 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:29:39 [INFO] Saved metadata snapshot at 2025-07-23T22-29-39
+2025-07-23 22:30:13 [WARN] TenantConfig.json not found. Please run first-time setup.
+2025-07-23 22:30:31 [WARN] Exception.Message
+2025-07-23 22:30:31 [INFO] ⚠️ Script-level exception: The term 'Export-SiteStructureTemplates' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 22:30:34 [INFO] Session started.
+2025-07-23 22:30:34 [INFO] First time setup script imported.
+2025-07-23 22:30:34 [INFO] Importing Global UI Utilities
+2025-07-23 22:30:34 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:30:34 [INFO] Last metadata sync was 1 minutes ago (0 days).
+2025-07-23 22:30:34 [INFO] Last metadata sync was just 1 minutes ago.
+2025-07-23 22:30:34 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 22:30:35 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 22:30:35 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:30:35 [INFO] Loading shared modules
+2025-07-23 22:30:35 [INFO] Shared modules loaded
+2025-07-23 22:30:36 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:30:36 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:30:36 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 22:30:36 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 22:30:36 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 22:30:36 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:30:36 [INFO] Loading shared modules
+2025-07-23 22:30:36 [INFO] Shared modules loaded
+2025-07-23 22:30:36 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:30:36 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:30:36 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:30:36 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:30:36 [WARN] Skipping metadata refresh.
+2025-07-23 22:30:36 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 22:30:36 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:30:43 [WARN] Exception.Message
+2025-07-23 22:30:43 [INFO] ⚠️ Script-level exception: The term 'Get-SiteStructure' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 22:30:46 [INFO] Session started.
+2025-07-23 22:30:46 [INFO] First time setup script imported.
+2025-07-23 22:30:46 [INFO] Importing Global UI Utilities
+2025-07-23 22:30:47 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:30:47 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 22:30:47 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 22:30:47 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 22:30:48 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 22:30:48 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:30:48 [INFO] Loading shared modules
+2025-07-23 22:30:48 [INFO] Shared modules loaded
+2025-07-23 22:30:48 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:30:48 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:30:48 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 22:30:50 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 22:30:50 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 22:30:50 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:30:50 [INFO] Loading shared modules
+2025-07-23 22:30:50 [INFO] Shared modules loaded
+2025-07-23 22:30:50 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:30:50 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:30:50 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:30:50 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:30:50 [WARN] Skipping metadata refresh.
+2025-07-23 22:30:50 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 22:30:50 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:31:09 [INFO] Enabling Microsoft Places features...
+2025-07-23 22:31:09 [WARN] Exception.Message
+2025-07-23 22:31:09 [INFO] ⚠️ Script-level exception: A parameter cannot be found that matches parameter name 'PlacesEnabled'.
+2025-07-23 22:31:17 [INFO] Session started.
+2025-07-23 22:31:17 [INFO] First time setup script imported.
+2025-07-23 22:31:17 [INFO] Importing Global UI Utilities
+2025-07-23 22:31:17 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:31:17 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 22:31:17 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 22:31:17 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 22:31:18 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 22:31:18 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:31:18 [INFO] Loading shared modules
+2025-07-23 22:31:18 [INFO] Shared modules loaded
+2025-07-23 22:31:18 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:31:18 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:31:18 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 22:31:18 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 22:31:18 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 22:31:18 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:31:18 [INFO] Loading shared modules
+2025-07-23 22:31:18 [INFO] Shared modules loaded
+2025-07-23 22:31:18 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:31:18 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:31:18 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:31:18 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:31:19 [WARN] Skipping metadata refresh.
+2025-07-23 22:31:19 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 22:31:19 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:31:24 [WARN] Places feature is DISABLED.
+2025-07-23 22:31:31 [WARN] Exception.Message
+2025-07-23 22:31:31 [INFO] ⚠️ Script-level exception: Session is not established, run Connect-MicrosoftTeams before requesting access token
+2025-07-23 22:31:40 [INFO] Session started.
+2025-07-23 22:31:40 [INFO] First time setup script imported.
+2025-07-23 22:31:40 [INFO] Importing Global UI Utilities
+2025-07-23 22:31:40 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:31:40 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 22:31:40 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 22:31:40 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 22:31:41 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 22:31:41 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:31:41 [INFO] Loading shared modules
+2025-07-23 22:31:41 [INFO] Shared modules loaded
+2025-07-23 22:31:41 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:31:41 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:31:41 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 22:31:41 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 22:31:41 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 22:31:41 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:31:41 [INFO] Loading shared modules
+2025-07-23 22:31:41 [INFO] Shared modules loaded
+2025-07-23 22:31:42 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:31:42 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:31:42 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:31:42 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:31:42 [WARN] Skipping metadata refresh.
+2025-07-23 22:31:42 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 22:31:42 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:31:49 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:31:49 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:31:49 [INFO] Exchange resource validation completed
+2025-07-23 22:31:49 [INFO] Exchange validation completed
+2025-07-23 22:31:54 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:31:54 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:32:00 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:32:00 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:32:00 [INFO] Calendar processing settings validated
+2025-07-23 22:32:14 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:32:14 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:32:14 [INFO] Calendar processing settings validated
+2025-07-23 22:32:25 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:32:25 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:32:25 [WARN] Exception.Message
+2025-07-23 22:32:25 [INFO] ⚠️ Script-level exception: Session is not established, run Connect-MicrosoftTeams before requesting access token
+2025-07-23 22:32:31 [INFO] Session started.
+2025-07-23 22:32:31 [INFO] First time setup script imported.
+2025-07-23 22:32:31 [INFO] Importing Global UI Utilities
+2025-07-23 22:32:31 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:32:31 [INFO] Last metadata sync was 1 minutes ago (0 days).
+2025-07-23 22:32:31 [INFO] Last metadata sync was just 1 minutes ago.
+2025-07-23 22:32:31 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 22:32:32 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 22:32:32 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:32:32 [INFO] Loading shared modules
+2025-07-23 22:32:32 [INFO] Shared modules loaded
+2025-07-23 22:32:33 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:32:33 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:32:33 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 22:32:33 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 22:32:33 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 22:32:33 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:32:33 [INFO] Loading shared modules
+2025-07-23 22:32:33 [INFO] Shared modules loaded
+2025-07-23 22:32:33 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:32:33 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:32:33 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:32:33 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:32:33 [WARN] Skipping metadata refresh.
+2025-07-23 22:32:33 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 22:32:33 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:32:43 [INFO] Created config backup ZIP: .\Backups\ConfigBackup-2025-07-23-2232.zip
+2025-07-23 22:32:53 [WARN] TenantConfig.json not found. Please run first-time setup.
+2025-07-23 22:33:11 [INFO] Created config backup ZIP: .\Backups\ConfigBackup-2025-07-23-2233.zip
+2025-07-23 22:33:43 [WARN] Exception.Message
+2025-07-23 22:33:43 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Invoke-FirstTimeSetup.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 22:44:35 [INFO] Session started.
+2025-07-23 22:44:35 [INFO] First time setup script imported.
+2025-07-23 22:44:35 [INFO] Importing Global UI Utilities
+2025-07-23 22:44:35 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:44:35 [INFO] Last metadata sync was 12 minutes ago (0 days).
+2025-07-23 22:44:35 [INFO] Last metadata sync was just 12 minutes ago.
+2025-07-23 22:44:35 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 22:44:40 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 22:44:40 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:44:40 [INFO] Loading shared modules
+2025-07-23 22:44:40 [INFO] Shared modules loaded
+2025-07-23 22:44:41 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:44:41 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:44:41 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 22:44:41 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 22:44:41 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 22:44:41 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:44:41 [INFO] Loading shared modules
+2025-07-23 22:44:41 [INFO] Shared modules loaded
+2025-07-23 22:44:41 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:44:41 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:44:41 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:44:41 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:44:42 [WARN] Skipping metadata refresh.
+2025-07-23 22:44:42 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 22:44:42 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:44:53 [WARN] Exception.Message
+2025-07-23 22:44:53 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\Configuration\Invoke-FirstTimeSetup.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 22:44:56 [INFO] Session started.
+2025-07-23 22:44:56 [INFO] First time setup script imported.
+2025-07-23 22:44:56 [INFO] Importing Global UI Utilities
+2025-07-23 22:44:56 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:44:56 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 22:44:56 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 22:44:56 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 22:44:57 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 22:44:57 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:44:57 [INFO] Loading shared modules
+2025-07-23 22:44:57 [INFO] Shared modules loaded
+2025-07-23 22:44:57 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:44:57 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:44:58 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 22:45:13 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 22:45:13 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 22:45:13 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:45:13 [INFO] Loading shared modules
+2025-07-23 22:45:13 [INFO] Shared modules loaded
+2025-07-23 22:45:13 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:45:13 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:45:13 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:45:13 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:45:13 [WARN] Skipping metadata refresh.
+2025-07-23 22:45:13 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 22:45:13 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:45:48 [INFO] Loading shared modules
+2025-07-23 22:45:48 [INFO] Shared modules loaded
+2025-07-23 22:45:48 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:45:48 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:45:48 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 22:45:50 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 22:45:50 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 22:45:50 [INFO] User exited the script.
+2025-07-23 22:46:51 [INFO] Session started.
+2025-07-23 22:46:51 [INFO] First time setup script imported.
+2025-07-23 22:46:51 [INFO] Importing Global UI Utilities
+2025-07-23 22:46:51 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:46:51 [INFO] Last metadata sync was 1 minutes ago (0 days).
+2025-07-23 22:46:51 [INFO] Last metadata sync was just 1 minutes ago.
+2025-07-23 22:46:51 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 22:46:54 [INFO] User skipped metadata sync (recent cache accepted).
+2025-07-23 22:46:54 [INFO] Skipping sync and using recent cached data.
+2025-07-23 22:46:54 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:46:54 [INFO] Loading shared modules
+2025-07-23 22:46:54 [INFO] Shared modules loaded
+2025-07-23 22:46:54 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:46:54 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:46:54 [INFO] 🕒 Metadata was last refreshed 1 minutes ago.
+2025-07-23 22:46:54 [WARN] Metadata was last refreshed 1 minutes ago.
+2025-07-23 22:46:56 [WARN] Skipping metadata refresh.
+2025-07-23 22:46:56 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 1 minutes.
+2025-07-23 22:46:56 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:46:58 [WARN] Exception.Message
+2025-07-23 22:46:58 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\Configuration\Invoke-FirstTimeSetup.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 22:50:39 [INFO] Session started.
+2025-07-23 22:50:39 [INFO] First time setup script imported.
+2025-07-23 22:50:39 [INFO] Importing Global UI Utilities
+2025-07-23 22:50:39 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:50:39 [INFO] Last metadata sync was 5 minutes ago (0 days).
+2025-07-23 22:50:39 [INFO] Last metadata sync was just 5 minutes ago.
+2025-07-23 22:50:39 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 22:50:48 [INFO] User skipped metadata sync (recent cache accepted).
+2025-07-23 22:50:48 [INFO] Skipping sync and using recent cached data.
+2025-07-23 22:50:48 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:50:48 [INFO] Loading shared modules
+2025-07-23 22:50:48 [INFO] Shared modules loaded
+2025-07-23 22:50:48 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:50:48 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:50:48 [INFO] 🕒 Metadata was last refreshed 5 minutes ago.
+2025-07-23 22:50:48 [WARN] Metadata was last refreshed 5 minutes ago.
+2025-07-23 22:50:50 [WARN] Skipping metadata refresh.
+2025-07-23 22:50:50 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 5 minutes.
+2025-07-23 22:50:50 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:50:53 [WARN] Exception.Message
+2025-07-23 22:50:53 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\Configuration\Invoke-FirstTimeSetup.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 22:56:15 [INFO] Session started.
+2025-07-23 22:56:15 [INFO] First time setup script imported.
+2025-07-23 22:56:15 [INFO] Importing Global UI Utilities
+2025-07-23 22:56:15 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:56:15 [INFO] Last metadata sync was 10 minutes ago (0 days).
+2025-07-23 22:56:15 [INFO] Last metadata sync was just 10 minutes ago.
+2025-07-23 22:56:15 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 22:56:18 [INFO] User skipped metadata sync (recent cache accepted).
+2025-07-23 22:56:18 [INFO] Skipping sync and using recent cached data.
+2025-07-23 22:56:18 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:56:18 [INFO] Loading shared modules
+2025-07-23 22:56:18 [INFO] Shared modules loaded
+2025-07-23 22:56:18 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:56:18 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:56:18 [INFO] 🕒 Metadata was last refreshed 10 minutes ago.
+2025-07-23 22:56:18 [WARN] Metadata was last refreshed 10 minutes ago.
+2025-07-23 22:56:20 [WARN] Skipping metadata refresh.
+2025-07-23 22:56:20 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 10 minutes.
+2025-07-23 22:56:20 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:56:24 [WARN] Exception.Message
+2025-07-23 22:56:24 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\Configuration\Invoke-FirstTimeSetup.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 22:56:31 [INFO] Session started.
+2025-07-23 22:56:31 [INFO] First time setup script imported.
+2025-07-23 22:56:31 [INFO] Importing Global UI Utilities
+2025-07-23 22:56:31 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:56:31 [INFO] Last metadata sync was 11 minutes ago (0 days).
+2025-07-23 22:56:31 [INFO] Last metadata sync was just 11 minutes ago.
+2025-07-23 22:56:31 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 22:56:34 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 22:56:34 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:56:34 [INFO] Loading shared modules
+2025-07-23 22:56:34 [INFO] Shared modules loaded
+2025-07-23 22:56:34 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:56:34 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:56:34 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 22:56:35 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 22:56:35 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 22:56:35 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:56:35 [INFO] Loading shared modules
+2025-07-23 22:56:35 [INFO] Shared modules loaded
+2025-07-23 22:56:35 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:56:35 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:56:35 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:56:35 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:56:36 [WARN] Skipping metadata refresh.
+2025-07-23 22:56:36 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 22:56:36 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:56:43 [WARN] Exception.Message
+2025-07-23 22:56:43 [INFO] ⚠️ Script-level exception: The term 'Render-PanelHeader' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 22:56:47 [INFO] Session started.
+2025-07-23 22:56:47 [INFO] First time setup script imported.
+2025-07-23 22:56:47 [INFO] Importing Global UI Utilities
+2025-07-23 22:56:47 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:56:47 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 22:56:47 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 22:56:47 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 22:56:48 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 22:56:48 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:56:48 [INFO] Loading shared modules
+2025-07-23 22:56:48 [INFO] Shared modules loaded
+2025-07-23 22:56:48 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:56:48 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:56:48 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 22:56:49 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 22:56:49 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 22:56:49 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:56:49 [INFO] Loading shared modules
+2025-07-23 22:56:49 [INFO] Shared modules loaded
+2025-07-23 22:56:49 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:56:49 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:56:49 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:56:49 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:56:49 [WARN] Skipping metadata refresh.
+2025-07-23 22:56:49 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 22:56:49 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:56:53 [WARN] Exception.Message
+2025-07-23 22:56:53 [INFO] ⚠️ Script-level exception: The term 'Render-PanelHeader' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 22:56:56 [INFO] Session started.
+2025-07-23 22:56:56 [INFO] First time setup script imported.
+2025-07-23 22:56:56 [INFO] Importing Global UI Utilities
+2025-07-23 22:56:56 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:56:56 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 22:56:56 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 22:56:56 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 22:56:58 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 22:56:58 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:56:58 [INFO] Loading shared modules
+2025-07-23 22:56:58 [INFO] Shared modules loaded
+2025-07-23 22:56:58 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:56:58 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:56:58 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 22:56:58 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 22:56:58 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 22:56:58 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:56:58 [INFO] Loading shared modules
+2025-07-23 22:56:58 [INFO] Shared modules loaded
+2025-07-23 22:56:58 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:56:58 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:56:58 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:56:59 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:56:59 [WARN] Skipping metadata refresh.
+2025-07-23 22:56:59 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 22:56:59 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:57:02 [WARN] Exception.Message
+2025-07-23 22:57:02 [INFO] ⚠️ Script-level exception: The term 'Render-PanelHeader' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 22:57:04 [INFO] Session started.
+2025-07-23 22:57:04 [INFO] First time setup script imported.
+2025-07-23 22:57:04 [INFO] Importing Global UI Utilities
+2025-07-23 22:57:04 [INFO] Global UI Utilities imported and loaded
+2025-07-23 22:57:04 [INFO] Last metadata sync was 0 minutes ago (0 days).
+2025-07-23 22:57:04 [INFO] Last metadata sync was just 0 minutes ago.
+2025-07-23 22:57:04 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 22:57:05 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 22:57:05 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:57:05 [INFO] Loading shared modules
+2025-07-23 22:57:05 [INFO] Shared modules loaded
+2025-07-23 22:57:05 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:57:05 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:57:05 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 22:57:06 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 22:57:06 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 22:57:06 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 22:57:06 [INFO] Loading shared modules
+2025-07-23 22:57:06 [INFO] Shared modules loaded
+2025-07-23 22:57:06 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 22:57:06 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 22:57:06 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:57:06 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 22:57:07 [WARN] Skipping metadata refresh.
+2025-07-23 22:57:07 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 22:57:07 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 22:57:17 [INFO] Saved metadata snapshot at 2025-07-23T22-57-16
+2025-07-23 22:57:26 [WARN] Exception.Message
+2025-07-23 22:57:26 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\Configuration\Invoke-FirstTimeSetup.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 23:01:15 [INFO] Session started.
+2025-07-23 23:01:15 [INFO] First time setup script imported.
+2025-07-23 23:01:15 [INFO] Importing Global UI Utilities
+2025-07-23 23:01:15 [INFO] Global UI Utilities imported and loaded
+2025-07-23 23:01:15 [INFO] Last metadata sync was 4 minutes ago (0 days).
+2025-07-23 23:01:15 [INFO] Last metadata sync was just 4 minutes ago.
+2025-07-23 23:01:15 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 23:01:18 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 23:01:18 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 23:01:18 [INFO] Loading shared modules
+2025-07-23 23:01:18 [INFO] Shared modules loaded
+2025-07-23 23:01:18 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 23:01:18 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 23:01:18 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 23:01:18 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 23:01:18 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 23:01:18 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 23:01:19 [INFO] Loading shared modules
+2025-07-23 23:01:19 [INFO] Shared modules loaded
+2025-07-23 23:01:19 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 23:01:19 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 23:01:19 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 23:01:19 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 23:01:21 [WARN] Skipping metadata refresh.
+2025-07-23 23:01:21 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 23:01:21 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 23:01:25 [WARN] Exception.Message
+2025-07-23 23:01:25 [INFO] ⚠️ Script-level exception: The term 'C:\Users\pc\Documents\GitProjects\OfficeSpaceManager\CLI\Configuration\Invoke-FirstTimeSetup.ps1' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2025-07-23 23:02:30 [INFO] Session started.
+2025-07-23 23:02:30 [INFO] First time setup script imported.
+2025-07-23 23:02:30 [INFO] Importing Global UI Utilities
+2025-07-23 23:02:30 [INFO] Global UI Utilities imported and loaded
+2025-07-23 23:02:30 [INFO] Last metadata sync was 1 minutes ago (0 days).
+2025-07-23 23:02:30 [INFO] Last metadata sync was just 1 minutes ago.
+2025-07-23 23:02:30 [INFO] Recent metadata cache detected (<15 mins).
+2025-07-23 23:02:32 [INFO] User chose to refresh metadata despite recent sync.
+2025-07-23 23:02:32 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 23:02:32 [INFO] Loading shared modules
+2025-07-23 23:02:32 [INFO] Shared modules loaded
+2025-07-23 23:02:33 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 23:02:33 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 23:02:33 [INFO] 📡 Starting cloud metadata sync for Exchange and Places...
+2025-07-23 23:02:33 [INFO] ✅ CachedResources.json updated successfully.
+2025-07-23 23:02:33 [INFO] 🕒 Updated .lastSync.json with current sync timestamp.
+2025-07-23 23:02:33 [INFO] Importing CachedResources\Refresh-CachedResources.ps1
+2025-07-23 23:02:33 [INFO] Loading shared modules
+2025-07-23 23:02:33 [INFO] Shared modules loaded
+2025-07-23 23:02:33 [INFO] Already connected as: michael.harris@crispykangaroo.com
+2025-07-23 23:02:33 [INFO] Exchange connection reused: michael.harris@crispykangaroo.com
+2025-07-23 23:02:33 [INFO] 🕒 Metadata was last refreshed 0 minutes ago.
+2025-07-23 23:02:33 [WARN] Metadata was last refreshed 0 minutes ago.
+2025-07-23 23:02:34 [WARN] Skipping metadata refresh.
+2025-07-23 23:02:34 [INFO] Skipped Refresh-CachedResources — user declined re-sync at 0 minutes.
+2025-07-23 23:02:34 [INFO] Invoke-MainMenu script started successfully. Loading menu.
+2025-07-23 23:02:56 [INFO] Saved metadata snapshot at 2025-07-23T23-02-55
+2025-07-23 23:03:13 [WARN] Exception.Message
+2025-07-23 23:03:13 [INFO] ⚠️ Script-level exception: The term 'Render-PanelHeader' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
