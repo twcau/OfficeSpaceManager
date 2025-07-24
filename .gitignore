@@ -1,5 +1,5 @@
 # Folders
-Backups/CleanScriptBackups/
+Backups/CleanupScriptBackups/
 Backups/ConfigBackups/
 Backups/InstructionBackups/
 Backups/ScriptReview/
@@ -13,6 +13,8 @@ TerminalVerbose/
 .website/
 node_modules/
 # Files
+Backups/CommonInstructions.instructions.backup-2025-07-24-part1.md
+Backups/CommonInstructions.instructions.backup-2025-07-24.md
 MODULARISATION.md
 script_review_report.csv
 script_review_report.md
