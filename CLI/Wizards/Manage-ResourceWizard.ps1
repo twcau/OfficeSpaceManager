@@ -23,6 +23,18 @@ Import-Module (Join-Path $env:OfficeSpaceManagerRoot 'Modules/Logging/Logging.ps
 . (Join-Path $env:OfficeSpaceManagerRoot 'TestSuite/Simulate-BookingTest.ps1')
 #endregion
 
+#region Teams Rooms TODO
+// [ ] TODO: Handle license assignment and resource configuration for Rooms with Teams hardware
+// [ ] TODO: Update project specification, import/export templates, etc, to handle identification of rooms where Teams compatible hardare is present.
+
+Write-Host "NOTE: For room resource where Microsoft Teams compatible hardware is present - Features to enable or ensure Teams Rooms license assignment (where licenses are available), and necessary resource configuration, are not yet implemented. Please handle this manually for now." -ForegroundColor Yellow
+Write-Host ""
+Write-Host "Instructions for manual steps can be found at:"
+Write-Host "- https://learn.microsoft.com/en-us/microsoft-365/rooms/teams-rooms-license?view=o365-worldwide" -ForegroundColor Yellow 
+Write-Host "- https://learn.microsoft.com/en-us/microsoftteams/rooms/create-resource-account?tabs=m365-admin-center%2Cgraph-powershell-password"  -ForegroundColor Yellow
+Read-Host "Press Enter to continue..."
+#endregion
+
 #region [📂] Load Metadata
 $resourceType = Read-Host "What type of resource are you creating/editing? [desk / room / equipment]"
 $resourceType = $resourceType.ToLower()
