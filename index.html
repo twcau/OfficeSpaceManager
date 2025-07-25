@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.806769172876">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.806770241695">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.11.0">
@@ -32,12 +32,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="resources/css/retype.css?v=3.11.0.806769172876" rel="stylesheet">
+    <link href="resources/css/retype.css?v=3.11.0.806770241695" rel="stylesheet">
 
-    <script data-cfasync="false" src="resources/js/config.js?v=3.11.0.806769172876" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="resources/js/config.js?v=3.11.0.806770241695" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.11.0.806769172876" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="resources/js/prism.js?v=3.11.0.806769172876" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.11.0.806770241695" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="resources/js/prism.js?v=3.11.0.806770241695" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -216,19 +216,9 @@
 <li><doc-anchor-trigger to="#-features"><span class="docs-emoji">&#x1F680;</span> Features</doc-anchor-trigger></li>
 <li><doc-anchor-trigger to="#-requirements"><span class="docs-emoji">&#x1F527;</span> Requirements</doc-anchor-trigger></li>
 <li><doc-anchor-trigger to="#-usage"><span class="docs-emoji">&#x1F9E0;</span> Usage</doc-anchor-trigger></li>
-<li><doc-anchor-trigger to="#-folder-structure"><span class="docs-emoji">&#x1F4C1;</span> Folder Structure</doc-anchor-trigger>
-<ul>
-<li><doc-anchor-trigger to="#key-documentation">Key Documentation</doc-anchor-trigger></li>
-<li><doc-anchor-trigger to="#folder-tree">Folder tree</doc-anchor-trigger></li>
-</ul>
-</li>
+<li><doc-anchor-trigger to="#-folder-structure"><span class="docs-emoji">&#x1F4C1;</span> Folder Structure</doc-anchor-trigger></li>
 <li><doc-anchor-trigger to="#-running-tests"><span class="docs-emoji">&#x1F9EA;</span> Running Tests</doc-anchor-trigger></li>
-<li><doc-anchor-trigger to="#-backup--restore"><span class="docs-emoji">&#x1F501;</span> Backup &amp; Restore</doc-anchor-trigger>
-<ul>
-<li><doc-anchor-trigger to="#save-current-metadata-snapshot">Save current metadata snapshot</doc-anchor-trigger></li>
-<li><doc-anchor-trigger to="#restore-from-snapshot">Restore from snapshot</doc-anchor-trigger></li>
-</ul>
-</li>
+<li><doc-anchor-trigger to="#-backup--restore"><span class="docs-emoji">&#x1F501;</span> Backup &amp; Restore</doc-anchor-trigger></li>
 <li><doc-anchor-trigger to="#-useful-microsoft-docs"><span class="docs-emoji">&#x1F517;</span> Useful Microsoft Docs</doc-anchor-trigger></li>
 <li><doc-anchor-trigger to="#-support"><span class="docs-emoji">&#x1F64B;</span> Support</doc-anchor-trigger></li>
 <li><doc-anchor-trigger to="#-data-safety"><span class="docs-emoji">&#x1F510;</span> Data Safety</doc-anchor-trigger></li>
@@ -253,7 +243,7 @@
 <li>Offline storage of data to increase speed of action</li>
 <li>Make your job as a Microsoft Modern Workplace analyist/engineer several times easier</li>
 </ul>
-<p>A more detailed explaination to the working approach for this project can be found in <a href="idea/">IDEA</a> and <a href="specification/">SPECIFICATION</a>.</p>
+<p>A more detailed explaination to the working approach for this project can be found in <a href="https://twcau.github.io/OfficeSpaceManager/project-overview/idea/">IDEA</a> and <a href="https://twcau.github.io/OfficeSpaceManager/project-overview/specification/">SPECIFICATION</a>.</p>
 <hr>
 <doc-anchor-target id="-design-philosophy">
     <h2>
@@ -261,13 +251,7 @@
         <span>🛡 Design Philosophy</span>
     </h2>
 </doc-anchor-target>
-<ul>
-<li><span class="docs-emoji">&#x1F4BE;</span> <strong>Soft-deletion only</strong> — desks and rooms are never fully deleted</li>
-<li><span class="docs-emoji">&#x1F4A1;</span> <strong>Pre-validation of all inputs</strong></li>
-<li><span class="docs-emoji">&#x1F4E6;</span> <strong>Reversible operations</strong> — metadata snapshots, test cleanup</li>
-<li><span class="docs-emoji">&#x1F512;</span> <strong>Never destroys without confirmation</strong></li>
-<li><span class="docs-emoji">&#x1F504;</span> <strong>Project-wide refactor hygiene</strong> — all renames and modularisation are performed project-wide, with automated updates to all references and documentation to prevent legacy issues.</li>
-</ul>
+<p>See <a href="https://twcau.github.io/OfficeSpaceManager/project-overview/design-philosophy/">Design Philosophy</a>.</p>
 <hr>
 <doc-anchor-target id="-features">
     <h2>
@@ -275,6 +259,7 @@
         <span><span class="docs-emoji">&#x1F680;</span> Features</span>
     </h2>
 </doc-anchor-target>
+<p>For full list, see <a href="https://twcau.github.io/OfficeSpaceManager/#features">Features</a>.</p>
 <ul>
 <li><span class="docs-emoji">&#x2705;</span> Interactive CLI with modular submenus</li>
 <li><span class="docs-emoji">&#x2705;</span> Automated first-time tenant setup (robustly enforced at launch)</li>
@@ -301,19 +286,7 @@
         <span><span class="docs-emoji">&#x1F527;</span> Requirements</span>
     </h2>
 </doc-anchor-target>
-<ul>
-<li>PowerShell 7.0+</li>
-<li>Modules:
-<ul>
-<li><code v-pre>ExchangeOnlineManagement</code></li>
-<li><code v-pre>Microsoft.Graph</code></li>
-<li><code v-pre>MicrosoftTeams</code></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>All required modules are validated as present, or user is prompted to install at runtime. Exchange Online connection and first-time setup are enforced at launch.</p>
-</blockquote>
+<p>See <a href="https://twcau.github.io/OfficeSpaceManager/user-guides/getting-started/requirements/">Requirements</a>.</p>
 <hr>
 <doc-anchor-target id="-usage">
     <h2>
@@ -322,6 +295,13 @@
     </h2>
 </doc-anchor-target>
 <ol>
+<li><p>Clone the repo:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">terminal</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">git clone https://github.com/twcau/OfficeSpaceManager
+cd OfficeSpaceManager</code></pre>
+</doc-codeblock></div>
+</li>
 <li><p>Open PowerShell 7+</p>
 </li>
 <li><p>Navigate to the folder</p>
@@ -344,127 +324,7 @@
     </h2>
 </doc-anchor-target>
 <p>WARNING: Due to continued development, this is subject to change.</p>
-<doc-anchor-target id="key-documentation">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#key-documentation">#</doc-anchor-trigger>
-        <span>Key Documentation</span>
-    </h3>
-</doc-anchor-target>
-<ul>
-<li><a href="">README.md</a> – Main documentation and usage guide (This file)</li>
-<li><a href="license">LICENSE</a> – Project license</li>
-<li><a href="idea/">IDEA.md</a> – Project vision and rationale</li>
-<li><a href="specification/">SPECIFICATION.md</a> – Detailed project specification and requirements</li>
-<li><a href="modules/">MODULES.md</a> – Documentation of all modules and their functions</li>
-<li><a href="todo/">TODO.md</a> – Outstanding tasks and improvement opportunities</li>
-<li><a href="knownissues/">KNOWNISSUES.md</a> – Known issues and limitations</li>
-</ul>
-<doc-anchor-target id="folder-tree">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#folder-tree">#</doc-anchor-trigger>
-        <span>Folder tree</span>
-    </h3>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">plaintext</div>
-<pre translate="no" class="language-none"><code v-pre class="language-none">OfficeSpaceManager/                  # Project root
-│
-│   All scripts and modules use robust root resolution for module imports:
-│   - $env:OfficeSpaceManagerRoot is set at runtime using the Resolve-OfficeSpaceManagerRoot.ps1 helper.
-│   - All Import-Module statements use this variable for absolute, error-proof paths.
-│   - This prevents all fragile path errors regardless of working directory or invocation method.
-│   - See Modules/Utilities/Resolve-OfficeSpaceManagerRoot.ps1 for implementation details.
-│
-├── Invoke-MainMenu.ps1              # Main CLI entry point for all operations
-│                                    # Supports -LogVerbose for transcript and input logging.
-│                                    # Robustly enforces first-time setup and Exchange Online connection │                                      at launch.
-├── Backups/                         # Backups and backup scripts
-│   ├── Restore-MetadataSnapshot.ps1 # Restore metadata snapshot
-│   └── Save-MetadataSnapshot.ps1    # Save metadata snapshot
-│
-├── CLI/                             # CLI scripts and menu entry points
-│   ├── ConfigurationMenu.ps1        # Configuration menu
-│   ├── LogsMenu.ps1                 # Logs menu
-│   ├── ManageResourcesMenu.ps1      # Resource management menu
-│   ├── OrphanMetadatamenu.ps1       # Orphan metadata menu
-│   ├── Display-PanelHeader.ps1      # (Obsolete) All references replaced with approved verb functions
-│   ├── Show-ActionHistory.ps1       # (Obsolete) All references replaced with approved verb functions
-│   ├── Logs/                        # CLI-specific logs
-│   ├── Manage/                      # CLI-specific management scripts
-│   └── Wizards/                     # Interactive CLI wizards for resource/desk pools
-│
-├── config/                          # Tenant config and first-run flags
-│   ├── FirstRunComplete.json        # First-run completion flag
-│   └── TenantConfig.json            # Tenant configuration
-│
-├── Configuration/                   # Config validation/setup flows (legacy scripts)
-│   ├── Create-ConfigBackup.ps1      # Create config backup ZIP
-│   ├── Enable-PlacesFeatures.ps1    # Enable Microsoft Places features
-│   ├── Restore-ConfigBackup.ps1     # Restore config from backup
-│   ├── Run-FirstTimeSetup.ps1       # First-time setup wizard
-│   ├── Validate-ExchangeSetup.ps1   # Validate Exchange setup
-│   └── Validate-PlacesFeatures.ps1  # Validate Places/Teams setup
-│
-├── EnvironmentSetup/                # M365 mailbox/calendar config scripts
-│   ├── Ensure-CalendarProcessingSettings.ps1 # Ensure correct calendar processing
-│   ├── Pin-PlacesAppInTeams.ps1              # Pin Places app in Teams
-│   └── Update-MailboxTypes.ps1               # Update mailbox types
-│
-├── Logs/                            # Log files and log management scripts
-│   ├── ActionHistory-*.txt          # Action history logs
-│   ├── Archive/                     # Archived logs
-│   ├── Clear-LogHistory.ps1         # Clear log history
-│   ├── Compress-Logs.ps1            # Compress logs
-│   ├── Export-ActionHistory.ps1     # Export action history
-│   ├── Log_*.log                    # Log files
-│   └── View-LogHistory.ps1          # View log history
-│
-├── Metadata/                        # Primary system metadata (JSON)
-│   ├── .lastSync.json               # Last sync state
-│   └── CachedResources.json         # Cached resources
-│
-├── Modules/                         # PowerShell modules (core logic, reusable functions)
-│   ├── CLI/                         # CLI menu rendering and user interaction logic
-│   ├── Configuration/               # Config import/export, backup/restore, validation
-│   ├── Logging/                     # Centralised logging and error handling
-│   ├── Reporting/                   # Reporting and summary generation
-│   ├── SiteManagement/              # Site/building/floor/desk management logic
-│   ├── UserManagement/              # User and permissions logic
-│   └── Utilities/                   # Helper and utility functions (e.g., connections)
-│
-├── OrphanFixer/                     # Tools for resolving orphaned resources
-│   ├── Detect-NonStandardResources.ps1     # Detect non-standard resources
-│   ├── Find-OrphanedResources.ps1          # Find orphaned resources
-│   ├── Fix-OrphanedResources.ps1           # Remediate orphaned resources
-│   ├── Suggest-RenameResource.ps1          # Suggest resource renames
-│   └── Validate-DeskPoolMappings.ps1       # Validate desk pool mappings
-│
-├── SiteManagement/                  # Metadata sync and site structure operations
-│   ├── CachedResources/                     # Cached resource data/scripts
-│   ├── Export-SiteStructureTemplates.ps1    # Export site structure templates
-│   ├── Import-SiteStructureFromCSV.ps1      # Import site structure from CSV
-│   ├── Get-SiteStructure.ps1                # Get site structure
-│   └── Sync-MetadataToCloud.ps1             # Sync metadata to cloud
-│
-├── TemplateManagement/              # Import/export CSV metadata templates
-│   ├── Export-AllTemplates.ps1      # Export all templates
-│   ├── Export-MetadataTemplates.ps1 # Export metadata templates
-│   ├── Import-FromCSV.ps1           # Import from CSV
-│   ├── Import-MetadataFromCSV.ps1   # Import metadata from CSV
-│   └── Validate-CSVImport.ps1       # Validate CSV import
-│
-├── Tests/                           # Unit and integration tests (Pester, etc.)
-│
-├── TestSuite/                       # Simulation and test suite scripts
-│   ├── Cleanup-TestResources.ps1    # Remove test resources
-│   ├── Run-BookingSimulation.ps1    # Simulate booking scenarios
-│   ├── Run-TestSuite.ps1            # Run all tests
-│   ├── Simulate-BookingTest.ps1     # Simulate a booking test
-│   ├── Test-DeskProvisioning.ps1    # Test desk provisioning
-│   ├── Test-MailboxSettings.ps1     # Test mailbox settings
-│   └── Test-RoomProvisioning.ps1    # Test room provisioning</code></pre>
-</doc-codeblock></div>
-<p>Each folder and file is annotated above with a short summary of its purpose and contents.</p>
+<p>See <a href="https://twcau.github.io/OfficeSpaceManager/project-overview/folder-structure/">Folder Structure</a>.</p>
 <hr>
 <doc-anchor-target id="-running-tests">
     <h2>
@@ -472,18 +332,7 @@
         <span><span class="docs-emoji">&#x1F9EA;</span> Running Tests</span>
     </h2>
 </doc-anchor-target>
-<p>To simulate full provisioning and cleanup:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-powershell"><code v-pre class="language-powershell">.\TestSuite\Run-TestSuite.ps1</code></pre>
-</doc-codeblock></div>
-<p>To remove all test resources:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-powershell"><code v-pre class="language-powershell">.\TestSuite\Cleanup-TestResources.ps1</code></pre>
-</doc-codeblock></div>
-<p>Test results and logs are saved in:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-powershell"><code v-pre class="language-powershell">\TestResults\</code></pre>
-</doc-codeblock></div>
+<p>See <a href="https://twcau.github.io/OfficeSpaceManager/user-guides/testing/">Running Tests</a>.</p>
 <hr>
 <doc-anchor-target id="-backup--restore">
     <h2>
@@ -491,35 +340,7 @@
         <span><span class="docs-emoji">&#x1F501;</span> Backup &amp; Restore</span>
     </h2>
 </doc-anchor-target>
-<doc-anchor-target id="save-current-metadata-snapshot">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#save-current-metadata-snapshot">#</doc-anchor-trigger>
-        <span>Save current metadata snapshot</span>
-    </h3>
-</doc-anchor-target>
-<p>From the menu:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-none"><code v-pre class="language-none">Main Menu &gt; Metadata &amp; Logs &gt; Save Metadata Snapshot</code></pre>
-</doc-codeblock></div>
-<p>Or run manually:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-powershell"><code v-pre class="language-powershell">.\Backups\Save-MetadataSnapshot.ps1</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="restore-from-snapshot">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#restore-from-snapshot">#</doc-anchor-trigger>
-        <span>Restore from snapshot</span>
-    </h3>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-powershell"><code v-pre class="language-powershell">.\Backups\Restore-MetadataSnapshot.ps1</code></pre>
-</doc-codeblock></div>
-<p>You can also use:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-powershell"><code v-pre class="language-powershell">. (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Create-ConfigBackup.ps1')
-. (Join-Path $env:OfficeSpaceManagerRoot 'Configuration/Restore-ConfigBackup.ps1')</code></pre>
-</doc-codeblock></div>
-<p>To create/import a full <code v-pre>.zip</code> archive of your working config.</p>
+<p>For more infomation, see <a href="https://twcau.github.io/OfficeSpaceManager/user-guides/testing/">Running Tests</a>.</p>
 <hr>
 <doc-anchor-target id="-useful-microsoft-docs">
     <h2>
@@ -540,12 +361,7 @@
         <span><span class="docs-emoji">&#x1F64B;</span> Support</span>
     </h2>
 </doc-anchor-target>
-<p>If you&#x27;re having trouble:</p>
-<ol>
-<li>View the current log in <code v-pre>.\Logs\</code></li>
-<li>Use <code v-pre>Export Action History</code> in the CLI</li>
-<li>Provide the export log when requesting help</li>
-</ol>
+<p>See <a href="https://twcau.github.io/OfficeSpaceManager/support/">Support</a>.</p>
 <hr>
 <doc-anchor-target id="-data-safety">
     <h2>
@@ -553,13 +369,7 @@
         <span><span class="docs-emoji">&#x1F510;</span> Data Safety</span>
     </h2>
 </doc-anchor-target>
-<p>All changes to Exchange/Graph are:</p>
-<ul>
-<li>Pre-validated</li>
-<li>Logged in <code v-pre>.Logs\</code></li>
-<li>Cached locally for rollback</li>
-<li>Backed up with JSON snapshots</li>
-</ul>
+<p>See <a href="https://twcau.github.io/OfficeSpaceManager/project-overview/data-safety/">Data Safety</a></p>
 <hr>
 <doc-anchor-target id="-todo">
     <h2>
@@ -567,7 +377,7 @@
         <span><span class="docs-emoji">&#x1F527;</span> TODO</span>
     </h2>
 </doc-anchor-target>
-<p>See <a href="todo/">TODO</a>.</p>
+<p>See <a href="https://twcau.github.io/OfficeSpaceManager/issues/todo/">TODO</a> and <a href="https://twcau.github.io/OfficeSpaceManager/issues/knownissues/">Known Issues</a>.</p>
 <hr>
 <doc-anchor-target id="-license--credits">
     <h2>
@@ -588,20 +398,6 @@ Built with PowerShell for Microsoft 365 tenants</p>
                             </div>
                             <footer id="retype-content-footer" class="clear-both">
                             
-                                <nav id="retype-nextprev" class="print:hidden flex mt-14">
-                                    <div class="w-1/2">
-                                    </div>
-                            
-                                    <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l rounded-r-lg transition-colors duration-150 relative hover:z-5" href="knownissues/">
-                                            <span>
-                                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                                <span class="block mt-1">🏢 Office​Space​Manager</span>
-                                            </span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-                                        </a>
-                                    </div>
-                                </nav>
                             </footer>
                         </main>
                 
