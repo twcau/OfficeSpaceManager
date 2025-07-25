@@ -14,6 +14,7 @@ TerminalVerbose/
 node_modules/
 # Files
 .github/copilot-instructions.md
+.github/copilot-instructions-retype.md
 Backups/CommonInstructions.instructions.backup-2025-07-24-part1.md
 Backups/CommonInstructions.instructions.backup-2025-07-24.md
 MODULARISATION.md
